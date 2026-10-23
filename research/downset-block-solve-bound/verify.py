@@ -340,6 +340,17 @@ def controls():
     return 8
 
 
+def inverse_reuse_controls():
+    # Reused inverses must be keyed by the exact input and returned as copies.
+    a = [[F(2), F(1)], [F(1), F(1)]]
+    first = inv(a)
+    first[0][0] += 1
+    require(inv(a) == [[F(1), F(-1)], [F(-1), F(2)]], 'returned inverse is a private copy')
+    require(inv([[F(2), F(1)], [F(1), F(2)]]) == [[F(2, 3), F(-1, 3)], [F(-1, 3), F(2, 3)]],
+            'inverse is keyed by the exact input')
+    rejected(lambda: inv([[F(1), F(1)], [F(1), F(1)]]))
+
+
 def run():
     counts = {'fixtures': 0, 'trees': 0, 'states': 0, 'partition_blocks': 0,
               'matrix_identities': 0, 'spectral_certificates': 0,
@@ -374,6 +385,7 @@ def run():
     require(counts['missing_endpoint_witnesses'] > 0, 'finished-endpoint control exercised')
     require(counts['wrong_sign_witnesses'] > 0, 'inverse-sign control exercised')
     counts['controls'] = controls() + 3
+    inverse_reuse_controls()
     return counts
 
 
