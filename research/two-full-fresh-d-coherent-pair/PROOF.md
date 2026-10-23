@@ -24,7 +24,7 @@ Induction through each complete source word therefore proves its deformed endpoi
 
     diag(λ_final) · (ideal logical endpoint) · diag(λ_start)^-1.
 
-This is an all-input operator identity, not inferred from the numerical fixture. The source chronology establishes the gate hypotheses; the finite checker separately executes every literal event on independent dirty rational inputs and checks every persistent output, including owned-buffer zero at the end.
+This is an all-input operator identity, not inferred from the numerical fixture. The source chronology establishes the gate hypotheses; the finite checker separately executes every literal event on independent dirty rational inputs and checks every persistent output, including owned-buffer zero at the end. An independently written sparse-coordinate executor additionally checks all 632 operator rows for each orientation at t=1 and t=9/8; a separate exact Laurent-polynomial calculation verifies the arbitrary-Q border identity.
 
 ## Complete boundary
 

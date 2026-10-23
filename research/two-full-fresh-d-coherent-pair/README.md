@@ -8,7 +8,7 @@ This is an exact algebraic countermodel to sufficiency of these compatibility pr
 
 [PROOF.md](PROOF.md) gives the all-input gate conjugation and arbitrary-Q border identity. The replay retains every persistent role and owned center, both orientations and all 240 warps per orientation. The 408 helper outputs split into 370 scaled and 38 unscaled outputs; none is dropped. Query-site counts remain unchanged as abstract maps, but no implementation invoice is asserted.
 
-Reproduce with `python3 -I -B research/two-full-fresh-d-coherent-pair/verify.py` from the repository root, or the registered `VERIFY.json` commands. Verification is read-only and requires only Python's standard library. Exact finite tests corroborate source binding; they do not prove all-input statements by enumeration.
+Reproduce with `python3 -I -B research/two-full-fresh-d-coherent-pair/verify.py` from the repository root, or the registered `VERIFY.json` commands. Verification is read-only and requires only Python's standard library. The independent checker propagates all 632 coordinate functionals, verifies 2,528 complete operator rows across both orientations and two gauges, and checks the border identity over exact Laurent polynomials in t, Q and ε. Exact finite tests corroborate source binding; they do not prove all-input statements by enumeration.
 
 Source attribution: Cao Yifan's PR4610 round-three native word; Yiyang's PR4966 actual inverse and two-full wrapper/precision work; Cinna Davis's PR4983 additive potential and cycle census. Original sources are pinned and unchanged. No predecessor implementation is imported.
 

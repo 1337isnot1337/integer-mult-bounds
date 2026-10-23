@@ -30,6 +30,27 @@
       ],
       "timeout_seconds": 30,
       "checks": "Same exact checks with optimization; no removable assertions."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent exact 632-coordinate operator on both words at t=1 and 9/8; arbitrary-Q Laurent polynomial identity and nonzero-pole control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent exact 632-coordinate operator on both words at t=1 and 9/8; arbitrary-Q Laurent polynomial identity and nonzero-pole control."
     }
   ]
 }
