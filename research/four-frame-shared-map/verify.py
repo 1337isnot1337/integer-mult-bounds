@@ -176,7 +176,7 @@ def geometry_controls():
     require(same['active_realizers'] == 7 and same['ambient_realizers'] == 7 * 2 ** 18 * 168,
             'unused-complement realization multiplier lost')
     verify_images(first, first, same['map'], 2)
-    left = ((1, 1, 0), (0, 1, 0), (0, 0, 1))
+    left = ((1, 1, 0), (0, 1, 1), (0, 0, 1))
     target_left = ((0, 1, 0), (0, 0, 1), (1, 0, 0))
     s0 = ((1, 0, 1), (0, 1, 0), (0, 0, 1))
     target_t = API.multiply(API.multiply(s0, t, 2), API.inverse(s0, 2), 2)
