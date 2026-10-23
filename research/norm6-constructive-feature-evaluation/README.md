@@ -31,7 +31,7 @@ PR5084's proof and implementation were inspected at exact head
 source ancestry. Its evaluated-matrix factorizer does not implement this
 symbolic transform. Source manifest bytes remain unchanged.
 
-## Scope and next questions
+## Open next questions
 
 The algebraic support bound remains49*19600=960400; no new term bound, physical
 invoice, selected frontier or kappa is claimed. P48p geometry, minimum, complete
