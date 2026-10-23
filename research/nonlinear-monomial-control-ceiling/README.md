@@ -65,6 +65,43 @@ This is finite support calibration, **not** an all-width theorem checker,
 The independently reviewed written proof carries the uniform theorem.
 No t0 search, native/emitter/compiler/Lean replay or complete κ claim is made.
 
+## Separate appendix: translation-valued paid-control gate
+
+The unchanged [author report](evidence/paid-control/AUTHOR-REPORT.md) and
+[separate independent review](evidence/paid-control/INDEPENDENT-REVIEW.md)
+record a narrower paid-control test. The explicit operator-valued shear
+`T=I+U Q V`, with `U_i=X_(q_i)`, `V_i=c_i X_(q_i)^-1` and56 signs of each
+kind, has `VU=0`, inverse `I-U Q V` and raw dual
+`T^-T=I-V^T Q U^T`. All allowed translations and X-Gaussian children commute
+with Q and D3, so the declared T circuit also commutes with them.
+The one-child algebraic word does not supply a physical tape/precision emitter.
+
+Its direct whole-control policy adds228 H1, including the paid terminal
+inverse. That is an upper construction bill, not a minimum for every paid
+E decoder, and it loses against the inherited conditional raw44H1 allowance
+before ordinary costs or reserves. Original224 main and816 independent
+helper jobs remain counted once; the complete physical helper/caller remains
+unrealized. Source recoding, /52, raw-dual corrections and finite work remain
+charged obligations.
+
+A separate written kernel argument proves `r>=112` only for a **fresh
+standalone T circuit with no initially supplied nonfree observations**,
+translation-algebra free coefficients, commuting same-width X-Gaussian
+children, and a FREE terminal E in the declared fixed finite endpoint class,
+at sufficiently large faithful widths. Under exactly these conditions112
+exceeds the conditional44 allowance. This is **not** a whole-caller amortized
+barrier: already-paid QY/native/IDLE/centre observations violate that initial-
+information premise. Arbitrary nontranslation/nonlinear weighted gathers,
+noncommuting children, wider channels, a paid E or changed targets are outside
+it. The primary nonlinear-monomial theorem is not enlarged by this appendix.
+
+No new proof code, source evaluator or native/compiler replay checks this
+written appendix; the hook only authenticates its immutable bytes. Captures
+reuse primary inputs by digest. [CAPTURES.json](evidence/paid-control/CAPTURES.json)
+records the monitor5126 proof's extra LF relative to raw Git; both byte versions
+are retained without replacing the raw scientific pin. The separate p19
+compiler-contracts reviewer supplied the final scoped PASS.
+
 ## Reproduce
 
 ```sh
