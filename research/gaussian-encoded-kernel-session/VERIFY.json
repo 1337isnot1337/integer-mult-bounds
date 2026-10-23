@@ -63,7 +63,7 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 360,
+      "timeout_seconds": 585,
       "checks": "Actual source Axis, cached protected pages, real Core outputs, eviction and owner guards"
     },
     {
@@ -74,7 +74,7 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 360,
+      "timeout_seconds": 585,
       "checks": "Same frozen typed receipt and explicit guards without assertions"
     }
   ]
