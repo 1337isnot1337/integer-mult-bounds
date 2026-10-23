@@ -15,6 +15,7 @@ import time
 import unittest
 from unittest.mock import patch
 
+import test_isolated_test_cancellation as cancellation
 from test_isolated_test_cancellation import BLOCK, SOLVER, wait_for
 from test_research_isolated_test_posix_pipes import ExitObserver
 
@@ -73,10 +74,10 @@ class ResultOrderTests(unittest.TestCase):
                      or (sys.platform == 'darwin' and hasattr(select, 'kqueue')),
                      'requires retained POSIX native process-exit observations')
 class FailureOrderTests(unittest.TestCase):
-    def exercise(self, boundary):
+    def exercise(self, boundary, error_type=OSError):
         real_popen = subprocess.Popen
         children, pids, timer, observer = [], [], None, None
-        marker = OSError('later worker ' + boundary + ' failure')
+        marker = error_type('later worker ' + boundary + ' failure')
         original_stop = runner.stop_module
         failed = False
         with tempfile.TemporaryDirectory(prefix='worker-failure-order-') as temporary:
@@ -101,6 +102,8 @@ class FailureOrderTests(unittest.TestCase):
                 pids.extend(int((root / (name + '.pid')).read_text())
                             for name in ('module', 'solver', 'second-module', 'second-solver'))
                 self.assertEqual(len(set(pids)), 4)
+                self.assertEqual([os.getpgid(pid) for pid in pids],
+                                 [pids[0], pids[0], pids[2], pids[2]])
                 observer = ExitObserver(pids)
                 self.assertFalse(observer.stopped(), 'fixture work must be alive before failure')
                 timer = threading.Timer(3, (root / 'release').touch)
@@ -136,34 +139,68 @@ class FailureOrderTests(unittest.TestCase):
             try:
                 with patch.object(runner.subprocess, 'Popen', side_effect=launch), \
                         patch.object(runner, 'stop_module', side_effect=stop):
-                    with self.assertRaises(OSError) as caught:
+                    with self.assertRaises(error_type) as caught:
                         runner.run_modules([first, second], tests_dir=tests, cwd=root, workers=2)
                 self.assertIs(caught.exception, marker, 'preserve the exact worker exception')
                 self.assertFalse((root / 'release').exists(),
                                  'worker failure waited for the earlier module forced release')
-                self.assertTrue(observer.stopped(1), 'owned module or solver survived failure')
+                self.assertTrue(wait_for(lambda: observer.stopped(.1), timeout=3),
+                                'owned module or solver survived failure')
             finally:
                 if timer is not None:
                     timer.cancel(); timer.join()
                 (root / 'release').touch()
                 (root / 'second-module-release').touch()
-                for child in children:
-                    try:
-                        os.killpg(child.pid, signal.SIGKILL)
-                    except ProcessLookupError:
-                        pass
-                    child.wait(timeout=5)
-                    for stream in (child.stdout, child.stderr):
-                        stream.close()
-                if observer is not None:
-                    self.assertTrue(observer.stopped(5), 'independent fixture cleanup failed')
-                    observer.close()
+                try:
+                    if observer is not None:
+                        observer.stopped()
+                    for child in children:
+                        members = pids[:2] if pids and child.pid == pids[0] else pids[2:]
+                        # Retained exit handles avoid signaling a recycled group ID.
+                        if observer is None or not set(members).isdisjoint(observer.pending):
+                            try:
+                                os.killpg(child.pid, signal.SIGKILL)
+                            except ProcessLookupError:
+                                pass
+                        child.wait(timeout=5)
+                    if observer is not None:
+                        self.assertTrue(wait_for(lambda: observer.stopped(.1), timeout=5),
+                                        'independent fixture cleanup failed')
+                finally:
+                    for child in children:
+                        for stream in (child.stdout, child.stderr):
+                            stream.close()
+                    if observer is not None:
+                        observer.close()
 
     def test_later_pipe_failure_cancels_an_earlier_blocked_module(self):
         self.exercise('communicate')
 
     def test_later_cleanup_failure_cancels_an_earlier_blocked_module(self):
         self.exercise('cleanup')
+
+    def test_worker_stop_iteration_is_an_error_not_iterator_completion(self):
+        self.exercise('communicate', StopIteration)
+
+    def test_worker_base_exception_cancels_other_owned_work(self):
+        self.exercise('communicate', SystemExit)
+
+    def test_controlling_exceptions_still_cancel_active_and_queued_work(self):
+        class NativeObserver:
+            def __init__(self, pid):
+                self.observer = ExitObserver([pid])
+
+            def alive(self):
+                return not self.observer.stopped()
+
+            def close(self):
+                self.observer.close()
+
+        # Run the retained cancellation fixture with this platform's exit handle.
+        with patch.object(cancellation, 'ProcessObserver', NativeObserver):
+            for failure in (KeyboardInterrupt, RuntimeError):
+                with self.subTest(failure=failure.__name__):
+                    cancellation.CancellationTests().exercise(failure)
 
     def test_input_ordered_wait_mutant_is_rejected(self):
         with patch.object(runner, 'as_completed', side_effect=lambda futures: iter(futures), create=True):

@@ -108,9 +108,14 @@ class CancellationTests(unittest.TestCase):
             interrupted_at = []
 
             class InterruptedPool(real_pool):
-                def map(self, fn, iterable, *args, **kwargs):
-                    # Start real workers, then inject the controlling thread's exception.
-                    result = super().map(fn, iterable, *args, **kwargs)
+                submitted = 0
+
+                def submit(self, fn, *args, **kwargs):
+                    result = super().submit(fn, *args, **kwargs)
+                    self.submitted += 1
+                    if self.submitted == 1:
+                        return result
+                    # Own active work and a queued future before cancellation.
                     if not wait_for((root/"ready").exists):
                         raise RuntimeError("real module/solver did not start")
                     for name in ("module", "solver"):

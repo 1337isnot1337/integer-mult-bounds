@@ -17,7 +17,7 @@ children that ignore or override their environment need their own cache policy.
 The owned temporary directory is removed after workers finish or are stopped.
 """
 import argparse
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
 import math
 import os
@@ -267,16 +267,18 @@ def _run_modules(files, python, tests_dir, cwd, workers, module_timeout, termina
     try:
         if termination['requested']:
             raise SystemExit(143)
-        results = []
-        pending = iter(pool.map(run_one, enumerate(files)))
+        futures = [pool.submit(run_one, indexed) for indexed in enumerate(files)]
+        # A later worker exception must not hide behind an earlier hung module.
+        pending = iter(as_completed(futures))
         while True:
             try:
                 termination['waiting'] = True
                 if termination['requested']:
                     raise SystemExit(143)
-                results.append(next(pending))
-            except StopIteration:
-                return results
+                completed = next(pending, None)
+                if completed is None:
+                    return [future.result() for future in futures]
+                completed.result()
             finally:
                 # Disable asynchronous raises before any exceptional cleanup,
                 # including a first SIGTERM during an unrelated worker failure.
