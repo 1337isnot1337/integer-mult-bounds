@@ -40,6 +40,7 @@ def rank4(rows: list[list[int]]) -> int:
         p = candidates[0]
         work[pivots], work[p] = work[p], work[pivots]
         inverse = (0, 1, 3, 2)[work[pivots][col]]
+        require(mul4(work[pivots][col], inverse) == 1, "invalid pivot inverse")
         work[pivots] = [mul4(inverse, v) for v in work[pivots]]
         for i in range(len(work)):
             if i != pivots and work[i][col]:
