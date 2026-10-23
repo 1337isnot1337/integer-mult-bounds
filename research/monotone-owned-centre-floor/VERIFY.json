@@ -17,7 +17,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 30,
-      "checks": "Exact source baseline,128 independent main entrance paths,2204 literal links,144 corruption/hyperplane/warp-cut controls."
+      "checks": "Sharp full owned-wire floor: source baseline,128 entrance/144 cap paths,4720 links,300 controls and18459 Lagrangian-pair calibrations."
     },
     {
       "argv": [
@@ -30,7 +30,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 30,
-      "checks": "Same source-bound proof and controls with assertions disabled."
+      "checks": "Same exact floor, source-bound paths, rank geometry and controls with assertions disabled."
     }
   ]
 }

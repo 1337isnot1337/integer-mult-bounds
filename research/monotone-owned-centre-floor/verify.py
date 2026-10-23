@@ -59,7 +59,8 @@ def graph(payload, direction):
 
     0..631 are persistent entrances; 632+i is scalar event i; a warp resets
     its field to unconstrained node 632+N+i. All scalar contacts involving
-    owned C0 are released too. No helper or final boundary edges are used.
+    owned C0 are released too. No helper boundary edges are used. Fixed main
+    exits are terminal vertices, used only for the outgoing cap witnesses.
     """
     c = payload['canonical']
     raw = [e for e in payload['programs'][direction] if e[0] != 'climb']
@@ -72,12 +73,14 @@ def graph(payload, direction):
     edges = set()
     targets = []
     warps = 0
+    order = list(range(632))
     for i, event in enumerate(raw):
         if event[0] == 'scalar':
             gate, frame = event[1:]
             refs = gate[1:3] if gate[0] in ('add', 'copy') else gate[1:2]
             roles = [r[1] for r in refs if r[0] == 'L']
             node = 632 + i
+            order.append(node)
             frames[node] = frame
             for r in roles:
                 a = current[r]
@@ -91,9 +94,19 @@ def graph(payload, direction):
         elif event[0] == 'warp':
             need(event[1][0] == 'L', 'Native warp has persistent role')
             node = 632 + len(raw) + i
+            order.append(node)
             frames[node] = event[4]
             current[event[1][1]] = node
             warps += 1
+    exits = {}
+    for r in range(224):
+        node = 632 + 2 * len(raw) + r
+        frames[node] = c['final'][r]
+        need(spaces[frames[current[r]]] <= spaces[frames[node]], 'Source monotone final main edge')
+        edges.add((current[r], node))
+        incoming[node].append(current[r])
+        order.append(node)
+        exits[node] = r
     centers = [(i, e) for i, e in enumerate(raw) if e[0] == 'center']
     need(len(targets) == len(centers) == 8, 'All eight owned lifetimes')
     need([x['role'] for x in targets] == [92, 57, 81, 224, 11, 240, 9, 256], 'Actual owned sources')
@@ -110,13 +123,94 @@ def graph(payload, direction):
             need(i + 1 == target['event'], 'Ascending center immediately before output')
             need(raw[i + 2] == ['scalar', ['clear', ['C', 0]], high], 'Owned final cleanup')
             need(center == ['center', 0, 0, high, 8], 'Actual ascending center')
+        if direction == 'forward':
+            low_events = []
+            j = i + 1
+            while raw[j][0] == 'scalar' and raw[j][1][0] != 'clear':
+                low_events.append(j)
+                j += 1
+        else:
+            j = i - 1
+            while raw[j][0] == 'scalar' and raw[j][1][0] != 'clear':
+                j -= 1
+            low_events = list(range(j + 1, i))
+        need(len(low_events) == 22, 'All22 owned scatter/gather contacts')
+        for j in low_events:
+            e = raw[j]
+            need(e[0] == 'scalar' and e[1][0] == 'add' and e[2] == 0,
+                 'Source low-side ADD at zero chart')
+            need(any(r[0] == 'C' for r in e[1][1:3]), 'Actual owned low contact')
+        target['low_events'] = low_events
     paid = Counter(e[5] for e in payload['programs'][direction] if e[0] == 'climb')
     paid.update(e[4] for _, e in centers)
     need(paid == Counter({1: 2201, 2: 412, 3: 510, 4: 127, 5: 40, 8: 8}), 'Complete baseline paid profile')
     helpers = Counter(len(c['frames'][c['final'][r]]) - len(c['frames'][c['start'][r]]) for r in range(224, 632))
     need(helpers == Counter({4: 28, 7: 7, 8: 47, 9: 326}), 'All 408 independent helper targets')
     return {'raw': raw, 'spaces': spaces, 'frames': frames, 'incoming': incoming,
-            'edges': edges, 'targets': targets, 'warps': warps}
+            'edges': edges, 'targets': targets, 'warps': warps,
+            'order': order, 'exits': exits}
+
+
+def upper_paths(g):
+    """Propagate independent terminal normals, retaining explicit next hops."""
+    outgoing = defaultdict(list)
+    for a, b in sorted(g['edges']):
+        outgoing[a].append(b)
+    following = {}
+    for node in reversed(g['order']):
+        selected = {}
+        if node in g['exits']:
+            space = g['spaces'][g['frames'][node]]
+            for v in range(1, 512):
+                if all((v & x).bit_count() % 2 == 0 for x in space):
+                    if len(basis(list(selected) + [v])) > len(selected):
+                        selected[v] = None
+        for child in outgoing[node]:
+            for v in following[child]:
+                if len(basis(list(selected) + [v])) > len(selected):
+                    selected[v] = child
+        following[node] = selected
+    return following
+
+
+def cap_witnesses(g, target, following):
+    selected = []
+    vectors = []
+    for event in target['low_events']:
+        node = 632 + event
+        for v in following[node]:
+            if len(basis(vectors + [v])) == len(vectors):
+                continue
+            path = [node]
+            while following[path[-1]][v] is not None:
+                path.append(following[path[-1]][v])
+            need(path[-1] in g['exits'], 'Cap terminates at fixed main exit')
+            selected.append({'event': event, 'normal': v, 'path': path,
+                             'exit_role': g['exits'][path[-1]]})
+            vectors.append(v)
+    need(len(vectors) == 9, 'Trivial joint low-side cap')
+    return selected
+
+
+def check_caps(g, rows):
+    need(len(rows) == len(g['targets']), 'Complete cap target list')
+    links = 0
+    for row, target in zip(rows, g['targets']):
+        need(row['role'] == target['role'], 'Cap block binding')
+        caps = row['cap_witnesses']
+        need(len(caps) == 9, 'Nine terminal normals per block')
+        for w in caps:
+            event, v, path = w['event'], w['normal'], w['path']
+            need(event in target['low_events'], 'Actual owned low contact')
+            need(path[0] == 632 + event and path[-1] in g['exits'], 'Cap path endpoints')
+            need(g['exits'][path[-1]] == w['exit_role'], 'Fixed main exit binding')
+            need(v != 0 and all((v & x).bit_count() % 2 == 0
+                 for x in g['spaces'][g['frames'][path[-1]]]), 'Actual terminal annihilator')
+            for a, b in zip(path, path[1:]):
+                need((a, b) in g['edges'], 'Actual outgoing chronological edge')
+                links += 1
+        need(len(basis(w['normal'] for w in caps)) == 9, 'Independent terminal normals')
+    return links
 
 
 def witness_paths(payload, g, target):
@@ -199,15 +293,99 @@ def rejection_controls(payload, g, rows):
     return 7 + 8 * len(rows) + 1
 
 
+def cap_controls(g, rows):
+    def rejects(mutant):
+        try:
+            check_caps(g, mutant)
+        except ValueError:
+            return
+        raise ValueError('Cap corruption control accepted')
+    bad = deepcopy(rows); bad[0]['cap_witnesses'].pop(); rejects(bad)
+    bad = deepcopy(rows); bad[0]['cap_witnesses'][1] = deepcopy(bad[0]['cap_witnesses'][0]); rejects(bad)
+    bad = deepcopy(rows); bad[0]['cap_witnesses'][0]['event'] = rows[0]['event']; rejects(bad)
+    bad = deepcopy(rows); bad[0]['cap_witnesses'][0]['exit_role'] = 224; rejects(bad)
+    bad = deepcopy(rows); bad[0]['cap_witnesses'][0]['normal'] = 0; rejects(bad)
+    bad = deepcopy(rows)
+    path = bad[0]['cap_witnesses'][0]['path']
+    need(len(path) > 2, 'Nontrivial outgoing path control')
+    bad[0]['cap_witnesses'][0]['path'] = [path[0], path[-1]]; rejects(bad)
+    for row in rows:
+        normals = [w['normal'] for w in row['cap_witnesses']]
+        for omitted in range(9):
+            remaining = normals[:omitted] + normals[omitted + 1:]
+            annihilator = [v for v in range(512)
+                           if all((v & u).bit_count() % 2 == 0 for u in remaining)]
+            need(len(annihilator) == 2, 'Omitting a normal leaves a genuine line')
+    return 6 + 9 * len(rows)
+
+
+def rank_geometry():
+    """All Lagrangian pairs in dimensions1..3; a control for the projection lemma.
+
+    These finite checks do not replace the dimension argument in PROOF.md.
+    Every Lagrangian is parametrized by its projection U and a symmetric form
+    on U, with vertical kernel U-perp. No Clifford executable is imported.
+    """
+    checked = 0
+    sizes = []
+    for n in (1, 2, 3):
+        spaces = {frozenset({0}): []}
+        for v in range(1, 1 << n):
+            for s, b in list(spaces.items()):
+                if v not in s:
+                    spaces.setdefault(frozenset(set(s) | {x ^ v for x in s}), b + [v])
+        lags = {}
+        for U, ub in spaces.items():
+            k = len(ub)
+            coordinates = [(i, j) for i in range(k) for j in range(i, k)]
+            perp = basis(v for v in range(1 << n)
+                         if all((v & u).bit_count() % 2 == 0 for u in ub))
+            for bits in range(1 << len(coordinates)):
+                q = [[0] * k for _ in range(k)]
+                for bit, (i, j) in enumerate(coordinates):
+                    q[i][j] = q[j][i] = (bits >> bit) & 1
+                vectors = [v << n for v in perp]
+                for i, u in enumerate(ub):
+                    z = next(v for v in range(1 << n)
+                             if all((v & uj).bit_count() % 2 == q[i][j]
+                                    for j, uj in enumerate(ub)))
+                    vectors.append(u | (z << n))
+                L = span(vectors)
+                need(len(L) == 1 << n, 'Lagrangian dimension')
+                for a in vectors:
+                    for b in vectors:
+                        need((((a & ((1 << n) - 1)) & (b >> n)).bit_count()
+                              + ((b & ((1 << n) - 1)) & (a >> n)).bit_count()) % 2 == 0,
+                             'Isotropic symmetric-form chart')
+                lags[L] = U
+        need(len(lags) == (3, 15, 135)[n - 1], 'Complete small Lagrangian census')
+        sizes.append(len(lags))
+        for A, U in lags.items():
+            for B, V in lags.items():
+                physical = n - (len(A & B).bit_length() - 1)
+                geometric = ((len(U).bit_length() - 1) + (len(V).bit_length() - 1)
+                             - 2 * (len(U & V).bit_length() - 1))
+                need(physical >= geometric, 'Fourier-rank projection lower bound')
+                checked += 1
+    need(len(span([1, 2])) == 4 and len(span([1]) & span([2])) == 1,
+         'Non-nested equal-dimensional charts lose a direction')
+    return {'lagrangians': sizes, 'ordered_pairs': checked}
+
+
 def produce(payload):
     out = {'source_sha256': SOURCE_SHA, 'payload_sha256': PAYLOAD_SHA,
-           'scope': 'FIXED_SCALAR_WORD_MONOTONE_CONTACT_FLOOR_ONLY', 'directions': {}}
+           'scope': 'FIXED_SCALAR_WORD_MONOTONE_PERSISTENT_FULL_OWNED_WIRE_FLOOR', 'directions': {}}
     for direction in ('forward', 'backward'):
         g = graph(payload, direction)
         rows = [witness_paths(payload, g, t) for t in g['targets']]
+        following = upper_paths(g)
+        for row, target in zip(rows, g['targets']):
+            row['cap_witnesses'] = cap_witnesses(g, target, following)
         links = check_witnesses(payload, g, rows)
+        cap_links = check_caps(g, rows)
         out['directions'][direction] = {'cut_native_events': g['warps'],
-            'monotone_edges': len(g['edges']), 'targets': rows, 'path_links': links}
+            'monotone_edges': len(g['edges']), 'targets': rows, 'path_links': links,
+            'cap_path_links': cap_links}
     return out
 
 
@@ -227,12 +405,17 @@ def main():
         g = graph(payload, direction)
         rows = saved['directions'][direction]['targets']
         check_witnesses(payload, g, rows)
+        check_caps(g, rows)
         controls += rejection_controls(payload, g, rows)
+        controls += cap_controls(g, rows)
+    geometry = rank_geometry()
     print(json.dumps({'status': 'PASS_MONOTONE_OWNED_CENTRE_FLOOR', 'directions': 2,
         'centers_per_direction': 8, 'minimum_each_high_dimension': 8,
         'minimum_center_rank_mass_with_opposite_zero': 64,
+        'minimum_full_owned_wire_rank_mass': 64,
         'path_links': {d: result['directions'][d]['path_links'] for d in result['directions']},
-        'controls': controls, 'new_kappa': False}, sort_keys=True))
+        'cap_path_links': {d: result['directions'][d]['cap_path_links'] for d in result['directions']},
+        'controls': controls, 'rank_geometry': geometry, 'new_kappa': False}, sort_keys=True))
 
 
 if __name__ == '__main__':

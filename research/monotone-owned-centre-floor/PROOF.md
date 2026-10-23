@@ -1,74 +1,132 @@
-# Sharp high-contact floor in the round-three word
+# Sharp owned-wire floor with native and helper boundaries free
 
-Prepared by Cinna Davis / 1337isnot1337 with substantial OpenAI Codex
-assistance; Apache-2.0. This is a written scoped proof with exact finite
-witnesses, not a proof-kernel check or a new multiplication theorem.
+Cinna Davis / 1337isnot1337, substantial OpenAI Codex assistance; Apache-2.0.
+Written scoped proof and exact finite witnesses; no new multiplication theorem.
 
-## Statement
+## Statement and source
 
-Use the exact scalar opcode, coefficient, order and persistent-field incidence
-of Cao Yifan's round-three word in `SOURCES.json`, separately in either
-orientation. At every scalar event, all its persistent operands have one
-common binary frame subspace in F2^9. Between consecutive scalar contacts on
-a persistent field, with no intervening native warp, require containment in
-chronological order. The main entrance subspaces stay fixed. The helper
-entrances/exits, all scalar contact subspaces and all native warp boundaries
-may otherwise vary. In particular, do not impose a relation across any native
-warp and do not require final endpoints in this relaxation.
+Use the exact persistent-field incidence, scalar opcode/coefficient/order and
+owned lifetimes of Cao Yifan's round-three word in `SOURCES.json`, separately
+in either orientation. Each scalar event has one common frame subspace in
+F2^9 for its persistent operands. On each persistent L field, spaces increase
+by containment between consecutive contacts with no intervening native warp.
+Fix the main entrance and exit spaces. Free both helper boundaries, all contact
+spaces and all native boundaries. Discard every relation across a native warp.
 
-Then each of the eight high owned contacts has dimension at least eight. The
-original word simultaneously attains eight at all of them, so these bounds are
-sharp. For a center job between that high contact and the zero subspace, its
-rank is therefore at least eight. Retaining all eight jobs gives paid rank
-mass at least 64 and, at every positive rank exponent t, center moment at
-least 8 times 8^t. This is a bound on the center contribution. It does not
-optimize the remaining paid/helper moment.
+Then the following bounds are sharp:
 
-In the forward orientation the contact is the persistent source of an owned
-COPY immediately before the descending center job. In the backward orientation
-it is the persistent destination of the owned output ADD immediately after
-the ascending job. `verify.py` checks these actual macro boundaries and the
-initial/final owned CLEARs adjacent to the high side.
+1. Each of the eight high owned contacts has dimension at least eight. This
+   first conclusion needs only the fixed main entrances.
+2. Even if every scatter/gather contact moves and the owned C wire takes
+   arbitrary intermediate subspace charts, each block pays Fourier rank mass
+   at least eight, provided each owned transition is paid at its actual relative
+   Clifford B-block rank. This includes nonnested canonical charts. It also
+   includes general intermediate Clifford charts with the projected-subspace
+   convention stated below. The conclusion requires fixed main exits as well.
+3. The eight owned lifetimes therefore pay rank mass at least 64 and moment
+   at least 8 times 8^t for every 0 < t <= 1. The original eight rank-eight
+   jobs simultaneously attain these bounds.
 
-## Path lemma
+No new CLEAR, COPY or borrowed scratch can be inserted into an owned lifetime
+for free: the scalar word and its owned lifetimes are fixed. Every owned move
+is charged. These statements do not optimize the remaining persistent paid
+jobs or productive helper credits and prove no full-invoice optimum.
 
-Matarener's PR5060 (`research/owned-centre-wire-floor/PROOF.md`, Lemma1)
-already uses forward joins and backward meets to force contact subspaces,
-and proves a complete nested owned-wire floor with fixed warps and helpers.
-The containment propagation below is the same elementary invariant. The new
-source-specific coverage removes all native relations and helper boundaries,
-retains only fixed main entrance seeds, and supplies explicit path witnesses
-for the newer round-three word. It proves the high-contact floor in that
-larger domain, not the predecessor's full owned-wire conclusion there.
+Matarener's [PR5060](https://github.com/CrocSwap/integer-mult-bounds/pull/5060),
+`research/owned-centre-wire-floor/PROOF.md`, already gives forward/backward
+interval propagation and the nested owned-path argument for #4470 with fixed
+native and helper boundaries. Those lemmas and the original complete nested
+floor are prior work. This package extends coverage to the newer round-three
+word, removes all native relations and helper boundaries, and permits nonnested
+owned moves through the projection-rank inequality. The canonical Gaussian
+rank grammar is credited to Dugongue / PR4654 and its retained exact
+implementation in `research/general-gaussian-contact-search`. This is an
+extension of those results, not a claim to invent their elementary invariants.
 
-Associate a vertex with each main entrance and scalar contact. For each
-persistent field, draw an edge from its previous entrance/contact to the next
-scalar contact. A native warp terminates that chain: its output begins a new
-unconstrained chain, and no relation across the warp is retained. Identifying
-the two operands of a scalar ADD at one contact gives their common subspace.
-No edge for a productive helper target or final endpoint is needed.
+## Entrance and exit path lemmas
 
-If v lies in a fixed main entrance space and a directed path leads from that
-entrance to contact q, then v lies in the space at q. This follows by induction
-on the path length, using the containment hypothesis on every edge. Thus k
-linearly independent fixed entrance vectors with paths to q force dimension
-at least k, regardless of all other contacts, helper choices and native maps.
+Make one vertex for each persistent entrance, scalar contact and main exit.
+Along each persistent field draw an edge from its previous entrance/contact
+to its next scalar contact, and from its last contact to its main exit if
+applicable. Both operands of a scalar ADD use the same contact vertex.
+At every native warp cut the chain: its output is an independent new vertex,
+and no edge crosses the warp. No helper exit or productive-target edge is
+needed. Owned C transitions are not edges of this persistent graph.
 
-This argument uses the common physical frame of scalar operands, not their
-data coefficients or nonzero logical dependence. Data cancellation does not
-remove a required physical contact. Splitting operands into independent gauges
-requires a different paid scalar interface and falls outside this statement.
+Along a directed path every earlier space is contained in every later space.
+Thus a vector at a fixed main entrance lies in every contact it can reach.
+Eight independent such vectors force a contact's dimension to be at least
+eight. Conversely a path from a contact to fixed main exit E forces that
+contact into E. A linear functional annihilating E annihilates the contact.
 
-## Source-bound witnesses
+These assertions use induction on the path length. No equation for a native
+map or helper endpoint is involved. Physical frame incidence survives data
+cancellation; a zero logical coefficient does not remove a common scalar
+contact. Splitting the operand gauges requires a different paid scalar
+interface and is outside the hypothesis.
 
-The source has 632 persistent fields, of which 224 are main and 408 are
-independent arbitrary helpers. Raw event ordinals below omit `climb` events
-and start at zero. The graph contains 31,630 distinct monotone edges in each
-orientation. Every one of the 240 native events per orientation is cut.
-All owned scalar contacts, including the low scatter/gather side, are released
-while proving the high-side floor. Helper spaces do not supply witness seeds.
+## Relative rank and the owned-path bound
 
-| Persistent role | Forward high event | Backward high event | Original frame ID | Eight independent entrance vectors |
+For a Clifford chart C, define its inverse zero Lagrangian as
+L_C = C^(-1) Z, where Z = {(0,z)} in the binary symplectic space F2^(2n).
+Write U_C for the projection of L_C onto its first n coordinates. This is the
+subspace convention used by the retained contact/Lagrangian grammar. In
+particular the canonical chart labelled U has projected subspace U.
+The relative operator C_B C_A^(-1) has B-block rank
+
+    r(A,B) = n - dim(L_A intersect L_B).
+
+To see this, the kernel of its B-block consists of vertical vectors mapped
+to vertical vectors. Applying C_A^(-1) identifies that kernel with
+L_A intersect L_B. Rank-nullity gives the displayed identity. It also shows
+that adjoint transitions have the same rank.
+
+The vertical kernel of a Lagrangian with projection U is U-perp: isotropy
+implies inclusion, and both have dimension n-dim U. Projection of
+L_A intersect L_B is contained in U_A intersect U_B; its vertical kernel is
+contained in (U_A+U_B)-perp. Therefore
+
+    dim(L_A intersect L_B)
+        <= dim(U_A intersect U_B) + n - dim(U_A + U_B),
+
+and consequently
+
+    r(A,B) >= dim U_A + dim U_B - 2 dim(U_A intersect U_B).
+
+Canonical zero-form charts attain equality, as in the retained Gaussian
+contact model. Arbitrary phase forms or other intermediate Clifford charts
+cannot lower this projection bound. The bound concerns the actual B-block
+rank; it does not declare a new all-column implementation free.
+
+Let the projected subspaces on the owned itinerary be G_0,...,G_N, starting
+at the high contact. Reverse the itinerary in the backward orientation, which
+preserves each paid rank. Set I_j = G_0 intersect ... intersect G_j. Then
+
+    dim I_j - dim I_(j+1)
+        <= dim G_j - dim(G_j intersect G_(j+1))
+        <= r_j.
+
+The first inequality is the injection of the lost intersection quotient into
+the lost part of G_j; the second follows from the projection-rank inequality.
+Summing gives total paid rank at least dim G_0 - dim I_N. This includes any
+number of paid intermediate moves and does not assume nested C spaces.
+
+The exit witnesses below force the intersection of the visited low contact
+spaces to zero, hence I_N = 0. The entrance witnesses give dim G_0 >= 8.
+Each block therefore pays at least eight. Subadditivity of x^t for
+0 < t <= 1 gives sum_j r_j^t >= (sum_j r_j)^t >= 8^t. Apply this separately
+to the eight owned lifetimes. A free reset after the last consumer does not
+remove any of the required visits within its lifetime.
+
+## Exact witnesses
+
+The source has 632 persistent fields: 224 main and 408 arbitrary helpers.
+Raw event ordinals omit `climb` events and start at zero. There are 31,630
+distinct scalar-contact edges and 224 terminal main-exit edges per orientation.
+All 240 native events per orientation are cut. All owned contact spaces are
+free in the argument. Only main entrances and exits supply boundary witnesses.
+
+| Role | Forward high event | Backward high event | Original frame | Eight independent entrance vectors |
 | --- | ---: | ---: | ---: | --- |
 | 92 | 10344 | 10367 | 254 | 276, 351, 266, 74, 44, 193, 247, 14 |
 | 57 | 10370 | 10393 | 274 | 304, 379, 259, 67, 37, 131, 254, 14 |
@@ -79,38 +137,46 @@ while proving the high-side floor. Helper spaces do not supply witness seeds.
 | 9 | 10500 | 10523 | 624 | 268, 274, 146, 289, 471, 386, 67, 14 |
 | 256 | 10526 | 10549 | 281 | 247, 145, 290, 196, 268, 274, 471, 304 |
 
-Each integer encodes a nine-bit binary vector. `WITNESSES.json` records the
-actual fixed entrance role and every graph vertex on each path. It contains
-128 paths and 2,204 links across both orientations. The verifier checks every
-seed, chronological link, target, binary rank and equality of the resulting
-eight-dimensional span with the original high contact. The path lemma proves
-the bound for arbitrary candidate subspaces, without enumerating them.
+Each integer encodes a nine-bit vector. `WITNESSES.json` records 128 entrance
+paths with 2,204 links. For every high contact, their vectors are independent
+and span its actual source eight-dimensional frame. This proves the first
+bound without enumerating candidate subspaces.
 
-The original full source has paid histogram
-`{1:2201, 2:412, 3:510, 4:127, 5:40, 8:8}` and productive-helper histogram
-`{4:28, 7:7, 8:47, 9:326}` in both directions. These are reconstructed as
-baseline controls, including every center. They are not a claimed new invoice.
-No solver, power approximation or floating tolerance enters the certificate.
+Each block also has 22 low owned scatter/gather contacts. The artifact records
+nine independent terminal annihilators for each block, each with a path from
+one actual low contact to an actual fixed main exit. There are 144 outgoing
+paths with 2,516 links. A vector in every visited low contact space must be
+annihilated by all nine independent functionals, so it is zero. This proves
+the premise I_N=0 for the owned-path bound. No frozen native input or helper
+exit supplies a cap.
 
-## Decision and limits
+The verifier checks seeds, chronological links, main terminal annihilators,
+target identities, both actual owned macro boundaries and all binary ranks.
+It also checks 300 corruption, missing-normal, rank-seven-hyperplane and
+warp-cut controls. A separate finite calibration enumerates every Lagrangian
+in dimensions one through three (3,15,135 respectively) and checks all 18,459
+ordered pairs against the projection-rank inequality. The universal proof is
+the dimension argument above; this finite calibration checks the conventions.
 
-The independent-contact/shared-native-map proposal in
-[the preceding claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/4611#discussioncomment-19139586)
-released the high COPY chart while keeping the opposite owned chart at zero.
-Its proposed center reduction is impossible under monotone persistent paths.
-The proof already holds in a relaxation that forgets every shared-map equation.
-No MILP is required to decide that center reduction.
+The full source paid histogram is
+`{1:2201,2:412,3:510,4:127,5:40,8:8}` and its productive-helper histogram is
+`{4:28,7:7,8:47,9:326}` in both directions. Reconstructing these is a baseline
+control, not a new invoice. No solver or floating tolerance enters the proof.
 
-Other bridges or productive boundaries might still improve while all centers
-retain rank eight. This theorem proves no whole-profile optimum. Moving the
-low center side can also change the job rank, which is then a relative rank
-between two nonzero spaces rather than the dimension bounded here. Nonmonotone
-transitions, changed scalar chronology, split scalar contacts, phase/general
-gauges, changed main entrances and sharing different owned macros need separate
-analysis. In particular the previous common-kernel prototype allowed
-nonmonotone edges and is not excluded by this theorem.
+## Consequence and limits
 
-The source-specific finite statement is distinct from native all-column
-realization, precision, movement, owned erasure, compilation and the outer
-integer-recovery theorem. Those are not reverified or strengthened here. The
+The high-side-only independent/shared-map proposal cannot shrink its eight
+center inputs. Moving both sides, permitting multiple C transitions, or moving
+both helper boundaries also cannot lower the owned-wire moment under the
+stated persistent monotonicity and scalar/main-boundary hypotheses. No MILP
+is needed to decide that owned-wire reduction.
+
+Other persistent bridges or helper credits might improve without lowering the
+owned charge. Nonmonotone L itineraries, changed scalar incidence/order,
+independent operand gauges with paid cross-frame ADDs, changed main boundaries
+and additional paid observations are outside the theorem. In particular the
+older common-kernel prototype allowed nonmonotone L edges and is not excluded.
+
+Native all-column realization, movement, precision, owned erasure, compilation
+and the outer integer-recovery theorem remain separate obligations. The
 selected conditional kappa remains 0.00302015.
