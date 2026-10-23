@@ -25973,6 +25973,32 @@
       "baseline": "cef4b52f2a59009865bf8eabde1be3f159063703",
       "watch_paths": {},
       "watch_prs": {}
+    },
+    {
+      "number": 4953,
+      "head": "aa468fa11ed5ca04b389021d35d39f70bc211dfe",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-oct22i-20261022.json"
+      ],
+      "policy_version": 1,
+      "baseline": "3fd7d441b898563fedb7dc45e5f926d937d4dfc8",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 4954,
+      "head": "cc1bfc06883ba5a274b09fdd509975b24f04ed06",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-oct22i-20261022.json"
+      ],
+      "policy_version": 1,
+      "baseline": "3fd7d441b898563fedb7dc45e5f926d937d4dfc8",
+      "watch_paths": {},
+      "watch_prs": {}
     }
   ]
 }

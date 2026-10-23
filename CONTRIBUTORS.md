@@ -3605,3 +3605,10 @@ Source archives retain attribution; mathematical review remains open.
 - **James Reed (@jwr404)** — [#4950](https://github.com/CrocSwap/integer-mult-bounds/pull/4950): Address spectators never help coordinate swaps: t swaps cost 3t for every n (no new κ) (source archive).
 - **Brian (@JoyboyBrian)** — [#4951](https://github.com/CrocSwap/integer-mult-bounds/pull/4951): Independently join the selected #4470 p16 invoice to its moment bill: exact agreement, surplus below one rank-one job (no new κ) (source archive).
 - **Ali Romman (@aliromman)** — [#4952](https://github.com/CrocSwap/integer-mult-bounds/pull/4952): Prove scoped rational native-query lower bounds (source archive).
+
+## Queue intake, 22 October 2026 (chunk I)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Brian (@JoyboyBrian)** — [#4953](https://github.com/CrocSwap/integer-mult-bounds/pull/4953): One-sided free address twists keep the nine-call bit floor; two-sided twists pass the square-zero relaxation at seven (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#4954](https://github.com/CrocSwap/integer-mult-bounds/pull/4954): Bound the selected #4470 BIT-stage stock on both sides: every single-cover-level width overdraws, fit from log2 e = 52182660963735 (no new κ) (source archive).
