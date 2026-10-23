@@ -28,7 +28,7 @@ import argparse
 import ast
 from functools import lru_cache
 from hashlib import sha256
-import importlib.util
+from runpy import run_path
 import json
 from pathlib import Path, PurePosixPath
 import re
@@ -163,14 +163,14 @@ def named_records(named, root=ROOT):
 
 def check_records(names, root=ROOT):
     """Run the repository's own selected-record check on each named record."""
-    spec = importlib.util.spec_from_file_location('ci_inputs_selected_result', root/'scripts/verify_selected_result.py')
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    # Read the guard source even if a matching stale helper cache is present.
+    checker = run_path(str((root/'scripts/verify_selected_result.py').absolute()),
+                       run_name='ci_inputs_selected_result')['check']
     failures, files = {}, set()
     for name in names:
         record = read(root/name)
         try:
-            module.check(record, root, historical=name != 'certificates/selected-result.json')
+            checker(record, root, historical=name != 'certificates/selected-result.json')
         except (ValueError, KeyError, OSError) as error:
             failures[name] = str(error)
         # Proof supplements and reviews are hard-checked above on every PR; the
