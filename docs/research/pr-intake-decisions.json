@@ -75325,8 +75325,8 @@
       },
       "reviewed_head": "021affc49696b8a6fffbadae00f98e71f56920f7",
       "current_head": "021affc49696b8a6fffbadae00f98e71f56920f7",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/downset-block-solve-bound/RUNTIME.md",
         "research/downset-block-solve-bound/verify.py"
@@ -75337,12 +75337,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5002",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5003,
@@ -75362,7 +75366,7 @@
       "reviewed_head": "3ee15e813f921c547763e57c3e2578de403ab321",
       "current_head": "3ee15e813f921c547763e57c3e2578de403ab321",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bit-address-twist-second-order"
       ],
@@ -75372,12 +75376,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5003",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5004,
@@ -75397,7 +75405,7 @@
       "reviewed_head": "f862c7dc2300abc97efcf7eb29bdd4ed38278675",
       "current_head": "f862c7dc2300abc97efcf7eb29bdd4ed38278675",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/five-in-fourteen-sector-audit"
       ],
@@ -75407,12 +75415,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5004",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5005,
@@ -75432,7 +75444,7 @@
       "reviewed_head": "35c73b0edacee37f0fe835443b050698bda1078c",
       "current_head": "35c73b0edacee37f0fe835443b050698bda1078c",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/two-three-cycle-additivity"
       ],
@@ -75442,12 +75454,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5005",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5007,
@@ -75467,7 +75483,7 @@
       "reviewed_head": "7c9247ea3878906715c136421d5e5248535596fe",
       "current_head": "7c9247ea3878906715c136421d5e5248535596fe",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/clean-square-zero-compiler"
       ],
@@ -75477,12 +75493,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5007",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5014,
@@ -75502,7 +75522,7 @@
       "reviewed_head": "978b37127606ced3531f23188fa93bbbdb1f8a3e",
       "current_head": "978b37127606ced3531f23188fa93bbbdb1f8a3e",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/resonant-oblique-section"
       ],
@@ -75512,12 +75532,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5014",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5015,
@@ -75537,7 +75561,7 @@
       "reviewed_head": "df8643a180652d08c970cfffa3d60010380bbc11",
       "current_head": "df8643a180652d08c970cfffa3d60010380bbc11",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/crt-binary-radix-consumer"
       ],
@@ -75547,12 +75571,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5015",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5016,
@@ -75572,7 +75600,7 @@
       "reviewed_head": "be656882128732110c00d08ceff265e71bece0f9",
       "current_head": "be656882128732110c00d08ceff265e71bece0f9",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/carried-warp-frame-intervals"
       ],
@@ -75582,12 +75610,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5016",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5017,
@@ -75606,8 +75638,8 @@
       },
       "reviewed_head": "baab49ce64e6c170ad74432992a35a9c4a54be92",
       "current_head": "baab49ce64e6c170ad74432992a35a9c4a54be92",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research/isolated-worker-failfast.md",
         "scripts/run_isolated_tests.py",
@@ -75620,12 +75652,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5017",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5018,
@@ -75645,7 +75681,7 @@
       "reviewed_head": "02bd261cbb06ce04b18e95d2dd459682893ccfc3",
       "current_head": "02bd261cbb06ce04b18e95d2dd459682893ccfc3",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/gaussian-downset-grid"
       ],
@@ -75655,12 +75691,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5018",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5019,
@@ -75680,7 +75720,7 @@
       "reviewed_head": "39f3cf9fb4f2e495a716c7b501ea3bceb6b2a748",
       "current_head": "39f3cf9fb4f2e495a716c7b501ea3bceb6b2a748",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/fixed-tape-affine-shear"
       ],
@@ -75690,12 +75730,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5019",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5020,
@@ -75715,7 +75759,7 @@
       "reviewed_head": "a34db2858255a9a2a5efd1577f52b809a173dfdb",
       "current_head": "a34db2858255a9a2a5efd1577f52b809a173dfdb",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/multi-line-native-extension"
       ],
@@ -75725,12 +75769,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5020",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5021,
@@ -75750,7 +75798,7 @@
       "reviewed_head": "e46dc69e3956ecc39b62da1011cf1afd50ac8cca",
       "current_head": "e46dc69e3956ecc39b62da1011cf1afd50ac8cca",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/native-error-channel-amplification"
       ],
@@ -75760,12 +75808,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5021",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5022,
@@ -75785,7 +75837,7 @@
       "reviewed_head": "26117c30f9ab47bfcbc198e0edbe54ebbd57340e",
       "current_head": "26117c30f9ab47bfcbc198e0edbe54ebbd57340e",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/swap-path-star-certificate"
       ],
@@ -75795,12 +75847,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5022",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5023,
@@ -75820,7 +75876,7 @@
       "reviewed_head": "1b069fc3d6bb463ab212f3ebc644abe838efa550",
       "current_head": "1b069fc3d6bb463ab212f3ebc644abe838efa550",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/odd-cycle-query-capacity"
       ],
@@ -75830,12 +75886,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5023",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5024,
@@ -75855,7 +75915,7 @@
       "reviewed_head": "390d7255f0e128be54e007962d7febb47697a7c5",
       "current_head": "390d7255f0e128be54e007962d7febb47697a7c5",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/global-intact-region-optimum"
       ],
@@ -75865,12 +75925,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5024",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5025,
@@ -75890,7 +75954,7 @@
       "reviewed_head": "764b06d86b1ec48b74e5ae2d29c7e521cf69301a",
       "current_head": "764b06d86b1ec48b74e5ae2d29c7e521cf69301a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/r437-admitted-count-power"
       ],
@@ -75900,12 +75964,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5025",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5026,
@@ -75925,7 +75993,7 @@
       "reviewed_head": "6e1e7d47ed7fd7f3f7197cad7c19f8237c062b06",
       "current_head": "6e1e7d47ed7fd7f3f7197cad7c19f8237c062b06",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-complex-width-envelope"
       ],
@@ -75935,12 +76003,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5026",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5027,
@@ -75960,7 +76032,7 @@
       "reviewed_head": "f4e732b2df4bbc23c787222b9338bfa4b7e87ffa",
       "current_head": "f4e732b2df4bbc23c787222b9338bfa4b7e87ffa",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/coded-compiler-closure"
       ],
@@ -75970,12 +76042,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5027",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5028,
@@ -75994,8 +76070,8 @@
       },
       "reviewed_head": "a6b8d143450f0c80f3a25a28cc1633ac85b6074a",
       "current_head": "a6b8d143450f0c80f3a25a28cc1633ac85b6074a",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research/coordination.md",
         "scripts/post_update.py",
@@ -76007,12 +76083,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5028",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5029,
@@ -76032,7 +76112,7 @@
       "reviewed_head": "31170b87517a8cad6f0f4dc230bbf19958fae83a",
       "current_head": "31170b87517a8cad6f0f4dc230bbf19958fae83a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/complex-child-packet-volume"
       ],
@@ -76042,12 +76122,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5029",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5031,
@@ -76067,7 +76151,7 @@
       "reviewed_head": "7c408f1c4082bff16837a930e11dc831de2babff",
       "current_head": "7c408f1c4082bff16837a930e11dc831de2babff",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/mixed-gl2-block-tariff"
       ],
@@ -76077,12 +76161,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5031",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5033,
@@ -76102,7 +76190,7 @@
       "reviewed_head": "3cb61420ba82f8670aad1befb228c0e3751fbb16",
       "current_head": "3cb61420ba82f8670aad1befb228c0e3751fbb16",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/f7-prefix-capacity-engine"
       ],
@@ -76112,12 +76200,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5033",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5034,
@@ -76137,7 +76229,7 @@
       "reviewed_head": "99a10ebb8a936d10764e4a45ed84ad23666e6a9f",
       "current_head": "99a10ebb8a936d10764e4a45ed84ad23666e6a9f",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-return-graph-cap"
       ],
@@ -76147,12 +76239,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5034",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5035,
@@ -76172,7 +76268,7 @@
       "reviewed_head": "05a80ce7eb4965dbde0a1c4ea45ac0f1d2781cf6",
       "current_head": "05a80ce7eb4965dbde0a1c4ea45ac0f1d2781cf6",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/coded-inverse-fixed-grid"
       ],
@@ -76182,12 +76278,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5035",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
     },
     {
       "number": 5036,
@@ -76207,9 +76307,48 @@
       "reviewed_head": "a3b9733472db1da15d93745e9859b6a11bc1a555",
       "current_head": "a3b9733472db1da15d93745e9859b6a11bc1a555",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/coded-reverse-physical-pair-gap"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5036",
+        "merge_commit": "5948b8770d5f6df94d70a9f8ec6c0759586f592c"
+      }
+    },
+    {
+      "number": 5037,
+      "metadata": {
+        "author": {
+          "id": "U_kgDOB6Y7hg",
+          "is_bot": false,
+          "login": "Lyy-iiis",
+          "name": "Lyy_iiis"
+        },
+        "headRefOid": "e30cfa384f7e48581f9e5a5cb036b1ee7a3b46a9",
+        "isDraft": false,
+        "number": 5037,
+        "title": "Construct a bounded-lane border core without an exact boundary provider",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5037"
+      },
+      "reviewed_head": "e30cfa384f7e48581f9e5a5cb036b1ee7a3b46a9",
+      "current_head": "e30cfa384f7e48581f9e5a5cb036b1ee7a3b46a9",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [
+        "research/bounded-lane-border-core"
       ],
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
       "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
@@ -76220,7 +76359,77 @@
         "published": false
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct23d-20261023.json"
+        "docs/research/pr-intake-evidence/queue-oct23e-20261023.json"
+      ],
+      "closure": null
+    },
+    {
+      "number": 5038,
+      "metadata": {
+        "author": {
+          "id": "U_kgDOB1Ov8A",
+          "is_bot": false,
+          "login": "JoyboyBrian",
+          "name": "Brian"
+        },
+        "headRefOid": "8039f5db835f26b92694e349ebc535bae7104be8",
+        "isDraft": false,
+        "number": 5038,
+        "title": "Independently audit two-image dirty-return obstruction",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5038"
+      },
+      "reviewed_head": "8039f5db835f26b92694e349ebc535bae7104be8",
+      "current_head": "8039f5db835f26b92694e349ebc535bae7104be8",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [
+        "research/two-image-volume-independent-audit"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23e-20261023.json"
+      ],
+      "closure": null
+    },
+    {
+      "number": 5039,
+      "metadata": {
+        "author": {
+          "id": "U_kgDOB1Ov8A",
+          "is_bot": false,
+          "login": "JoyboyBrian",
+          "name": "Brian"
+        },
+        "headRefOid": "3a309011b648d6f84f9a92b97697f884cf4ae2aa",
+        "isDraft": false,
+        "number": 5039,
+        "title": "Prove selected4470 scoped owned-query and whole-IDLE charging",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5039"
+      },
+      "reviewed_head": "3a309011b648d6f84f9a92b97697f884cf4ae2aa",
+      "current_head": "3a309011b648d6f84f9a92b97697f884cf4ae2aa",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [
+        "research/pr4470-owned-query-charges"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23e-20261023.json"
       ],
       "closure": null
     }

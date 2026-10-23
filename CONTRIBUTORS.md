@@ -3704,3 +3704,11 @@ Source archives retain attribution; mathematical review remains open.
 - **Brian (@JoyboyBrian)** — [#5034](https://github.com/CrocSwap/integer-mult-bounds/pull/5034): Prove source-bound QQ16 installed return graph cap (source archive).
 - **Brian (@JoyboyBrian)** — [#5035](https://github.com/CrocSwap/integer-mult-bounds/pull/5035): Implement a conditional fixed-grid inverse-code kernel with paid cleanup (source archive).
 - **Brian (@JoyboyBrian)** — [#5036](https://github.com/CrocSwap/integer-mult-bounds/pull/5036): Expose the coded reverse controller’s first physical substitution gap (source archive).
+
+## Queue intake, 23 October 2026 (chunk E)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Lyy_iiis (@Lyy-iiis)** — [#5037](https://github.com/CrocSwap/integer-mult-bounds/pull/5037): Construct a bounded-lane border core without an exact boundary provider (source archive).
+- **Brian (@JoyboyBrian)** — [#5038](https://github.com/CrocSwap/integer-mult-bounds/pull/5038): Independently audit two-image dirty-return obstruction (source archive).
+- **Brian (@JoyboyBrian)** — [#5039](https://github.com/CrocSwap/integer-mult-bounds/pull/5039): Prove selected4470 scoped owned-query and whole-IDLE charging (source archive).
