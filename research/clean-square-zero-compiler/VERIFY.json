@@ -57,6 +57,19 @@
       ],
       "timeout_seconds": 120,
       "checks": "Independent faithful one-CNOT/one-address-swap interpreter on every full input basis column, independent clean-column minimum checks, omitted reflections, dirty ancilla and noninvolutory controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Six actual relocated CLI tests: read-only Git-free normal/optimized replay, source and typed-receipt drift, wrong reflection target, omitted clean projector and lost scalar inverse."
     }
   ]
 }

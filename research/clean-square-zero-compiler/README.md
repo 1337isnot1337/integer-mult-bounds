@@ -27,10 +27,10 @@ reflection does not establish a lower native total price.
 Python 3.12 or newer, standard library only:
 
 ```sh
-python3 -I -W error -B research/clean-square-zero-compiler/verify.py
-python3 -I -O -W error -B research/clean-square-zero-compiler/verify.py
-python3 -I -O -W error -B research/clean-square-zero-compiler/literal.py
-python3 -B scripts/research_package.py --package research/clean-square-zero-compiler
+python3.12 -I -W error -B research/clean-square-zero-compiler/verify.py
+python3.12 -I -O -W error -B research/clean-square-zero-compiler/verify.py
+python3.12 -I -O -W error -B research/clean-square-zero-compiler/literal.py
+python3.12 -B scripts/research_package.py --package research/clean-square-zero-compiler
 ```
 
 `verify.py --write` regenerates only RESULT.json. Normal verification writes
@@ -48,6 +48,12 @@ input basis column, 160 dense dirty states, the two independent shortest
 clean-column obstructions, all 44 single-reflection omissions, four dirty
 ancilla failures and four noninvolutory-label failures. It executes literal
 scalar CNOTs and address swaps, without multiplying formal projectors.
+`controls.py` executes six actual CLI tests after relocation without Git: normal
+and optimized read-only replay, live-source corruption, a Boolean scientific
+receipt mutation, an incorrect reflection role, an omitted clean projector
+and a missing scalar inverse. The wrong-role mutant intentionally passes the
+primary algebra/count checker and is rejected by the literal oracle, showing
+why the independently implemented endpoint check is necessary.
 
 Only this isolated opt-in package changes. Frozen predecessors, selected
 sources and selected κ=0.00302015 remain unchanged. Native reflection

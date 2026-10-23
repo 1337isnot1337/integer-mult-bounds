@@ -50,7 +50,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop at the first uniform theorem, literal lowering, independent finite corroboration and corruption controls; do not expand into a native construction without its full resource contract.",
   "outcome": "completed",
-  "evidence": "PROOF.md gives the uniform argument; verify.py checks new clean-column endpoints, first-fixture shortest sums and literal tariff counts.",
+  "evidence": "PROOF.md supplies the uniform rank-saturation lower bound and explicit clean construction. verify.py checks 343 small matrices, ranks through eight and matched tariffs; literal.py checks 351 fixtures / 3556 full basis columns / 160 dirty states, independent clean-column minima and 52 omission/boundary controls. controls.py adds six real relocated CLI/mutation tests.",
   "author": "JoyboyBrian",
   "ai_assistance": "Substantial OpenAI Codex assistance. Independent human and formal proof-kernel review unclaimed.",
   "open_questions": [
@@ -66,5 +66,11 @@
       "first_step": "Optimize both rank-two streams under their exact data/clean return contracts.",
       "blocked_by": "An equally charged physical primitive model must be fixed."
     }
-  ]
+  ],
+  "environment": {
+    "python": "3.12.2 and 3.14.6",
+    "implementation": "CPython",
+    "platform": "macOS arm64",
+    "dependencies": "Python standard library only"
+  }
 }
