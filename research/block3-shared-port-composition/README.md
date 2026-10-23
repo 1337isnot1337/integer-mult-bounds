@@ -47,3 +47,82 @@ Live PR-body searches `4813 chronology`, `"shared" "port"`, and `"block3"` were 
 - If a profitable complete endpoint is found, bind native movement, storage, precision, complete caller, compiler reserve and outer transfer before claiming any κ gain.
 
 Prepared for Chris R / Clear1nsight with substantial OpenAI Codex assistance, Apache-2.0. Credit Dugongue #4743 for actual all-input ports and native/precision theorem, Yiyang/Lyy-iiis #4710 and lee-phys #4688 for residual and phase lineage, hexapode #4813 for the proposed five-bank cascade, and Jacob Alan Sussman #4628 for the all-width small-unit model and scoped bounds. Existing notices are retained.
+
+## Completion addendum: the fixed producer fails the free-decoder gate
+
+The original construction, WORD.json, RESULT.json, proof, raw inverse transpose
+and retained inputs above remain byte-for-byte unchanged at PR4856 head
+`0970de4ec97fc942e6202403ffd7586d19559391`. The new `completion/` subtree
+answers the previously open zero-recursive-call completion question for one
+explicit decoder alphabet; it does not change the native word or claim a new κ.
+
+For the fixed five-bank producer, allow arbitrary rectangular linear pre- and
+postcontrollers over the full monomial Clifford algebra of a fixed finite
+one-column gate group. This includes cross-output ADD, Gaussian-dyadic scalars,
+owned clean buffers, linear copying, dropping/resetting work fields, and saved
+original-input identity bypass. Free controls act before or after this one
+producer. Prefix taps, new interleaved gates, changed producer words,
+nonmonomial transformed helper resources and arbitrary non-columnwise address
+operations remain outside the result.
+
+The exact group-algebra expansion binds **all 25 blocks** of both actual raw and
+fused WORD.json schedules, retaining absolute phases and keeping scalar2 outside
+tensor powers. Its grade3 projection has zero first row and first column and a
+lower4-by-4 triangular block with unit AD diagonal. Its image from the regular
+monomial input module has dimension exactly `4*dim(B_f)`. Rectangular free
+pre/postcontrollers and identity/clean bypass cannot increase this dimension;
+five independent rank3 Gaussian targets require `5*dim(B_f)`. Hence this
+completion is impossible even with clean copy/drop/reset buffers. A separate
+rank0 witness also excludes invertible free controllers with restored dirty
+identity scratch.
+
+This closes more than the all-five-K target request. Among any five independent
+pure Gaussian targets of ranks at most3, at most four can have rank3. With
+`t=1-C`, the best optimistic reward and unchanged paid bill satisfy
+
+    reward <= 4*3^t+2^t,
+    paid = 4*3^t+2,
+    moment <= 2^t-2 <= 0,  0<=t<=1.
+
+Thus a lower-rank fifth output also fails the strict recursive moment gate.
+Granting all five rank3 rewards and paying one extra H1 would likewise give
+`3^t-3<=0`. These bounds precede every finite movement, precision, compiler and
+outer reserve. No positive κ or new admitted supplier follows.
+
+[completion/PROOF.md](completion/PROOF.md) gives the self-contained all-width
+proof using the finite-phase central-character quotient and separating tensor
+powers. It permits width-dependent scalar coefficients within the same fixed
+columnwise alphabet and does not extrapolate one-column matrix sums. The proof
+credits the projection/faithfulness lineage of PR4920 at
+`7eb4ef5251f7ba96c7e5d78c42fc98e66b7be4ba` as a citation; no PR4920 file or Git
+object is required for this replay. The source construction and its predecessor
+credit above are retained.
+
+```sh
+python3 -I -W error -B research/block3-shared-port-composition/completion/check_grade.py
+python3 -I -O -W error -B research/block3-shared-port-composition/completion/check_grade.py
+```
+
+Both default runs are read-only. They authenticate six exact PR4856 source files,
+replay raw/fused schedules in the group algebra, verify the grade0 witness and
+grade3 rank structure, and compare the frozen completion receipt. Actual wrong
+ADD-sign and omitted closing-A mutations fail the endpoint binding. The original
+native/inverse/raw-dual sciences remain separate and are still registered.
+Independent agent review is disclosed in the completion audit records; there is
+no independent human or formal-kernel acceptance claim.
+
+The historical first open question above is now closed within this decoder
+model. The next useful construction must change the paid native word, target
+inventory or an actual available nonmonomial resource; alternatively it must
+specify a different prefix/interleaved interface outside this pre/post model.
+Name the real chronological operation and complete bill before extending the
+search. Refining conditioning or repeating free completion of this unchanged
+producer cannot remove the stated rank obstruction.
+
+`completion/HANDOFF.md`, RUNS.json and the audit records preserve the producer's
+original local checkpoint byte-for-byte, including its historical outputs-only
+status and output-directory paths. Use the package-relative commands in this
+README for published reproduction. Current publication and hosted-CI status are
+tracked in the existing [PR4856](https://github.com/CrocSwap/integer-mult-bounds/pull/4856);
+the archived local handoff does not report their current state. The parent owns
+the public handoff and PR description update.
