@@ -25,9 +25,12 @@ python3.12 -B scripts/check_research_commit.py --package research/physical-bound
 ```
 
 The independent Fraction oracle is confined to the checker. Actual setup and
-online operations run under the retained `no_decode` guard. The fixture uses
-four rows, block width two, three RHS columns, nonzero borrowed dirty state,
-both ordered passes and an incomplete RHS batch. Ordinary/optimized commands
+online operations run under the retained `no_decode` guard. The fixtures use
+three real/imaginary RHS columns, block widths two and four, a sharp scalar
+half-bandwidth-three instance, incomplete rows and RHS batches, nonzero
+borrowed dirty state, both ordered passes and owner reuse. Four real guards
+reject nonzero padding, trailing pages, aliased ports and omitted earlier-block
+couplings; a valid invocation follows the failed calls. Ordinary/optimized commands
 are registered, with complete source/archive pins.
 
 ## Open next questions
@@ -55,3 +58,13 @@ Cinna Davis PR4100 and the Gaussian/Harvey–van der Hoeven and physical
 word/ring/runtime lineage. Frozen source files and archives remain unchanged.
 Prepared for JoyboyBrian with substantial OpenAI Codex assistance. No
 independent human or proof-assistant acceptance claimed. Apache-2.0.
+
+## The old page ABI is a discriminating control
+
+For the same exact L/U reference and P=6, the retained scalar BandedSolve
+returns second entry -13/64 on the stated four-row RHS fixture. The new
+literal inverse-block function returns -3/16 = -12/64. Both physical
+programs are executed; the independent oracle explains the different
+rounding sites. This is a required ABI distinction, not a defect claim
+against the old solver. Full values and the source-bound witness are in
+RESULT.json and PROOF.md section6.

@@ -129,7 +129,7 @@ Each matrix product pays B³ signed-record visits in its explicit transpose,
 plus O(B³) row/read work and O(B²) result records. If M(w) is the retained
 physical scalar-product cost, a sufficient online bound is
 
-    O(K J_b B³ [M(w)+w+polylog(n+R+B+w)]).
+    O(K J_b B³ [M(w)+w polylog(n+R+B+w)]).
 
 The two reversals and full batch copies cost O(K J_b B² w). Factor banks
 are reread for each batch. Initialization and erasure costs fit the same
@@ -161,5 +161,31 @@ its cost. Do not use the fallback to claim the faster Gaussian boundary row.
 A future fast kernel must refine the same product/rounding ABI and include
 all movement/parking work before inheriting that asymptotic claim.
 
+## 6. Discriminating actual-source fixture
 
-Credit Jose Manuel/jmbarrancoml PR4186 and physical Gaussian core; Vlado Vojdanovski's blocked proposal; Cinna Davis PR4100 and retained source lineage. Prepared for JoyboyBrian with substantial OpenAI Codex assistance. Apache-2.0.
+Use n=4, B=2, P=6, with L_ii=1 and
+L_ij=(-1)^(i+j)/32 for i>j; U_ii=3/2 and U_ij=(-1)^j/32 for i<j.
+All unspecified entries are zero, and indices are zero based. Both factors
+have only two blocks, so all finite couplings are represented, including
+the nonzero scalar-distance-three edge. With RHS
+
+    (-3/8, -5/16, -1/4, -3/16),
+
+the actual source `BandedSolve` returns second entry -13/64, while the
+new literal inverse-block protocol returns -3/16 = -12/64. The verifier runs
+both physical programs against independent exact arithmetic. This one-grid
+difference proves that a page-format relabeling would not preserve the new
+function. It is not a claim that the old solver is numerically incorrect.
+
+Additional fixtures run three arbitrary real and imaginary RHS columns,
+incomplete batches and rows, nonzero parked dirt and owner reuse. Bad padding,
+trailing pages, aliased ports and a coupling across two earlier blocks reject.
+No native cover, whole Gaussian transform, Lean, Docker, historical suite or
+complete multiplier is executed.
+
+Credit Jose Manuel/jmbarrancoml PR4186 and physical Gaussian core; Vlado
+Vojdanovski's blocked proposal and prototype; Cinna Davis PR4100; the retained
+Gaussian/Harvey–van der Hoeven and physical word/ring/runtime lineage. Source
+files and archives are unchanged and exactly pinned. Prepared for JoyboyBrian
+with substantial OpenAI Codex assistance. Apache-2.0. Automated checks do not
+constitute independent human or formal-kernel acceptance.
