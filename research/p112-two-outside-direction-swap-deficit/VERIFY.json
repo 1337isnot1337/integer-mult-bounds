@@ -28,6 +28,25 @@
       ],
       "timeout_seconds": 30,
       "checks": "Same checks with assertions disabled."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent exhaustive functionals and list assignments; actual binary Gram/subset sums; whole-class triangle control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent exhaustive functionals and list assignments; actual binary Gram/subset sums; whole-class triangle control."
     }
   ]
 }

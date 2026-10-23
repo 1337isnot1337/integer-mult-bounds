@@ -21,7 +21,13 @@ python3 -B research/p112-two-outside-direction-swap-deficit/verify.py
 python3 -O -B research/p112-two-outside-direction-swap-deficit/verify.py
 ```
 
-Both are read-only and require the complete typed RESULT.json. Use
+An independent exhaustive functional/list-color solver is also available:
+
+```sh
+python3 -B research/p112-two-outside-direction-swap-deficit/independent.py
+```
+
+All commands are read-only and require the complete typed RESULT.json. Use
 `--write /tmp/two-outside-result.json` only for explicit regeneration.
 SOURCES.json pins actual geometry and vendored RDEP2 text to exact Git
 objects. The finite graph census and root fixture are proof controls,
@@ -42,3 +48,5 @@ retained exact p112-single-lift geometry snapshot/checks. New proof and
 controls by JoyboyBrian with substantial OpenAI Codex (Astra) assistance.
 Apache-2.0; original vendored NOTICE and LICENSE retained. Source-level
 AI-assisted review is not independent human or proof-assistant acceptance.
+
+Source history records the original PR3154 paths as provenance and the byte-identical vendored files as live inputs pinned to the first package commit. Their SHA256 and Git blob identities agree.
