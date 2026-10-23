@@ -146,6 +146,9 @@ class FailureOrderTests(unittest.TestCase):
                                  'worker failure waited for the earlier module forced release')
                 self.assertTrue(wait_for(lambda: observer.stopped(.1), timeout=3),
                                 'owned module or solver survived failure')
+                self.assertTrue(all(stream.closed for child in children
+                                    for stream in (child.stdout, child.stderr)),
+                                'runner returned with owned capture streams open')
             finally:
                 if timer is not None:
                     timer.cancel(); timer.join()
