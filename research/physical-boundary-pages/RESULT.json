@@ -1,0 +1,33 @@
+{
+  "fixtures": [
+    {
+      "RHS_columns": 3,
+      "block_width": 2,
+      "matrix_products": 12,
+      "physical_scalar_products": 96,
+      "pool_peak": 41,
+      "precision": 6,
+      "rows": 4,
+      "values": [
+        "-5/32",
+        "-5/64",
+        "-1/32",
+        "1/64",
+        "5/64",
+        "5/32",
+        "-9/64",
+        "-1/16",
+        "0",
+        "0",
+        "7/64",
+        "0",
+        "-7/64",
+        "0",
+        "0",
+        "0"
+      ]
+    }
+  ],
+  "kernel": "charged classical sequential products; no seven-product speed claim",
+  "status": "PASS_PHYSICAL_BOUNDARY_PAGES"
+}
