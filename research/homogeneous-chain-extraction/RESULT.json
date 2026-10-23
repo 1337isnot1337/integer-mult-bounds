@@ -1,0 +1,163 @@
+{
+  "status": "PASS_HOMOGENEOUS_CHAIN_EXTRACTION",
+  "scope": "Conditional cyclic-ring identity and restricted two-call optimum; no new kappa",
+  "lengths": [
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17,
+    19,
+    21,
+    23,
+    25,
+    27,
+    29,
+    31
+  ],
+  "independent_input_columns": 255,
+  "coefficient_slots": 21820,
+  "boundary_profiles": [
+    {
+      "n": 3,
+      "Q_jobs": 2,
+      "calls": 2,
+      "scalar_ADDs": 3,
+      "swaps": 1,
+      "signed_P_scales": 3
+    },
+    {
+      "n": 5,
+      "Q_jobs": 4,
+      "calls": 2,
+      "scalar_ADDs": 8,
+      "swaps": 2,
+      "signed_P_scales": 6
+    },
+    {
+      "n": 7,
+      "Q_jobs": 6,
+      "calls": 2,
+      "scalar_ADDs": 13,
+      "swaps": 3,
+      "signed_P_scales": 9
+    },
+    {
+      "n": 9,
+      "Q_jobs": 8,
+      "calls": 2,
+      "scalar_ADDs": 18,
+      "swaps": 4,
+      "signed_P_scales": 12
+    },
+    {
+      "n": 11,
+      "Q_jobs": 10,
+      "calls": 2,
+      "scalar_ADDs": 23,
+      "swaps": 5,
+      "signed_P_scales": 15
+    },
+    {
+      "n": 13,
+      "Q_jobs": 12,
+      "calls": 2,
+      "scalar_ADDs": 28,
+      "swaps": 6,
+      "signed_P_scales": 18
+    },
+    {
+      "n": 15,
+      "Q_jobs": 14,
+      "calls": 2,
+      "scalar_ADDs": 33,
+      "swaps": 7,
+      "signed_P_scales": 21
+    },
+    {
+      "n": 17,
+      "Q_jobs": 16,
+      "calls": 2,
+      "scalar_ADDs": 38,
+      "swaps": 8,
+      "signed_P_scales": 24
+    },
+    {
+      "n": 19,
+      "Q_jobs": 18,
+      "calls": 2,
+      "scalar_ADDs": 43,
+      "swaps": 9,
+      "signed_P_scales": 27
+    },
+    {
+      "n": 21,
+      "Q_jobs": 20,
+      "calls": 2,
+      "scalar_ADDs": 48,
+      "swaps": 10,
+      "signed_P_scales": 30
+    },
+    {
+      "n": 23,
+      "Q_jobs": 22,
+      "calls": 2,
+      "scalar_ADDs": 53,
+      "swaps": 11,
+      "signed_P_scales": 33
+    },
+    {
+      "n": 25,
+      "Q_jobs": 24,
+      "calls": 2,
+      "scalar_ADDs": 58,
+      "swaps": 12,
+      "signed_P_scales": 36
+    },
+    {
+      "n": 27,
+      "Q_jobs": 26,
+      "calls": 2,
+      "scalar_ADDs": 63,
+      "swaps": 13,
+      "signed_P_scales": 39
+    },
+    {
+      "n": 29,
+      "Q_jobs": 28,
+      "calls": 2,
+      "scalar_ADDs": 68,
+      "swaps": 14,
+      "signed_P_scales": 42
+    },
+    {
+      "n": 31,
+      "Q_jobs": 30,
+      "calls": 2,
+      "scalar_ADDs": 73,
+      "swaps": 15,
+      "signed_P_scales": 45
+    }
+  ],
+  "rejected_controller_mutations": [
+    "missing spectator injection",
+    "missing long-root correction",
+    "wrong long-root sign",
+    "missing Pauli conjugations",
+    "missing spectator restoration",
+    "sign-only raw dual"
+  ],
+  "dirty_workspace_rank_fixtures": 256,
+  "tensor_evaluation_ranks_f1_through_f4": [
+    2,
+    3,
+    4,
+    4
+  ],
+  "proof": "PROOF.md",
+  "native_embedding": "unknown",
+  "selected_kappa_changed": false
+}
