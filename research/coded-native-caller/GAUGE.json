@@ -58,7 +58,8 @@
     "scope": "This records the candidate per-pair gauge policy; it does not prove that every whole-word policy fails.",
     "source_sha256": "1f5d6aa267e4e66048818714b5d3b5eae17a58abe91d15deeaa34574f7391a5f"
   },
-  "complete_caller": false,
+  "complete_gaussian_supplier": false,
+  "complete_typed_rational_caller": true,
   "idle": {
     "missing_stage_rejected": true,
     "mixed_orientations": true,
