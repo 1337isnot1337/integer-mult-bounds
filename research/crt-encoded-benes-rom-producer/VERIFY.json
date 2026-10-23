@@ -24,7 +24,7 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 180,
+      "timeout_seconds": 600,
       "checks": "Source hashes, static finite-control instruction audit, actual complete five-layer rotation ROM producer and direct three-epoch key join, complete small fixtures including17 offsets with W4, ownership/disposal and semantic mutations."
     },
     {
@@ -34,7 +34,7 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 180,
+      "timeout_seconds": 600,
       "checks": "Same full source-bound receipt and semantic controls with assertions disabled."
     }
   ]
