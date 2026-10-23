@@ -65,6 +65,28 @@ container hashes only identify these particular saved files. No universal
 barrier, independent human review, formal proof, practical speedup or higher K
 is claimed.
 
+## Completed follow-up
+
+The 511 fixed-map common-line extension models found no gain. Starting from
+one lower-call-count seed, five moment-improving deletions and four extensions
+reduced its temporary loss, but stopped at a cost-minus-helper delta of
+`+0.00835186` relative to the original word. It is still worse. The terminal
+scan tested all 511 deletions with the shared-map compatibility gate and all
+511 extensions with its current maps fixed. FOLLOWUP.json and the saved raw
+state document this bounded discovery result; it is not a supplier certificate.
+
+A separate literal arithmetic experiment tested common-chart windows of up to
+64 events and 12 fields, 210,912 chart assignments in each orientation. No
+improving block was found. Replayed endpoints and complete paid profiles stayed
+unchanged. Those exploratory scripts remain local-only and are not registered
+or claimed reproducible from this package; the included search receipts and
+baseline checks retain their narrower declared scope.
+
+The next mechanism is an atomic replacement of a prelude output line together
+with contact/helper optimization. Deletion or extension alone cannot make that
+rank-preserving change at a warp whose source line is pinned. It needs its own
+candidate emission and phase/full-ledger gates.
+
 ## Model and acceptance gate
 
 At a common kernel M, a node U may become U intersect M. For a nested paid edge
