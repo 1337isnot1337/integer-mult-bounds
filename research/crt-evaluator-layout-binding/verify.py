@@ -82,6 +82,10 @@ def threshold() -> None:
     ceil(log2(p+2)) <= ell exactly when ell >= 21."""
     feasible = [ell for ell in range(2, 257) if (1 << 16) * (ell - 1) <= (1 << ell) - 2]
     need(feasible == list(range(21, 257)), "ell >= 21 threshold")
+    # Remark: actual caller L <= b + 1 with p = 6b.
+    caller = [ell for ell in range(2, 257)
+              if 6 * ((1 << 16) * (ell - 1) - 1) <= (1 << ell) - 2]
+    need(caller == list(range(24, 257)), "ell >= 24 at the actual caller")
     need(lam(1310720) == 21 and lam((1 << 20) - 2) == 20, "lambda helper")
 
 

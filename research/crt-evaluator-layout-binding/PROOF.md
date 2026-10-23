@@ -13,7 +13,7 @@ that construction, and it does not change κ.
 
 PR #4377 left the use of `C = 1` inside §3–§4 open, first at the `H >= G`
 comparison, because placement geometry was not yet an input. PRs
-#4921–#4926 then carried the coefficient `C_E` through the product line
+#4921 and #4923–#4926 then carried the coefficient `C_E` through the product line
 without evaluating it. This note supplies that binding.
 
 ## Setting
@@ -98,6 +98,12 @@ most 16, and `ell - 1 >= 16`. Both cases are contradictions, so
 
 For the witness, `λ = ceil(log2 1310722) = 21 = ell`. Also
 `L = 1310720 = p`, `G = 2688`, and `r_max = floor(1310720 / 268800) = 4`.
+
+*Remark.* The actual caller gives the stronger `L <= b + 1` with
+`p = 6b`. Then `6 (2^16 (ell - 1) - 1) <= p <= 2^ell - 2`. This fails for
+`ell = 23` (`8650746 > 8388606`) and for every smaller `ell`, so
+`ell >= 24` there. The #4174 production plan `p = 9240576`, `ell = 24`
+attains it. The theorem below uses only (A).
 
 **Part 2.** By part 1, `p >= 2` and `ell >= 1`. A control group is a set
 of axes, so `W <= L <= p`. By part 1, `100 G >= 268800`, so
