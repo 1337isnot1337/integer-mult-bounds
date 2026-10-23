@@ -93,3 +93,21 @@ upstream consistency checks, not the basis of the exact price inequality.
 Native-word and interval correctness retain their predecessor assumptions.
 This certificate does not rerun their full historical suites or certify a
 physical all-column/compiler/outer supplier, a new kappa, or a selected frontier.
+
+The independent checker uses explicit sets/XOR for transported vectors and
+subspace cardinality for dimension, rather than the builder's transport or
+rank helpers. Each domain entry is verified to be a subspace in its interval;
+distinctness and the exact sum of Gaussian binomial counts prove enumeration
+completeness. It reconstructs the full constraint multiset from all graph edges
+and accounts for every column exactly once. It additionally verifies the
+explicit (C,C) and (C,B) allowed pairs above. Wrong total selector mass, wrong
+mean rank, negative selectors, a deleted original row, and the ghost mixture
+under pair consistency are rejected. The unchanged source passes pair
+consistency. Direct replay compares the entire receipt with frozen RESULT.json;
+`--record` emits a candidate receipt for deliberate regeneration only.
+
+For completeness the checker also converts every stored binary floating
+objective coefficient to its exact Fraction value and verifies that the witness
+strictly increases that finite model's stored objective. This is a separate
+finite check of the actual coefficient bits; the all-real-t statement above
+comes from the analytic inequality, not from those rounded coefficients.

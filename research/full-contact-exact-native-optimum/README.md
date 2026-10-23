@@ -53,3 +53,11 @@ pair-consistent LP and seek an exact dual, or an exact integer proof tree, for
 the full 4,684-choice model. The witness identifies why the original continuous
 relaxation cannot prove the source optimal merely by matching its objective.
 It supplies neither the strengthened optimum nor a better integer schedule.
+
+The independent audit reconstructs every constraint as a multiset using its own
+set-based binary transport and dimension code; Gaussian subspace counts verify
+complete domain enumeration. Controls reject wrong total mass, mean rank,
+negative mass and a deleted row. Pair consistency rejects the fractional
+witness while accepting the original source. Ordinary invocation also compares
+the full receipt with RESULT.json. `--record` emits a candidate replacement;
+it does not write files or bypass source/row/witness checks.
