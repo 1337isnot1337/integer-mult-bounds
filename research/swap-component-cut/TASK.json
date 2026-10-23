@@ -55,9 +55,9 @@
   "ai_assistance": "Substantial assistance from Anthropic Claude (Claude Code, Opus 5.5).",
   "open_questions": [
     {
-      "question": "Do 3-cycles and longer transposition paths or stars cost the sum of their CNOT word lengths, 3(n - cycles) per register, in the formal model with dirty registers?",
-      "why_it_matters": "Order-pattern cuts certify only 3 of the 6 calls of a 3-cycle at n = 3, and 8.33 and 8.14 of 9 for the 3-edge path and star at n = 4. A scratch column-generation run over all permutation cuts of the GL_3 regular representation stopped at 3.51 (not certified optimal). A uniform proof needs a cut outside these families or a projection argument.",
-      "first_step": "Repeat the column-generation LP with rank cuts in the natural representation tensored with itself, for one 3-cycle at n = 3. The exact formal search already gives 6 for R <= 2.",
+      "question": "Are formal costs additive across several targets that are not transpositions in small components, for example two 3-cycles, or 3-edge transposition paths and stars?",
+      "why_it_matters": "A single target costs exactly its CNOT word length (the support lemma of pending PR #4974 plus a one-register word), but support bounds only the largest single target. Order-pattern cuts are not tight for these multi-target cases (3 of 6 for a 3-cycle, 8.33 and 8.14 of 9 at n = 4).",
+      "first_step": "Run the exact formal search for diag([c3],[c3]) at n = 3, R = 2 up to length 11, or find a cut that combines with the support argument.",
       "blocked_by": "nothing"
     }
   ]

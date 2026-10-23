@@ -121,15 +121,21 @@ python3.12 -B scripts/research_package.py --package research/swap-component-cut
 
 ## Open next questions
 
-1. **Do 3-cycles and larger transposition components cost the sum of
-   their word lengths, `3(n − cycles)` per register?** For a 3-cycle at
-   `n = 3`, order-pattern cuts reach only 3. A scratch column-generation run
-   over all permutation cuts of the regular representation stopped at 3.51.
-   That run is not certified optimal, because MILP pricing was time-limited.
-   The exact formal search gives 6 for `R ≤ 2`, so a uniform proof probably
-   needs a non-permutation cut (a rank cut in another representation) or a
-   projection argument. *First step:* repeat that LP with rank cuts in the
-   natural representation tensored with itself. *Blocked by:* nothing.
+1. **Are costs additive across several targets that are not transpositions in
+   small components?** Examples are two 3-cycles on two registers, or a
+   3-edge transposition path or star. A *single* target is settled: pending
+   [#4974](https://github.com/CrocSwap/integer-mult-bounds/pull/4974)'s
+   support lemma shows that one target `[g]` costs at least the CNOT word
+   length `ℓ_{GL_n}(g)`. With the trivial one-register word, this makes the
+   cost exactly `ℓ_{GL_n}(g)`. In particular a 3-cycle costs 6 for every `n`
+   and `R`. Support bounds only the largest single target, though. For several
+   targets, order-pattern cuts are not tight: 3 of 6 for a 3-cycle at
+   `n = 3`, and 8.33 and 8.14 of 9 for the 3-edge path and star at `n = 4`. A
+   scratch column-generation run over all permutation cuts stopped at 3.51
+   for the 3-cycle; it is not certified optimal. *First step:* run the exact
+   formal search for `diag([c3],[c3])` at `n = 3`, `R = 2`, up to length 11,
+   or find a cut that combines with the support argument. *Blocked by:*
+   nothing.
 
 ## Credit
 
