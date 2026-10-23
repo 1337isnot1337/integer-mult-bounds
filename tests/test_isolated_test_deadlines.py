@@ -67,15 +67,15 @@ class DeadlineTests(unittest.TestCase):
                 self.run_modules([], module_timeout=value)
 
     @unittest.skipUnless(os.name == 'posix', 'POSIX cleanup after leader exit')
-    def test_completed_receipt_with_open_child_pipe_still_times_out(self):
+    def test_completed_receipt_with_open_child_pipe_is_cleaned_before_deadline(self):
         path = self.module('test_pipe.py',
             'import subprocess, sys, unittest\n'
             'subprocess.Popen([sys.executable,"-c","import time; time.sleep(60)"])\n'
             'class T(unittest.TestCase):\n def test_ok(self): pass\n')
-        rows = self.run_modules([path], workers=1, module_timeout=1)
-        self.assertEqual(rows[0][1], 124)
+        rows = self.run_modules([path], workers=1, module_timeout=3)
+        self.assertEqual(rows[0][1], 0)
         self.assertIn(b'OK', rows[0][3])
-        self.assertIn(b'unittest completion is not accepted', rows[0][3])
+        self.assertNotIn(b'Module timeout', rows[0][3])
 
     @unittest.skipUnless(sys.platform == 'linux', 'Linux process state observation')
     def test_ordinary_child_is_stopped_on_timeout(self):

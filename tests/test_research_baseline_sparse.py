@@ -2,11 +2,13 @@
 import contextlib
 import io
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -50,7 +52,9 @@ class SparseBaselineTests(unittest.TestCase):
                               text=True, encoding="utf-8").stdout
 
     def commit(self, message, *extra):
+        # Detached maintenance can recreate .git/objects during temp cleanup.
         self.git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                 "-c", "maintenance.auto=false", "-c", "gc.auto=0",
                  "-c", "core.hooksPath=/dev/null", "commit", "-q", *extra, "-m", message)
 
     def run_main(self):
@@ -81,6 +85,35 @@ class SparseBaselineTests(unittest.TestCase):
         code, result = self.run_main()
         self.assertEqual((code, result["status"]), (0, "NO_SPARSE_SELECTED_OMISSIONS"))
         self.assertEqual(result["next"], ["python3", "-B", "scripts/research_baseline.py"])
+
+    def test_fixture_commit_never_starts_background_maintenance(self):
+        # Force automatic work even in this tiny repo. Keep the positive
+        # control synchronous so its own maintenance cannot race cleanup.
+        for key, value in {
+            "maintenance.auto": "true", "maintenance.autoDetach": "false",
+            "gc.autoDetach": "false", "maintenance.commit-graph.enabled": "true",
+            "maintenance.commit-graph.auto": "-1", "gc.auto": "1",
+        }.items():
+            self.git("config", key, value)
+        with tempfile.TemporaryDirectory() as directory:
+            trace = Path(directory) / "git-trace.jsonl"
+
+            def maintenance_children():
+                return [event for line in trace.read_text(encoding="utf-8").splitlines()
+                        if (event := json.loads(line)).get("event") == "child_start"
+                        and any(arg in {"maintenance", "gc"}
+                                for arg in event.get("argv", []))]
+
+            with mock.patch.dict(os.environ, {"GIT_TRACE2_EVENT": str(trace)}):
+                self.commit("guarded fixture", "--allow-empty")
+            self.assertEqual(maintenance_children(), [])
+
+            trace.unlink()
+            with mock.patch.dict(os.environ, {"GIT_TRACE2_EVENT": str(trace)}):
+                self.git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                         "-c", "core.hooksPath=/dev/null", "commit", "-q", "--allow-empty",
+                         "-m", "unguarded positive control")
+            self.assertTrue(maintenance_children(), "positive control must start maintenance")
 
     def test_full_explicit_inventory_keeps_repository_relative_paths(self):
         self.explicit_manifest()

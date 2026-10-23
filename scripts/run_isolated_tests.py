@@ -185,12 +185,6 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
                 try:
                     remaining = 0.2 if deadline is None else max(0, deadline - time.monotonic())
                     out, err = process.communicate(timeout=min(0.2, remaining))
-                    finished = True
-                    code = process.returncode
-                    if code == 0 and (not receipt.is_file() or receipt.read_bytes() != COMPLETED):
-                        code = 1
-                        err += b"Incomplete unittest run: child exited successfully before discovery and execution completed\n"
-                    return path, code, out, err
                 except subprocess.TimeoutExpired:
                     with lock:
                         if stopping:
@@ -198,6 +192,7 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
                             # pipes. Do not make cancellation wait for their EOF.
                             finished = True
                             return path, -1, b'', b''
+                    exited = os.name != 'nt' and process.poll() is not None
                     if deadline is not None and time.monotonic() >= deadline:
                         stop_module(process)
                         cleaned = True
@@ -213,6 +208,20 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
                         err += (f'Module timeout after {module_timeout:g}s: {path.name}; '
                                 'unittest completion is not accepted\n').encode('utf-8')
                         return path, 124, out, err
+                    if exited:
+                        # Owned descendants may retain pipes after the module exits.
+                        # Check the deadline after observing exit, including poll time.
+                        stop_module(process)
+                        cleaned = True
+                        out, err = process.communicate(timeout=2)
+                    else:
+                        continue
+                finished = True
+                code = process.returncode
+                if code == 0 and (not receipt.is_file() or receipt.read_bytes() != COMPLETED):
+                    code = 1
+                    err += b"Incomplete unittest run: child exited successfully before discovery and execution completed\n"
+                return path, code, out, err
         finally:
             # An unexpected worker exception must leave a live child visible
             # to the controlling thread's cleanup snapshot.
