@@ -13,7 +13,7 @@ of #4982; in particular, the other eight symbols are `_ L 0 1 R < > =`.
 The physical input consists of those symbols' thirteen-bit predecessor
 codewords, source cell j at physical cells 13j..13j+12. Codes 8..4095 are
 unused and excluded from this entry contract. Misaligned heads, dirty
-buckets, missing final framing and arbitrary unused binary codewords are
+buckets, missing/duplicate outer markers and arbitrary unused binary codewords are
 not admitted inputs. Finite control may initially be arbitrary bits.
 
 The emitted fixed program returns the stable concatenation of the records
@@ -26,11 +26,13 @@ zero. There are three physical tape roles, 72 one-bit control registers,
 180 source instructions and 3885 static binary instructions. This is one
 fixed program for all n and key lengths, not one program per test input.
 
-For a finite stream framed by one final END and symbols in the declared
-alphabet, validation rejects any malformed record/key structure before
+For a finite stream with exactly one LEFT (at cell zero), exactly one
+final END, and other symbols in the declared alphabet, validation rejects
+any malformed record/key structure before
 writing output. It returns the bad head and clears finite control, while
-bad and the empty buckets remain unchanged. Missing END and a nonzero
-initial head are outside the contract, not promised rejection cases.
+bad and the empty buckets remain unchanged. Missing/duplicate LEFT or END and a nonzero initial head are outside
+the contract, not promised rejection cases. Unique LEFT is essential to
+the rewind invariant: an interior LEFT would stop a rejection rewind early.
 
 ## Stable symbolic algorithm
 

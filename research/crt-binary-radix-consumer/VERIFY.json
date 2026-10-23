@@ -26,7 +26,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 60,
-      "checks": "Pinned source authentication, source-instruction boundary simulation and exact loop census, complete small key domains, original one_pass and independent stable-sort endpoints, physical caller continuation, lifecycle, five behavioral faults, four framed rejections and frozen receipt."
+      "checks": "Pinned source authentication, source-instruction boundary simulation and exact loop census, complete small key domains, original one_pass and independent stable-sort endpoints, physical caller continuation, lifecycle, five behavioral faults, eight uniquely framed grammar rejections and frozen receipt."
     },
     {
       "argv": [

@@ -154,7 +154,7 @@ def main():
         for k0,k1 in itertools.product(keys,repeat=2):
             run(mod,[(0,k0),(4095,k1)]);cases+=1
     examples.extend([run(mod,[(21,'0'*37),(22,'1'*37)],repeated=37),run(mod,[(1,'1'),(2,'01010'),(3,'00')])])
-    malformed=[['<',('R',0),'>'],['<','0','>'],['<',('R',0),'0','_','>'],['<',('R',0),'1',('R',1),'>']]
+    malformed=[['<',('R',0),'>'],['<','0','>'],['<',('R',0),'0','_','>'],['<',('R',0),'1',('R',1),'>'],['<','L','>'],['<',('R',0),'R','>'],['<',('R',0),'1','=','>'],['<','_','>']]
     rejects=[run(mod,[],malformed=row) for row in malformed]
     controls=[]
     for fault in ('reverse_buckets','wrong_rotation','keep_buckets','short_move','keep_control'):

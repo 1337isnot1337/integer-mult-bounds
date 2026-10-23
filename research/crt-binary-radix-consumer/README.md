@@ -26,8 +26,9 @@ three tape roles, and no input n, L, key integer or decoded stream in the
 assembler/executor. It recognizes opaque records using the declared source
 alphabet, without inspecting their payload value. Entry requires aligned
 13-bit predecessor codewords and clean owned buckets. Unused codewords,
-dirty buckets, missing END and misaligned entry heads are outside this
-port contract. Framing errors within its finite framed alphabet reject
+dirty buckets, missing/duplicate outer markers and misaligned entry heads are outside this
+port contract. Record/key grammar errors inside a uniquely LEFT/END-framed
+stream reject
 before output, preserving the borrowed input and clearing finite control.
 
 ## Evidence
@@ -48,7 +49,7 @@ checks, executed in both ordinary and optimized Python:
   `bridge.one_pass` and an independent stable sort/rotation oracle.
 - Five faults reject: reverse bucket order, wrong key rotation, retained
   bucket data, short physical cell strides and omitted control erasure.
-  Four malformed framed packets reject with borrowed data and bucket
+  Eight malformed uniquely framed packets reject with borrowed data and bucket
   preservation, returned heads and cleared control.
 - **Actual source caller connection:** original `bridge.split` emits two
   completed pairs through the real bit-level key service, then continues
