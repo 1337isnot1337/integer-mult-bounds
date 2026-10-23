@@ -16,6 +16,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 COMPACT = ROOT / 'research/bit-compact-carrier-retirement/provider'
 PHYSICAL = ROOT / 'research/selected-bit-physical-caller'
+INVENTORY_SHA = '92485aa8843b3efdb3a29cb73c35efb3b725c26047e64616b6deb567a62d9d7e'
 
 
 def need(ok, message):
@@ -35,9 +36,13 @@ def module(name, path):
     return result
 
 
-def authenticate():
-    rows = json.loads((HERE / 'SOURCES.json').read_text())['files']
+def authenticate(rows=None):
+    rows = json.loads((HERE / 'SOURCES.json').read_text())['files'] if rows is None else rows
     inputs = [row for row in rows if row['usage'] == 'input']
+    names = sorted(row['path'] for row in inputs)
+    need(len(names) == 293 and len(set(names)) == 293 and
+         digest(json.dumps(names, separators=(',', ':')).encode()) == INVENTORY_SHA,
+         'complete exact source inventory')
     for row in inputs:
         path = ROOT / row['path']
         need(path.is_file() and not path.is_symlink(), 'regular source ' + row['path'])
@@ -45,7 +50,7 @@ def authenticate():
     return len(inputs)
 
 
-def build():
+def build(q=3):
     """Fresh-process binding; preserve both source authenticators and guards.
 
     CALLER is also ScratchPool's module-location selector, not only an input
@@ -55,7 +60,7 @@ def build():
     """
     inputs = authenticate()
     caller = module('compact_target114', COMPACT / 'caller.py')
-    catalogue, frozen, provenance = caller.build_provider(3)
+    catalogue, frozen, provenance = caller.build_provider(q)
     equality = []
     for local, (_path, raw, pin) in sorted(frozen.sources.items()):
         target = PHYSICAL / 'inputs/pr2753' / local

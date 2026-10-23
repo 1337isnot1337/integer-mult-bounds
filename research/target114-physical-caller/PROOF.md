@@ -138,6 +138,14 @@ columns=floor(640/64)=10 and the child width is7*10=70≥64. The retired rank6
 would instead produce60<64 and take the leaf path. At576 the new width63 is
 also a leaf. This distinction is why the old probe is insufficient.
 
+The calibration extracts the unchanged nested residual emitter from the pinned
+`compile_node` AST, supplies its original finite lexical environment and emits
+the actual TARGET114 residual region: BEGIN, forward, good child, backward, END.
+No emitter body/constants or packet kernels are rewritten. The physical test
+enters its generated CHILD opcode atPC2 and returns to the generated backward
+successor atPC3. It does not claim the huge forward packet was executed; its
+prepared packet is explicit fixture input.
+
 The new calibration uses the real `SelectedBinding`, `Geometry`, `Layout`,
 `children.extend`, bank codec, `RoleParking`, `Machine.block/call/complete_return`
 and all 29096 permanent compact roles. It retains659 stage roles including the
@@ -154,7 +162,7 @@ old_count=2, stock11, before2, gap5, suffix3; the child's actual projected gap i
 root width640 and unit2 survive. The parent is serialized onto the actual stack,
 including every empty role and nontrivial data in the first/last family and
 first/last ordinary stage. The controlled result is delivered through the
-protected output and consumed into `current` exactly once at successor PC1.
+protected output and consumed into `current` exactly once at successor PC3, the emitted backward block.
 All other parent roles, numerical slot objects and borrowed input/count backing
 and heads are restored. Owned stream/numerical/template/parking backing and
 markers are explicitly erased; cleared Python objects are not treated as free
