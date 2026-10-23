@@ -3582,3 +3582,26 @@ Source archives retain attribution; mathematical review remains open.
 - **James Reed (@jwr404)** — [#4926](https://github.com/CrocSwap/integer-mult-bounds/pull/4926): Record the edge ratio against p/6400 (no new κ) (source archive).
 - **Chris R (@Clear1nsight)** — [#4928](https://github.com/CrocSwap/integer-mult-bounds/pull/4928): Prove a separated-control ceiling for two FULLs with retained helpers (no new κ) (source archive).
 - **David Ganz (@Dugongue)** — [#4929](https://github.com/CrocSwap/integer-mult-bounds/pull/4929): Construct a center-free native producer with an explicit rank-8 port code (no new κ) (source archive).
+
+## Queue intake, 22 October 2026 (chunk H)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Chris R (@Clear1nsight)** — [#4931](https://github.com/CrocSwap/integer-mult-bounds/pull/4931): Expose a clean native prefix and construct one homogeneous U(q) offer (no new κ) (source archive).
+- **Chris R (@Clear1nsight)** — [#4932](https://github.com/CrocSwap/integer-mult-bounds/pull/4932): Prove a scoped one-bank ceiling for the #4929 coded-port adapter (no new κ) (source archive).
+- **Dillon Amburgey (@dillona)** — [#4933](https://github.com/CrocSwap/integer-mult-bounds/pull/4933): Emit a phase-correct coded p16 caller removing 144 center calls (no κ) (source archive).
+- **David Ganz (@Dugongue)** — [#4935](https://github.com/CrocSwap/integer-mult-bounds/pull/4935): Port eight-repair involutive transfers to the current native source (no new κ) (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4936](https://github.com/CrocSwap/integer-mult-bounds/pull/4936): Fix Windows command overflow in sparse baseline preflight (reviewed tooling).
+- **Brian (@JoyboyBrian)** — [#4938](https://github.com/CrocSwap/integer-mult-bounds/pull/4938): Bind the constant-1 CRT evaluator to accepted reservoir layouts (no new κ) (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4939](https://github.com/CrocSwap/integer-mult-bounds/pull/4939): Prove six-call two-SWAP cost with arbitrary address spectators (source archive).
+- **Seth Burkart (@SethBurkart123)** — [#4940](https://github.com/CrocSwap/integer-mult-bounds/pull/4940): Consume the #4929 center-free word with coded reverse stages and A⁻¹-mixed query shears (no κ) (source archive).
+- **James Reed (@jwr404)** — [#4942](https://github.com/CrocSwap/integer-mult-bounds/pull/4942): Locate the ordinary interchange's recursive threshold at the reservoir width (no new κ) (source archive).
+- **Chris R (@Clear1nsight)** — [#4943](https://github.com/CrocSwap/integer-mult-bounds/pull/4943): Emit the physical raw dual of #4935 with independent verification and a scoped ceiling (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#4944](https://github.com/CrocSwap/integer-mult-bounds/pull/4944): Write the #4174 reservoir placement as six ordinary width-H calls with a 6x interchange bill; cites #4942 for the branch threshold (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#4946](https://github.com/CrocSwap/integer-mult-bounds/pull/4946): Classify every consumer of the bit-0 census prune: no relied exclusion affected (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#4947](https://github.com/CrocSwap/integer-mult-bounds/pull/4947): perf(research): reuse exact inverses in the downset block-solve replay (3.4x, identical finite evidence) (historical source archive).
+- **David Ganz (@Dugongue)** — [#4948](https://github.com/CrocSwap/integer-mult-bounds/pull/4948): Complete the physical involutive dual and instantiate a dyadic coded caller (no new κ) (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4949](https://github.com/CrocSwap/integer-mult-bounds/pull/4949): Independently audit QQ16 protected-return ownership and tariffs (source archive).
+- **James Reed (@jwr404)** — [#4950](https://github.com/CrocSwap/integer-mult-bounds/pull/4950): Address spectators never help coordinate swaps: t swaps cost 3t for every n (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#4951](https://github.com/CrocSwap/integer-mult-bounds/pull/4951): Independently join the selected #4470 p16 invoice to its moment bill: exact agreement, surplus below one rank-one job (no new κ) (source archive).
+- **Ali Romman (@aliromman)** — [#4952](https://github.com/CrocSwap/integer-mult-bounds/pull/4952): Prove scoped rational native-query lower bounds (source archive).

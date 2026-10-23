@@ -34,6 +34,9 @@ from research_selected_baseline import SCHEMA as PRODUCTIVE_SCHEMA
 
 ROOT = Path(__file__).resolve().parents[1]
 SELECTED = "certificates/selected-result.json"
+# Leave ample room for Git's fixed arguments under CreateProcessW's 32,767
+# UTF-16-unit limit. Bound quoted path arguments, not their count or UTF-8 size.
+PATHSPEC_BUDGET = 16_000
 
 
 def selected_json(name, root):
@@ -64,7 +67,20 @@ def selected_inputs(record, root=ROOT):
 def sparse_omissions(record, root=ROOT):
     """Selected inputs absent only because this is a sparse checkout."""
     names = selected_inputs(record, root)
-    return check_catalog_files(root, [(name, "Invalid selected file: " + name) for name in names])
+    omitted, batch, units = [], [], 0
+    for name in names:
+        quoted = subprocess.list2cmdline([name])
+        size = len(quoted.encode("utf-16-le", errors="surrogatepass")) // 2 + 1
+        if batch and units + size > PATHSPEC_BUDGET:
+            omitted.extend(check_catalog_files(root, batch))
+            batch, units = [], 0
+        batch.append((name, "Invalid selected file: " + name))
+        units += size
+    if batch:
+        omitted.extend(check_catalog_files(root, batch))
+    # Validation remains all-or-nothing: a later invalid entry or Git failure
+    # raises before report() can publish any earlier batch's omissions.
+    return omitted
 
 
 def materialize_command(omitted):
