@@ -80,8 +80,8 @@
   "bottleneck_link": "An independently checked completed-boundary obstruction prevents misusing a saturated prefix as a restored-dirty module; it does not change the selected conditional frontier.",
   "budget_minutes": 60,
   "stop_rule": "Stop after an all-width proof audit and exact widths 1/2 source sanity checks, or one exact counterexample/missing implication. No native ranks, Lean, heavy matrix scan, or new supplier search.",
-  "outcome": "in-progress",
-  "evidence": "Pending independent proof and code-disjoint checker.",
+  "outcome": "completed",
+  "evidence": "PROOF.md proves the all-width/all-fixed-complex-coefficient classification, including eventual-width tails; verify.py independently binds source phases and exact character/determinant checks at widths 1/2 plus the literal compensated boundary.",
   "author": "JoyboyBrian",
   "ai_assistance": "Substantial OpenAI Codex assistance in source audit, proof, code, and writing.",
   "open_questions": [
@@ -118,5 +118,12 @@
     "Fixed finite bank count and fixed nonunitary word/coefficient/address data across widths.",
     "Every input arbitrary and independent, every output prescribed; helper outputs identity or independently unitary.",
     "No statement about clean-input subspaces, discarded outputs, width-dependent nonunitary words, or full multiplication theorem."
-  ]
+  ],
+  "test_authoring_gate": {
+    "contract": "Literal source phases, full-state boundary, exact character multiplicities, and determinant-vs-rank branches.",
+    "credible_regression": "Tensorizing the sum, changing the absolute phase of Q, erasing arbitrary helper state, or calling the inverse partner returned dirt.",
+    "existing_coverage": "PR4991 is author-checked; this code-disjoint checker and written proof are the independent audit, including an explicit singular rank argument absent from its paragraph.",
+    "test_only_seams": "None. A standalone scoped verifier with direct semantic controls; no production exports or unrelated tests."
+  },
+  "new_contribution": "Independent quantifier/source audit; explicitly closes the singular-coefficient rank implication without changing the predecessor conclusion."
 }
