@@ -25,9 +25,23 @@ def fixture(m,b,bits):
         t.append(m.Tape(cells,h))
     return t,origins
 def bits_at(t,h,n):return ''.join(t.cells.get(h+i,'_') for i in range(n))
-def one(module,b,d,bits):
+def coupled_leaf(Builder):
+    # Independent fixed machine: XOR each row with its original first bit.
+    # The host oracle below slices rows only outside runtime control.
+    a=Builder();a.read(impl.SOURCE,{'0':'loop0','1':'loop1'})
+    for first in (0,1):
+        tag=str(first);a.mark('loop'+tag)
+        a.read(impl.SOURCE,{'0':'zero'+tag,'1':'one'+tag,'_':'end'})
+        for bit,name in ((0,'zero'),(1,'one')):
+            a.mark(name+tag);a.read(impl.OUTPUT,{'_':name+tag+'empty'});a.mark(name+tag+'empty')
+            a.write(impl.OUTPUT,str(bit^first));a.move(impl.SOURCE,1);a.move(impl.OUTPUT,1);a.go('loop'+tag)
+    a.mark('end');a.rewind(impl.SOURCE);a.rewind(impl.OUTPUT);a.code.append(('done',))
+    a.mark('reject');a.code.append(('reject',));a.mark('quarantine');a.code.append(('reject',))
+    return a.finish()
+def one(module,b,d,bits,coupled=False):
     _,m,*_=module.load(ROOT);t,h=fixture(m,b,bits);before=[x.snapshot() for x in t]
     engine=module.Machine(ROOT,t)
+    if coupled:engine.leaf=coupled_leaf(engine.rows.Builder)
     # No Tape constructor is available after program initialization.
     old=engine.m.Tape.__init__
     def forbidden(*a,**k):raise ValueError('fresh runtime tape')
@@ -35,7 +49,8 @@ def one(module,b,d,bits):
     try:r=engine.run()
     finally:engine.m.Tape.__init__=old
     v=len(bits);n=2**d
-    check(bits_at(t[impl.OUTPUT],h[impl.OUTPUT],v)==''.join('1' if c=='0' else '0' for c in bits),'independent payload endpoint')
+    expected=(''.join(str(int(c)^int(bits[(i//b)*b])) for i,c in enumerate(bits)) if coupled else ''.join('1' if c=='0' else '0' for c in bits))
+    check(bits_at(t[impl.OUTPUT],h[impl.OUTPUT],v)==expected,'independent payload endpoint')
     check(t[impl.OUTPUT].head==h[impl.OUTPUT],'output head')
     for i in (impl.SOURCE,impl.GUIDE,impl.ROLE0,impl.ROLE1,impl.IO,impl.PARK,impl.TEMP,impl.CONT):
         check(t[i].snapshot()==before[i],'complete frame/cleanup')
@@ -57,8 +72,9 @@ def main():
         # Complete basis on the first true recursive source; larger shapes
         # have fixed independently generated arbitrary dirty data.
         if b==3 and d==3:samples+=['0'*i+'1'+'0'*(v-i-1) for i in range(v)]
-        for bits in samples:r=one(impl,b,d,bits);cases+=1
-        receipts.append({'B':b,'depth':d,'V':v,**r})
+        for coupled in (False,True):
+            for bits in samples:r=one(impl,b,d,bits,coupled);cases+=1
+            receipts.append({'B':b,'depth':d,'V':v,'coupled_leaf':coupled,**r})
     source=(HERE/'machine.py').read_text();controls=0
     for old,new in [("active=0 if saved==Z else 1","active=1 if saved==Z else 0"),("self.erase(SOURCE)","self.erase(GUIDE)"),("pc=3;q='boundary'","pc=4;q='boundary'")]:
         check(source.count(old)==1,'unique mutant site')

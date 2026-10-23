@@ -16,7 +16,7 @@ and complete invoice, distinct from finite verifier evidence.
 
 Reproduce: `python3.12 -B scripts/research_package.py --package research/fixed-bank-recursive-row-caller`.
 Finite checks use translated origins, all columns of a depth3 case, larger
-dyadic trees, actual wrong-return and cleanup mutations, and complete snapshots.
+dyadic trees and a distinct first-bit-coupled row leaf, actual wrong-return and cleanup mutations, and complete snapshots.
 No Lean/kernel run, selected GL64 supplier, frontier change or new kappa.
 
 ## Open next questions
