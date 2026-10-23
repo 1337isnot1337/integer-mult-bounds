@@ -20,8 +20,11 @@ weighted swap construction and its endpoint proof; no new credit is claimed
 for that identity or replay. Canonical base is
 `b91956876e5b4122fd89179f1b57557ff8378f15`. The exact PR4971 source head is
 `0130b196145a43a7d305de41f49e56e8e8556378`. Its actually consumed constructor,
-checker, source word and receipt are retained byte for byte under `inputs/`.
-SOURCES.json and ORIGINS.json bind their original paths, blobs and bytes.
+checker, source word and receipt are now integrated on canonical main and remain
+unchanged. SOURCES.json declares those exact repository inputs; ORIGINS.json
+binds their original paths, blobs and bytes. The publication refresh at
+`bee95ce88f9f19802f0613f92838895cd0e14a1f` changed no governing guidance,
+selected record or consumed scientific input.
 
 ## Evidence and reproduction
 

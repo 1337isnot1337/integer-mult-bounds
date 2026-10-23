@@ -4,7 +4,7 @@ from pathlib import Path
 RELAXED=True
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
-path=HERE.parent/'inputs/pr4971/verify.py'
+path=ROOT/'research/native-frame-carrying-swaps/verify.py'
 spec=importlib.util.spec_from_file_location('source_swaps',path)
 V=importlib.util.module_from_spec(spec);spec.loader.exec_module(V)
 c=V.c;n=c['h'];frames=c['frames'];spaces=V.spaces

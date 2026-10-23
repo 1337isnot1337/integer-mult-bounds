@@ -73,7 +73,7 @@
   "actual_scope": "Search the carried-swap graph jointly with owned center contacts and both helper boundaries; no improved kappa.",
   "scope_change_reason": "Take PR4971's concrete joint frame optimization handoff beyond its unchanged invoice.",
   "bottleneck_link": "Removes forced equal-frame contacts at 534 weighted swaps, exposing a changed transport search space.",
-  "budget_minutes": 0,
+  "budget_minutes": 60,
   "stop_rule": "The user requested an indefinite campaign. Each family experiment has a bounded domain and is checkpointed before a pivot.",
   "outcome": "partial",
   "evidence": "Exact source and baseline graph checks; bounded floating discovery only.",
@@ -91,6 +91,8 @@
     "canonical_main": "b91956876e5b4122fd89179f1b57557ff8378f15",
     "predecessor_head": "0130b196145a43a7d305de41f49e56e8e8556378",
     "selected_conditional_kappa": "0.00302015",
-    "priority_revision": 7
-  }
+    "priority_revision": 7,
+    "submission_main": "bee95ce88f9f19802f0613f92838895cd0e14a1f"
+  },
+  "budget_note": "Historical card default only; the user explicitly requested indefinite K research."
 }
