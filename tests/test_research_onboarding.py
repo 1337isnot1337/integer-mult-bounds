@@ -37,6 +37,8 @@ class OverlapTests(unittest.TestCase):
             script = root / "scripts/find_overlap.py"
             script.parent.mkdir(parents=True)
             script.write_bytes((ROOT / "scripts/find_overlap.py").read_bytes())
+            (script.parent / "research_package.py").write_bytes(
+                (ROOT / "scripts/research_package.py").read_bytes())
             readme = root / "research/fixture/README.md"
             readme.parent.mkdir(parents=True)
             readme.write_text("Fixture contains κ", encoding="utf-8")

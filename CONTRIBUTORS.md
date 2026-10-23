@@ -3801,3 +3801,32 @@ Source archives retain attribution; mathematical review remains open.
 - **Cinna Davis (@1337isnot1337)** — [#5113](https://github.com/CrocSwap/integer-mult-bounds/pull/5113): Construct a common physical code with moving Gaussian stages (no new κ) (source archive).
 - **Nick Petalas (@petalas)** — [#5114](https://github.com/CrocSwap/integer-mult-bounds/pull/5114): Realize the formal A5 alphabet on eight binary address bits (no κ) (source archive).
 - **Nick Petalas (@petalas)** — [#5115](https://github.com/CrocSwap/integer-mult-bounds/pull/5115): Prove universal dyadic rank-one borrowed-hub realization (no new κ) (source archive).
+
+## Queue intake, 23 October 2026 (chunk J)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Brian (@JoyboyBrian)** — [#5116](https://github.com/CrocSwap/integer-mult-bounds/pull/5116): Implement complete owned query streams on selected signed records (source archive).
+- **Nick Petalas (@petalas)** — [#5117](https://github.com/CrocSwap/integer-mult-bounds/pull/5117): Reduce 66-grade extraction from 128 to optimal 68 runs (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5118](https://github.com/CrocSwap/integer-mult-bounds/pull/5118): Prove exact BW16 clique insertion barriers (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5119](https://github.com/CrocSwap/integer-mult-bounds/pull/5119): Sharpen principal-window residual bound to 83/234 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5120](https://github.com/CrocSwap/integer-mult-bounds/pull/5120): Prove doubled centre Gram degree at least 410 (no new κ) (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5122](https://github.com/CrocSwap/integer-mult-bounds/pull/5122): Prove sharp equivariant rounding radii for integer reflections (source archive).
+- **Brian (@JoyboyBrian)** — [#5123](https://github.com/CrocSwap/integer-mult-bounds/pull/5123): Repair standalone and historical-role fixtures after repository binding (reviewed tooling).
+- **Cinna Davis (@1337isnot1337)** — [#5124](https://github.com/CrocSwap/integer-mult-bounds/pull/5124): Certify all nearest Clifford chart steps on the round-three word (no new κ) (source archive).
+- **Dillon Amburgey (@dillona)** — [#5126](https://github.com/CrocSwap/integer-mult-bounds/pull/5126): Prove a sharp 112-call bound for active coded-mode repair (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5128](https://github.com/CrocSwap/integer-mult-bounds/pull/5128): Prove exact Schur minima for arbitrary invertible block pivots (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5129](https://github.com/CrocSwap/integer-mult-bounds/pull/5129): Preserve registered verifier failure under inherited interactive inspection (reviewed tooling).
+- **Brian (@JoyboyBrian)** — [#5130](https://github.com/CrocSwap/integer-mult-bounds/pull/5130): Exclude every common Gaussian-rational product chart for the actual centre0 code (source archive).
+- **Brian (@JoyboyBrian)** — [#5132](https://github.com/CrocSwap/integer-mult-bounds/pull/5132): Construct explicit bounded dyadic norm-six feature evaluation (source archive).
+- **Chris R (@Clear1nsight)** — [#5133](https://github.com/CrocSwap/integer-mult-bounds/pull/5133): Verify the source-bound p=3 moving-anchor no-Q ceiling (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5134](https://github.com/CrocSwap/integer-mult-bounds/pull/5134): Add literal complete-row caller for the two-role parking boundary (source archive).
+- **Brian (@JoyboyBrian)** — [#5135](https://github.com/CrocSwap/integer-mult-bounds/pull/5135): Close the complete first-node source reserve at Consumer.apply (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5136](https://github.com/CrocSwap/integer-mult-bounds/pull/5136): Prove rank-eight owned high contacts after removing all native constraints (source archive).
+
+## Queue intake, 23 October 2026 (chunk K)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Cinna Davis (@1337isnot1337)** — [#5137](https://github.com/CrocSwap/integer-mult-bounds/pull/5137): Prove exact two-call capacity for homogeneous query chains (no new κ) (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5138](https://github.com/CrocSwap/integer-mult-bounds/pull/5138): Prove eight bits are necessary for algebra-faithful affine A5 actions (source archive).
