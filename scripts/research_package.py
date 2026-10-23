@@ -633,26 +633,57 @@ def run_command(argv, cwd, timeout):
         code = run_windows_command(argv, cwd, timeout, env)
         require(code == 0, f"verification command exited {code}")
         return
+    previous_handler = None
+    terminating = False
+    waiting = False
+    process = None
+
+    def terminate(signum, frame):
+        nonlocal terminating
+        if not terminating:
+            terminating = True
+            # Only interrupt the protected wait. Launch/assignment and cleanup
+            # defer delivery; repeated signals cannot interrupt group cleanup.
+            if waiting:
+                raise SystemExit(128 + signum)
+
     # Own a group for POSIX cleanup of this command and its descendants.
-    process = subprocess.Popen(argv, cwd=cwd, env=env, start_new_session=True)
     try:
+        if (threading.current_thread() is threading.main_thread()
+                and signal.getsignal(signal.SIGTERM) == signal.SIG_DFL):
+            previous_handler = signal.SIG_DFL
+            signal.signal(signal.SIGTERM, terminate)
+        if terminating:
+            raise SystemExit(143)
+        process = subprocess.Popen(argv, cwd=cwd, env=env, start_new_session=True)
         try:
-            code = process.wait(timeout=timeout)
+            try:
+                waiting = True
+                if terminating:
+                    raise SystemExit(143)
+                code = process.wait(timeout=timeout)
+            finally:
+                waiting = False
         except subprocess.TimeoutExpired:
             raise ValueError("verification timed out") from None
         require(code == 0, f"verification command exited {code}")
     finally:
-        if hasattr(os, "killpg"):
-            # The leader may have exited while descendants still hold the group.
-            # Signal it on success, failure and interruption, not only timeout.
-            try:
-                os.killpg(process.pid, signal.SIGKILL)
-            except ProcessLookupError:
-                pass  # A completely finished group needs no cleanup.
-        elif process.poll() is None:
-            # Windows taskkill can address the tree only while its leader exists.
-            subprocess.run(["taskkill", "/F", "/T", "/PID", str(process.pid)], capture_output=True)
-        process.wait()
+        try:
+            if process is not None:
+                if hasattr(os, "killpg"):
+                    # The leader may have exited while descendants hold its group.
+                    try:
+                        os.killpg(process.pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
+                elif process.poll() is None:
+                    subprocess.run(["taskkill", "/F", "/T", "/PID", str(process.pid)], capture_output=True)
+                process.wait()
+        finally:
+            if previous_handler is not None:
+                signal.signal(signal.SIGTERM, previous_handler)
+    if terminating:
+        raise SystemExit(143)
 
 
 def isolated_python_argv(argv, cache_directory):
