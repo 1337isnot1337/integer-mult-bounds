@@ -17,7 +17,7 @@ SOURCES = (
     ('7eb4ef5251f7ba96c7e5d78c42fc98e66b7be4ba',
      'research/two-full-central-obstruction/grade/PROOF.md',
      '8fd775a9903eca0f53b186d7fb684d9f5f74afc9c105082b3d4981bd950fca33'),
-    ('20bb93cd990d2ff683e4d0fc56b87a42cd5d3296',
+    ('7eb4ef5251f7ba96c7e5d78c42fc98e66b7be4ba',
      'research/two-full-central-obstruction/inputs/native/clifford_exact.py',
      '2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962'),
 )
