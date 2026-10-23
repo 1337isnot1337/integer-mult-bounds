@@ -59,7 +59,7 @@ The following deliberately conservative bounds count all successful actions:
 
     G =4096(k+1)u³(n+t+2)
        +4096(O+1)(L+1)(H+1)(F+1)(n+2),
-    Rte=8192(O+1)[(k+1)(t+u)u³
+    Rte=16384(O+1)[(k+1)(t+u)u³
                   +(H+1)(d+1)³u²
                   +(kb+1)(H+1)(K+F+1)(n+2)],
     T =2G+2Rte+128(V+P+n+1)+8A.
@@ -85,8 +85,8 @@ so each costs at most1024u². Euclid makes at most2b+2 divisions: every two
 nonterminal remainders reduce the larger remainder by at least a factor two.
 Including Bezout updates and disposal gives at most8192u³ for Ring.inverse.
 A signed t-bit literal costs at most512(t+1)u; the chart palette and its d² output
-copies therefore cost at most16384(k+1)(t+u)u³. The Rte bracket has prefactor8192
-but O+1>=2, so covers this bound once per original-prefix route_cube.
+copies therefore cost at most16384(k+1)(t+u)u³. The Rte bracket has prefactor16384 and O+1>O, so covers this
+bound once for each of the O original-prefix route_cube executions.
 The per-header raw_header, d-by-d product, exact q division, residue comparisons,
 key output and odometer advance are at most8192(d+1)³u² actions. The same
 O+1/H+1 margins cover that per-header bound inside Rte. Sparse zero/one branches
@@ -110,7 +110,7 @@ stream after the partition, is at most2048(H+1)(K+F+1)(n+2). There are exactly k
 partitions when cap>1, and zero when cap=1: the cursor starts at1 and advances to
 the bth padded Word bit for each of k coordinates. Final key validation/removal
 and the outer copies fit two further passes at that same bound. Rte's factor
-8192 and (kb+1) cover these, even when cap=1. The outer O loop copies complete
+16384 and (kb+1) cover these, even when cap=1. The outer O loop copies complete
 prefix bodies into/out of local roles, closes every Counter, and rewinds all
 borrowed heads. Its O+1 factor supplies those boundary scans and initialization.
 Finally each commit clears the old role, copies the whole result into that same

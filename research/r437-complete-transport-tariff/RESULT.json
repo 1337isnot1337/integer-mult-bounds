@@ -6,7 +6,7 @@
       "fibre_bits": 2,
       "highs": 1,
       "invoice": {
-        "completed_roundtrip_actions": 239621192,
+        "completed_roundtrip_actions": 435573832,
         "count_digit_bound": 13,
         "decorated_symbols": 6,
         "family_bits": 12,
@@ -15,7 +15,7 @@
         "maximum_live_scratch_leases": 32,
         "packet_bits": 6,
         "retained_cells": 7810,
-        "route_packet_actions": 97976320,
+        "route_packet_actions": 195952640,
         "scratch_roles": 137,
         "semantics": "unit tape reads+writes+moves; fixed compiled source control; supplied valid Context"
       },
@@ -38,7 +38,7 @@
       "fibre_bits": 2,
       "highs": 3,
       "invoice": {
-        "completed_roundtrip_actions": 874866504,
+        "completed_roundtrip_actions": 1622894408,
         "count_digit_bound": 15,
         "decorated_symbols": 24,
         "family_bits": 36,
@@ -47,7 +47,7 @@
         "maximum_live_scratch_leases": 32,
         "packet_bits": 18,
         "retained_cells": 16444,
-        "route_packet_actions": 374013952,
+        "route_packet_actions": 748027904,
         "scratch_roles": 137,
         "semantics": "unit tape reads+writes+moves; fixed compiled source control; supplied valid Context"
       },
@@ -70,7 +70,7 @@
       "fibre_bits": 3,
       "highs": 9,
       "invoice": {
-        "completed_roundtrip_actions": 1657101768,
+        "completed_roundtrip_actions": 3093323208,
         "count_digit_bound": 16,
         "decorated_symbols": 90,
         "family_bits": 108,
@@ -79,7 +79,7 @@
         "maximum_live_scratch_leases": 32,
         "packet_bits": 54,
         "retained_cells": 42076,
-        "route_packet_actions": 718110720,
+        "route_packet_actions": 1436221440,
         "scratch_roles": 137,
         "semantics": "unit tape reads+writes+moves; fixed compiled source control; supplied valid Context"
       },
@@ -102,7 +102,7 @@
       "fibre_bits": 3,
       "highs": 81,
       "invoice": {
-        "completed_roundtrip_actions": 106164230344,
+        "completed_roundtrip_actions": 197572057288,
         "count_digit_bound": 34,
         "decorated_symbols": 2187,
         "family_bits": 23328,
@@ -111,7 +111,7 @@
         "maximum_live_scratch_leases": 32,
         "packet_bits": 486,
         "retained_cells": 3778034,
-        "route_packet_actions": 45703913472,
+        "route_packet_actions": 91407826944,
         "scratch_roles": 137,
         "semantics": "unit tape reads+writes+moves; fixed compiled source control; supplied valid Context"
       },

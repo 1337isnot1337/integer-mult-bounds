@@ -12,7 +12,7 @@ def invoice(q, dimension, word_bits, old_prefixes, low_classes, highs,
     K=k*(b+1);P=O*H*F;V=L*P;D=H*(K+F);A=q*q+128
     # Each bound includes its complete output; commit is added separately.
     G=4096*(k+1)*u**3*(n+t+2)+4096*(O+1)*(L+1)*(H+1)*(F+1)*(n+2)
-    route=8192*(O+1)*((k+1)*(t+u)*u**3+(H+1)*(d+1)**3*u**2+(k*b+1)*(H+1)*(K+F+1)*(n+2))
+    route=16384*(O+1)*((k+1)*(t+u)*u**3+(H+1)*(d+1)**3*u**2+(k*b+1)*(H+1)*(K+F+1)*(n+2))
     actions=2*G+2*route+128*(V+P+n+1)+8*A
     backing=(A+8)*(V+D+P+n+8)+(R+1)*(b+2)
     return dict(count_digit_bound=n,key_symbols=K,packet_bits=P,family_bits=V,
