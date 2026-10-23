@@ -66,11 +66,30 @@ def relative_file(root, name):
     return result
 
 
+# Adapted from the package-local policy in
+# research/t74-2530-source-partner-audit/audit_common.py (Apache-2.0).
+# Keep repository configuration and linked-worktree .git discovery intact;
+# inherited shell overrides must not choose a different repository or index.
+_GIT_REDIRECT_VARS = frozenset((
+    "GIT_DIR", "GIT_WORK_TREE", "GIT_INDEX_FILE", "GIT_OBJECT_DIRECTORY",
+    "GIT_ALTERNATE_OBJECT_DIRECTORIES", "GIT_NAMESPACE", "GIT_CEILING_DIRECTORIES",
+    "GIT_COMMON_DIR", "GIT_CONFIG_PARAMETERS", "GIT_CONFIG_COUNT",
+))
+_GIT_CONFIG_PREFIXES = ("GIT_CONFIG_KEY_", "GIT_CONFIG_VALUE_")
+
+
 def git_source_env():
-    # Replacement refs can pair an original object ID with different bytes.
-    # Pins and HEAD inventories must describe the stored objects even when the
-    # caller has configured a replacement namespace or an inherited override.
-    return {**os.environ, "GIT_NO_REPLACE_OBJECTS": "1"}
+    """Use cwd's repository and stored objects, without changing the parent.
+
+    Git can ignore cwd when inherited selection variables point elsewhere.
+    Config-injection variables can also redirect worktree/index operations.
+    This policy is only for Git metadata/source subprocesses, not verifiers.
+    """
+    env = {name: value for name, value in os.environ.items()
+           if name not in _GIT_REDIRECT_VARS and not name.startswith(_GIT_CONFIG_PREFIXES)}
+    # Replacement refs can report an original ID while returning other bytes.
+    env["GIT_NO_REPLACE_OBJECTS"] = "1"
+    return env
 
 
 def git(root, *args):
