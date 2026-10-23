@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/carried-frame-frontier/inputs/pr4971/LICENSE",
+    "research/carried-frame-frontier/inputs/pr4971/NOTICE",
+    "research/carried-frame-frontier/inputs/pr4971/README.md",
+    "research/carried-frame-frontier/inputs/pr4971/RESULT.json",
+    "research/carried-frame-frontier/inputs/pr4971/RETAINED-SOURCE.md",
+    "research/carried-frame-frontier/inputs/pr4971/SOURCE-WORD.json.gz",
+    "research/carried-frame-frontier/inputs/pr4971/native_core.py",
+    "research/carried-frame-frontier/inputs/pr4971/verify.py",
+    "research/general-gaussian-contact-search/model.py",
+    "research/general-gaussian-contact-search/discover.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Frozen source, credited 632-input swap replay in both orientations, complete graph baseline and wrong-rank/frame controls. No optimizer, new physical supplier or kappa admission."
+    }
+  ]
+}
