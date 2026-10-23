@@ -29,7 +29,12 @@ def invert(a,m):
 
 
 def run(program,state,fault=None):
-    p=deepcopy(state);n=8*program['f'];q=program['q'];w=program['w'];e=w-1;k=program['borrowed_digits'];M=q**w;R=q**e
+    q=program['q']
+    require(type(q) is int and q>=3 and q%2==1,'odd prime radix')
+    divisor=3
+    while divisor*divisor<=q:
+        require(q%divisor!=0,'prime radix required');divisor+=2
+    p=deepcopy(state);n=8*program['f'];w=program['w'];e=w-1;k=program['borrowed_digits'];M=q**w;R=q**e
     owner,other=map(str,program['owners']);slots=p['slots']
     require(owner!=other and slots[owner]!=slots[other],'distinct physical owners')
     require(state['owners'][owner] is not state['owners'][other],'aliased owner objects')

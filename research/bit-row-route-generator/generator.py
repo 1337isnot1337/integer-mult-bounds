@@ -7,7 +7,7 @@ from dataclasses import dataclass, asdict
 from fractions import Fraction as F
 from collections import Counter
 from hashlib import sha256
-from math import gcd, prod
+from math import gcd, prod, isqrt
 import json
 
 
@@ -70,7 +70,8 @@ class Program:
 
 def generate(frame, f, q, w, borrowed_digits=1, reserve=3, owners=(462,461)):
     need(type(f) is int and f>0 and type(w) is int and w>=2,'positive tensor width and w>=2')
-    need(type(q) is int and q>=3 and q%2==1,'odd fixed radix')
+    need(type(q) is int and q>=3 and q%2==1,'odd prime radix')
+    need(all(q%d for d in range(3,isqrt(q)+1,2)),'prime radix required')
     need(type(borrowed_digits) is int and borrowed_digits>0,'positive borrowed width')
     need(type(reserve) is int and 1<=reserve<=q**borrowed_digits,'available borrowed reserve')
     need(len(owners)==2 and len(set(owners))==2 and owners[0]==462,'distinct physical source owners')
@@ -129,9 +130,12 @@ def generate(frame, f, q, w, borrowed_digits=1, reserve=3, owners=(462,461)):
                 low_type_table_entries_bound=prod(q**n-q**i for i in range(n)),
                 borrowed_row_range=q**borrowed_digits,
                 padded_row_range=((q**borrowed_digits+reserve-1)//reserve)*reserve,
+                body_scalar_adds=(30*n*f*(e-borrowed_digits) if 2*borrowed_digits<e else 0),
+                max_live_padding_rows=((((q**borrowed_digits+reserve-1)//reserve)*reserve-q**borrowed_digits) if 2*borrowed_digits<e else 0),
+                padding_volume_charge='added ROW ranges times the complete body/spectator fibre; initialization and removal remain charged',
                 logical_cell_bits=bits,integer_route_accumulator_bits=(n*(q**w-1)**2).bit_length()+1,
                 coefficient_preparation='exact modular inverses; physical preparation time and tape realization remain charged P2 obligations',
                 width_contracts={'ordinary_full_digits':e,'ordinary_high_digits':borrowed_digits,'raw_body_digits':max(0,e-borrowed_digits)},
-                tape_inventory='active owner + distinct spectator owner + one owned low cache; plus inherited primitive tape inventories',
+                tape_inventory='active owner + distinct spectator owner + one owned low cache + scoped ROW padding extent; plus inherited primitive tape inventories',
                 physical_tape_cost_closed=False,P3_closed=False,primitive_API_admitted=False)
     return Program(f,q,w,borrowed_digits,reserve,tuple(owners),s,tuple(steps),ledger)

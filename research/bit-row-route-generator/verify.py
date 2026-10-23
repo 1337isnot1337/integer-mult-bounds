@@ -49,6 +49,28 @@ def source_matrices(frame,f):
     return lift(p,f),lift(s,f)
 
 
+def check_rational_routes(frame):
+    # Reconstruct the emitted row-zero word, not generator.factors().
+    p,s=source_matrices(frame,1);identity=[[F(i==j) for j in range(8)] for i in range(8)]
+    canonical=[[F(i==j and i<4) for j in range(8)] for i in range(8)]
+    need(mm(p,p)==p,'exact source projector idempotence')
+    need(mm(mm(s,canonical),inv(s))==p,'exact source projector conjugation')
+    program=encoded(frame,1,5,2);products={1:deepcopy(identity),-1:deepcopy(identity)};counts={1:0,-1:0};direction=None
+    for step in program['steps']:
+        if step['op']=='route_enter':direction=step['direction']
+        op=step['op'];addresses=step['addresses']
+        if op not in ('older_full_swap','unit_scale','ordered_shift') or any(a>=8 for a in addresses):continue
+        elementary=deepcopy(identity);a=addresses[0];z=F(*step['coefficient'])
+        if op=='older_full_swap':
+            b=addresses[1];elementary[a][a]=elementary[b][b]=F(0);elementary[a][b]=elementary[b][a]=F(1)
+        elif op=='unit_scale':elementary[a][a]=z
+        else:elementary[addresses[1]][a]=z
+        products[direction]=mm(products[direction],elementary);counts[direction]+=1
+    need(products[1]==s and products[-1]==inv(s),'exact actual emitted right-factor products')
+    need(counts=={1:24,-1:24},'complete actual factor words')
+    return dict(projector_idempotence=True,source_conjugation=True,emitted_forward_and_inverse_factors=48)
+
+
 def state_for(program,seed=1,body_column=None,high_column=None):
     n=program['f']*8;q=program['q'];w=program['w'];r=q**(w-1);m=q**w
     low=[int(i==j) for i in range(n) for j in range(n)]
@@ -93,6 +115,8 @@ def recount(program):
 
 def controls(frame,program):
     rows=[];state=state_for(program)
+    rows.append(reject(lambda:generate(frame,1,15,4),'composite generator radix'))
+    bad=deepcopy(program);bad['q']=15;rows.append(reject(lambda:run(bad,state),'composite serialized-program radix'))
     wrong_frame=deepcopy(frame);wrong_frame['B'][0][0]=1
     rows.append(reject(lambda:generate(wrong_frame,1,5,4),'wrong source frame'))
     rows.append(reject(lambda:generate(frame,1,5,4,owners=(462,462)),'duplicate source owner'))
@@ -121,7 +145,7 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--write',action='store_true');ap.add_argument('--probe',action='store_true');args=ap.parse_args();frame=authenticate();start=time.monotonic()
     example=encoded(frame,1,5,4);check_action(example,state_for(example),frame)
     if args.probe:print('PASS_PROBE',round(time.monotonic()-start,3));return
-    traces=[];basis=high_basis=dirty=0
+    rational_checks=check_rational_routes(frame);traces=[];basis=high_basis=dirty=0
     for f,q,w in ((1,5,2),(1,5,4),(2,7,4)):
         program=encoded(frame,f,q,w);n=8*f
         for column in range(2*n):
@@ -132,7 +156,7 @@ def main():
         for seed in (2,7):check_action(program,state_for(program,seed),frame);dirty+=1
         traces.append(dict(f=f,q=q,w=w,steps=len(program['steps']),ledger=program['ledger'],borrowed_rows_returned=trace['borrowed_rows_returned']))
     result=dict(status='SCOPED_SOURCE_ROUTE_OWNER_SCHEDULE',source_helper=462,source_frame=506,body_basis_columns=basis,high_matrix_basis_columns=high_basis,high_matrix_zero_cases=1,dirty_cases=dirty,
-                controls=controls(frame,example),examples=traces,example_program_sha256=sha256(json.dumps(example,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
+                rational_checks=rational_checks,controls=controls(frame,example),examples=traces,example_program_sha256=sha256(json.dumps(example,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
                 full_primitive_API_admitted=False,P3_closed=False,uniform_compiler_materialized=False,new_kappa=False)
     artifact=HERE/'PROGRAM.json.gz';canonical=json.dumps(example,sort_keys=True,separators=(',',':')).encode()
     if args.write:

@@ -12,6 +12,13 @@ factor acts on columns, so E[i,j]=a updates column j from column i. Lift each
 factor separately to each lane, on each of the N high-matrix rows. Inverse
 routing reverses this chronological list and inverts every factor.
 
+Both executable entry points require odd prime q by exact trial division.
+The finite matrix solver therefore works over the local ring Z/q^w, not a
+general composite-modulus ring; an invertible residual column always has a
+unit pivot. Global compiler prime thresholds and witness avoidance are still
+separate inherited hypotheses. The verifier independently multiplies both
+actual emitted factor lists over the rationals and checks the source projector.
+
 For G=G0+qG1 and local ring modulo M=q^w, let L=S mod M and R=q^(w-1).
 After the complete high linear factor word, G1'=G1 L mod R. The generator
 retains an explicitly owned copy of the old low row while applying it. Then
