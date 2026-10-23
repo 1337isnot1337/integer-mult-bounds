@@ -3,6 +3,8 @@
     "epsilon": "1/16",
     "full_role_vectors_per_orientation": 2,
     "paired_full_role_vectors": 6,
+    "paired_helper_banks": 2,
+    "paired_independent_helper_roles": 816,
     "paired_replay_scope": "formal Q=1 specialization; arbitrary-Q claim proved in PROOF.md",
     "t": "9/8",
     "upper_right": "-9/4"

@@ -142,7 +142,7 @@ def ideal(orientation, x):
     return y
 
 
-def border(src,t,eps,x,y,helpers):
+def border(src,t,eps,x,y,helpers,second_helpers):
     # Formal Q=1 border specialization, not a physical Gaussian simulation.
     # Literal B followed by sign-conjugated source forward/backward.
     a=[x-y/eps]*112+[x]*112+helpers
@@ -152,9 +152,11 @@ def border(src,t,eps,x,y,helpers):
         a=execute(src,o,a,t)
         for i in range(112,224):a[i]=-a[i]
         return a
-    a=signed('forward',a);a=signed('backward',a)
+    a=signed('forward',a)
+    first_helper_outputs=a[224:]
+    a=signed('backward',a[:224]+second_helpers)
     for i in range(112,224):a[i]*=eps
-    return a
+    return a,first_helper_outputs
 
 
 def calculate(src):
@@ -169,14 +171,16 @@ def calculate(src):
             z=execute(src,o,x,t)
             need(z==[v*lam(src['canonical']['frames'],f,t) for v,f in zip(y,src['canonical']['final'])], 'gauge all-role endpoint')
     helpers=[F(i-204,16) for i in range(408)]
+    second_helpers=[F(2*i-401,32) for i in range(408)]
     for tt in (F(1),t,F(257,256)):
         for x,y in ((F(0),F(1)),(F(2),F(-3))):
-            a=border(src,tt,eps,x,y,helpers)
+            a,first_outputs=border(src,tt,eps,x,y,helpers,second_helpers)
             expectedx=tt*tt*x-tt*(tt-1)*y/eps
             need(a[:112]==[expectedx]*112 and a[112:224]==[y]*112,'paired main endpoint')
             final=src['canonical']['final'][224:];frames=src['canonical']['frames']
-            need(a[224:]==[h*lam(frames,f,tt)**2 for h,f in zip(helpers,final)],'paired full helper endpoint')
-    receipt['calibration']={'t':'9/8','epsilon':'1/16','upper_right':'-9/4','full_role_vectors_per_orientation':2,'paired_full_role_vectors':6,'paired_replay_scope':'formal Q=1 specialization; arbitrary-Q claim proved in PROOF.md'}
+            need(first_outputs==[h*lam(frames,f,tt) for h,f in zip(helpers,final)],'first independent helper bank endpoint')
+            need(a[224:]==[h*lam(frames,f,tt) for h,f in zip(second_helpers,final)],'second independent helper bank endpoint')
+    receipt['calibration']={'t':'9/8','epsilon':'1/16','upper_right':'-9/4','full_role_vectors_per_orientation':2,'paired_full_role_vectors':6,'paired_helper_banks':2,'paired_independent_helper_roles':816,'paired_replay_scope':'formal Q=1 specialization; arbitrary-Q claim proved in PROOF.md'}
     return receipt
 
 
@@ -205,7 +209,7 @@ def main():
     src=load();receipt=calculate(src);receipt['rejecting_controls']=controls(src)
     path=HERE/'RESULT.json'
     if args.regenerate:path.write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
-    else:need(json.loads(path.read_text())==receipt,'frozen receipt mismatch')
+    else:need(json.dumps(json.loads(path.read_text()),sort_keys=True,separators=(',',':'))==json.dumps(receipt,sort_keys=True,separators=(',',':')),'frozen receipt mismatch')
     print('PASS_COHERENT_FRESH_D_BOUNDARY: both complete source words, all 632 endpoints, correlated pole; no supplier admission')
 
 if __name__=='__main__':main()
