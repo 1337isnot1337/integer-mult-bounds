@@ -124,3 +124,18 @@ contracts? Begin by threading this exact allocation receipt through one
 normalized `Gaussian` instance and auditing its requested child grid. The
 present Full contract is complete at its own boundary; the outer wrapper and
 physical cost claims require their own source-bound proof.
+
+## Reproduction and evidence
+
+Canonical claim: https://github.com/CrocSwap/integer-mult-bounds/discussions/4202#discussioncomment-19138298
+
+The fixed replay checks 63 allocation contracts (N from 1 through 2^20), then six actual Full factories and 24 rounded forward/stored-inverse trajectories. Cases include a complex scalar, a 2^-30 pivot, non-Hermitian complex N=2/N=4, a nonzero 512-bit input grid and zero-duration shears. At complex N=4 the source emits 189 layers, child precision falls 72 to 26 bits and data precision 76 to 61 bits; at complex N=2 these fall 82 to 28 and 72 to 54. A 512-bit incoming grid remains 512. These are fixture measurements, not a universal constant saving. Seven controls cover source-expression drift, invalid types/dimension, a rounded-zero pivot, wrong inverse ordering and an underfunded actual data grid.
+
+```sh
+/opt/local/bin/python3.12 -B scripts/research_package.py --package research/full-downset-allocation
+python3 -B scripts/check_research_commit.py --package research/full-downset-allocation --check-source-history
+```
+
+The registered normal and optimized commands require CPython 3.12 and only the standard library. The local interpreter path above is environment-specific; the registered hook resolves its declared Python version. The source-history command follows committing. Official committed exports can run verify.py directly with -I -W error -B, and separately -O, without Git or a network. Automated execution is not independent human or proof-kernel acceptance. Hosted CI is unverified at publication.
+
+Base b91956876e5b4122fd89179f1b57557ff8378f15, priority revision 7. Fresh entry overlap covered 317 open PRs, 4064 Discussion records and all 6636 current-base local notes at 04:46–04:47 UTC. The scoped searches found the named explicit predecessor obligation; unpublished work, arbitrary closed histories and every historical diff are not covered. This is advisory coverage, not a novelty certificate.
