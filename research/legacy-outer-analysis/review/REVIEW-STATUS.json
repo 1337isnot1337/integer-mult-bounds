@@ -1,0 +1,15 @@
+{
+  "status": "PASS_INDEPENDENT_AGENT_REVIEW",
+  "scope": "Scoped component proofs and their declared exact checks; no complete supplier or kappa improvement",
+  "material_findings_unresolved": 0,
+  "checks": 6,
+  "replay_exit_code": 0,
+  "replay_seconds": 66.13161733397283,
+  "source_entries": 37,
+  "historical_git_source_comparisons": 12,
+  "upstream_blob_manifest_comparisons": 6,
+  "proof_bytes_and_executable_inputs_unchanged_since_replay": true,
+  "remaining_publication_checks": "Coordinator must verify final PR text, exact source links, GitHub rendering and published readback.",
+  "review_sha256": "1e8d5b8b56239d6c98b00140e35388aaeda5bc6d23a05d1b0c1a782f40b3ad8f",
+  "checked_file_manifest_sha256": "4b1098bfb3fcec6eead41153efc364c8fcd86afe81fdf0a236ff825b3e329ad8"
+}
