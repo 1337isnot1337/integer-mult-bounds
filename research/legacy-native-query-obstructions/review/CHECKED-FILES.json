@@ -1,6 +1,7 @@
 {
   "package": "legacy-native-query-obstructions",
   "base_commit": "cef4b52f2a59009865bf8eabde1be3f159063703",
+  "scope": "All regular package files except top-level review/ and publication-review/ directories. These exclusions prevent self-reference when this review is copied into the package.",
   "files": [
     {
       "path": "ATTRIBUTION-QUALIFICATION.md",
@@ -13,9 +14,14 @@
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
     },
     {
+      "path": "OPTIMIZATION-ENV-VALIDATION.json",
+      "bytes": 2678,
+      "sha256": "58fe8b0a564c7bb83392ad59e784ffc14c78f3eda34f6424ff73e1c4ba45424e"
+    },
+    {
       "path": "README.md",
-      "bytes": 4610,
-      "sha256": "58310968bbb1f439b0049f4840263c9ee12fb9bb93a0f7db5d0b0ac0bec79b24"
+      "bytes": 4868,
+      "sha256": "6a29d09a263d20c1a824adb246a21fe121fc1bb9363d5b38959bcda6ac943d72"
     },
     {
       "path": "SOURCE-MANIFEST.json",
@@ -24,8 +30,8 @@
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 1973,
-      "sha256": "29f59d037b1bcefbef66fb7347f48df263193c28e96516fc2388fe78d7a12d96"
+      "bytes": 2043,
+      "sha256": "13dae0f266e5e3486f8a7de586a2b58f25fee2c992d7422d892d7563afe27266"
     },
     {
       "path": "evidence/check-0.stderr.log",
@@ -74,6 +80,61 @@
     },
     {
       "path": "evidence/check-4.stdout.log",
+      "bytes": 1004,
+      "sha256": "d05b07e198100504d400615ffbb0a356bb0f35c53fc62de7c765235b73434301"
+    },
+    {
+      "path": "evidence/optimization-env/RUN.json",
+      "bytes": 614,
+      "sha256": "c88a68e42c17a6588964f1a4bb8d71d193aadcae66326defe9f2007dac175662"
+    },
+    {
+      "path": "evidence/optimization-env/check-0.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/optimization-env/check-0.stdout.log",
+      "bytes": 739,
+      "sha256": "36c1446dd1634a01b9d1c984fa83de885ee90abedf0aa20c60c90c2403b30460"
+    },
+    {
+      "path": "evidence/optimization-env/check-1.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/optimization-env/check-1.stdout.log",
+      "bytes": 1854,
+      "sha256": "1097a8ba2a45347011339d490a0f30ac81d6cd1dddbdf707438b5456d8470321"
+    },
+    {
+      "path": "evidence/optimization-env/check-2.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/optimization-env/check-2.stdout.log",
+      "bytes": 559,
+      "sha256": "e7e4c9d38615b0b38e6968211a86ceafb7baa92d2074805dd0209ef0242c71d0"
+    },
+    {
+      "path": "evidence/optimization-env/check-3.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/optimization-env/check-3.stdout.log",
+      "bytes": 671,
+      "sha256": "923a3ac5f742c949ee9cb4c724b48c788345e3f9c184c8bda6d94d205ad6f70c"
+    },
+    {
+      "path": "evidence/optimization-env/check-4.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/optimization-env/check-4.stdout.log",
       "bytes": 1004,
       "sha256": "d05b07e198100504d400615ffbb0a356bb0f35c53fc62de7c765235b73434301"
     },
@@ -324,8 +385,8 @@
     },
     {
       "path": "verify.py",
-      "bytes": 1801,
-      "sha256": "b3a8d862f2cbd9b0c94a782389310951d9271cb921bc6eb01d7bc45b5c4c3f04"
+      "bytes": 1894,
+      "sha256": "b9a18c3c27456084c46d1e83d1b1b601c7b2202e574cded076b2504e85a0cc9c"
     }
   ]
 }

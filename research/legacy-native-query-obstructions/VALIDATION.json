@@ -44,5 +44,6 @@
   "not_rerun": [
     "No full supplier or outer kappa replay.",
     "Two-outsider and congruence claims have proof reviews, not finite all-size validation."
-  ]
+  ],
+  "assertion_environment_replay": "OPTIMIZATION-ENV-VALIDATION.json"
 }
