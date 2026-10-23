@@ -46,8 +46,9 @@ apply lifted monomials. It can use any fixed finite number of zero registers
 or independent arbitrary dirty inputs, with the declared dirty returns.
 Its designated output must be `P_f y` for all those independent inputs.
 
-For necessity we even grant **all** fourth-root monomial three-bit base
-matrices, a larger alphabet than the actual affine/phase engine. Sufficiency
+Let `H` be the group of all fourth-root monomial three-bit base matrices.
+For necessity we grant this entire group, a larger alphabet than the actual
+affine/phase engine. Sufficiency
 uses the actual words of `A` and their products/adjoints, already certified
 free in #4797. No inversion of an arbitrary register operator is a free
 instruction. This theorem is not about arbitrary oblique representatives,
@@ -187,9 +188,28 @@ python3 scripts/research_package.py --package research/resonant-recovery-scalars
 The primary checker authenticates #4885's executable/source coefficient before
 loading it, replays its exact integer annihilator, and derives the new quotient
 and localization certificates. Explicit checks remain active under `-O`.
-A separate independent modular witness check is planned for the next
-implementation checkpoint; it is not part of this initial certificate.
-Finite corroboration will not replace the written all-width proof.
+`independent_modular.py` does not import the primary checker or execute the
+source checker. It parses only the pinned literal polynomial and target,
+uses packed permutation/phase bytes, a separate right-generator group
+enumeration, and modular Horner arithmetic modulo `8505=3^5*5*7`. It checks
+the full modular annihilator and independently recovers the combined signed
+witness residue 2754. Its local valuations are:
+
+| Prime | Raw numerator valuation | Raw denominator valuation | Surviving denominator valuation |
+|---|---:|---:|---:|
+| 3 | 4 | 7 | 3 |
+| 5 | 0 | 1 | 1 |
+| 7 | 0 | 1 | 1 |
+
+Modulo 243,5,7 the raw numerator residues are 81,4,3, respectively. These
+nonzero finite residues prove the stated exact numerator valuations, with
+the exact denominator supplied by the pinned polynomial. This independent
+finite check corroborates the odd-prime witness; it does not replace the
+primary unbounded-integer certificate or the written all-even proof.
+It also rejects omission of a negative-word representative, a changed
+polynomial constant, a collapsed quarter phase at literal width two, and an
+incorrect monomial inverse. The primary checker has six additional ring,
+quotient and inverse-polynomial controls.
 
 | Obligation | Status |
 |---|---|
@@ -206,7 +226,9 @@ The original retained owners and complements of #4797 are unchanged. This
 coefficient-ring obstruction gives no universal lower bound for native
 restoration and excludes no approximate, oblique or width-dependent decoder.
 The exact source replay and independent finite checks are not human or
-proof-kernel acceptance. No selected-frontier or frozen predecessor is changed.
+proof-kernel acceptance. A separate read-only agent reviewed the proof and
+both implementations and independently ran optimized checks without finding
+a blocker. No selected-frontier or frozen predecessor is changed.
 
 ## Provenance and overlap
 
