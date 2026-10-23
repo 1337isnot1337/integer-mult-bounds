@@ -1,6 +1,6 @@
 # Three-SWAP cap-two physical interface and direct-comparator ceiling
 
-**LOCAL-ONLY submission package.** The physical interpretation of Nick Petalas's
+**Source-pinned research package.** The physical interpretation of Nick Petalas's
 [#5083](https://github.com/CrocSwap/integer-mult-bounds/pull/5083) needs a stronger
 price gate than its sound restricted formal-word comparison. With reversed BIT
 generators the target is an ordinary swap, and the retained source supplies a
@@ -180,7 +180,7 @@ retain `T<=U`, `P>=L`, hence `M<=U-L`, and the strict reserve screen
 The structured questions in `TASK.json` give relevance, first steps and blockers.
 First name one eligible caller, actual cap-two ABI and complete prices, and test
 the strict inequality. A failure stops that candidate; unknown prices remain a
-blocker. Only after a pass should a separately authorized physical fixture
+blocker. Only after a pass should a separately scoped physical fixture
 with width two or larger distinguish ordinary/reversed orientation using
 independent owner impulses and dirty spectators. A finite fixture still needs
 a uniform exact operator/address argument. Then audit the changed full complex

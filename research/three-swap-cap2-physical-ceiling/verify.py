@@ -81,8 +81,6 @@ def main():
         expected = (scratch/TOP/('CHECK-RESULT'+suffix+'.json')).read_bytes()
         stdout = launch(scratch/TOP/'check_screen.py', scratch)
         need(stdout == expected, 'author replay differs from frozen receipt')
-        # Positive receipt equality above; this control ensures comparison detects drift.
-        need(stdout != expected+b' ', 'receipt mismatch control')
         expected_review = (scratch/REVIEW/('ECONOMIC-REVIEWS-DIRECT-RESULT'+suffix+'.json')).read_bytes()
         stdout_review = launch(scratch/REVIEW/'check_economic_reviews.py', scratch, ('--direct-only',))
         message = json.loads(stdout_review)
@@ -100,7 +98,6 @@ def main():
                       'author_receipt':'BYTE_IDENTICAL',
                       'independent_direct_receipt':'BYTE_IDENTICAL',
                       'source_corruption_rejections':2,
-                      'receipt_mismatch_control':True,
                       'package_bytes_unchanged':True,
                       'native_or_formal_word_or_compiler_execution':False,
                       'physical_supplier_verified':False,
