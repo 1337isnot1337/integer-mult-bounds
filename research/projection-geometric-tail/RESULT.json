@@ -34,7 +34,7 @@
     "6181/14586",
     "99085/239811"
   ],
-  "status": "PASS_PROJECTION_FINITE_INFIMUM",
+  "status": "PASS_PROJECTION_GEOMETRIC_TAIL",
   "symbolic_F_remainder_identity": true,
   "tail_certificates": [
     {

@@ -1,4 +1,4 @@
-# Strict decrease and the sharp infimum of the block-four projection recurrence
+# Four exact modes and sharp geometric convergence of the projection recurrence
 
 Prepared by Krzysztof Wojt with substantial OpenAI Codex assistance. Apache-2.0.
 
@@ -6,8 +6,11 @@ This is a theorem about the **unstrengthened arithmetic recurrence** below.
 Jacob Alan Sussman (#4628) supplies its engine interpretation and seed;
 Maximilian Lutz (#4643) independently derived the projection counts and checked
 a finite prefix plus a conservative tail. Nick Petalas (#5151) proved the exact
-limit. We use that credited limit theorem; our additions are strict monotonicity
-at every block, the sharp infimum, and a two-sided geometric error estimate.
+limit. We use that credited limit theorem. The new contribution is the exact
+four-mode representation and a two-sided geometric error estimate. During this
+work JoyboyBrian's #5184 independently established strict monotonicity and the
+sharp infimum by a weighted-order proof; those shared conclusions are credited
+corollaries here, not claimed as a newly unresolved result.
 The hook ranks and representation/engine hypotheses are not re-audited here.
 
 ## 1. Statement and inherited limit
@@ -33,15 +36,16 @@ N_k(r,r-2) = (2^r-1)(2^(r-1)-1)2^(k-r).
 Omit out-of-range terms; the third coefficient is zero for r < 2.
 Write T_m = a_m(m)/a_m(1). No triangle/max strengthening is applied.
 
-**Theorem.** For every integer m >= 4, T_(m+1) < T_m. Moreover,
+**Theorem.** The normalized profile has the four-mode representation (2.3), and
 
 ```
-inf_(m>=4) T_m = L = 439277/149175,
-2^(-m) < T_m - L < 2^(1-m)             for every m >= 5.
+2^(-m) < T_m - L < 2^(1-m)             for every m >= 5,
+L = 439277/149175.
 ```
 
-In particular the infimum is never attained, and the error has order 2^(-m).
-The theorem does not assert that every nonnegative seed is monotone.
+Thus the error has order 2^(-m). The proof also independently yields
+T_(m+1)<T_m for every m>=4 and the unattained infimum L, as established
+concurrently by #5184. It does not assert that every nonnegative seed is monotone.
 
 The equality lim T_m = L is Petalas's theorem at
 `e6c8e945a47dcc4a6f08974682090fc7f5e221a3`,

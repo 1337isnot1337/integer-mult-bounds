@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact certificate for the block-four projection infimum and geometric tail.
+"""Exact certificate for four projection modes and a sharp geometric tail.
 
 Krzysztof Wojt, with substantial OpenAI Codex assistance. Apache-2.0.
 Standard library, no network/Git/source imports, no writes, no assert statements.
@@ -309,7 +309,7 @@ def main():
         Q(constant_next[-1], constant_next[1]) < 1, "constant seed increases"))
 
     print(json.dumps({
-        "status": "PASS_PROJECTION_FINITE_INFIMUM",
+        "status": "PASS_PROJECTION_GEOMETRIC_TAIL",
         "claim_type": "scoped arithmetic proof with exact finite tail certificate",
         "seed": SEED,
         "limit_from_pr5151": str(LIMIT),

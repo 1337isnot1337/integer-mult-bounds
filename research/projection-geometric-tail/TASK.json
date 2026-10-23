@@ -80,9 +80,9 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Prove strict all-block decrease, sharp infimum 439277/149175, and 2^-m < T_m-L < 2^(1-m) for the unstrengthened block-four projection recurrence, using the credited exact limit of PR5151.",
-  "scope_change_reason": "Handoff-first override: PR5151 explicitly leaves finite-size formulas, monotonicity and the all-block infimum open. This investigates a new arithmetic implication, not another moment-root replay.",
-  "bottleneck_link": "Scoped side theorem for complex-engine projection lower bounds: replaces a conservative finite-tail floor by the exact infimum and a sharp-order geometric convergence bound. Hook and engine assumptions remain inherited; no supplier or kappa claim.",
+  "actual_scope": "Prove an exact four-mode representation and 2^-m < T_m-L < 2^(1-m) for every m>=5 in the unstrengthened block-four projection recurrence, using the credited exact limit L=439277/149175 of PR5151. Credit the concurrent monotonicity and infimum theorem of PR5184; those shared corollaries are not the new contribution.",
+  "scope_change_reason": "Handoff-first override: PR5151 left finite-size questions open. The final live overlap check found concurrent PR5184 proving monotonicity and the infimum, so the public claim was narrowed before publication to the additional four-mode representation and sharp-order geometric rate.",
+  "bottleneck_link": "Scoped side theorem for complex-engine projection lower bounds: sharp-order geometric error bounds replace the known O(1/m) rate, and a fixed four-mode representation removes the growing triangular state. Hook and engine assumptions remain inherited; no supplier or kappa claim.",
   "budget_minutes": 210,
   "stop_rule": "One-hour algebraic gate; stop or narrow if only the known limit is recovered. At most one focused result; no hook-rank recomputation, physical implementation or new kappa.",
   "outcome": "completed",

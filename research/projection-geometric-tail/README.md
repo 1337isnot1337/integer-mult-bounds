@@ -1,21 +1,26 @@
-# Strictly decreasing projection ratios and their exact infimum
+# Four exact modes and sharp geometric convergence of projection ratios
 
 For the unstrengthened projection recurrence with block-four seed
 `(0,27456,48576,68320,86592)`, this package proves
 
 ```
-T_(m+1) < T_m                         for every m >= 4,
-inf T_m = L = 439277/149175,
+L = 439277/149175,
 2^(-m) < T_m-L < 2^(1-m)             for every m >= 5.
 ```
 
 Here `T_m=a_m(m)/a_m(1)`. The exact limit L is Nick Petalas's
 [#5151](https://github.com/CrocSwap/integer-mult-bounds/pull/5151) theorem.
-The **new results** are strict all-block monotonicity, nonattainment of the
-sharp infimum, and a two-sided geometric error bound. They resolve the
-original-seed monotonicity/infimum question and improve the conservative
-convergence rate explicitly left open there. This is a scoped arithmetic
-proof with an exact finite certificate, not a new kappa or supplier.
+The **new results** are an exact four-mode representation of the entire
+normalized profile and the two-sided geometric error bound. They improve the
+conservative O(1/m) convergence rate explicitly left open there. This is a
+scoped arithmetic proof with an exact finite certificate, not a new kappa or supplier.
+
+The proof also yields strict decrease for every m>=4 and the exact unattained
+infimum L. JoyboyBrian's concurrent
+[#5184](https://github.com/CrocSwap/integer-mult-bounds/pull/5184) already proves
+those shared conclusions by a different weighted-order method. They are
+credited, independently obtained corollaries here; the submission is focused
+on the additional geometric rate and finite-mode representation.
 
 ## Proof and evidence
 
@@ -49,13 +54,13 @@ disableable assertions.
 From the repository root, with CPython 3.12 and its standard library:
 
 ```sh
-python3.12 -B scripts/research_package.py --package research/projection-finite-infimum
-python3.12 -I -X dev -W error -B research/projection-finite-infimum/verify.py
-python3.12 -I -O -X dev -W error -B research/projection-finite-infimum/verify.py
-python3.12 -B scripts/check_research_commit.py --package research/projection-finite-infimum --check-source-history
+python3.12 -B scripts/research_package.py --package research/projection-geometric-tail
+python3.12 -I -X dev -W error -B research/projection-geometric-tail/verify.py
+python3.12 -I -O -X dev -W error -B research/projection-geometric-tail/verify.py
+python3.12 -B scripts/check_research_commit.py --package research/projection-geometric-tail --check-source-history
 ```
 
-Expected markers: `PASS_PROJECTION_FINITE_INFIMUM`,
+Expected markers: `PASS_PROJECTION_GEOMETRIC_TAIL`,
 `PASS_REGISTERED_RESEARCH_PACKAGE`, and `PASS_RESEARCH_COMMIT_BYTES`.
 Direct verification takes less than a second on the author's macOS arm64 host
 with CPython 3.12.12; this is an observation, not a performance claim. The direct
@@ -89,7 +94,12 @@ The pre-claim search covered 331 open PRs, 4,339 Discussion records, and 6,918
 main-tree notes, followed by live recent-claim/PR and closed-PR term checks.
 The nearby same-account Gram and R437 claims and all earlier excluded topics
 were left alone. Search coverage excludes unpublished work and arbitrary diffs.
-The final live overlap refresh is recorded in the PR and canonical thread.
+The final live overlap refresh found #5184, head
+`b8aa60d489ff067c5b994a54e5ebd3c2bdc09503`. Its claim was posted at 11:39:28 UTC,
+between the last pre-claim live query and creation of #5169. Its proof was read
+and credited before publication; no peer verifier was rerun. The scope was
+narrowed in [the canonical update](https://github.com/CrocSwap/integer-mult-bounds/discussions/5169#discussioncomment-19145289)
+to the additional results above. The PR records the latest coverage snapshot.
 
 The result is about this seed and this recurrence. It does not provide an
 elementary closed form for the mode sequences or classify every seed. The
@@ -119,6 +129,6 @@ remained with the primary agent. SymPy was used for exploratory algebra only;
 the published certificate uses the standard library. No independent human or
 proof-kernel acceptance is claimed.
 
-Credit Sussman, Lutz, Petalas, eumemic (#288), Swapnil Jain, and the retained
+Credit Sussman, Lutz, Petalas, JoyboyBrian, eumemic (#288), Swapnil Jain, and the retained
 certificate-method/engine lineage. This new work is Apache-2.0. Frozen
 predecessor files, shared tooling, and the selected record remain unchanged.
