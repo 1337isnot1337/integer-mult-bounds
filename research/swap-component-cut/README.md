@@ -88,7 +88,7 @@ probability `2/5` rather than `1/3`.
   same holds for the 3-cycle;
 - the nine-call word for the 3-edge path at `n = 4`, `R = 3`.
 
-`census.py`, exact, about four minutes, checks all 28,211 pairs at `n = 3`,
+`census.py`, exact, about 20 seconds, checks all 28,211 pairs at `n = 3`,
 `R = 2`: none has a formal word shorter than `min(ℓ(g)+ℓ(h), 6)`.
 
 The LP figures in item 3 come from an exact enumeration of all 64 pattern

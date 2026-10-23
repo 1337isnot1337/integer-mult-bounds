@@ -20,8 +20,8 @@
         "-B",
         "{package}/census.py"
       ],
-      "timeout_seconds": 600,
-      "checks": "All 28,211 pairs (g, h) in GL_3(F2)^2 at R = 2: no formal word shorter than min(l(g)+l(h), 6)."
+      "timeout_seconds": 300,
+      "checks": "All 28,211 pairs (g, h) in GL_3(F2)^2 at R = 2, reduced to 1,248 orbit representatives under coordinate-permutation conjugation, inverse transpose and register exchange (orbit coverage checked): no formal word shorter than min(l(g)+l(h), 6)."
     }
   ]
 }
