@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticates seven unchanged science files and five vendored20bb sources; replaces only Git source-loader AST in memory; regenerates exact PATCH/RESULT in private scratch. Checks actual event15372, rank3=rank2+rank1 phase-exact identities, clean arbitrary-owner prefixes and raw price-only intervals. No complete consumer,112 capacity, fresh632-column or compiler/outer replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Authenticates seven unchanged science files and five vendored20bb sources; replaces only Git source-loader AST in memory; regenerates exact PATCH/RESULT in private scratch. Checks actual event15372, rank3=rank2+rank1 phase-exact identities, clean arbitrary-owner prefixes and raw price-only intervals. No complete consumer,112 capacity, fresh632-column or compiler/outer replay."
+    }
+  ]
+}
