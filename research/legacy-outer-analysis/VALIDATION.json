@@ -51,5 +51,6 @@
     "evidence/gaussian-normalization-receipt.json": "7f09e70eb237607848bf18e62e567d2038949dcaa3105b7772d7d946e60a37ec",
     "evidence/root-choice-independent-receipt.json": "a649b4b40f79022627d9168f73aecf87263c9f866e710a87a984f0051b17b06c",
     "evidence/routing.json": "49b39d2259a8b6f2e1cd6157a21961a8d12573496d6e153adfd53faf80f96e80"
-  }
+  },
+  "assertion_environment_replay": "OPTIMIZATION-ENV-VALIDATION.json"
 }

@@ -10,14 +10,19 @@
     "sha256": "31d1e2dc376e31e8ac8406228e57ca49b388299515a3e742f1a5741b9a1af690"
   },
   {
+    "path": "OPTIMIZATION-ENV-VALIDATION.json",
+    "bytes": 3721,
+    "sha256": "f0166b655dd2ba58b99088086553cc9b99722a2cffd5ed3fd7a4ee5ecbc94faf"
+  },
+  {
     "path": "PORTABILITY.diff",
     "bytes": 739,
     "sha256": "b4e3137db5e84556da22325ff44af5f8311164eb08760eec7f5eb975a532e50b"
   },
   {
     "path": "README.md",
-    "bytes": 4551,
-    "sha256": "cf9a7215a8bf8f6456971ca21f7f7b2faf169f00b5ad1459f6e8f8f916d12a01"
+    "bytes": 4809,
+    "sha256": "84e104dc8317af13ab93e62828a1248d565fde6461b4dfde74a9777f2e4cfb46"
   },
   {
     "path": "SOURCE-MANIFEST.json",
@@ -31,8 +36,8 @@
   },
   {
     "path": "VALIDATION.json",
-    "bytes": 2799,
-    "sha256": "e820e46a9aa22a752d222c45d0bde23b99cd4e288eeeb459f9c70d9ef9f52745"
+    "bytes": 2869,
+    "sha256": "a441c72d4c86b22226c6130cd4e9140dfa72c2bc422790b07887a475800ab958"
   },
   {
     "path": "evidence/Q-KERNEL-CARRY-RECEIPT.json",
@@ -108,6 +113,96 @@
     "path": "evidence/gaussian-normalization-receipt.json",
     "bytes": 18955,
     "sha256": "7f09e70eb237607848bf18e62e567d2038949dcaa3105b7772d7d946e60a37ec"
+  },
+  {
+    "path": "evidence/optimization-env/Q-KERNEL-CARRY-RECEIPT.json",
+    "bytes": 1039,
+    "sha256": "3342328b457892d0f696928421b5a255801ab42ba202275258ecf3a5b4a9f9ab"
+  },
+  {
+    "path": "evidence/optimization-env/RUN.json",
+    "bytes": 776,
+    "sha256": "2a69085acdf339950367548d27df86901d78ecc5beb94f95126bea917c9568ef"
+  },
+  {
+    "path": "evidence/optimization-env/check-0.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "evidence/optimization-env/check-0.stdout.log",
+    "bytes": 163,
+    "sha256": "ecb5df5dcf8851f2dc5d8bb178bfc003344396904b500a4c09688cfd5952f362"
+  },
+  {
+    "path": "evidence/optimization-env/check-1.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "evidence/optimization-env/check-1.stdout.log",
+    "bytes": 184,
+    "sha256": "3389f0bc681524238790b96264327da1c79e77e333654df165417d29110a2b41"
+  },
+  {
+    "path": "evidence/optimization-env/check-2.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "evidence/optimization-env/check-2.stdout.log",
+    "bytes": 7866,
+    "sha256": "20a0b7b2e822f05874430b61866ea1b9bd79e79a36f9ee3caec41aca51f1f194"
+  },
+  {
+    "path": "evidence/optimization-env/check-3.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "evidence/optimization-env/check-3.stdout.log",
+    "bytes": 1039,
+    "sha256": "3342328b457892d0f696928421b5a255801ab42ba202275258ecf3a5b4a9f9ab"
+  },
+  {
+    "path": "evidence/optimization-env/check-4.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "evidence/optimization-env/check-4.stdout.log",
+    "bytes": 145,
+    "sha256": "ec4fb5ab488a910897a9bf8e04b8920b90ec74d92794ec7dfddff0f616391d96"
+  },
+  {
+    "path": "evidence/optimization-env/check-5.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "evidence/optimization-env/check-5.stdout.log",
+    "bytes": 95,
+    "sha256": "b1a78ce0417b7482ac054a2d24abe8318ddf2469d1e10da438aa46b314f17b4c"
+  },
+  {
+    "path": "evidence/optimization-env/common-carry-gauge-receipt.json",
+    "bytes": 7304,
+    "sha256": "ac47f11af7501b8aa3a1423d91e60e66449d5561815769cfcd43ed77348cb50d"
+  },
+  {
+    "path": "evidence/optimization-env/gaussian-normalization-receipt.json",
+    "bytes": 18955,
+    "sha256": "7f09e70eb237607848bf18e62e567d2038949dcaa3105b7772d7d946e60a37ec"
+  },
+  {
+    "path": "evidence/optimization-env/root-choice-independent-receipt.json",
+    "bytes": 20207,
+    "sha256": "bdc7e20799c4c8538b7661366c4b595d549684e9909b06fc40b9feb48c27e71f"
+  },
+  {
+    "path": "evidence/optimization-env/routing.json",
+    "bytes": 8774,
+    "sha256": "539a701e16a3c12b2b96c7ba0f1af0c718a08c354ea0d709d338699192b32736"
   },
   {
     "path": "evidence/root-choice-independent-receipt.json",
@@ -301,7 +396,7 @@
   },
   {
     "path": "verify.py",
-    "bytes": 2048,
-    "sha256": "fe3473719f8d16e7a9adf97767d46cdbf6de3ee3698939ebe7776deeec9e00d4"
+    "bytes": 2141,
+    "sha256": "7e04578997d2f9f48e3723ca91c301a92585cdc63cd2499d5fb9414dc124ee88"
   }
 ]

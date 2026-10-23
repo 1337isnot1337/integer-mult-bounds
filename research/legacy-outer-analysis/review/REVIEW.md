@@ -200,3 +200,10 @@ review of every other repository theorem.
 The coordinator must still verify the final PR description, complete
 source links, rendered Markdown, and published readback. This review
 does not substitute for those publication checks.
+
+The later wrapper-only assertion propagation fix is reviewed in
+WRAPPER-ASSERTION-ADDENDUM.md. Its positive and negative controls pass.
+The frozen mathematical inputs remain unchanged.
+The final file manifest excludes top-level review/ and publication-review/
+copies to avoid self-reference. The wrapper addendum records the later
+check of the owner's full optimized-environment replay evidence.

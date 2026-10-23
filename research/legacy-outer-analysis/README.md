@@ -26,6 +26,8 @@ python3 -B verify.py --work /absolute/path/to/a-new-directory
 
 The last line must be `PASS_LEGACY_OUTER_ANALYSIS checks=6`. The driver checks all frozen input hashes, copies the source, and runs six exact checks. `PORTABILITY.diff` changes only a source-revision receipt lookup: the isolated router reads the frozen revision file instead of invoking Git. The original checker remains byte-exact under `source/`. No mathematical instruction or expected result is changed.
 
+The driver removes `PYTHONOPTIMIZE` from the child-process environment so that child checks and their descendants keep assertions enabled. `OPTIMIZATION-ENV-VALIDATION.json` records a fresh replay with `PYTHONOPTIMIZE=1` and an isolated parent interpreter.
+
 ## Open next questions
 
 Can the root choice support a complete fixed-tape cyclic supplier? The first useful step is to supply an exact sector-packing contract and charge all movement and scalar precision. That contract is absent here. Can another sampler avoid the Gaussian inverse charge? A proposed sampler must first give a complete stable inverse under the same arbitrary-input disk interface. This package neither constructs nor excludes such a sampler.

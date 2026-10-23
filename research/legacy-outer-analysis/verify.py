@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -31,12 +32,14 @@ checks = [
     ("source/cyclic-hybrid/independent/verify_root_choice_independent.py", []),
     ("source/cyclic-hybrid/independent/verify_common_carry_gauge.py", []),
 ]
+child_env = os.environ.copy()
+child_env.pop("PYTHONOPTIMIZE", None)
 results = []
 for index, (name, arguments) in enumerate(checks):
     script = work / name
     started = time.monotonic()
     result = subprocess.run([sys.executable, "-B", str(script)] + arguments, cwd=script.parent,
-                            capture_output=True, text=True, timeout=120)
+                            capture_output=True, text=True, env=child_env, timeout=120)
     (work / f"check-{index}.stdout.log").write_text(result.stdout)
     (work / f"check-{index}.stderr.log").write_text(result.stderr)
     results.append({"check": name, "exit_code": result.returncode,
