@@ -91,6 +91,24 @@ def stop_module(process):
         raise RuntimeError(f'module {process.pid}: ' + '; '.join(problems))
 
 
+def close_captures(process):
+    """Bound CPython Windows reader completion before acquiring stream locks."""
+    problems = []
+    deadline = time.monotonic() + 2
+    for name in ('stdout', 'stderr'):
+        try:
+            reader = getattr(process, name + '_thread', None)
+            if reader is not None:
+                reader.join(max(0, deadline - time.monotonic()))
+                if reader.is_alive():
+                    problems.append(name + ' capture reader did not stop')
+                    continue
+            getattr(process, name).close()
+        except Exception as error:
+            problems.append(str(error))
+    return problems
+
+
 def module_budget(value):
     """Reject NaN/infinity as well as nonpositive deadline budgets."""
     seconds = float(value)
@@ -228,8 +246,10 @@ def _run_modules(files, python, tests_dir, cwd, workers, module_timeout, termina
                             # A deliberately detached child may retain a pipe.
                             # Preserve captured bytes without waiting for its EOF.
                             out, err = error.output or b'', error.stderr or b''
-                            process.stdout.close()
-                            process.stderr.close()
+                            capture_problems = close_captures(process)
+                            if capture_problems:
+                                err += ('Capture cleanup failed: ' + '; '.join(capture_problems)
+                                        + '\n').encode('utf-8')
                         finished = True
                         err += (f'Module timeout after {module_timeout:g}s: {path.name}; '
                                 'unittest completion is not accepted\n').encode('utf-8')
@@ -302,11 +322,7 @@ def _run_modules(files, python, tests_dir, cwd, workers, module_timeout, termina
             pool.shutdown(wait=True, cancel_futures=stopping)
             # Workers must release communicate before we close stopped owners' pipes.
             for process in captures:
-                for stream in (process.stdout, process.stderr):
-                    try:
-                        stream.close()
-                    except Exception as cleanup_error:
-                        problems.append(str(cleanup_error))
+                problems.extend(close_captures(process))
             if problems:
                 note = 'Isolated test cleanup failed: ' + '; '.join(problems)
                 if hasattr(failure, 'add_note'):
