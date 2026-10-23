@@ -122,7 +122,6 @@ def replay(modules, programs, saved, mode):
     i, m = modules['independent_check'], modules['machine']
     digest = hashlib.sha256()
     count = volume = max_steps = max_span = 0
-    ratios = []
     for shape,payload,translated in cases():
         for coefficient in SCALES:
             for inplace in (False,True):
@@ -137,7 +136,6 @@ def replay(modules, programs, saved, mode):
                 volume += len(payload)
                 max_steps = max(max_steps,steps)
                 max_span = max(max_span,span)
-                ratios.append([steps,len(payload)])
     return {'cases':count,'payload_bits':volume,'maximum_steps':max_steps,
             'maximum_visited_span':max_span,'transcript_sha256':digest.hexdigest(),
             'transitions_per_bit_bound':2048,'visited_cells_per_bit_bound':64,

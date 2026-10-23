@@ -52,6 +52,11 @@ Controls reject invalid/noncanonical/even moduli, wrong coefficient or
 missing signed stage, nonlocal movement, corrupted output, retained work,
 source drift and endpoint-preserving uncharged extra transitions. The
 typed scientific receipt and complete tables are compared exactly.
+Seven actual relocated CLI tests also execute both engines normally/optimized
+with Git absent and verify unchanged bytes. They reject source, table and
+Boolean receipt drift. Three semantic code mutants regenerate their tables
+and still fail the actual owner/cleanup contract: missing Q-counter tail seek,
+missing in-place owner rewind, and missing negative-prefix cursor positioning.
 Normal verification writes nothing. `--write` regenerates only TABLE.json.gz
 and RESULT.json. Both sources and decompressed table/receipt content are
 proof-relevant; a recompressed gzip stream is not a mathematical invariant.

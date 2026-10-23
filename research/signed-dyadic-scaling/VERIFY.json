@@ -71,6 +71,19 @@
       ],
       "timeout_seconds": 120,
       "checks": "All signed-dyadic interfaces, complete original-owner return, independent coordinate oracle, source sites/roundtrips, exact steps/visited space and semantic controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/controls.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Seven actual Git-free CLI tests: all modes read-only, changed source/table/typed receipt, and regenerated code mutations omitting full counter cleanup, original-owner rewind or negative cursor positioning."
     }
   ]
 }
