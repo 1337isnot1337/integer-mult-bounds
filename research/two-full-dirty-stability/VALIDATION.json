@@ -13,6 +13,11 @@
       "status": "PASS"
     },
     {
+      "entry": "independent_multipair.py",
+      "optimized": false,
+      "status": "PASS"
+    },
+    {
       "entry": "verify.py",
       "optimized": true,
       "status": "PASS"
@@ -21,9 +26,14 @@
       "entry": "independent_symbolic.py",
       "optimized": true,
       "status": "PASS"
+    },
+    {
+      "entry": "independent_multipair.py",
+      "optimized": true,
+      "status": "PASS"
     }
   ],
-  "read_only_payload_count": 16,
+  "read_only_payload_count": 19,
   "no_git_or_path_tools": true,
   "controls": [
     {
@@ -75,7 +85,17 @@
       "fault": "independent-receipt",
       "optimized": true,
       "status": "REJECTED"
+    },
+    {
+      "fault": "multipair-receipt",
+      "optimized": false,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "multipair-receipt",
+      "optimized": true,
+      "status": "REJECTED"
     }
   ],
-  "scope": "Integrity and finite scientific replay; proof hashes do not machine-check mathematical claims. Four registered commands also passed in the repository. Source-history ancestry unavailable in the shallow clone; no full native/compiler/outer/Lean run."
+  "scope": "Final joint-main theorem integrity and finite replay. Proof hashes do not machine-check mathematics. Six registered commands also pass in the repository; source-history ancestry unavailable in shallow clone. No native/compiler/outer/Lean run."
 }

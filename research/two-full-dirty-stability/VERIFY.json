@@ -58,6 +58,31 @@
       ],
       "timeout_seconds": 90,
       "checks": "Separately implemented exact noncommutative free-word block expansion for all four orientations and s=1,2,3; compares the committed independent receipt. Finite corroboration, not an all-width machine proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_multipair.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent exact dense-query block expansion for m=1,2,3, s=0,1,2 and all four block orientations (36 cases), including whole main-column-block elimination. Compares frozen multipair receipt; no imported checker."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_multipair.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent exact dense-query block expansion for m=1,2,3, s=0,1,2 and all four block orientations (36 cases), including whole main-column-block elimination. Compares frozen multipair receipt; no imported checker."
     }
   ]
 }

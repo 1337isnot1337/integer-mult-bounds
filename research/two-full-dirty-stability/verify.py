@@ -148,6 +148,118 @@ class Algebra:
         return self.mm(diag, shear)
 
 
+def block_pair_fixtures(alg, aa, bb, q1, q2, monos):
+    """Curated joint-owner cases; universal m is proved in PROOF.md.
+
+    Dense noncommuting query blocks grant more than disjoint native pairs.
+    The two stages have deliberately different destination/source partitions.
+    """
+    cases = []
+    for pairs in (2, 3):
+        main = 2*pairs
+        cset, cbar = list(range(pairs)), list(range(pairs, main))
+        uset, ubar = list(range(0, main, 2)), list(range(1, main, 2))
+        av, bv = [aa[i % 2] for i in range(main)], [bb[i % 2] for i in range(main)]
+        for scratch in (0, 1, 2):
+            n = main + scratch
+            d1, d2 = alg.matrix(n), alg.matrix(n)
+            e1, e2 = alg.ident(n), alg.ident(n)
+            for i in range(n):
+                d1[i][i] = av[i] if i < main else alg.one
+                d2[i][i] = bv[i] if i < main else alg.one
+            for c in cset:
+                for j in cbar:
+                    e1[c][j] = alg.mul(monos[(c+j) % len(monos)], q1)
+            for i in ubar:
+                for r in uset:
+                    e2[i][r] = alg.mul(q2, monos[(i+2*r) % len(monos)])
+            t1, t2 = alg.mm(d1, e1), alg.mm(d2, e2)
+            w = [[alg.add(monos[(i+2*j) % len(monos)],
+                          alg.scale(monos[(2*i+j+1) % len(monos)], (2, 0)))
+                  for j in range(n)] for i in range(n)]
+            body = alg.mm(t2, w, t1)
+            cross_checks = 0
+            for a in range(main, n):
+                for c in cset:
+                    pure = alg.mul(w[a][c], av[c])
+                    need(body[a][c] == pure and alg.project(pure, 1, 2) == pure,
+                         'joint-owner untouched input cross identity')
+                    cross_checks += 1
+                for r in uset:
+                    pure = alg.mul(bv[r], w[r][a])
+                    need(body[r][a] == pure and alg.project(pure, 1, 2) == pure,
+                         'joint-owner untouched output cross identity')
+                    cross_checks += 1
+                for j in cbar:
+                    expected = alg.add(alg.mul(w[a][j], av[j]),
+                        *(alg.mul(w[a][c], av[c], e1[c][j]) for c in cset))
+                    need(body[a][j] == expected, 'joint-owner first dense query order')
+                    cross_checks += 1
+                for i in ubar:
+                    expected = alg.mul(bv[i], alg.add(w[i][a],
+                        *(alg.mul(e2[i][r], w[r][a]) for r in uset)))
+                    need(body[i][a] == expected, 'joint-owner second dense query order')
+                    cross_checks += 1
+            wfirst = [[dict(entry) for entry in row] for row in w]
+            for a in range(main, n):
+                for c in cset:
+                    wfirst[a][c] = {}
+                for r in uset:
+                    wfirst[r][a] = {}
+            first = alg.mm(t2, wfirst, t1)
+            for a in range(main, n):
+                for j in cbar:
+                    pure = alg.mul(wfirst[a][j], av[j])
+                    need(first[a][j] == pure and alg.project(pure, 1, 2) == pure,
+                         'joint-owner remaining input cross after forced zero')
+                for i in ubar:
+                    pure = alg.mul(bv[i], wfirst[i][a])
+                    need(first[i][a] == pure and alg.project(pure, 1, 2) == pure,
+                         'joint-owner remaining output cross after forced zero')
+            # After both zero steps the scratch block is unchanged.
+            wblock = [[dict(entry) for entry in row] for row in w]
+            for a in range(main, n):
+                for i in range(main):
+                    wblock[a][i], wblock[i][a] = {}, {}
+            block = alg.mm(t2, wblock, t1)
+            need(all(not block[a][i] and not block[i][a]
+                     for a in range(main, n) for i in range(main)),
+                 'joint-owner block decoupling')
+            need([row[main:] for row in block[main:]] ==
+                 [row[main:] for row in wblock[main:]], 'joint-owner scratch block')
+            for r in uset:
+                for c in cset:
+                    pure = alg.mul(bv[r], wblock[r][c], av[c])
+                    need(block[r][c] == pure and alg.project(pure, 0, 2) == pure,
+                         'joint-owner lower-grade untouched corner block')
+            # Algebraic consequence of Pi(main)=0: first remove W[U,C],
+            # then verify all remaining entries in these columns are pure.
+            wcorner = [[dict(entry) for entry in row] for row in wblock]
+            for r in uset:
+                for c in cset:
+                    wcorner[r][c] = {}
+            corner = alg.mm(t2, wcorner, t1)
+            for i in ubar:
+                for c in cset:
+                    pure = alg.mul(bv[i], wcorner[i][c], av[c])
+                    need(corner[i][c] == pure and alg.project(pure, 0, 2) == pure,
+                         'joint-owner remaining zero-column block after corner zero')
+            for i in range(main):
+                for c in cset:
+                    wcorner[i][c] = {}
+            zero = alg.mm(t2, wcorner, t1)
+            need(all(not zero[i][c] for i in range(n) for c in cset),
+                 'joint-owner whole untouched column block vanishes')
+            cases.append(dict(main_pairs=pairs, main_owners=main,
+                scratch_owners=scratch, first_destination_columns=cset,
+                second_source_rows=uset, independently_partitioned_stages=True,
+                dense_noncommuting_query_blocks=True,
+                exact_cross_entry_formulas=cross_checks,
+                untouched_corner_entries=pairs*pairs,
+                resulting_zero_columns=pairs))
+    return cases
+
+
 def generate():
     source_manifest = json.loads((HERE / 'SOURCES.json').read_text())
     for row in source_manifest['files']:
@@ -279,6 +391,8 @@ def generate():
     need(grade(a17) == grade(b17) == 8 and grade(a17.then(b17)) == 16
          and grade(full17) == 17, 'actual 17-axis threshold fixture')
 
+    joint_blocks = block_pair_fixtures(alg, aa, bb, q1, q2, monos)
+
     return dict(status='PASS_SCOPED_ALGEBRAIC_CORROBORATION',
         proof_sha256=sha256((HERE / 'PROOF.md').read_bytes()).hexdigest(),
         source_manifest_sha256=sha256((HERE / 'SOURCES.json').read_bytes()).hexdigest(),
@@ -289,6 +403,8 @@ def generate():
         intermediate_band=[1, 2], native_theorem_band=[1, 16],
         grade_bimodule_fixture_cases=bimodule_cases,
         all_orientation_scratch_cases=orientation_rows,
+        joint_main_block_cases=joint_blocks,
+        arbitrary_m_proved_in_written_argument=True,
         exact_cross_entry_formula_checks=scratch_cross_entries,
         noncommuting_queries=True, role_dependent_raw_factors=True,
         arbitrary_s_proved_in_written_argument=True,
@@ -315,6 +431,7 @@ def main():
         need(json.loads(path.read_text()) == result, 'RESULT.json differs from exact replay')
     print(json.dumps(dict(status=result['status'], read_only=not args.write,
         orientation_scratch_cases=len(result['all_orientation_scratch_cases']),
+        joint_main_block_cases=len(result['joint_main_block_cases']),
         cross_entry_formula_checks=result['exact_cross_entry_formula_checks'],
         new_kappa=False), sort_keys=True))
 

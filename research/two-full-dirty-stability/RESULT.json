@@ -164,6 +164,7 @@
     }
   ],
   "all_width_theorem_source": "PROOF.md plus inherited PR4920 tensor-separation lemma",
+  "arbitrary_m_proved_in_written_argument": true,
   "arbitrary_s_proved_in_written_argument": true,
   "exact_algebra": "sparse projective Clifford group algebra, central character f=1",
   "exact_cross_entry_formula_checks": 96,
@@ -175,6 +176,122 @@
     1,
     2
   ],
+  "joint_main_block_cases": [
+    {
+      "dense_noncommuting_query_blocks": true,
+      "exact_cross_entry_formulas": 0,
+      "first_destination_columns": [
+        0,
+        1
+      ],
+      "independently_partitioned_stages": true,
+      "main_owners": 4,
+      "main_pairs": 2,
+      "resulting_zero_columns": 2,
+      "scratch_owners": 0,
+      "second_source_rows": [
+        0,
+        2
+      ],
+      "untouched_corner_entries": 4
+    },
+    {
+      "dense_noncommuting_query_blocks": true,
+      "exact_cross_entry_formulas": 8,
+      "first_destination_columns": [
+        0,
+        1
+      ],
+      "independently_partitioned_stages": true,
+      "main_owners": 4,
+      "main_pairs": 2,
+      "resulting_zero_columns": 2,
+      "scratch_owners": 1,
+      "second_source_rows": [
+        0,
+        2
+      ],
+      "untouched_corner_entries": 4
+    },
+    {
+      "dense_noncommuting_query_blocks": true,
+      "exact_cross_entry_formulas": 16,
+      "first_destination_columns": [
+        0,
+        1
+      ],
+      "independently_partitioned_stages": true,
+      "main_owners": 4,
+      "main_pairs": 2,
+      "resulting_zero_columns": 2,
+      "scratch_owners": 2,
+      "second_source_rows": [
+        0,
+        2
+      ],
+      "untouched_corner_entries": 4
+    },
+    {
+      "dense_noncommuting_query_blocks": true,
+      "exact_cross_entry_formulas": 0,
+      "first_destination_columns": [
+        0,
+        1,
+        2
+      ],
+      "independently_partitioned_stages": true,
+      "main_owners": 6,
+      "main_pairs": 3,
+      "resulting_zero_columns": 3,
+      "scratch_owners": 0,
+      "second_source_rows": [
+        0,
+        2,
+        4
+      ],
+      "untouched_corner_entries": 9
+    },
+    {
+      "dense_noncommuting_query_blocks": true,
+      "exact_cross_entry_formulas": 12,
+      "first_destination_columns": [
+        0,
+        1,
+        2
+      ],
+      "independently_partitioned_stages": true,
+      "main_owners": 6,
+      "main_pairs": 3,
+      "resulting_zero_columns": 3,
+      "scratch_owners": 1,
+      "second_source_rows": [
+        0,
+        2,
+        4
+      ],
+      "untouched_corner_entries": 9
+    },
+    {
+      "dense_noncommuting_query_blocks": true,
+      "exact_cross_entry_formulas": 24,
+      "first_destination_columns": [
+        0,
+        1,
+        2
+      ],
+      "independently_partitioned_stages": true,
+      "main_owners": 6,
+      "main_pairs": 3,
+      "resulting_zero_columns": 3,
+      "scratch_owners": 2,
+      "second_source_rows": [
+        0,
+        2,
+        4
+      ],
+      "untouched_corner_entries": 9
+    }
+  ],
   "matrix_sum_cancellations_used": false,
   "native_theorem_band": [
     1,
@@ -183,7 +300,7 @@
   "new_kappa": false,
   "new_native_endpoint": false,
   "noncommuting_queries": true,
-  "proof_sha256": "99b3b4233891519fd741ea20cfe985c09bef576a94154e6b146db87f9b857200",
+  "proof_sha256": "5c9331d51246ec9f3c6aabcb11b25eb6e438a3db4aee15cb61a9d24f55bfdf2f",
   "role_dependent_raw_factors": true,
   "source_inputs": [
     {
@@ -197,7 +314,7 @@
       "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962"
     }
   ],
-  "source_manifest_sha256": "3af0a739c2335376b977f09e539574fcfcb4fda4702d8451e7c6b6fdb1f672aa",
+  "source_manifest_sha256": "ceda04f0fa0f092c6bb045671abb54f75377358cea1c87a95b5155e5b5992676",
   "status": "PASS_SCOPED_ALGEBRAIC_CORROBORATION",
   "transformed_scratch_boundary": {
     "cross_grade": 3,

@@ -2,7 +2,9 @@
 
 **Scoped written theorem with exact finite corroboration; no new kappa.**
 The full-monomial two-owner obstruction in [PR #4920](https://github.com/CrocSwap/integer-mult-bounds/pull/4920)
-survives arbitrary finite dirty identity workspace. This answers the explicit
+extends to arbitrarily many jointly routed main pairs and arbitrary finite
+dirty identity workspace. In particular it permits all 224 native main owners
+to mix across the 112 original ports. This answers the explicit
 [released stabilization question](https://github.com/CrocSwap/integer-mult-bounds/discussions/4902#discussioncomment-19144315).
 It does not improve a paid profile or supply a new multiplier.
 
@@ -10,15 +12,18 @@ Each of two actual ordered FULL main maps retains its rank-eight diagonal
 factors and one triangular query shear. Arbitrary invertible owner controls
 over the full monomial Clifford subgroup algebra may mix the main fields and
 the workspace, including central/fresh address mixing. Nevertheless the word
-cannot return two pure rank-seventeen main jobs and every independent dirty
-workspace input unchanged. All four shear orientation pairs are covered;
-diagonal factors and query letters need not commute.
+cannot return a pure rank-seventeen job on every main owner and return every
+independent dirty workspace input unchanged. The stages may use different
+pairings and orientations. The theorem even grants arbitrary noncommuting
+query matrices between each stage's two main halves; diagonal factors and
+query letters need not commute.
 
 The new step projects onto Fourier grades **1 through 16**, leaving both the
 rank-seventeen targets and the grade-zero workspace outside that band. The
 untouched row and column force every interstage main/workspace coupling to
 vanish. The restored workspace then occupies the full available low-grade
-rank, reducing the main block to #4920's zero-column contradiction.
+rank. A whole half-bank of interstage columns must then vanish, extending
+#4920's two-owner zero-column contradiction to joint routing of the full bank.
 [PROOF.md](PROOF.md) gives the all-width argument and its exact quantifiers.
 
 The theorem grants arbitrary complex scalar controls, even depending on
@@ -39,10 +44,12 @@ python3.12 -B scripts/research_package.py --package research/two-full-dirty-stab
 
 `VERIFY.json` registers normal and optimized scientific commands. Replay is
 read-only. The primary checker authenticates its inherited inputs and checks
-finite twisted-algebra fixtures; a separately implemented free-word checker
-corroborates the noncommutative block formulas for all four orientations and
-one, two and three scratch owners. Neither finite suite machine-checks the
-universal written proof. `INDEPENDENT-REVIEW.md` is a separate agent review,
+finite twisted-algebra fixtures, including six joint-bank cases. Two separately
+implemented free-word checkers corroborate the noncommutative block formulas,
+including 36 cases with one, two or three pairs, zero through two scratch
+owners, all four block orientations and dense query matrices. These finite
+suites do not machine-check the universal written proof.
+`INDEPENDENT-REVIEW.md` is a separate agent review,
 not independent human or proof-kernel acceptance.
 
 The native source/interface and tensor-faithfulness premises are inherited
@@ -68,7 +75,7 @@ and regular-module rank method. JoyboyBrian's released #4902 handoff states the
 stabilization gap. Credit Cinna Davis / 1337isnot1337, Cao Yifan / intqwq, zxv,
 Jacob Alan Sussman, Dugongue and the retained native/Clifford/compiler lineage.
 
-The new intermediate-grade decoupling and stability argument were prepared for
+The new intermediate-grade decoupling, stability and joint-bank argument were prepared for
 THU New Media Research Center / @thu-nmrc with substantial OpenAI Codex
 assistance, including separate algebra and review agents. Apache-2.0. No
 general literature-priority, scientific adoption or core-contributor status
