@@ -61,22 +61,34 @@
       }
     ]
   },
-  "scope_status": "unchanged",
-  "actual_scope": "What explicit uniform stock envelope does the actual selected stopped producer supply at one bootstrap stage?",
-  "scope_change_reason": null,
-  "bottleneck_link": "TODO: explain the causal connection or label this as a side result",
+  "scope_status": "refined",
+  "actual_scope": "At the current selected #4470 record, the one ordinary-BIT bootstrap stage (delayed-cover producer, N=2^25986965159937, atom 1/250, old ordinary leaves): a two-sided parent stock envelope D*N^2*w <= k_par <= D*(N^2*w+ceil(log_q B)), a depth classification of feasibility, and exact selected log2-width bands in which the source reserve W(w)^D*S_old is infeasible or fits.",
+  "scope_change_reason": "The card starting points concern the historical #1094 seven-stage chain; #4470 replaces it with one delayed-cover BIT conversion. #4612 already supplies the upper O(w log e) envelope with an illustrative threshold and lockstep-live-role-audit the outer constant C, so this package takes the uncovered matching lower side and the exact width domain of the selected stage, keeping the old-leaf factor S_old as an explicit hypothesis.",
+  "bottleneck_link": "Binds the selected stage stock coefficients (N^2 per digit-level, depth floor(log_N n)) and the width domain of the source sufficiently-large-e clause; it is an implementation-obligation audit with no kappa effect.",
   "budget_minutes": 150,
-  "stop_rule": "TODO",
-  "outcome": "in-progress",
-  "evidence": "TODO",
+  "stop_rule": "Finish the two-sided envelope, the depth classification and exact selected bands with finite checks and controls; stop before deriving S_old numerically, changing source text, or any supplier, caller or frontier work.",
+  "outcome": "completed",
+  "evidence": "PROOF.md; verify.py (source binding, 432000 exhaustive small-rank instances, selected-rank exact witnesses, 869 reduced-rank big-integer oracle widths, 7 rejection controls); RESULT.json receipt.",
   "author": "JoyboyBrian",
-  "ai_assistance": "TODO: disclose tools used",
+  "ai_assistance": "Substantial assistance from Anthropic Claude (Claude Code, Opus 5.5)",
   "open_questions": [
     {
-      "question": "TODO",
-      "why_it_matters": "TODO",
-      "first_step": "TODO",
-      "blocked_by": "TODO"
+      "question": "What numerical old-leaf reserve S_old does the retained completed-leaf contract supply at the selected BIT stage; is S_old=1 admissible?",
+      "why_it_matters": "It is the last non-numerical factor of the selected stage stock and replaces the log2 A_old<=64 assumption in lockstep-live-role-audit.",
+      "first_step": "Trace which old-supplier calls (weighted leaves, peeled atoms, cover routes) run while parent rows are borrowed, and test the PR185 no-external-stock wording against them.",
+      "blocked_by": "The old supplier reserve formula is outside the pinned #4470 notes."
+    },
+    {
+      "question": "Should the selected source state the BIT stage domain log2 e >= 52182660963735 instead of sufficiently large e?",
+      "why_it_matters": "Every single-cover-level width is infeasible; the stage must call the retained supplier directly over a 2.6e13-bit band.",
+      "first_step": "Maintainer decides whether to record the threshold next to the #4470 review.",
+      "blocked_by": "Maintainer decision; pinned sources are not edited here."
+    },
+    {
+      "question": "Where exactly in the six-bit window does the selected prescription first fit?",
+      "why_it_matters": "Turns a sufficient/obstruction pair into an exact threshold.",
+      "first_step": "Fix B from the compiler realization and recompute Lemma 2(c) with exact chart digits.",
+      "blocked_by": "Numerical B and S_old."
     }
   ]
 }

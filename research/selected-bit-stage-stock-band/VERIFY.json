@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "draft",
+  "status": "ready",
   "python": "3.12",
   "requirements": [],
   "inputs": [
@@ -16,11 +16,27 @@
     {
       "argv": [
         "{python}",
+        "-I",
+        "-W",
+        "error",
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 120,
-      "checks": "TODO: identity, positive fixture and failure controls"
+      "timeout_seconds": 60,
+      "checks": "Source hashes and sentences, exhaustive small-rank lemmas, selected-rank exact witnesses, reduced-rank big-integer oracle, seven rejection controls and exact receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Same acceptance with optimization enabled (no assert-based checks)."
     }
   ]
 }
