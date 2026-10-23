@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Admitted original-root binary Count through the actual pre-payload NODE."""
+"""Admitted original-root binary Count through the actual initial Count consumers."""
 import argparse,hashlib,importlib.util,json,shutil,sys,time
 from dataclasses import replace
 from pathlib import Path
@@ -90,11 +90,13 @@ def run(diagnostic=False):
             phase('actual root Count encoded')
             before=dict(record=record_actions(),index=actions(ia.meter),residue=actions(ra.meter))
             old_inspect=words.Word.inspect;words.Word.inspect=lambda _:(_ for _ in()).throw(ValueError('runtime numerical decoding forbidden'))
-            try:node_prefix(runtime)
+            try:local_fibre=node_prefix(runtime)
             finally:words.Word.inspect=old_inspect
-            phase('literal ingress quotient stock and Count consumers finished')
-            observed={name:value(runtime.count(name))for name in('unused','leading','fibre')}
-            need(observed==dict(unused=9475,leading=9475,fibre=9475*(q**domain.w)**(2*domain.n)),'independent actual downstream Count values')
+            phase('literal ingress quotient stock and leading/fibre product finished')
+            observed={name:value(runtime.count(name))for name in('unused','leading')}
+            observed['pre_expansion_fibre']=value(local_fibre)
+            local_fibre.close()  # Explicit disposal of the adapter-returned original local Count.
+            need(observed==dict(unused=9475,leading=9475,pre_expansion_fibre=9475),'independent actual downstream Count values')
             need(live==(set(ia.live),set(ra.live)),'NODE prefix numerical ownership restored')
             need(all((bytes(t.cells),t.head)==(raw,head)for t,raw,head in borrowed),'borrowed root/Count metadata preserved')
             need((bytes(dirty_word.cells),dirty_word.head)==dirty_saved,'unrelated dirty residue word preserved')
@@ -110,10 +112,11 @@ def run(diagnostic=False):
         result,entry=check_entry(callback=continuation);need(calls==['actual encoded continuation'],'one actual admitted continuation')
         records.Tape.__init__=old_init
         phase('complete disposal')
-        return dict(status='PASS_R437_ADMITTED_COUNT_CONSUMER',live_inputs=inputs,root_entry=entry,node_boundary=boundary,
-            input_rows=integer(rows),batch_constant=integer(constant),construction=batch.compile_quotient(q,64)[0].construction,
+        return dict(status='PASS_R437_ADMITTED_INITIAL_COUNT_CONSUMER',live_inputs=inputs,root_entry=entry,node_boundary=boundary,
+            input_rows=integer(rows),batch_constant=integer(constant),construction=quotient.construction,
             encoded_result=result,controls=controls,full_directory_context_constructed=False,production_payload_executed=False,
-            scope='Original admitted root to actual encoded pre-payload NODE ingress/quotient/stock/leading/fibre consumers; physical big-int tariff and payload remain open.')
+            remaining_original_expansion=dict(word_divisions=2*domain.n*domain.w,count_multiply_small=2*domain.n*domain.w,final_fibre_bits=(9475*(q**domain.w)**(2*domain.n)).bit_length()),
+            scope='Original admitted root to literal NODE ingress/quotient/stock/saved leading/initial fibre product; original fibre expansion, full Context, physical big-int tariff and payload remain open.')
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--write',action='store_true');p.add_argument('--diagnostic',action='store_true');a=p.parse_args();result=run(a.diagnostic)

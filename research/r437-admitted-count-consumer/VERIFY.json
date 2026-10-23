@@ -416,8 +416,8 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 240,
-      "checks": "Actual q127 admitted entry, original NODE prefix, binary Count consumer outputs, dirty restoration and rejection controls."
+      "timeout_seconds": 120,
+      "checks": "Actual q127 admitted root, initial literal NODE Count consumers, dirty restoration and rejection controls; excludes original fibre expansion."
     },
     {
       "argv": [
@@ -427,8 +427,8 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 240,
-      "checks": "Actual q127 admitted entry, original NODE prefix, binary Count consumer outputs, dirty restoration and rejection controls."
+      "timeout_seconds": 120,
+      "checks": "Actual q127 admitted root, initial literal NODE Count consumers, dirty restoration and rejection controls; excludes original fibre expansion."
     }
   ]
 }
