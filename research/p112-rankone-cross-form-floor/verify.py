@@ -109,6 +109,12 @@ def run():
     # All independent exceptional indices, including unequal ones: transfer zero.
     for r,t,a,b in itertools.product(rs,ss,rs,ss):
         need(bit(t,r) ^ (bit(r,b)&bit(t,a)) == 0,'mixed transfer')
+    old=json.loads((ROOT/'research/p112-cross-form-rank-tradeoff/RESULT.json').read_text())['form_fixtures']['undecided_control']
+    need(old['ranks']==[1,1] and old['support_minima']==[0,0], 'actual predecessor unresolved fixture')
+    old_rows=[33,0,0,0,0,0,0,33,0]
+    need(old['beta01_rows']==old['beta10_rows']==old_rows, 'original fixture rows')
+    need(rs[0]==129 and ss[0]==33, 'original fixture mixed orientation')
+    need(price((129,33),(129,33),[U[1],U[2]],[V[3],V[4]])==16, 'original fixture double rank16')
     B,C=(7,33),(9,289)
     need(B[0] not in rs and C[0] not in rs and B[1]==ss[0] and C[1]==ss[1],'genuine both-right residual fixture')
     # Source full must rule out price15; mixed-reader/full-source must rule out8.
@@ -151,6 +157,7 @@ def run():
     need(exceptions==[[15,1,0]],'only relaxed equality case')
     return {'status':'PASS','scope':'finite source premises and discriminators; universal result is PROOF.md',
             'reader_exceptions':rs,'source_exceptions':ss,'directed_forms':{'beta01':[33,33,33,0,0,0,0,0,0],'beta10':[289,0,0,289,0,0,0,0,0]},
+            'predecessor_fixture':'rank1/minima0 but mixed exceptional orientation; double floor16',
             'exact_decoder_prices':bill,'exact_decoder_cost':129,'separate_attainer_cost':128,'count_exception':exceptions,
             'controls':['full-source double rank','full-source mixed-reader rank','unequal exceptional indices','transpose','nonunit rational scaling','missing endpoint term','wrong free column','relaxed127 bill']}
 

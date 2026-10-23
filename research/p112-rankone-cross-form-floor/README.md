@@ -14,6 +14,9 @@ dual bases force a nonzero cross coefficient that cannot cancel.
 Distinct exceptional indices and arbitrary complex scalings are allowed.
 There is no restriction that the directed forms be transposes.
 
+The predecessor's original inconclusive fixture is explicitly replayed and
+is now settled by the mixed-orientation branch.
+
 The [finite receipt](RESULT.json) independently rechecks the original112-root
 support census and binary pairings, plus actual rigidity controls. A directed
 fixture with genuinely price15 double has an exact non-coordinate decoder of
@@ -32,7 +35,7 @@ python3.12 scripts/research_package.py --package research/p112-rankone-cross-for
 Direct normal and optimized verification also work from an official Git-free
 package export. The verifier resolves the two pinned inputs relative to the
 export root and checks their SHA256 bytes. Both commands take about half a
-second locally. The input manifest binds the actual geometry and predecessor
+second locally. The input manifest binds the actual geometry, predecessor result and
 proof; task-card provenance is historical. Selected-result bytes are unchanged.
 
 ## Scope and attribution

@@ -5,7 +5,8 @@
   "requirements": [],
   "inputs": [
     "research/p112-cross-form-rank-tradeoff/PROOF.md",
-    "research/p112-single-lift/reference-geometry.json"
+    "research/p112-single-lift/reference-geometry.json",
+    "research/p112-cross-form-rank-tradeoff/RESULT.json"
   ],
   "commands": [
     {
