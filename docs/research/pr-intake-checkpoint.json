@@ -1011,19 +1011,19 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "ab1c709b06a28d9b63a4195a09b755e0656dfb0c",
-    "decisions": 20,
-    "merged": 20,
-    "archive_count": 19,
-    "reviewed_tooling_count": 1,
+    "commit": "25594d6fb1cc7e01b684129214189e470abce904",
+    "decisions": 10,
+    "merged": 10,
+    "archive_count": 10,
+    "reviewed_tooling_count": 0,
     "new_revision_holds": [],
+    "selected_frontier_changed": false,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct22h-20261022.json",
-      "docs/research/pr-intake-evidence/queue-oct22h-closures.json",
-      "docs/research/pr-intake-evidence/queue-oct22i-20261022.json",
-      "docs/research/pr-intake-evidence/queue-oct22i-closures.json"
-    ],
-    "selected_frontier_changed": false
+      "docs/research/pr-intake-evidence/queue-oct23b-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23c-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23b-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23c-closures.json"
+    ]
   },
   "reported_followups": [
     {
@@ -1141,15 +1141,15 @@
     }
   ],
   "latest_queue": {
-    "observed_at": "2026-10-23T05:35:54.019211+00:00",
-    "base": "9f789e8a33aef8aa224dbc77a78c69f5fd6d4618",
-    "open_count": 299,
+    "base": "25594d6fb1cc7e01b684129214189e470abce904",
+    "open_count": 300,
     "actionable_count": 0,
     "counts": {
-      "draft": 174,
+      "draft": 175,
       "waiting_revision": 118,
       "deferred_replay": 7
-    }
+    },
+    "observed_at": "2026-10-23T06:07:25.559041+00:00"
   },
   "bulk_intake_20261020_completed": {
     "decisions": 586,
@@ -1339,5 +1339,23 @@
       "docs/research/pr-intake-evidence/queue-oct23a-closures.json",
       "docs/research/pr-intake-evidence/queue-oct23a-final-snapshot.json"
     ]
+  },
+  "bulk_intake_20261023_third_pass": {
+    "commit": "25594d6fb1cc7e01b684129214189e470abce904",
+    "decisions": 10,
+    "merged": 10,
+    "archive_count": 10,
+    "reviewed_tooling_count": 0,
+    "new_revision_holds": [],
+    "selected_frontier_changed": false,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23b-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23c-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23b-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23c-closures.json"
+    ],
+    "actionable_remaining": 0,
+    "scientific_replays": 0,
+    "checks": "Git inventories, AST/JSON syntax, available source pins, ledger Markdown and per-decision invariants. Full historical reconciliation was not completed because its historical audit is absent from this sparse checkout."
   }
 }
