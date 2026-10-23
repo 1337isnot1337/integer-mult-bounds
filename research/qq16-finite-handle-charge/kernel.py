@@ -115,6 +115,7 @@ def validate(snapshot, size, width=None):
     total += sum(len(snapshot[k]) for k in ('external','auxiliary','storage','acquired'))+1
     need(total <= size, 'bounded source graph contract')
     store=Store(size,width)
+    store.tick(32*total)  # complete finite input/shape/range bookkeeping
     current=[walk(store,g) for g in snapshot['graphs']]
     lists=[*current,*snapshot['saved'],snapshot['external'],snapshot['auxiliary'],
            snapshot['storage'],snapshot['acquired']]
@@ -136,7 +137,9 @@ def validate(snapshot, size, width=None):
         clear();insert(left,True)
         at,n=store.allocate(right)
         for i in range(n):
-            store.tick(6);need(store.read(marks+store.read(at+i))==1,'complete engine membership')
+            store.tick(6); x=store.read(at+i)
+            need(store.read(marks+x)==1,'complete engine membership')
+            store.write(marks+x,0)
     for i in range(2):same(snapshot['saved'][i],current[i])
     combined=snapshot['saved'][0]+snapshot['saved'][1]
     clear();insert(combined,True)
