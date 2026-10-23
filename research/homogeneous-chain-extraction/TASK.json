@@ -70,13 +70,13 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Exact two-call capacity 2 floor((n-1)/2) of homogeneous query chains, with attaining odd/even circuits, restored-workspace upper bound in the scalar/global-P ring, and a complete conditional acquisition allowance.",
-  "scope_change_reason": "Replace the installed QQ16 demand with the conditional PR4698 chain interface; extend its proved three-field module before any physical synthesis. Native heterogeneity and helper contamination remain explicit. A bounded four-field middle-boundary test produced a weighted cyclic construction, extended algebraically to all even lengths in the same module; this closes the initially open even attaining case.",
+  "actual_scope": "Exact two-call capacity 2 floor((n-1)/2) of homogeneous query chains, with attaining odd/even circuits, restored-workspace upper bound in the scalar/global-P ring, and a complete conditional acquisition allowance. Source-bound complete optimistic all-C rejection of the known native repeated-H9-owner policy, even granting a third H17 output.",
+  "scope_change_reason": "Replace the installed QQ16 demand with the conditional PR4698 chain interface; extend its proved three-field module before any physical synthesis. Native heterogeneity and helper contamination remain explicit. A bounded four-field middle-boundary test produced a weighted cyclic construction, extended algebraically to all even lengths in the same module; this closes the initially open even attaining case. The next physical read/derive gate found the repeated-helper policy loses even at hypothetical full prefix capacity; an exact source-receipt-bound ledger is retained without constructing that capacity.",
   "bottleneck_link": "A cheap homogeneous offer could turn two paid calls into n-1 main queries, but direct unary acquisition loses. The exact E<(n-1)/2 allowance identifies the missing physical producer.",
   "budget_minutes": 60,
-  "stop_rule": "Complete the all-length proof and bounded replay; stop direct unary synthesis. Do not begin native expansion without a named complete positive provider invoice.",
+  "stop_rule": "Complete the all-length proof and bounded replay; stop direct unary synthesis. Do not begin native expansion without a named complete positive provider invoice. Do not expand repeated-H9-helper prefix capacity: even an extra free H17 third output misses the complete moment by at least16.",
   "outcome": "partial",
-  "evidence": "PROOF.md; deterministic RESULT.json with exact all-input lengths 2..32 and both parity circuits; registered verifier; no native provider or new kappa.",
+  "evidence": "PROOF.md; deterministic RESULT.json with exact all-input lengths 2..32 and both parity circuits; registered verifier; no native provider or new kappa. NATIVE-REUSE section: exact concave cuts prove margins128 and16 for the two hypothetical all112-port reuse policies.",
   "author": "Cinna Davis with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance for algebra, implementation, proof review and publication; no delegated agents or independent human review.",
   "open_questions": [

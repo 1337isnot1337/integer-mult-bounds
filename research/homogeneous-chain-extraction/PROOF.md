@@ -205,3 +205,88 @@ At b=0 and t>0 the same expression is exact.
 Thus direct acquisition of each chain edge loses for every useful saving.
 Already-paid native observations or a changed joint provider would be needed.
 Their physical acquisition and restoration costs are **unknown** here.
+
+## Source-bound gate: repeating the native H9 helper loses even optimistically
+
+The actual one-port tall offer in Chris R / Clear1nsight's
+`research/one-terminal-h3-prefix/homogeneous/REPORT.md` has three original owners
+and a dependent copied prefix. Its third owner is the original H9 helper.
+Two native calls normally have different original helper owners. Reusing that
+owner through both calls changes the productive inventory; two H9 rewards
+cannot be retained for one owner.
+
+We now grant **more than has been constructed**: full112-port prefix capacity,
+exact homogeneous charts, free boundaries/precision/cleanup, and no added split
+cost. This is a budget relaxation, not a physical capacity or endpoint claim.
+Assume both calls retain the source paid profile P and all other original
+helper jobs. There are224 main owners and112 reused H9-helper owners in a
+17-axis embedding. The bare three-chain consumer supplies224 H17+112 H16.
+For a still more favorable test, grant even the third owner a free H17 output,
+whether or not the retained dependent observations can construct it.
+
+The pinned native receipt (source20bb93cd990d2ff683e4d0fc56b87a42cd5d3296,
+actual compressed word SHA2567679daa4ec6a40f56fc7f0202379a6f454310e94945aba4f48beaaaafb838d05)
+reports
+
+    P = {1:2201,2:412,3:510,4:127,5:40,8:8},
+    H = {4:28,7:7,8:47,9:326}.
+
+The receipt is authenticated byte-for-byte as an explicit replay input. This
+uses its reported native census; it is **not** a fresh native operator replay.
+The two-call paid profile has rank mass10654. Removing the two old H9 copies
+per reused owner gives the remaining helper targets2(H-112 H9). Thus
+
+    T_bare = 224 H17 + 112 H16 + 2(H-112 H9), rank mass10526,
+    T_bonus = 336 H17          + 2(H-112 H9), rank mass10638.
+
+Every owned prefix remains dependent and receives zero additional reward.
+The other original helpers are granted their full unchanged rewards.
+The actual positive split cost is also granted zero; adding it can only hurt.
+
+Here is an exact certificate for all real0<t<=1, without floating roots.
+For a profile V define K_V(z)=sum_r V_r min(r,z). For the bare case check
+
+    K_(2P)(z)-K_T_bare(z)-128 min(1,z) >= 0,
+
+and for the bonus case check
+
+    K_(2P)(z)-K_T_bonus(z)-16 min(1,z) >= 0.
+
+The respective exact residuals at all positive breakpoints are
+
+| z | Bare residual | Bonus residual |
+|---:|---:|---:|
+| 1 | 5540 | 5652 |
+| 2 | 6806 | 6918 |
+| 3 | 7248 | 7360 |
+| 4 | 6670 | 6782 |
+| 5 | 5894 | 6006 |
+| 7 | 4182 | 4294 |
+| 8 | 3340 | 3452 |
+| 9 | 2576 | 2688 |
+| 16 | 224 | 336 |
+| 17 | 0 | 0 |
+
+The bonus case is affine between9 and17, so16 is an optional additional
+point rather than a required knot. Both differences vanish at0 and are
+constant0 beyond17. Nonnegativity everywhere follows by piecewise affinity.
+For any increasing concave phi with phi(0)=0 on[0,17], write phi(x) as a
+nonnegative linear combination/integral of x and min(x,z). This follows
+from its decreasing nonnegative derivative, or from the corresponding
+piecewise-linear approximation. The cut inequalities therefore imply
+
+    sum_r (2P)_r r^t - sum_r (T_bare)_r r^t >= 128,
+    sum_r (2P)_r r^t - sum_r (T_bonus)_r r^t >= 16,
+
+using phi(x)=x^t and phi(1)=1. Both inequalities extend to t=0 by the
+right-hand limit, since all listed ranks are positive. Thus the entire
+saving range0<=C<1 loses even before any completion or outer charges.
+
+This stops **the stated full-capacity repeated-H9-owner policy**. It does not
+exclude a caller retaining both distinct helper jobs, a changed joint provider
+or productive census, additional independent owners, a different stage/axis
+count, broader physical address routing, or non-Gaussian recursive job types.
+It does not assert the hypothetical capacity112 exists. Building that capacity
+solely to feed this losing reuse policy is not justified. The actual remaining
+construction question is a complete positive distinct-owner or changed-provider
+caller, rather than another unpriced expansion of the same helper alias.

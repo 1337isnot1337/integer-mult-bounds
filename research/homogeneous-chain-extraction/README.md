@@ -55,9 +55,30 @@ expansion is warranted until a named changed provider has a complete favorable
 budget. The retained-center source has heterogeneous charts and incoming helper
 noise, as recorded in [Discussion4840](https://github.com/CrocSwap/integer-mult-bounds/discussions/4840).
 No native homogeneous offer is obtained from its scalar Jordan chains.
+The newer one-port H3 prefix supplies a distinct physical three-chain offer;
+its repeated-helper consumer is priced separately below.
 Acquisition, actual chart maps, dirty restoration and independent helper targets
 are unknown for the proposed longer chain. Physical movement/precision,
-completion, compiler, BIT and outer recovery remain unrun and unpriced.
+completion, compiler, BIT and outer recovery remain unrun and unpriced
+for a profitable distinct-owner or changed-provider caller.
+
+## A native repeated-helper policy is already too expensive
+
+The source-bound physical H3 prefix in Chris R / Clear1nsight's
+`one-terminal-h3-prefix` package uses an original H9 helper as the third
+chain owner. Repeating that owner across two calls replaces two independent
+H9 jobs; it does not retain both rewards. Granting112 prefixes, all chart and
+finite costs free, and the exact three-chain output still gives a moment
+loss of at least128. Even granting a free H17 third output at every port
+instead of H16 leaves a loss of at least16 for every0<=C<1.
+
+[PROOF.md](PROOF.md) gives the complete source profiles and exact
+piecewise-linear concave-moment certificate. The verifier authenticates the
+3772-byte native paid/helper receipt and checks both certificates plus three
+budget mutations. This is a fresh exact arithmetic gate using a pinned
+reported native census, not a fresh native replay or a112-prefix construction.
+**Stop this repeated-H9-owner expansion.** Retaining both distinct helper
+jobs or changing the provider/census is still a different open contract.
 
 ## Reproduce
 
@@ -89,12 +110,14 @@ claim, and explicit expansion gate. Upstream and frozen predecessors are unchang
 
 ## Credit and scope
 
-Cinna Davis / 1337isnot1337 supplies PR4694's coupled retained-center extension,
+Chris R / Clear1nsight supplies the actual H3-prefix offer and its phase-bound
+normalizers. Its frozen native source receipt is reused explicitly for the
+new all-C budget gate. Cinna Davis / 1337isnot1337 supplies PR4694's coupled retained-center extension,
 PR4698's helper normalization and conditional three-chain consumer, and the
 PR4440/4470 controller lineage. Retain Cao Yifan / intqwq, zxv, Jacob Alan
 Sussman, Ryanson Jonathan and all cited native/compiler/precision predecessors.
 Their actual native construction is not replayed or modified here. The new
 contribution is the all-length proof/circuits, restricted workspace bound,
-and explicit acquisition allowance. Prepared for Cinna Davis with substantial
+explicit acquisition allowance, and the source-bound repeated-helper budget gate. Prepared for Cinna Davis with substantial
 OpenAI Codex assistance. Apache-2.0. No independent human or proof-kernel
 acceptance is claimed.
