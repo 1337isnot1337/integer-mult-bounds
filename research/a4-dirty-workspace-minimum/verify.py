@@ -208,13 +208,19 @@ def controls() -> int:
         except ValueError:
             rejected += 1
     table, a, _ = group()
+    identity = next(i for i in range(12) if table[i] == list(range(12)))
+    expected = ((1 << a) ^ (1 << identity), 0, 0, 0, 1 << identity)
+    require(
+        apply_word([(1, 17, a)], 5, 48 + identity, table) == expected,
+        "dirty input must contribute to target",
+    )
     for word in ([(1, 2, a)], [(16, 16, a)], [(1, 1, 12)]):
         try:
             apply_word(word, 5, 0, table)
         except ValueError:
             rejected += 1
     require(rejected == 7, "boundary rejection missing")
-    return rejected + 1
+    return rejected + 2
 
 
 def main() -> None:

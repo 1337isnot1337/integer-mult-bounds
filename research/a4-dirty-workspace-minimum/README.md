@@ -75,7 +75,9 @@ and their upper-left blocks equal the products of the restricted factors.
 Dirty inputs may feed target outputs; no clean-input assumption is made.
 The direct eight-call upper bound checks a further 264 basis columns at
 role counts 4..7. Seven malformed field/coupling inputs reject, and the
-rank-slack counterexample passes as a boundary control. Field arithmetic
+rank-slack counterexample passes as a boundary control. A separate positive
+fixture requires an extra dirty input to contribute to a target output.
+Field arithmetic
 also checks the defining polynomial, associativity and distributivity.
 
 Each run generates a receipt binding all six package files by SHA256 and
