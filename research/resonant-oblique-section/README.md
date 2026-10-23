@@ -35,7 +35,11 @@ python3.12 -B scripts/research_package.py --package research/resonant-oblique-se
 python3.12 -B scripts/check_research_commit.py --package research/resonant-oblique-section --check-source-history
 ```
 
-Direct normal and optimized replay use `verify.py` in this package. Explicit
+Direct normal and optimized replay use `verify.py` and
+`independent_tensor.py` in this package. The latter uses a separate packed
+column-action engine: all 64 width-two columns, a non-Hermitian projection
+witness, literal odd-width cancellation and a 4,096-coordinate width-four
+Gaussian-integer dirty input. It rejects loss of actual central quarter phases. Explicit
 checks reject a changed section coefficient, a wrong denominator, loss of the
 central quarter phase and an inadmissible cubic phase. These are deterministic
 exact checks with no solver, network, dependency, Lean or Docker requirement.

@@ -6,7 +6,8 @@
     "changed_section_coefficient",
     "changed_denominator",
     "retain_quarter_phase",
-    "reject_nonfree_cubic_phase"
+    "reject_nonfree_cubic_phase",
+    "reject_boolean_address"
   ],
   "decoder_common_denominator": 2048,
   "decoder_norm_upper_bound": "113/32",

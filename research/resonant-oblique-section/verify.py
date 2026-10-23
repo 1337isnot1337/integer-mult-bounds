@@ -146,7 +146,8 @@ def reject(call, label):
 def verify():
     records, a, channel = load_channel()
     recipe = json.loads((HERE / 'SECTION.json').read_text())
-    need((tuple(recipe['anchor']['permutation']), tuple(recipe['anchor']['phase_i'])) == a, 'source anchor')
+    anchor = tuple(recipe['anchor']['permutation']), tuple(recipe['anchor']['phase_i'])
+    need(free_word(anchor) and anchor == a, 'source anchor')
     section, denominator = expand_section(channel, recipe)
     dc = check_identity(channel, section, denominator)
     need(len(section) == 1920 and len(dc) == 5408, 'section/projector support')
@@ -165,6 +166,8 @@ def verify():
     controls.append('retain_quarter_phase')
     need(not free_word((tuple(range(8)), (0, 0, 0, 0, 0, 0, 0, 1))), 'cubic phase rejection')
     controls.append('reject_nonfree_cubic_phase')
+    need(not free_word(((False, 1, 2, 3, 4, 5, 6, 7), (0,) * 8)), 'typed address rejection')
+    controls.append('reject_boolean_address')
     return {'status': 'PASS_RESONANT_OBLIQUE_SECTION', 'source_sha256': PIN,
             'actual_target_terms': len(records), 'even_target_terms': len(channel),
             'left_signed_stabilizer': 32, 'right_signed_stabilizer': 16,
@@ -186,7 +189,7 @@ def main():
     if args.write:
         path.write_text(json.dumps(result, indent=2, sort_keys=True) + '\n')
     else:
-        need(json.loads(path.read_text()) == result, 'receipt mismatch')
+        need(json.dumps(json.loads(path.read_text()), sort_keys=True) == json.dumps(result, sort_keys=True), 'typed receipt mismatch')
     print(result['status'])
 
 

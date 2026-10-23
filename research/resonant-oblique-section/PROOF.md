@@ -85,6 +85,17 @@ Each g_f is unitary, proving the uniform bound. Finally E^2=B(ABA)=BA=E.
 If A x=0 then E x=0; if E x=0 then A x=A E x=0. These implications give
 the kernel equality and exact information equivalence without a rank formula.
 
+## Independent literal checks
+
+independent_tensor.py uses packed column actions, independently reconstructs
+the signed stabilizers and recipe, and applies the resulting actual words
+without a sign quotient when evaluating tensors. It checks every one of the
+64 width-two input columns of ABA=A and E^2=E, and a non-Hermitian entry of E.
+It verifies literal cancellation at odd widths one and three. A dense dirty
+Gaussian-integer input of length 4,096 checks the actual width-four ABA identity.
+These are independent implementation checks, not the universal proof: the
+full finite-algebra identity above is the reason the result holds at all widths.
+
 ## Arithmetic and complete obligation ledger
 
 For N=8^f components the displayed decoder uses 1,920 monomial applications

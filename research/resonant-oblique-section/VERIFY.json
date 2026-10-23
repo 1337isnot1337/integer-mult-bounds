@@ -27,6 +27,27 @@
       ],
       "timeout_seconds": 60,
       "checks": "Same exact identity with assertions disabled"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/independent_tensor.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent actual tensor columns, oblique witness, absolute phases and dirty width-four section"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent_tensor.py"
+      ],
+      "timeout_seconds": 90,
+      "checks": "Independent actual tensor columns, oblique witness, absolute phases and dirty width-four section optimized"
     }
   ]
 }

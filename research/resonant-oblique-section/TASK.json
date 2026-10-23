@@ -52,7 +52,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop at one fully checked all-width section ABA=A or a precise obstruction. No additional tensor-rank census or downstream optimization campaign. Reserve the final quarter for independent review and committed cold replay.",
   "outcome": "completed",
-  "evidence": "PROOF.md and verify.py reconstruct the signed-stabilizer recipe and certify the full integer convolution identity. The emitted 1920-term decoder is dyadic and uniformly bounded by113/32. Source and mathematical failure controls are explicit.",
+  "evidence": "PROOF.md and verify.py reconstruct the signed-stabilizer recipe and certify the full integer convolution identity. The emitted 1920-term decoder is dyadic and uniformly bounded by113/32. Source and mathematical failure controls are explicit. A separate packed monomial engine checks all64 literalwidth2 columns, nonHermitian output, actualwidth4 dirty inputs, oddwidth cancellation and centralphase loss. Typed address and receipt boundaries reject bool/int conflation.",
   "author": "JoyboyBrian",
   "ai_assistance": "Substantial OpenAI Codex assistance for exact algebra, implementation, proof and source review. No independent human or proof-assistant acceptance claimed.",
   "open_questions": [
