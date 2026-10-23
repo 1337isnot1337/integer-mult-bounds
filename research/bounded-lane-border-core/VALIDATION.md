@@ -27,7 +27,8 @@ The registered commands are read-only; no receipt or input regeneration is
 part of normal replay.
 
 - Source integrity and a new count-only recount: 42,898 records, 6,596 paid
-  sites, all split ranks, 408 helper frame-rank increments per orientation.
+  sites across both orientations, all split ranks, and the canonical 408-role
+  helper frame-rank-increment census, doubled in the two-full invoice.
   This authenticates the invoice input, not native operator semantics.
 - Primary core: 12 exact algebra cases including noncommuting payloads,
   88 full-domain and 72 reduced-domain physical-input columns, both inverse
