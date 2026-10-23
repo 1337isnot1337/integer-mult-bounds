@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "draft",
+  "status": "ready",
   "python": "3.12",
   "requirements": [],
   "inputs": [
@@ -39,7 +39,17 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "TODO: identity, positive fixture and failure controls"
+      "checks": "01021323 budgets; faulty PR2542 engine bytes against an independent oracle on the complete n=4, L=8 simple domain (6 of 22 universal words falsely pruned, weight-parity rule prunes none); 26 pinned inventory files with quoted evidence and role invariants; 7 rejection controls"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Same checks under -O; the verifier uses explicit checks rather than assert"
     }
   ]
 }
