@@ -145,7 +145,7 @@ The full generic q3,w2,d2 cube tests81 high matrices for each of three physical
 old prefixes, the first and last byte-identical. All243 emitted prefixes match
 both original produce and an independent row-major serializer. The complete
 19683-bit dirty source/target result matches original eager execution and an
-independent permutation/XOR oracle, with1458 real callbacks per arm and Word.inspect
+independent permutation/XOR oracle, with 1458 real callbacks per arm and Word.inspect
 forbidden. A second actual64 calibration uses nonzero high charts and the real
 source-owned incoming coefficient/program and following SOURCE87 XOR statement.
 Those are bounded differential certificates supporting the uniform scoped proof.
