@@ -79759,7 +79759,7 @@
       "reviewed_head": "f2d83999edccdad625ea686ff3f0d03b7d208965",
       "current_head": "f2d83999edccdad625ea686ff3f0d03b7d208965",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/homogeneous-chain-extraction"
       ],
@@ -79769,12 +79769,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23k-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5137",
+        "merge_commit": "fe3f9b100d9fe5b72ca34a8d3d535b34788d5db4"
+      }
     },
     {
       "number": 5138,
@@ -79794,7 +79798,7 @@
       "reviewed_head": "6779a28938a9af1ba3d32e18ba8feb8d7cc002f8",
       "current_head": "6779a28938a9af1ba3d32e18ba8feb8d7cc002f8",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/a5-affine-address-minimum"
       ],
@@ -79804,12 +79808,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23k-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5138",
+        "merge_commit": "fe3f9b100d9fe5b72ca34a8d3d535b34788d5db4"
+      }
     }
   ]
 }

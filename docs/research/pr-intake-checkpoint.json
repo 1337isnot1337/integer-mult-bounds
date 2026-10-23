@@ -1485,5 +1485,47 @@
       "actionable_count": 0,
       "observed_at": "2026-10-23T09:41:52.361567+00:00"
     }
+  },
+  "bulk_intake_20261023_seventh_pass": {
+    "commits": [
+      "4172bc5de406d30a527d0341276c0a2602ae9ffb",
+      "fe3f9b100d9fe5b72ca34a8d3d535b34788d5db4"
+    ],
+    "decisions": 19,
+    "merged": 19,
+    "archive_count": 17,
+    "reviewed_tooling": [
+      5123,
+      5129
+    ],
+    "new_revision_holds": [],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "supplier_outer_replays": 0,
+    "local_tests": {
+      "normal_cases": 70,
+      "normal_platform_skips": 8,
+      "optimized_cases": 70,
+      "optimized_platform_skips": 8
+    },
+    "notes": "No Lean, Docker, scientific replay or hosted workflow dispatched. PR5123 restores targeted fixture closure without changing frozen pins; PR5129 rejects ambient PYTHONINSPECT false acceptance. Historical live-input drift remains unresolved and native Windows unrun. Research archives remain partially reviewed.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23j-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23j-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23k-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23k-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23j-tooling-tests.json",
+      "docs/research/pr-intake-evidence/queue-oct23jk-final-snapshot.json"
+    ],
+    "remaining_queue": {
+      "counts": {
+        "draft": 177,
+        "waiting_revision": 118,
+        "deferred_replay": 7
+      },
+      "open_count": 302,
+      "actionable_count": 0,
+      "observed_at": "2026-10-23T10:41:31.203416+00:00"
+    }
   }
 }
