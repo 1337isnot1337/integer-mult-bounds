@@ -62,7 +62,7 @@ The following deliberately conservative bounds count all successful actions:
     Rte=8192(O+1)[(k+1)(t+u)u³
                   +(H+1)(d+1)³u²
                   +(kb+1)(H+1)(K+F+1)(n+2)],
-    T =2G+2Rte+128(V+P+n+1)+4A.
+    T =2G+2Rte+128(V+P+n+1)+8A.
 
 G bounds one complete gather or scatter. Rte bounds one complete route_packet.
 T bounds the entire declared two-branch transport interval, including complete
@@ -116,6 +116,7 @@ borrowed heads. Its O+1 factor supplies those boundary scans and initialization.
 Finally each commit clears the old role, copies the whole result into that same
 role, rewinds it, and ends the Lease. The128(V+P+n+1) margin covers both commits,
 the selected/result finally blocks and the fixed borrowed Count wrappers.
+Each of the two final pool.empty calls costs4A actions, hence the explicit8A.
 
 These inequalities intentionally overcharge shared scans. They show a finite
 constructive cell-action upper bound, not an optimized tariff or asymptotic

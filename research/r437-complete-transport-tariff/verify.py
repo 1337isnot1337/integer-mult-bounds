@@ -64,6 +64,7 @@ def run_case(d,w,O,F,mutation=None):
     runtime.roles={('family',0):tape(raw),('stage',0):tape([1]*(O*H*F)),
                    'old_count':old.tape,'fibre':fibre.tape,'untouched':tape([1,0,1,1,0,0,1])}
     pool=ScratchPool(q*q+128)
+    template=(bytes(arena.template.cells),arena.template.head)
     protected={slot:(bytes(arena.words[slot].cells),arena.words[slot].head)for slot in arena.live}
     borrowed={name:(body(runtime.roles[name]),runtime.roles[name].head)for name in ('old_count','fibre','untouched')}
     physical=[*pool.tapes,*runtime.roles.values()];start=sum(map(actions,physical));wordstart=actions(arena)
@@ -113,6 +114,8 @@ def run_case(d,w,O,F,mutation=None):
                         final[((o*len(lows)+ordinal)*H+h)*F+f]^=(i*7^(i>>2)^1)&1
             need(body(runtime.roles[('family',0)])==final,'complete original-owner scatter and unselected rows')
         need(arena.live==set(protected),'numerical live restoration')
+        need((bytes(arena.template.cells),arena.template.head)==template,'numeric template restoration')
+        need(all(word.head==1 and all(bit==BLANK for bit in word.cells[1:]) for word in arena.words if word.slot not in protected),'all retired numeric backing erased')
         need(all((bytes(arena.words[s].cells),arena.words[s].head)==v for s,v in protected.items()),'borrowed numeric bytes/heads')
         need(all((body(runtime.roles[n]),runtime.roles[n].head)==v for n,v in borrowed.items()),'borrowed record bytes/heads')
         need(all(t.head==1 for t in physical)and all(not body(t)for t in pool.tapes),'all role heads and pool erasure')
