@@ -44,7 +44,15 @@
     "evidence/proof/frozen/NORMALIZERS.json": "ae8aad06aa5d1811d725895b3ab5a4f4daa9dcdd88294aa0d5f723e78bb1e0da",
     "evidence/proof/frozen/NOTICE": "317b1c5e040bab50ebfc3d0cdb3a47fc30e2f872a00895f563d7931749b1cc7b",
     "evidence/proof/frozen/ORIGINS.json": "10cf47173ca238c32adb923daae7c1137c2e9c86c7066301d68fc74442b3f4d7",
-    "evidence/proof/frozen/PHYSICAL.md": "4321b159ff8d3fe705419adaaa1beef75606e869e34341bda553f17d598a6078"
+    "evidence/proof/frozen/PHYSICAL.md": "4321b159ff8d3fe705419adaaa1beef75606e869e34341bda553f17d598a6078",
+    "evidence/supplements/FILES.json": "ecae9b828f080ea82b9fe3df3b9b01501a3ef0d1e251e772c031d79c151ea7d0",
+    "evidence/supplements/PAID-SHEAR-ADDENDUM.md": "c40812090fd1abd85ece881873c92729caf48d24a75338fd1a64457b56f1748b",
+    "evidence/supplements/SOURCE-FLAG-REVIEW.md": "3f7982e0ad104102847f05e6f6e544a42da84bf613de9a978e5e303ef8b8734d",
+    "evidence/supplements/SOURCES.json": "f5c88f371bc125e9dbb15e6ecbae68e2ce2573d81f0329b56775cc9a6f770021",
+    "evidence/supplements/frozen/CONTRACT.md": "a1001f481df15046cd09d647c6fd5539196664277be849d7c2a260a3290643cc",
+    "evidence/supplements/frozen/PAID-SHEAR-SCREEN.md": "81fefcf4a1be0be04076e7cba0e27ba4afe732d4810a13b0a76dbe827967c10c",
+    "evidence/supplements/frozen/SOURCE-FLAG-CHECK.json": "a6c30f6dc14c0673e6043ac6197ae460ce03e9e3b139146ebcb6766ecb1d088e",
+    "evidence/supplements/frozen/check_source_and_flag.py": "025ba8f3f63fa4f4d7155a32f0f51de210693f6b425b047312d5f232e96fdc5f"
   },
   "schema_version": 1,
   "status": "immutable original author and review bytes"

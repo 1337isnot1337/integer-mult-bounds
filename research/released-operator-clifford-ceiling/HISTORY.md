@@ -25,7 +25,10 @@ properties and one binary transported-flag witness; its receipt is not an
 absolute-phase or theorem certificate. The independently reviewed written
 proof remains the source of the sufficiently-large-width conclusion.
 
-The separate paid-shear CONTRACT.md is unexecuted future work and is excluded.
+The separate paid-shear CONTRACT.md was excluded from the original main theorem
+packet. After its own independent review, its exact stopped-proposal bytes and
+PAID-SHEAR-SCREEN are retained in a distinct supplementary capsule, not as an
+accepted construction. All original main evidence bytes remain unchanged.
 The budget's 44 H1 result is an unrealized-profile raw allowance only and is
 not promoted into an actual paid control, compiler reserve or new κ.
 

@@ -27,7 +27,7 @@ def authenticate():
         need(not path.is_symlink() and sha256(path.read_bytes()).hexdigest() == digest,
              'immutable evidence mismatch: ' + name)
     # The author's original nested manifests remain byte-exact and independently bind their files.
-    for directory in ['inventory', 'budget', 'independent-review']:
+    for directory in ['inventory', 'budget', 'independent-review', 'supplements']:
         base = ROOT / 'evidence' / directory
         original = json.loads((base / 'FILES.json').read_text())
         files = original.get('files', original)
@@ -64,6 +64,10 @@ def run():
         module.STOCK = stock
         value = module.run()
         budget = encoded(value)
+        # Price support for the separate written paid-shear screen, not its theorem.
+        need(21 * 2 < module.margin(module.B)[0], 'seven explicit shears fit raw allowance')
+        need(24 * module.power(2, module.B)[0] > 45, 'eight explicit shears fail at B')
+        need(3 * 112 > module.margin(module.A)[1], '112-shear bill exceeds entire raw allowance')
     for name in ['RESULT.json', 'RESULT-OPTIMIZED.json']:
         need(budget == (ROOT / 'evidence/budget' / name).read_bytes(),
              'full conditional budget receipt differs: ' + name)
@@ -74,6 +78,9 @@ def run():
         'source_flag_receipt_sha256': sha256(source).hexdigest(),
         'budget_receipt_sha256': sha256(budget).hexdigest(),
         'source_flag_controls': 5,
+        'separate_paid_screen_proof_sha256': sha256((ROOT / 'evidence/supplements/frozen/PAID-SHEAR-SCREEN.md').read_bytes()).hexdigest(),
+        'separate_paid_screen_review_sha256': sha256((ROOT / 'evidence/supplements/PAID-SHEAR-ADDENDUM.md').read_bytes()).hexdigest(),
+        'explicit_rank_two_shear_execution_max_raw_count': 7,
         'conditional_invoice_controls': 5,
         'max_uniform_integer_extra_H1': value['max_uniform_integer_extra_H1'],
         'scope': 'Written independently reviewed sufficiently-large-width fixed columnwise Clifford obstruction; finite source/flag support and conditional invoice arithmetic only. No absolute-phase/native/compiler/caller replay, physical FREE classification or kappa.'
