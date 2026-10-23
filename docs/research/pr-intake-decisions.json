@@ -75287,7 +75287,7 @@
       "reviewed_head": "fe3226ea4e36469f43c6b116c5b98cc221a9b1af",
       "current_head": "fe3226ea4e36469f43c6b116c5b98cc221a9b1af",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/f7-prefix-matching-capacity"
       ],
@@ -75297,12 +75297,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23c-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5001",
+        "merge_commit": "25594d6fb1cc7e01b684129214189e470abce904"
+      }
     }
   ]
 }
