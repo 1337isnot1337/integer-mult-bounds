@@ -41,7 +41,8 @@ A weak observer takes direct distinct-array censuses at the entry boundaries.
 It does not keep dead Tape objects alive. The first MOVE cut retains a cleared
 82-cell gather result and cleared3-cell stock Count; source/peeled and
 fibre/following alias. Counted arena backing persists beyond freed live Words.
-Omitting these erased residents fails the exact census control. The written
+An independent owner-graph traversal rejects a real observer mutation that omits
+one such cleared resident. The written
 source inventory, not this finite sample, supplies the all-domain proof.
 
 The ledger rejects malformed/boolean/negative resource values and checks its
