@@ -115,7 +115,10 @@ def windows_module_command(command, python, cache):
     Isolate supervisor startup and bytecode without changing the test environment.
     """
     return isolated_python(python, cache) + [
-        '-I', '-S', '-c', WINDOWS_OWNER, str(ROOT / 'scripts'), json.dumps(command)]
+        # Preserve Unicode at this outer layer as well as inside the job gate;
+        # ASCII escapes would consume the Windows command-line budget again.
+        '-I', '-S', '-c', WINDOWS_OWNER, str(ROOT / 'scripts'),
+        json.dumps(command, ensure_ascii=False)]
 
 
 def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,

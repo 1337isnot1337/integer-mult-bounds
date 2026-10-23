@@ -3712,3 +3712,41 @@ Source archives retain attribution; mathematical review remains open.
 - **Lyy_iiis (@Lyy-iiis)** — [#5037](https://github.com/CrocSwap/integer-mult-bounds/pull/5037): Construct a bounded-lane border core without an exact boundary provider (source archive).
 - **Brian (@JoyboyBrian)** — [#5038](https://github.com/CrocSwap/integer-mult-bounds/pull/5038): Independently audit two-image dirty-return obstruction (source archive).
 - **Brian (@JoyboyBrian)** — [#5039](https://github.com/CrocSwap/integer-mult-bounds/pull/5039): Prove selected4470 scoped owned-query and whole-IDLE charging (source archive).
+
+## Queue intake, 23 October 2026 (chunk F)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Brian (@JoyboyBrian)** — [#5040](https://github.com/CrocSwap/integer-mult-bounds/pull/5040): Bind actual BIT paid owners to the existing lockstep role audit (source archive).
+- **Brian (@JoyboyBrian)** — [#5041](https://github.com/CrocSwap/integer-mult-bounds/pull/5041): Bind complex node costs to actual compact widths and local suspension (source archive).
+- **Brian (@JoyboyBrian)** — [#5042](https://github.com/CrocSwap/integer-mult-bounds/pull/5042): Certify the fixed degree23 obstruction from actual raw log moments (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5043](https://github.com/CrocSwap/integer-mult-bounds/pull/5043): Bound a native common-source fan expansion: no paid-moment gain in the declared scope (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#5044](https://github.com/CrocSwap/integer-mult-bounds/pull/5044): Independently audit five-label cap 11 with a complete-word oracle (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5045](https://github.com/CrocSwap/integer-mult-bounds/pull/5045): Prove exact two-row nonunit dirty-fanout tariffs (no new κ) (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#5046](https://github.com/CrocSwap/integer-mult-bounds/pull/5046): Audit PR5017 on native Windows and expose its CRLF test failure (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#5047](https://github.com/CrocSwap/integer-mult-bounds/pull/5047): Preserve Unicode arguments in Windows replay launchers (reviewed tooling).
+- **mihir-s-05 (@mihir-s-05)** — [#5049](https://github.com/CrocSwap/integer-mult-bounds/pull/5049): Independently audit PR4992 sharp five-label excess cap (source archive).
+- **Brian (@JoyboyBrian)** — [#5050](https://github.com/CrocSwap/integer-mult-bounds/pull/5050): Load current selected preflight checker from source (reviewed tooling).
+- **Brian (@JoyboyBrian)** — [#5051](https://github.com/CrocSwap/integer-mult-bounds/pull/5051): Complete partial signed-Pauli contracts with literal Clifford lifts (source archive).
+- **Brian (@JoyboyBrian)** — [#5052](https://github.com/CrocSwap/integer-mult-bounds/pull/5052): Implement the complete signed-dyadic scaling API with physical owner return (source archive).
+- **Brian (@JoyboyBrian)** — [#5053](https://github.com/CrocSwap/integer-mult-bounds/pull/5053): Produce encoded CRT offsets from actual current child coordinates (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#5054](https://github.com/CrocSwap/integer-mult-bounds/pull/5054): Reject Boolean endpoint IDs in an opt-in bit export boundary (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5055](https://github.com/CrocSwap/integer-mult-bounds/pull/5055): Stream complete R437 high-prefix directories into the actual leaf/XOR consumer (source archive).
+- **Brian (@JoyboyBrian)** — [#5056](https://github.com/CrocSwap/integer-mult-bounds/pull/5056): Audit actual Tensor expansion's signed internal contraction (source archive).
+- **Brian (@JoyboyBrian)** — [#5057](https://github.com/CrocSwap/integer-mult-bounds/pull/5057): Bind actual compact TARGET114 to the physical caller boundary (source archive).
+- **Brian (@JoyboyBrian)** — [#5058](https://github.com/CrocSwap/integer-mult-bounds/pull/5058): Classify four graph-frame shared maps by relative operators (source archive).
+- **Brian (@JoyboyBrian)** — [#5059](https://github.com/CrocSwap/integer-mult-bounds/pull/5059): Execute rounded inverse-block boundary pages on the physical runtime (source archive).
+- **Matarener (@Matarener)** — [#5060](https://github.com/CrocSwap/integer-mult-bounds/pull/5060): Owned-centre wire floor on #4470: retiming the C wire cannot lower the centre charge (answers #4534's retiming question; no new κ) (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5063](https://github.com/CrocSwap/integer-mult-bounds/pull/5063): Prove a uniform ceiling for three-cycle permutation-cut certificates (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5065](https://github.com/CrocSwap/integer-mult-bounds/pull/5065): Prove two-stage physical codes resist fixed scalar postdecoding (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5067](https://github.com/CrocSwap/integer-mult-bounds/pull/5067): Sharpen selected nested-width coefficient to K/N < 3.070 via truncated sources (source archive).
+- **Chris R (@Clear1nsight)** — [#5068](https://github.com/CrocSwap/integer-mult-bounds/pull/5068): Verify the exact small-component frame optimum and reject an all-concave extension (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5069](https://github.com/CrocSwap/integer-mult-bounds/pull/5069): Prove and cost one physical inverse-coded FULL/thin pair (source archive).
+- **Brian (@JoyboyBrian)** — [#5070](https://github.com/CrocSwap/integer-mult-bounds/pull/5070): Prove true capped paid law cannot rescue fixed degree23 certificate (source archive).
+- **Brian (@JoyboyBrian)** — [#5071](https://github.com/CrocSwap/integer-mult-bounds/pull/5071): Prove batch-sensitive compiler widths and finite bit bounds (source archive).
+- **Brian (@JoyboyBrian)** — [#5072](https://github.com/CrocSwap/integer-mult-bounds/pull/5072): Derive first-pivot Schur state weights from sector incidence (source archive).
+- **lee-phys (@lee-phys)** — [#5073](https://github.com/CrocSwap/integer-mult-bounds/pull/5073): Prove negative association of three binary full-guard events (source archive).
+- **Nick Petalas (@petalas)** — [#5074](https://github.com/CrocSwap/integer-mult-bounds/pull/5074): Lower the three-cycle Boolean-cut ceiling to 17/3 (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5075](https://github.com/CrocSwap/integer-mult-bounds/pull/5075): Close cyclic-line span-six dirty-auxiliary cases via the common-J lemma (source archive).
+
+Mihir Srivastava’s #5046 audit also supplies the portable binary-output fixture repair incorporated in this batch; the unresolved author-observed Windows destructor warning remains recorded.

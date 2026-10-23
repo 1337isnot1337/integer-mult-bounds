@@ -587,7 +587,10 @@ def run_windows_command(argv, cwd, timeout, env):
         process = subprocess.Popen(
             # The gate itself must not run sitecustomize/PYTHONPATH startup
             # code before ownership. The requested command retains env/argv.
-            [sys.executable, "-I", "-S", "-c", _WINDOWS_GATE, name, json.dumps(argv)],
+            # Windows accepts Unicode argv directly. ASCII JSON escaping can
+            # expand an otherwise valid command past its UTF-16 launch limit.
+            [sys.executable, "-I", "-S", "-c", _WINDOWS_GATE, name,
+             json.dumps(argv, ensure_ascii=False)],
             cwd=cwd, env=env, start_new_session=True)
         checked(assign(job, int(process._handle)))
         assigned = True
