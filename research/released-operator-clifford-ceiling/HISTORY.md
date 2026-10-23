@@ -28,3 +28,11 @@ proof remains the source of the sufficiently-large-width conclusion.
 The separate paid-shear CONTRACT.md is unexecuted future work and is excluded.
 The budget's 44 H1 result is an unrealized-profile raw allowance only and is
 not promoted into an actual paid control, compiler reserve or new κ.
+
+The first local staging attempt (commit dd5d13bf8830d96f389bf1a4599471f3ec237909)
+was rejected by the working-versus-commit byte check: inherited text=auto
+normalized three CODE.json copies from their original CRLF to LF. No source
+or receipt was changed to accommodate it. A module-local .gitattributes marks
+immutable evidence -text; the subsequent commit restores the exact original
+8be7f3... source bytes. This failed staging result is retained as a packaging
+control, not scientific evidence or the final export.
