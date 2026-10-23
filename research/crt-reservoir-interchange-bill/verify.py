@@ -14,6 +14,8 @@ C. BIT.md section 4's wrapper, evaluated exactly at radix width E: every
    In binary this is H < 27706412. Both layouts are elementary.
 D. On that elementary range, E <= H^(1-a2), so the CRT.md per-call bill
    V H^(1-a) is met by the elementary stage alone.
+E. The literal call pads the volume by (q^E/2^H)^2: in (2^33, 2^34) at the
+   minimal layout and in (2^73, 2^74) at the production layout.
 
 Rejection controls check that mutated claims fail. No new kappa is claimed.
 """
@@ -322,6 +324,24 @@ def part_d() -> None:
     need(radix_width(10752) <= 10752 ** float(1 - A2), "minimal layout ratio")
 
 
+# ---------------------------------------------------------------- part E
+
+def padding_bits(H: int) -> tuple[int, int]:
+    """(lo, hi) with 2^lo < (q^E / 2^H)^2 < 2^hi for the literal BIT call."""
+    E = radix_width(H)
+    square = Q ** (2 * E)
+    lo = 2 * (89 * E - H) - 1
+    need(2 ** (lo + 2 * H) < square < 2 ** (lo + 1 + 2 * H), f"padding at H={H}")
+    return lo, lo + 1
+
+
+def part_e() -> None:
+    need(padding_bits(10752) == (33, 34), "minimal padding (2^33, 2^34)")
+    need(padding_bits(15360) == (73, 74), "production padding (2^73, 2^74)")
+    must_fail(lambda: 2 ** (33 + 2 * 10752) >= Q ** 242, "minimal padding below 2^33")
+    must_fail(lambda: 2 ** (73 + 2 * 15360) >= Q ** 346, "production padding below 2^73")
+
+
 # ---------------------------------------------------------------- main
 
 def controls(table) -> int:
@@ -360,11 +380,13 @@ def main() -> None:
          "production branch")
     need(100 * H_MIN == 2770641200 and minimal.H <= minimal.L // 100, "caller threshold")
     part_d()
-    count = controls(table)
+    part_e()
+    count = controls(table) + 2
     print(f"PASS_CRT_RESERVOIR_INTERCHANGE_BILL orders={orders} "
           f"minimal_plans={m_plans} minimal_calls={m_calls} "
           f"production_plans={p_plans} E_min={E_MIN} H_min={H_MIN} "
-          f"minimal=(H=10752,E=121,k=8193,elementary) controls={count + 5}")
+          f"minimal=(H=10752,E=121,k=8193,elementary,pad=2^33..2^34) "
+          f"controls={count + 5}")
 
 
 if __name__ == "__main__":

@@ -97,6 +97,14 @@ CRT.md §4. In particular:
 per-digit constant of stage `a = 0`. On this range `H^{a} < 2^{1/20}`,
 so the saving `H^{-a}` is numerically absent.
 
+**(v) Padding at the actual width.** The literal BIT.md call embeds both
+`H`-bit fields into `q^E`. This multiplies the volume by
+`(q^E/2^H)^2`, which lies in `(2^{33}, 2^{34})` at the minimal layout
+and in `(2^{73}, 2^{74})` at the production layout. So the `q^2` factor
+in (iv) is mostly realized, not slack. A direct binary exchange, made of
+`H` single-bit swaps, would avoid the padding. That routine is not
+BIT.md's machine, and its fixed-tape cost is not proved here.
+
 **Answer to #4938's open question.** Yes. One #4174 three-field exchange
 is three ordinary width-`H` calls, and its restoration is the same three
 calls. Their cost fits `O(V H^{1-a} + V)` with multiplicity 6. At the
@@ -209,6 +217,14 @@ on the embedded volume `V' < q^2 V`. Each swap costs `C_0 V'`. So one call
 costs at most `C_0 q^2 V E <= C_0 q^2 V H^{1-a}`, plus the embedding and
 its restriction, which are `O(q^2 V)`. ∎
 
+## 5a. Proof of (v)
+
+By Lemma R, `E = floor(H/89) + 1`. At `H = 10752`, `E = 121` and
+`89E - H = 17`. The exact integer check
+`2^{33 + 2·10752} < q^{242} < 2^{34 + 2·10752}` gives the first range. At
+`H = 15360`, `E = 173` and `89E - H = 37`. The same check with exponents
+73 and 74 gives the second range. ∎
+
 ## 6. Not proved here
 
 - BIT.md's theorem, including stage `a = 0`, its constant `C_0` and its
@@ -236,9 +252,10 @@ its restriction, which are `O(q^2 V)`. ∎
   at every `E <= 311309`, Lemma R on `H < 3000` and the table widths,
   and the `H*` edge.
 - **D.** The inequality of (iv).
+- **E.** The two padding ranges of (v).
 
 Its rejection controls are: a dropped restoration call, a bit-reversing
 exchange, a source overlapping `T`, the body branch one digit or one bit
 early, the stock without `269241600 N`, `D(173) = 1`, `N >= q^{4096}`,
-and `j(D)` dropped. Each must fail. The finite checks corroborate the
+`j(D)` dropped, and padding below `2^{33}` or `2^{73}`. Each must fail. The finite checks corroborate the
 written argument; they do not replace it.
