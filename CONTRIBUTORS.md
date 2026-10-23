@@ -3823,3 +3823,10 @@ Source archives retain attribution; mathematical review remains open.
 - **Brian (@JoyboyBrian)** — [#5134](https://github.com/CrocSwap/integer-mult-bounds/pull/5134): Add literal complete-row caller for the two-role parking boundary (source archive).
 - **Brian (@JoyboyBrian)** — [#5135](https://github.com/CrocSwap/integer-mult-bounds/pull/5135): Close the complete first-node source reserve at Consumer.apply (source archive).
 - **Cinna Davis (@1337isnot1337)** — [#5136](https://github.com/CrocSwap/integer-mult-bounds/pull/5136): Prove rank-eight owned high contacts after removing all native constraints (source archive).
+
+## Queue intake, 23 October 2026 (chunk K)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Cinna Davis (@1337isnot1337)** — [#5137](https://github.com/CrocSwap/integer-mult-bounds/pull/5137): Prove exact two-call capacity for homogeneous query chains (no new κ) (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5138](https://github.com/CrocSwap/integer-mult-bounds/pull/5138): Prove eight bits are necessary for algebra-faithful affine A5 actions (source archive).
