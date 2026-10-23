@@ -29,6 +29,7 @@ Python 3.12 or newer, standard library only:
 ```sh
 python3 -I -W error -B research/clean-square-zero-compiler/verify.py
 python3 -I -O -W error -B research/clean-square-zero-compiler/verify.py
+python3 -I -O -W error -B research/clean-square-zero-compiler/literal.py
 python3 -B scripts/research_package.py --package research/clean-square-zero-compiler
 ```
 
@@ -42,8 +43,11 @@ data roles, conjugated ranks one through eight with extra dirty spectators,
 all clean-column one/two-call obstructions for the first rank-one/two
 fixtures, literal scalar counts through even rank sixteen, and invalid
 matrix/zero-coupling boundaries. The uniform theorem is not inferred from
-these finite domains. Additional literal action and mutation checks are
-described by their registered command and emitted report.
+these finite domains. The separate `literal.py` interpreter checks 351 fixtures, every full faithful
+input basis column, 160 dense dirty states, the two independent shortest
+clean-column obstructions, all 44 single-reflection omissions, four dirty
+ancilla failures and four noninvolutory-label failures. It executes literal
+scalar CNOTs and address swaps, without multiplying formal projectors.
 
 Only this isolated opt-in package changes. Frozen predecessors, selected
 sources and selected κ=0.00302015 remain unchanged. Native reflection
