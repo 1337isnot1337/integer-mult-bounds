@@ -168,21 +168,34 @@ def _closed_stdin_error(error):
             or (os.name == "nt" and error.errno == errno.EINVAL))
 
 
-@contextmanager
-def _git_blob_response_deadline(process):
-    """Bound one direct-child response, excluding time spent by its consumer.
+def _stop_git_blob_process(process):
+    """Stop this reader's owned POSIX group even after its leader exits."""
+    try:
+        if os.name == "posix":
+            # Reap an exited leader first: signaling a group containing only
+            # its unreaped zombie can report EPERM on macOS. A surviving
+            # descendant keeps the group alive after the leader is reaped.
+            process.poll()
+            os.killpg(process.pid, signal.SIGKILL)
+        else:
+            process.kill()
+    except ProcessLookupError:
+        pass
 
-    Descendants retaining a pipe and separate git() calls need their own
-    containment/deadlines; killing the direct child cannot close their handles.
+
+@contextmanager
+def _git_blob_response_deadline(stop):
+    """Bound one response, excluding time spent by its consumer.
+
+    On POSIX the reader owns a session: ordinary descendants retaining a pipe
+    are stopped with the leader. Escaped sessions and separate git() calls are
+    outside this contract; non-POSIX retains the direct-child deadline.
     """
     expired = threading.Event()
 
     def terminate():
         expired.set()
-        try:
-            process.kill()
-        except ProcessLookupError:
-            pass
+        stop()
 
     timer = threading.Timer(GIT_BLOB_RESPONSE_TIMEOUT, terminate)
     timer.start()
@@ -200,7 +213,16 @@ def _git_blob_batch(root, specs, nul):
     # Usage diagnostics from the unsupported-option probe are expected. Avoid
     # a second pipe that could block while we consume the framed stdout reply.
     with subprocess.Popen(argv, cwd=root, env=git_source_env(), stdin=subprocess.PIPE,
-                          stdout=subprocess.PIPE, stderr=subprocess.DEVNULL) as process:
+                          stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                          start_new_session=(os.name == "posix")) as process:
+        stopped = False
+
+        def stop():
+            nonlocal stopped
+            if not stopped:
+                _stop_git_blob_process(process)
+                stopped = True
+
         try:
             for index, spec in enumerate(specs):
                 require("\0" not in spec, "invalid Git object request")
@@ -209,7 +231,7 @@ def _git_blob_batch(root, specs, nul):
                     # Resolve one literal argument, never split a path into requests.
                     request = git(root, "rev-parse", "--verify", "--end-of-options", spec).decode("ascii").strip()
                     require(re.fullmatch(r"[0-9a-f]{40,64}", request), "invalid Git object ID")
-                with _git_blob_response_deadline(process):
+                with _git_blob_response_deadline(stop):
                     try:
                         process.stdin.write(request.encode("utf-8") + (b"\0" if nul else b"\n"))
                         process.stdin.flush()
@@ -233,6 +255,10 @@ def _git_blob_batch(root, specs, nul):
             process.stdin.close()
             require(process.wait(timeout=90) == 0, "Git source reader failed")
         finally:
+            # Terminate ordinary descendants before closing buffered pipes. This
+            # also covers successful leader exit and an early generator close.
+            if os.name == "posix":
+                stop()
             # Option rejection can close stdin before our first write/flush.
             try:
                 process.stdin.close()
