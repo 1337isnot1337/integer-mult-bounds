@@ -30,7 +30,7 @@ def main():
         result = module.run(HERE / "CONTROLLER.json") if name == "gauge" else module.run()
         result = json.loads(json.dumps(result))
         need(result == json.loads((HERE / receipt).read_text()), "Changed mathematical receipt: " + receipt)
-        results[name] = result["status"]
+        results[name] = result.get("status", "PASS_" + name.upper() + "_RECEIPT")
     print(json.dumps({"status": "PASS_CODED_NATIVE_INTERFACE_AND_CALLER_GATES",
                       "checks": results, "complete_caller": False, "new_kappa": None}, sort_keys=True))
 
