@@ -7,7 +7,11 @@ order as those packets. All borrowed heads enter at 1. Inputs occupy distinct
 roles. The unchanged trace factory yields the same closed finite leaf sequence
 for every prefix. Its coefficients depend only on that prefix, the same Program
 and encoded context, and return owned words while restoring borrowed state.
-These are source-level hypotheses, not consequences of finite samples.
+An optional observer must be read-only. These are source-level hypotheses,
+not consequences of finite samples. Equality means payload and borrowed logical
+Program/Fields state, excluding meters, allocation order, and global callback
+logs. Deterministic Specifications memoization may change bookkeeping; it does
+not change coefficients or borrowed logical bytes.
 
 For primitive t and prefix i, let T_t,i be its local payload map. In the pinned
 packet_engine.run, every primitive reads exactly one prefix and v bits, invokes
@@ -18,8 +22,9 @@ no-cross-prefix-effect contract on successful valid inputs. trace.leaf reads
 geometry only and retains chronological ADD/swap/sign order within each prefix.
 Thus the original primitive-major schedule is the direct product of maps
 T_t,i. Operations on different prefix payloads commute, even when their
-coefficients are correlated through a shared borrowed Program: their read-only
-dependency is shared, but neither updates it. Reorder only across i, never
+coefficients are correlated through a shared borrowed Program: their Program/Fields
+logical dependency is shared and unchanged. Deterministic cache population and
+meter increments need not agree between the schedules. Reorder only across i, never
 across t within i. This proves that prefix-major execution produces the same
 p complete local returns for every Boolean source packet and every such context.
 
