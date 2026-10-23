@@ -101,6 +101,8 @@ class GitPipeErrorTests(unittest.TestCase):
         try:
             with (patch.object(PACKAGE, "os", SimpleNamespace(
                     name=platform, environ=os.environ, killpg=kill_group)),
+                  patch.object(PACKAGE.signal, "SIGKILL",
+                               getattr(PACKAGE.signal, "SIGKILL", 9), create=True),
                   patch.object(PACKAGE.subprocess, "Popen", side_effect=start)):
                 yield calls, pipes
         finally:
