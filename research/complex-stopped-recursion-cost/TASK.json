@@ -53,22 +53,28 @@
       }
     ]
   },
-  "scope_status": "unchanged",
-  "actual_scope": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
-  "scope_change_reason": null,
-  "bottleneck_link": "TODO: explain the causal connection or label this as a side result",
+  "scope_status": "refined",
+  "actual_scope": "Prove, for every root width h>=1, that COMPLEX.md's stopped complex recursion (children r*floor(e/73) with the PR4088 mixed histogram over W=322560, stop width max(73,h^eta), node cost O(V e^(1-a2) polylog p), elementary remainders and leaves, root placement) costs at most V Lambda h^(1-q) [(c_N+c_L)/(1-mu_tau)+73^b c_L+2c_P], with certified mu_tau<1 and mu_(1-b)<=1, and bind it to PROOF.md's synthetic-transform layers and GAUSSIAN.md's compiled layers. The node-cost, child-volume and leaf premises stay explicit.",
+  "scope_change_reason": "The card asks for one quantified #4100 implication at its actual caller. This package takes the native/complex-family obligation that docs/research/pr4100-audit-coverage-map.md lists as open after #4178: COMPLEX.md's stopped-recursion time bill, at the PR4088 mixed histogram and the PROOF.md and GAUSSIAN.md layer callers. It avoids CRT.md and the precision chain (#4371, #4415, #4178).",
+  "bottleneck_link": "Side result for the #4100 audit: it closes one transfer implication, the stopped complex moment, under COMPLEX.md's own node premises. It does not change any kappa or the selected frontier.",
   "budget_minutes": 150,
-  "stop_rule": "TODO",
-  "outcome": "in-progress",
-  "evidence": "TODO",
+  "stop_rule": "Stop after the all-size lemma and theorem, the certified moment enclosures, three rejection controls and bounded tree corroboration. Do not audit the node-cost premise, the free-word lift, CRT.md or the precision chain.",
+  "outcome": "completed",
+  "evidence": "PROOF.md: written strong induction over all widths, with floors, remainders and an arbitrary stop width s>=73. verify.py: exact exponent order, certified rational enclosures of mu_tau and mu_(1-b), rejection controls, and 60-digit numerical tree corroboration. The tree check is corroboration, not a certificate.",
   "author": "JoyboyBrian",
-  "ai_assistance": "TODO: disclose tools used",
+  "ai_assistance": "Substantial assistance from Anthropic Claude (Claude Code, Opus 5.5)",
   "open_questions": [
     {
-      "question": "TODO",
-      "why_it_matters": "TODO",
-      "first_step": "TODO",
-      "blocked_by": "TODO"
+      "question": "Is COMPLEX.md's node-cost premise true at the actual node: adapters, F2 row-addition monomials through the compact primitive, the Gamma-fold common-cover packet gathers and parking all cost O(V e^(1-a2) polylog p), uniformly in e?",
+      "why_it_matters": "The theorem here is conditional on it. Whether the per-cover-value gathers scan only the cover's own rows or the whole node volume changes only a constant, but a per-node term not bounded by V e^(1-a2) polylog p would break the bill.",
+      "first_step": "Write a per-node invoice from COMPLEX.md's 'Common cover, fresh rows and fixed tapes' section and PR2250 sections 5-6, with the row-field layout of #4424.",
+      "blocked_by": "A literal node-level tape layout for the Gamma cover field is not written in #4100."
+    },
+    {
+      "question": "Do the actual child packets realize the moment's volume normalization: Gamma*H_r rank-r child calls of volume V/(W Gamma) each, at width r*floor(e/73)?",
+      "why_it_matters": "mu_x uses H_r/W as the total child volume per unit parent volume. #4375 shows that the factorwise reading breaks the moment, so this premise carries the whole stopped bill.",
+      "first_step": "Bind PR4088's owner fill (3240*408 roles) and the W-family split to per-child packet volumes on one cover value.",
+      "blocked_by": "No external blocker."
     }
   ]
 }
