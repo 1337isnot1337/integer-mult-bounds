@@ -119,7 +119,7 @@ incident edges at the middle width-one vertex are nonzero, impossible in
 an integral edge/private form; local block-rank invariance again applies.
 For S<=2, the empty or single occupied vertex is an identity block. Two
 unit vertices that are nonadjacent give I_2; if adjacent, a minimum-rank
-fit is [[1,a],[b,1]] with ab=1, locally similar to J_2 by diag(a,1).
+fit is [[1,a],[b,1]] with ab=1, sent to J_2 by the local similarity L=diag(a^{-1},1).
 This exhausts nonnegative widths at those totals and proves minimality.
 
 ## Evidence, costs and limits
