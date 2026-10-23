@@ -3,6 +3,7 @@
 from fractions import Fraction as F
 from hashlib import sha256
 from itertools import product
+from math import lcm
 import json
 from pathlib import Path
 
@@ -37,12 +38,16 @@ def transpose(a):
 def mul(a, b):
     require(bool(a) and bool(b) and len(a[0]) == len(b), 'product shape')
     out = zeros(len(a), len(b[0]))
-    for i, row in enumerate(a):
-        for k, value in enumerate(row):
-            if value:
-                for j, other in enumerate(b[k]):
-                    if other:
-                        out[i][j] += value * other
+    columns = list(zip(*b))
+    row_scale = [lcm(*(x.denominator for x in row)) for row in a]
+    col_scale = [lcm(*(x.denominator for x in col)) for col in columns]
+    left = [[x.numerator * (scale // x.denominator) for x in row]
+            for row, scale in zip(a, row_scale)]
+    right = [[x.numerator * (scale // x.denominator) for x in col]
+             for col, scale in zip(columns, col_scale)]
+    for i, row in enumerate(left):
+        for j, col in enumerate(right):
+            out[i][j] = F(sum(x*y for x, y in zip(row, col)), row_scale[i]*col_scale[j])
     return out
 
 
@@ -377,12 +382,40 @@ def run():
     return counts
 
 
+def product_controls():
+    checked = 0
+    shapes = list(product((1, 2, 3), repeat=3)) + [(1, 10, 2), (10, 1, 10), (5, 10, 3)]
+    for rows, inner, cols in shapes:
+        for variant in range(3):
+            a = [[F(((i+1)*(k+2)+variant) % 7-3, 2+i+2*k)
+                  for k in range(inner)] for i in range(rows)]
+            b = [[F(((k+2)*(j+1)+variant) % 5-2, 3+2*k+j)
+                  for j in range(cols)] for k in range(inner)]
+            if variant == 0:
+                a[0] = [F(0)] * inner
+            before_a, before_b = [r[:] for r in a], [r[:] for r in b]
+            expected = [[sum((a[i][k]*b[k][j] for k in range(inner)), F(0))
+                         for j in range(cols)] for i in range(rows)]
+            actual = mul(a, b)
+            require(actual == expected, 'integer product differs from Fraction oracle')
+            require(a == before_a and b == before_b, 'product changed an input')
+            require(all(type(x) is F for row in actual for x in row), 'product result type')
+            actual[0][0] += 1
+            require(mul(a, b) == expected, 'product result is not independent')
+            checked += 1
+    rejected(lambda: mul([], [[F(1)]]))
+    rejected(lambda: mul([[F(1), F(2)]], [[F(1)]]))
+    require(mul([[F(0), F(0)]], [[F(2)], [F(3)]]) == [[F(0)]], 'zero product')
+    return checked + 3
+
+
 def main():
+    product_cases = product_controls()
     counts = run()
     root = Path(__file__).resolve().parent
     hashes = {name: sha256((root / name).read_bytes()).hexdigest() for name in FILES}
     print(json.dumps({'status': 'PASS_DOWNSET_BLOCK_SOLVE', 'claim_type': 'scoped proof',
-                      'finite_evidence': counts, 'source_sha256': hashes,
+                      'finite_evidence': counts, 'product_controls': product_cases, 'source_sha256': hashes,
                       'no_new_kappa': True}, sort_keys=True))
 
 
