@@ -1011,37 +1011,52 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "e0c2e09b9443f22bb9e3c76ab08d1224493040e3",
-    "decisions": 41,
-    "merged": 41,
-    "archive_count": 41,
-    "history_only": [
-      5140,
-      5147
+    "commits": [
+      "5a0e4b6c270124a86a6da02eb6133d2b5cd70233",
+      "40991fac20d22099114e58a9f93df00b39297fbd"
     ],
-    "reviewed_tooling_count": 0,
+    "decisions": 49,
+    "merged": 49,
+    "archive_count": 48,
+    "reviewed_tooling_count": 1,
     "new_revision_holds": [],
-    "actionable_remaining": 0,
+    "actionable_remaining": 1,
     "selected_frontier_changed": false,
     "scientific_replays": 0,
-    "checks": "554 changed paths inventoried; Python/JSON syntax and 432 available source-pin checks. Exact installed Git modes/blobs verified before publication. Per-decision invariants and ledger Markdown checked. No submitted scientific code, Lean or Docker executed.",
+    "checks": "450 changed paths inventoried; Python/JSON syntax and 768 available source-pin checks. Installed Git modes/blobs verified. PR5185: 57 reader and 35 caller tests in each normal/optimized mode. Per-decision invariants and ledger Markdown checked. No scientific verifier, Lean or Docker executed.",
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct23l-20261023.json",
-      "docs/research/pr-intake-evidence/queue-oct23l-closures.json",
-      "docs/research/pr-intake-evidence/queue-oct23l-final-snapshot.json"
+      "docs/research/pr-intake-evidence/queue-oct23m-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23m-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23m-tooling-tests.json",
+      "docs/research/pr-intake-evidence/queue-oct23n-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23n-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23mn-final-snapshot.json"
     ],
     "remaining_queue": {
-      "base": "e0c2e09b9443f22bb9e3c76ab08d1224493040e3",
-      "observed_at": "2026-10-23T11:56:54.500592+00:00",
+      "base": "40991fac20d22099114e58a9f93df00b39297fbd",
+      "observed_at": "2026-10-23T13:11:16.372857+00:00",
       "counts": {
         "draft": 177,
         "waiting_revision": 118,
-        "deferred_replay": 7
+        "deferred_replay": 7,
+        "new": 1
       },
-      "open_count": 302,
-      "actionable_count": 0,
-      "remaining_actionable": 0
-    }
+      "open_count": 303,
+      "actionable_count": 1,
+      "remaining_actionable": 0,
+      "selected": [
+        {
+          "number": 5235,
+          "head": "48976daa4dce59b4867ef046da72a370e389925d",
+          "title": "Add compact universal certificates for dirty linear circuits (no new \u03ba)",
+          "lane": "new",
+          "changes": [],
+          "reason": "No cached intake decision.",
+          "evidence": []
+        }
+      ]
+    },
+    "next_action": "PR5235 arrived during publication and remains new/actionable. Resume delta-only intake; do not rereview unchanged revision holds or deferred replays."
   },
   "reported_followups": [
     {
@@ -1178,16 +1193,28 @@
     }
   ],
   "latest_queue": {
-    "base": "e0c2e09b9443f22bb9e3c76ab08d1224493040e3",
-    "observed_at": "2026-10-23T11:56:54.500592+00:00",
+    "base": "40991fac20d22099114e58a9f93df00b39297fbd",
+    "observed_at": "2026-10-23T13:11:16.372857+00:00",
     "counts": {
       "draft": 177,
       "waiting_revision": 118,
-      "deferred_replay": 7
+      "deferred_replay": 7,
+      "new": 1
     },
-    "open_count": 302,
-    "actionable_count": 0,
-    "remaining_actionable": 0
+    "open_count": 303,
+    "actionable_count": 1,
+    "remaining_actionable": 0,
+    "selected": [
+      {
+        "number": 5235,
+        "head": "48976daa4dce59b4867ef046da72a370e389925d",
+        "title": "Add compact universal certificates for dirty linear circuits (no new \u03ba)",
+        "lane": "new",
+        "changes": [],
+        "reason": "No cached intake decision.",
+        "evidence": []
+      }
+    ]
   },
   "bulk_intake_20261020_completed": {
     "decisions": 586,
@@ -1574,5 +1601,53 @@
       "actionable_count": 0,
       "remaining_actionable": 0
     }
+  },
+  "bulk_intake_20261023_ninth_pass": {
+    "commits": [
+      "5a0e4b6c270124a86a6da02eb6133d2b5cd70233",
+      "40991fac20d22099114e58a9f93df00b39297fbd"
+    ],
+    "decisions": 49,
+    "merged": 49,
+    "archive_count": 48,
+    "reviewed_tooling_count": 1,
+    "new_revision_holds": [],
+    "actionable_remaining": 1,
+    "selected_frontier_changed": false,
+    "scientific_replays": 0,
+    "checks": "450 changed paths inventoried; Python/JSON syntax and 768 available source-pin checks. Installed Git modes/blobs verified. PR5185: 57 reader and 35 caller tests in each normal/optimized mode. Per-decision invariants and ledger Markdown checked. No scientific verifier, Lean or Docker executed.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23m-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23m-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23m-tooling-tests.json",
+      "docs/research/pr-intake-evidence/queue-oct23n-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23n-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23mn-final-snapshot.json"
+    ],
+    "remaining_queue": {
+      "base": "40991fac20d22099114e58a9f93df00b39297fbd",
+      "observed_at": "2026-10-23T13:11:16.372857+00:00",
+      "counts": {
+        "draft": 177,
+        "waiting_revision": 118,
+        "deferred_replay": 7,
+        "new": 1
+      },
+      "open_count": 303,
+      "actionable_count": 1,
+      "remaining_actionable": 0,
+      "selected": [
+        {
+          "number": 5235,
+          "head": "48976daa4dce59b4867ef046da72a370e389925d",
+          "title": "Add compact universal certificates for dirty linear circuits (no new \u03ba)",
+          "lane": "new",
+          "changes": [],
+          "reason": "No cached intake decision.",
+          "evidence": []
+        }
+      ]
+    },
+    "next_action": "PR5235 arrived during publication and remains new/actionable. Resume delta-only intake; do not rereview unchanged revision holds or deferred replays."
   }
 }
