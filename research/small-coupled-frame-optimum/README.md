@@ -37,7 +37,7 @@ The whole 57-file independent input manifest plus its own FILES.json is retained
 
 ## Task, overlap and credit
 
-The assigned `joint-query-controller` card is explicitly **changed** to a supporting exact restricted optimum/independent verification. [TASK.json](TASK.json) retains the original card. Claim/review publication coordination: [#4994 comment](https://github.com/CrocSwap/integer-mult-bounds/pull/4994#issuecomment-6358831540).
+The claimed `complex-rank-shape-decoder` card is explicitly **changed** to a supporting exact restricted optimum/independent verification. [TASK.json](TASK.json) retains the original card. Claim/review publication coordination: [#4994 comment](https://github.com/CrocSwap/integer-mult-bounds/pull/4994#issuecomment-6358831540).
 
 1337isnot1337 supplies [#4994](https://github.com/CrocSwap/integer-mult-bounds/pull/4994)'s interval/realization model; Dugongue supplies [#4971](https://github.com/CrocSwap/integer-mult-bounds/pull/4971)'s frame-carrying swaps; Cao Yifan and native/controller/compiler predecessors supply the retained word. Astra supplies the authenticated source-specific proposal and its fit to Rina Dechter's published min-sum bucket-elimination theorem (1999), cited in the unchanged [PROPOSAL.md](evidence/source/PROPOSAL.md). The new contribution is the bounded exact implementation, certificates, independent reconstruction and portable verification. All source credit and Apache-2.0 notices are retained.
 
