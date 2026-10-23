@@ -3750,3 +3750,12 @@ Source archives retain attribution; mathematical review remains open.
 - **Brian (@JoyboyBrian)** — [#5075](https://github.com/CrocSwap/integer-mult-bounds/pull/5075): Close cyclic-line span-six dirty-auxiliary cases via the common-J lemma (source archive).
 
 Mihir Srivastava’s #5046 audit also supplies the portable binary-output fixture repair incorporated in this batch; the unresolved author-observed Windows destructor warning remains recorded.
+
+## Queue intake, 23 October 2026 (chunk G)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Nick Petalas (@petalas)** — [#5076](https://github.com/CrocSwap/integer-mult-bounds/pull/5076): Prove the exact block-three hook spectrum and error gap (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5077](https://github.com/CrocSwap/integer-mult-bounds/pull/5077): Prove the exact two-image inverse input lattice (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5078](https://github.com/CrocSwap/integer-mult-bounds/pull/5078): Prove the nonlinear boundary of the abelian no-phase reduction (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5079](https://github.com/CrocSwap/integer-mult-bounds/pull/5079): Classify integer frame groups admitting bounded grid rounders (no κ) (source archive).
