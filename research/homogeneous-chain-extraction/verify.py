@@ -112,8 +112,61 @@ def controller(n, mutation=None):
 
 
 def target(n):
-    return [[(Q if i < n-1 else ONE) if i == j else ZERO
+    jobs = 2*((n-1)//2)
+    return [[(Q if i < jobs else ONE) if i == j else ZERO
              for j in range(n)] for i in range(n)]
+
+
+def even_boundaries(n):
+    """The cyclic middle boundary attains n-2 jobs for every even n."""
+    need(n >= 2 and n % 2 == 0, 'An even chain length is required')
+    if n == 2:
+        return [], [], [('swap', 0, 1)], [('swap', 0, 1)]
+    m = n//2
+    right = [('swap', i, i-1) for i in range(n-2, 0, -1)]
+    right += [('add', 2*k, 0, P if k % 2 else ONE) for k in range(1, m)]
+    right += [('add', 2*k+1, n-1, P if (m-1-k) % 2 else ONE)
+              for k in range(m-1)]
+    correction = [('add', i, i-2, negative(P)) for i in range(n-1, 1, -1)]
+    middle = [('swap', i, i+1) for i in range(n-1)]
+    middle += [('scale', i, P) for i in range(1, n-1, 2)]
+    if (m-1) % 2:
+        middle += [('scale', n-1, P)]
+    left = [('add', 2*k, 2*k-2, P) for k in range(1, m-1)]
+    left += [('add', 2*k+1, 2*k+3, P) for k in range(m-3, -1, -1)]
+    left += [('add', n-2, n-4, P)]
+    left += [('scale', i, negative(P) if i % 2 else P) for i in range(n-2)]
+    if (m-1) % 2:
+        left += [('scale', n-1, P)]
+    left += [('swap', 2*k, 2*k+1) for k in range(m)]
+    return right, correction, middle, left
+
+
+def even_controller(n, mutation=None):
+    right, correction, middle, left = even_boundaries(n)
+    if mutation == 'missing spectator injection':
+        right = right[1:]
+    if mutation == 'missing long-root correction':
+        correction = []
+    if mutation == 'wrong long-root sign':
+        correction = [('add', i, j, P) for _, i, j, _ in correction]
+    if mutation == 'missing middle Pauli scales':
+        middle = [op for op in middle if op[0] != 'scale']
+    if mutation == 'wrong cyclic wrap weight':
+        middle += [('scale', n-1, P)]
+    if mutation == 'missing spectator restoration':
+        left = [op for op in left if not (op[0] == 'add' and op[1] == n-2)]
+    matrix = identity(n)
+    operate(matrix, right)
+    indices = range(n-1, 0, -1) if mutation == 'sign-only raw dual' else range(1, n)
+    for i in indices:
+        row_add(matrix, i, i-1, negative(Q))
+    operate(matrix, correction)
+    operate(matrix, middle)
+    for i in range(n-1):
+        row_add(matrix, i, i+1, Q)
+    operate(matrix, left)
+    return matrix
 
 
 def modular_rank(matrix, prime):
@@ -178,24 +231,38 @@ def faithful_gaussian_check():
 
 
 def check():
-    lengths = list(range(3, 32, 2))
+    lengths = list(range(2, 33))
     rows = []
     for n in lengths:
-        need(controller(n) == target(n), f'Exact all-column cyclic identity n={n}')
-        right, diagonal, correction, left = boundaries(n)
-        operations = right + diagonal + diagonal + correction + left
+        if n % 2:
+            actual = controller(n)
+            right, diagonal, correction, left = boundaries(n)
+            operations = right + diagonal + diagonal + correction + left
+            m = (n-1)//2
+            expected = (5*m-2, m, 3*m)
+        else:
+            actual = even_controller(n)
+            right, correction, middle, left = even_boundaries(n)
+            operations = right + correction + middle + left
+            m = n//2
+            expected = (3*n-7, 5*m-3, 3*m-3+2*((m-1) % 2)) if n >= 4 else (0, 2, 0)
+        need(actual == target(n), f'Exact all-column cyclic identity n={n}')
         adds = sum(op[0] == 'add' for op in operations)
         swaps = sum(op[0] == 'swap' for op in operations)
         scales = sum(op[0] == 'scale' for op in operations)
-        m = (n-1)//2
-        need((adds, swaps, scales) == (5*m-2, m, 3*m), 'Complete boundary inventory')
-        rows.append({'n': n, 'Q_jobs': n-1, 'calls': 2, 'scalar_ADDs': adds,
+        need((adds, swaps, scales) == expected, 'Complete boundary inventory')
+        rows.append({'n': n, 'Q_jobs': 2*((n-1)//2), 'calls': 2, 'scalar_ADDs': adds,
                      'swaps': swaps, 'signed_P_scales': scales})
     mutations = ['missing spectator injection', 'missing long-root correction',
                  'wrong long-root sign', 'missing Pauli conjugations',
                  'missing spectator restoration', 'sign-only raw dual']
     for mutation in mutations:
         need(controller(5, mutation) != target(5), 'Rejected mutation: '+mutation)
+    even_mutations = [x.replace('missing Pauli conjugations', 'missing middle Pauli scales')
+                      for x in mutations]
+    even_mutations += ['wrong cyclic wrap weight']
+    for mutation in even_mutations:
+        need(even_controller(6, mutation) != target(6), 'Rejected even mutation: '+mutation)
     try:
         boundaries(4)
     except ValueError:
@@ -210,6 +277,7 @@ def check():
         'coefficient_slots': sum(4*n*n for n in lengths),
         'boundary_profiles': rows,
         'rejected_controller_mutations': mutations,
+        'rejected_even_controller_mutations': even_mutations,
         'dirty_workspace_rank_fixtures': lower_bound_fixtures(),
         'tensor_evaluation_ranks_f1_through_f4': faithful_gaussian_check(),
         'proof': 'PROOF.md',

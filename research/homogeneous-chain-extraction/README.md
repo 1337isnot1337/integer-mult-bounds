@@ -1,41 +1,54 @@
-# Optimal two-call extraction from odd homogeneous chains
+# Exact two-call capacity of homogeneous query chains
 
 **Conditional operator theorem, author-checked; no new kappa or native supplier.**
-For every odd n=2m+1>=3, a homogeneous chain U_n=I+Q J_n and its actual raw
-inverse transpose can deliver n-1 independent Q jobs and restore one arbitrary
-spectator with two calls. Every boundary uses only scalar mixing and the global
-monomial P=Q^2. The explicit reversible circuit uses 5m-2 scalar ADDs, m swaps
-and 3m signed-P scales, as field macros. For n=5 this is four Q jobs from two
-calls, with eight ADDs, two swaps and six scales across all boundaries.
+For every n>=2, two calls to a homogeneous chain U_n=I+Q J_n and its actual raw
+inverse transpose can deliver exactly
+
+    r = 2 floor((n-1)/2)
+
+independent Q jobs while restoring the other arbitrary input fields. Every
+boundary uses only scalar mixing and the global monomial P=Q^2. For odd
+n=2m+1 the explicit circuit uses 5m-2 scalar ADDs, m swaps and 3m signed-P
+scales. A different weighted cyclic middle boundary attains n-2 jobs for every
+even n. Counts are field macros; physical movement and precision remain unpriced.
+
+| Chain fields | Q jobs from two calls | Restored spectators | Boundary ADDs | Swaps | Signed-P scales |
+|---:|---:|---:|---:|---:|---:|
+| 3 | 2 | 1 | 3 | 1 | 3 |
+| 4 | 2 | 2 | 5 | 7 | 5 |
+| 5 | 4 | 1 | 8 | 2 | 6 |
+| 6 | 4 | 2 | 11 | 12 | 6 |
+| 7 | 6 | 1 | 13 | 3 | 9 |
 
 This extends the three-field conditional identity in Cinna Davis's
 [PR4698](https://github.com/CrocSwap/integer-mult-bounds/pull/4698), whose frozen
 source/proof are pinned in [SOURCES.json](SOURCES.json). The proof also shows
-that no two-call word in the scalar/global-P ring can produce more than n-1
-independent Q jobs, even with arbitrary restored dirty workspace. The count
-must be even, giving only an upper bound n-2 for even n. This bound excludes
-broader physical monomial/address operations and does not apply to every
-isolated small tensor width. The identity itself holds at every positive width.
+that no two-call word in the scalar/global-P ring can produce more jobs, even
+with arbitrary restored dirty workspace. It permits any inverse/transpose
+orientation and arbitrary invertible boundaries over that ring. Broader physical
+monomial/address operations and isolated small tensor widths are excluded from
+the upper bound. The constructive identities hold at every positive width.
 
-[PROOF.md](PROOF.md) gives the all-length construction, the restricted optimality
-proof, its width qualification and the complete conditional moment ledger.
+[PROOF.md](PROOF.md) gives the all-length constructions, restricted optimality
+proof, width qualification and complete conditional moment ledger.
 [verify.py](verify.py) checks all independent inputs symbolically over
-Z[q]/(q^4-1) for odd lengths 3 through 31, every boundary count, six semantic
-mutations, 256 finite dirty-workspace rank fixtures, and the tensor-width
-qualification. These finite checks supplement the written proof; they do not
-prove physical realizability or certify a multiplication algorithm.
+Z[q]/(q^4-1) for every length 2 through 32, every boundary count, both parity
+circuits, thirteen semantic mutations, 256 finite dirty-workspace rank fixtures,
+and the tensor-width qualification. These finite checks supplement the written
+proof; they do not prove physical realizability or certify multiplication.
 
 ## Budget and expansion decision
 
 With n transverse rank-b main fields per provider, autonomous helper moment H_t
 and complete paid moment P_t, the two-call surplus is
 
-    2 H_t + (n-1)(2b+1)^t + (2b)^t - 2 P_t.
+    2 H_t + r(2b+1)^t + (n-r)(2b)^t - 2 P_t.
 
-Writing E=P_1-H_1-nb, the C=0 rank surplus is (n-1)-2E. A new physical offer
-therefore needs E<(n-1)/2 merely to pass this necessary rank test. Directly
-building the chain from its n-1 unary queries loses at least n-1 moment units
-for every 0<=t<=1 with b>=1. Longer chains alone do not repair that bill.
+Writing E=P_1-H_1-nb, the C=0 rank surplus is r-2E. A new physical offer
+needs E<r/2 to pass this positive-rank test; the full moment at the proposed
+saving and every later cost still need checking. Directly building the chain
+from its n-1 unary queries loses at least 2(n-1)-r moment units for every
+0<=t<=1 with b>=1. Longer chains alone do not repair that bill.
 
 **Decision: retain the proved module; stop direct unary synthesis.** No native
 expansion is warranted until a named changed provider has a complete favorable
@@ -69,9 +82,10 @@ claim, and explicit expansion gate. Upstream and frozen predecessors are unchang
   full moment? Begin with its literal source/target chart contract and complete
   two-orientation invoice; stop on an unfavorable optimistic bill. No provider
   meeting this allowance is identified here.
-- Is the even-n upper bound n-2 attained by two full calls to the same even
-  chain in this ring? Begin with n=4 and arbitrary free middle boundaries.
-  The odd-chain construction and the upper bound do not answer that question.
+- Can a named additional free physical monomial/address operation exceed this
+  ring-restricted capacity? Begin with one actual source-compatible operation
+  and replay the full endpoint on all independent inputs. The broader physical
+  operation model is outside the optimality proof and still needs a full bill.
 
 ## Credit and scope
 
@@ -80,7 +94,7 @@ PR4698's helper normalization and conditional three-chain consumer, and the
 PR4440/4470 controller lineage. Retain Cao Yifan / intqwq, zxv, Jacob Alan
 Sussman, Ryanson Jonathan and all cited native/compiler/precision predecessors.
 Their actual native construction is not replayed or modified here. The new
-contribution is the longer odd-chain proof/circuit, restricted workspace bound,
+contribution is the all-length proof/circuits, restricted workspace bound,
 and explicit acquisition allowance. Prepared for Cinna Davis with substantial
 OpenAI Codex assistance. Apache-2.0. No independent human or proof-kernel
 acceptance is claimed.
