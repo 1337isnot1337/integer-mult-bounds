@@ -87,6 +87,7 @@ def rejected(call):
 def science():
     m=load()
     cases=[check(m,n,w,shift) for shift in (0,19,-23) for n in range(41) for w in (1,3,7,17)]
+    stress=[check(m,n,w,31) for n,w in ((80,2),(81,2),(82,2),(242,1),(243,1),(244,1),(7,129),(3,1024))]
     seven=check(m,7,3,trace=True)
     rows=fixture(m,7,3)[0]
     need(seven['stage_records']==[[rows[i] for i in p] for p in ([2,1,0,5,4,3,6],[6,5,4,3,2,1,0])], 'source seven-record stages')
@@ -109,7 +110,7 @@ def science():
     finally:m.PROGRAM=original
     data=json.dumps(cases,sort_keys=True,separators=(',',':')).encode()
     return {'schema_version':1,'claim':'fixed-three-lane physical valid-input reversal','cases':len(cases),
-            'cases_sha256':hashlib.sha256(data).hexdigest(),'program_instructions':len(m.PROGRAM),
+            'cases_sha256':hashlib.sha256(data).hexdigest(),'carry_and_stage_boundaries':stress,'program_instructions':len(m.PROGRAM),
             'max_steps':max(x['steps'] for x in cases),'seven':seven,'controls':controls,
             'unrun':['production bit-free supplier composition','heterogeneous runtime lane counts']}
 

@@ -18,7 +18,8 @@ The abstract pass count alone is not a physical tariff or a numerical gain.
 
 The verifier checks492 cases with independent record-array expectations,
 translated origins, full borrowed/unused frames, every work tape and head,
-written action/backing bounds, and the exact seven-record two-pass source
+written action/backing bounds, eight additional power-of-three/binary-carry
+cases through n244 and B1024, and the exact seven-record two-pass source
 example. Eight controls include actual output-bit and guide corruption.
 These are finite corroboration of the scoped proof, not a proof kernel or a
 complete multiplication theorem.

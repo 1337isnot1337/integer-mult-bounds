@@ -10,7 +10,9 @@ of B. These are supplied ports, each with a left marker, head at its first
 payload cell, and blank tail. OUTPUT and the work ports are blank after
 their left markers. All15 ports are distinct. Ports1,2,3 are untouched.
 The local alphabet is {0,1,blank,left}; the compiled instruction table is
-independent of n and B. The interpreter executes only single-cell reads,
+independent of n and B. The interpreter's step counter and low/high water diagnostics are observers,
+not control registers of the mathematical program. The interpreter executes
+only single-cell reads,
 writes, unit head moves and finite jumps. Its host step cap is a verifier
 stop, not an input to the mathematical machine.
 
