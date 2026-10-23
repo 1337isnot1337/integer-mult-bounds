@@ -3830,3 +3830,49 @@ Source archives retain attribution; mathematical review remains open.
 
 - **Cinna Davis (@1337isnot1337)** — [#5137](https://github.com/CrocSwap/integer-mult-bounds/pull/5137): Prove exact two-call capacity for homogeneous query chains (no new κ) (source archive).
 - **Krzysztof Wójt (@krzysztofwojt)** — [#5138](https://github.com/CrocSwap/integer-mult-bounds/pull/5138): Prove eight bits are necessary for algebra-faithful affine A5 actions (source archive).
+
+## Queue intake, 23 October 2026 (chunk L)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **lee-phys (@lee-phys)** — [#5139](https://github.com/CrocSwap/integer-mult-bounds/pull/5139): Prove exact dirty-fanout tariffs over finite commutative rings (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5140](https://github.com/CrocSwap/integer-mult-bounds/pull/5140): Extend owned-wire floor to free native/helper boundaries and nonnested C moves (historical source archive).
+- **Brian (@JoyboyBrian)** — [#5141](https://github.com/CrocSwap/integer-mult-bounds/pull/5141): Prove the sharp rank-one two-call P112 COPY floor (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5143](https://github.com/CrocSwap/integer-mult-bounds/pull/5143): Stream norm-six features with 320 live integer slots (no κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5144](https://github.com/CrocSwap/integer-mult-bounds/pull/5144): Screen paid nonmonotone owned contacts with shared late native maps (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5145](https://github.com/CrocSwap/integer-mult-bounds/pull/5145): Prove sharp all-precision Neumann truncation at 226p² (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5146](https://github.com/CrocSwap/integer-mult-bounds/pull/5146): Prove the sharp uniform binary character remainder gap (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5147](https://github.com/CrocSwap/integer-mult-bounds/pull/5147): Price native helper reuse: even a free third H17 loses (no new κ) (historical source archive).
+- **Nick Petalas (@petalas)** — [#5148](https://github.com/CrocSwap/integer-mult-bounds/pull/5148): Prove the exact stable-lane reversal pass count (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5149](https://github.com/CrocSwap/integer-mult-bounds/pull/5149): Lower the many-axis prime-supply cutoff to 2^30 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5150](https://github.com/CrocSwap/integer-mult-bounds/pull/5150): Prove sharp theta order for broad Gaussian edge inverses (no κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5151](https://github.com/CrocSwap/integer-mult-bounds/pull/5151): Prove the exact rational projection-recurrence limit (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5152](https://github.com/CrocSwap/integer-mult-bounds/pull/5152): Sharpen the many-axis prime product bound to exp(1/3) (no κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5153](https://github.com/CrocSwap/integer-mult-bounds/pull/5153): Prove sharp quadratic rounding guards for closed words (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5154](https://github.com/CrocSwap/integer-mult-bounds/pull/5154): Prove the sharp P112 exceptional-hull two-call COPY floor (source archive).
+- **Nick Petalas (@petalas)** — [#5155](https://github.com/CrocSwap/integer-mult-bounds/pull/5155): Prove binary E8 factor-rank-sum barrier 21 at every term count (source archive).
+- **Brian (@JoyboyBrian)** — [#5156](https://github.com/CrocSwap/integer-mult-bounds/pull/5156): Construct common three-factor words for all matrix-algebra component targets (source archive).
+- **Brian (@JoyboyBrian)** — [#5157](https://github.com/CrocSwap/integer-mult-bounds/pull/5157): Prove the two-direction P112 swap deficit vanishes (source archive).
+- **Brian (@JoyboyBrian)** — [#5158](https://github.com/CrocSwap/integer-mult-bounds/pull/5158): Close fixed-bank recursion for the literal complete-row caller (source archive).
+- **Brian (@JoyboyBrian)** — [#5159](https://github.com/CrocSwap/integer-mult-bounds/pull/5159): Complete the same-reference periodic rounded inverse service (source archive).
+- **Chris R (@Clear1nsight)** — [#5160](https://github.com/CrocSwap/integer-mult-bounds/pull/5160): Verify the released-control Clifford ceiling and conditional cost gate (no new κ) (source archive).
+- **Chris R (@Clear1nsight)** — [#5161](https://github.com/CrocSwap/integer-mult-bounds/pull/5161): Verify three bounded joint-Clifford chart certificates (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5162](https://github.com/CrocSwap/integer-mult-bounds/pull/5162): Supply standalone elementary interchange and complete raw CRT lifecycle (source archive).
+- **lee-phys (@lee-phys)** — [#5163](https://github.com/CrocSwap/integer-mult-bounds/pull/5163): Prove exact destination-priced dirty-fanout tariffs over local rings (source archive).
+- **Brian (@JoyboyBrian)** — [#5164](https://github.com/CrocSwap/integer-mult-bounds/pull/5164): Restore whole first-node setup ownership on source rejection (source archive).
+- **Brian (@JoyboyBrian)** — [#5165](https://github.com/CrocSwap/integer-mult-bounds/pull/5165): Supply the complete declared source-backing entry grant for the first-range Node caller (source archive).
+- **Brian (@JoyboyBrian)** — [#5166](https://github.com/CrocSwap/integer-mult-bounds/pull/5166): Pay the complete four-column binary-to-CRT-repair interface (source archive).
+- **Chris R (@Clear1nsight)** — [#5167](https://github.com/CrocSwap/integer-mult-bounds/pull/5167): Construct a two-real packed Tensor caller with finite staged conformance (no new κ) (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5168](https://github.com/CrocSwap/integer-mult-bounds/pull/5168): Prove exact degree 881 for the one-slot doubled centre Gram (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5170](https://github.com/CrocSwap/integer-mult-bounds/pull/5170): Prove bounded native corrective ADD chains cannot improve paid profiles (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5171](https://github.com/CrocSwap/integer-mult-bounds/pull/5171): Construct singular matrix-chain-ring targets in three common updates (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5172](https://github.com/CrocSwap/integer-mult-bounds/pull/5172): Prove a fixed positive-metric Gram box obstruction (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5173](https://github.com/CrocSwap/integer-mult-bounds/pull/5173): Prove full-rank ternary disjointness repair in odd dimensions (source archive).
+- **Nick Petalas (@petalas)** — [#5174](https://github.com/CrocSwap/integer-mult-bounds/pull/5174): Prove rank exchanges with any rational moment threshold (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5175](https://github.com/CrocSwap/integer-mult-bounds/pull/5175): Certify the six-call ternary quaternion pair minimum (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5176](https://github.com/CrocSwap/integer-mult-bounds/pull/5176): Prove paired Dn basis-shear floor for every fitting pairing (source archive).
+- **Nick Petalas (@petalas)** — [#5177](https://github.com/CrocSwap/integer-mult-bounds/pull/5177): Prove the all-field obstruction for the exceptional mixed Pappus frame (source archive).
+- **Nick Petalas (@petalas)** — [#5178](https://github.com/CrocSwap/integer-mult-bounds/pull/5178): Prove the exact finite-width slice-call/addition tradeoff (no new κ) (source archive).
+- **THU New Media Research Center· Prof. Shen Yang (@thu-nmrc)** — [#5179](https://github.com/CrocSwap/integer-mult-bounds/pull/5179): Force all twelve complete native preludes to their original line pairs (no new kappa) (source archive).
+- **Nick Petalas (@petalas)** — [#5180](https://github.com/CrocSwap/integer-mult-bounds/pull/5180): Classify every optimal width-two odd-cycle fitting matrix (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5181](https://github.com/CrocSwap/integer-mult-bounds/pull/5181): Classify every intact-region minimizer: exact 43-bit cube (no new κ) (source archive).
