@@ -13,23 +13,33 @@ def serial_access(words,width,address,replacement=None):
     # Initialize each finite index bit explicitly.
     for bit in range(width):index[bit]=0;steps+=1
     for position in range(len(words)):
-        equal=True;steps+=1
+        difference=0;steps+=1
         for bit in range(width):
-            test=index[bit]==wanted[bit];steps+=1
-            equal=equal and test;steps+=1
-        steps+=1  # Boolean branch
-        if equal:
+            test=index[bit] ^ wanted[bit];steps+=1
+            difference=difference | test;steps+=1
+        steps+=1  # branch on the finite difference bit being zero
+        if difference == 0:
             for bit in range(width):
                 if replacement is None:
-                    symbol=tape[head+bit];register[bit]=symbol
+                    symbol=tape[head];register[bit]=symbol
                 else:
-                    symbol=(replacement>>bit)&1;tape[head+bit]=symbol
+                    symbol=(replacement>>bit)&1;tape[head]=symbol
                 steps+=2
-        for bit in range(width):head+=1;steps+=1
-        carry=1
+                head+=1;steps+=1
+        else:
+            for bit in range(width):head+=1;steps+=1
         for bit in range(width):
-            previous=index[bit];index[bit]=previous ^ carry;carry=previous & carry
-            steps+=8  # fixed eight-bit-operation increment, including padding
+            # Eight explicitly priced finite-register instructions per bit.
+            # The first padding slot initializes carry for bit zero; later
+            # words are compiled fixed-width loops, not decoded host indices.
+            if bit == 0:carry=1
+            steps+=1  # carry initialization or NOP
+            previous=index[bit];steps+=1
+            digit=previous ^ carry;steps+=1
+            next_carry=previous & carry;steps+=1
+            index[bit]=digit;steps+=1
+            carry=next_carry;steps+=1
+            steps+=2  # two NOPs
         steps+=1  # bounded loop branch
     while head:head-=1;steps+=1
     steps+=1  # halt

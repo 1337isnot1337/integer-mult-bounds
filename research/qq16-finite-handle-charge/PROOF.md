@@ -33,9 +33,16 @@ increment; test the loop; rewind the entire store; halt. It costs exactly
 
 `A(Q,w) = Q(12w+3)+3w+1`
 
-in the stated bit-instruction model: reset w, per word compare 2w+1, branch 1,
+in the stated bit-instruction model: reset w, per word compare 2w+1 (zero difference bit, then XOR and OR for every
+address bit), branch-on-zero 1,
 forward movement w, padded increment 8w, loop branch 1; the unique selected
-copy costs 2w, complete rewind costs Qw, and halt costs 1. Fixed registers are
+copy costs 2w, complete rewind costs Qw, and halt costs 1. Selected copy reads or writes
+only the current head cell and immediately advances one cell per bit; unselected
+words perform the same forward moves without copying. No offset cell lookup
+is part of the bit machine. Each increment bit pays carry initialization (only
+on the first bit; otherwise NOP), old-bit copy, XOR, AND, digit assignment,
+carry assignment and two NOPs: exactly eight instructions per bit. Fixed-width
+bit loops are unrolled in the compiled control, whose frontend belongs to F. Fixed registers are
 bits/Booleans, compiled for this fixed K; no unbounded integer is free. The
 independent checker expands these instructions on small stores and checks
 values, addresses, preserved cells, restored head and exact prices.
