@@ -87,7 +87,7 @@ charged obligations.
 A separate written kernel argument proves `r>=112` only for a **fresh
 standalone T circuit with no initially supplied nonfree observations**,
 translation-algebra free coefficients, commuting same-width X-Gaussian
-children, and a FREE terminal E in the declared fixed finite endpoint class,
+children, and a FREE terminal E in the declared fixed finite monomial-Clifford endpoint class,
 at sufficiently large faithful widths. Under exactly these conditions 112
 exceeds the conditional 44 allowance. This is **not** a whole-caller amortized
 barrier: already-paid QY/native/IDLE/centre observations violate that initial-
