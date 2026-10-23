@@ -56,8 +56,8 @@ The reference Schur matrix is not replaced with one formed from rounded
 interior inverses. The original rounded-page estimates therefore apply with
 eta=2^-P, including the rounded diagonal argument to sequential inverse-page
 lookup. For sparse rows with at most s entries, the pointwise error at Y* is
-at most eta(sY*+1). For narrow boundary execution the complete complex two-pass
-error is less than 2^40 p^16 eta Y*. The unchanged P_sparse/P_boundary/P_apply
+at most 2eta(sY*+1). For narrow boundary execution the complete complex two-pass
+error is less than 2^41 p^16 eta Y*. The unchanged P_sparse/P_boundary/P_apply
 lower bounds fund these errors by e and retain the residual-absorption guards.
 Both real and imaginary RHS columns and all partial block batches are paid.
 
