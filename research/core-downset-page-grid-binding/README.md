@@ -10,11 +10,18 @@ input of every raw call and the original immutable reference. See PROOF.md
 for the quantified argument and explicit inherited premises.
 
 The original multi-interior fixture has 143 rows, two 16-dimensional interior
-blocks and 111 boundary coordinates. The preliminary source-bound gate gives
+blocks and 111 boundary coordinates. The independent final checker gives
 narrow data grid 184 versus 261 in the frozen predecessor receipt, and broad
 233 versus 385. These are fixture measurements, not universal fixed savings.
-The definitive RESULT.json is produced by the new independent stage/page
-checker; it retains full actual caller records and complete execution counts.
+RESULT.json retains full actual caller records and complete execution counts.
+For narrow Core, the 184-bit boundary floor dominates the 151-bit raw probe
+and 68-bit sparse floor; all 28 rounded inverse pages change while exact LU
+factors remain identical. Broad Core is dominated by its 233-bit raw probe,
+above the 214-bit Schur-application floor. Leaving the final raw site unbound
+actually requests 261/385 bits and breaks the common-grid requirement.
+The normal CPython3.12.2 replay passed in130.50 seconds, including eight
+controls, all page identities and both complete endpoints. Optimized cold
+verification is recorded separately at publication.
 
 No physical Tape implementation, Gaussian core/halo approximation, complete
 setup tariff, new kappa or selected-frontier admission is claimed. Exact
