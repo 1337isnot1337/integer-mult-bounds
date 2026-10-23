@@ -55,7 +55,7 @@
   },
   "scope_status": "changed",
   "actual_scope": "Prove a matching theta^(-1/2) lower order for broad Gaussian phase-cell inverses at beta_0=-1/2, using a positive checkerboard rectangle.",
-  "scope_change_reason": "The donor requests an original result rather than a predecessor audit. This answers the matching-lower-estimate question in another contributor's PR5103, as a precision-interface side result.",
+  "scope_change_reason": "This answers the matching-lower-estimate question in PR5103 as an original precision-interface side result. It proves necessity of the cell-edge loss rather than auditing a predecessor's upper estimate.",
   "bottleneck_link": "The Gaussian conditioning exponent affects precision budgets. A lower estimate distinguishes an unavoidable edge loss from slack in an upper proof; it does not price physical execution.",
   "budget_minutes": 60,
   "stop_rule": "Stop at the first proved matching-order lower estimate. Leave the sharp constant and complete physical caller open.",

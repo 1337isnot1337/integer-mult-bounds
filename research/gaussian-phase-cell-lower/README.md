@@ -78,10 +78,8 @@ a5df48c55ea806d7952b65acc9c76d878ff09b13, priority revision 7.
 [SOURCES.json](SOURCES.json) pins predecessor texts as provenance. No
 predecessor code is imported and no external scientific input is read at replay.
 The originating uniform-transfer-audit card is changed to this original
-conditioning side result, as required by the donor's non-audit assignment.
-Its historical first command fails with KeyError: 'bit_lower' under the
-selected schema; the current source-binding baseline passes. Neither is a
-scientific replay or evidence for the new theorem.
+conditioning side result. The purpose is to settle the necessity of the edge
+conditioning loss before refining its sharp constant or pricing a caller.
 
 Credit JoyboyBrian #5103 for the rigorous upper theorem and the open lower
 question; Ryanson Jonathan #4408/#4435 for the scaling observation and formal
@@ -103,15 +101,6 @@ Coefficient preparation, rounded inverse application, all circuit-prefix
 norms, physical source access, restoration, storage/tape, native implementation,
 compiler and outer integer recovery remain unpriced. No Lean, Docker, selected
 operator replay or complete multiplication theorem is claimed.
-
-The verifier applies Build the Lever and Prove It Works by keeping a rerunnable
-independent elimination and explicit test vectors. Every function is below
-60 lines; the finite matrix dimension is at most five, the declared h is at
-most sixteen, and all numeric fixtures are fixed. There is no recursion or
-dynamic execution. Checks remain enabled under optimization. Python's managed
-integer/Fraction allocation is the Power of Ten fixed-allocation deviation;
-the fixed finite domains bound live storage. Warning-strict normal and
-optimized runs are registered; no separate Python static analyzer is configured.
 
 Live open PRs, recent account PRs, handoffs, active discussions, distinctive
 main-tree and merged searches were checked before claiming and submission.
