@@ -81,13 +81,13 @@
     }
   ],
   "overlap_checkpoint": {
-    "utc": "2026-10-23T06:20:02Z",
+    "utc": "2026-10-23T06:35:45.982031+00:00",
     "main": "f259dabc7d70e0db8d6d36bfda888f008bbfecc1",
     "priority_revision": 7,
-    "open_prs": 301,
-    "discussion_records": 4110,
-    "local_notes": 6710,
+    "open_prs": 314,
+    "discussion_records": 4129,
+    "local_notes": 6712,
     "closed_prs": 4310,
-    "distinction": "PR4993 varies boundaries/split regions and reports sampled exploration; PR4994 leaves coupled choices open. No exact global result for the fixed-boundary intact-region model found. Coverage is advisory."
+    "distinction": "PR4993 varies boundaries/split regions and reports sampled exploration. New PR5016 at be656882128732110c00d08ceff265e71bece0f9 numerically optimizes PR4994's broader full-contact domain at one exponent and explicitly lacks an exact certificate. This result is exact for all exponents but only for intact regions. No competing exact result for that scope was found. Refreshed open PR/discussion snapshots have complete pagination; local count includes the two new package notes and all 6710 baseline notes. Closed-PR coverage is the earlier 06:14 snapshot. Coverage is advisory."
   }
 }

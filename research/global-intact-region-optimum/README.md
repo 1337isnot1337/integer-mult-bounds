@@ -34,7 +34,8 @@ edges forward and 29,974 backward; the eight extra backward edges have zero
 rank. Every edge is owned once, and all eight rank-eight center queries are
 added to the global strand minimum.
 
-The retained source loader checks all 632 inputs, including 408 dirty helpers.
+The retained source replay checks all 632 normalized input rows, including
+identity restoration of rows 224 through 631 (408 arbitrary helper rows).
 The new [independent oracle](oracle_checks.py) exhausts 655 assignments across
 seven small graphs, using explicit-set subspaces and a different exact
 rank-two objective. It includes a four-variable coupled graph, nonidentity
@@ -50,6 +51,13 @@ Canonical coordination: [Discussion #5006](https://github.com/CrocSwap/integer-m
 PR4994 supplies separate per-contact bounds; it does not optimize the coupled
 assignment. PR4993's continuing variable-boundary/split-region search is
 broader and is not excluded here. The #4953/#4999 mod-I³ line is unrelated.
+
+The later [PR5016](https://github.com/CrocSwap/integer-mult-bounds/pull/5016),
+head `be656882128732110c00d08ceff265e71bece0f9`, reports a numerical HiGHS
+optimum over 4,684 marginal subspaces at one child-price point. It explicitly
+leaves an exact global certificate open. Its full-contact domain permits more
+than intact-region changes; this package supplies an exact all-exponent theorem
+only for the narrower intact-region domain, not an exact certificate for PR5016.
 
 ## Reproduce
 
