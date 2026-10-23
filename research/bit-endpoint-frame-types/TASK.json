@@ -99,5 +99,23 @@
     "local_records": 6710,
     "local_head_inventory_complete": true,
     "scope": "Titles/bodies, discussion comments/replies and local README/TASK/ledger; not arbitrary diffs or unpublished work."
+  },
+  "upstream_checkpoint": {
+    "commit": "4c0a359d88f22f05189d51f48387750b801a45d4",
+    "checked_at": "2026-10-23T07:23:00Z",
+    "priority_revision": 7,
+    "guidance_selected_and_live_inputs_unchanged": true,
+    "action": "Rebased isolated contribution; original scientific source pins preserved"
+  },
+  "submission_overlap": {
+    "open_prs": 308,
+    "open_fetched_at": "2026-10-23T07:23:41Z",
+    "discussion_records": 4155,
+    "discussions_fetched_at": "2026-10-23T07:25:05Z",
+    "closed_prs": 4339,
+    "closed_fetched_at": "2026-10-23T07:25:49Z",
+    "local_records": 6762,
+    "local_head_inventory_complete": true,
+    "same_scope_result_found": false
   }
 }

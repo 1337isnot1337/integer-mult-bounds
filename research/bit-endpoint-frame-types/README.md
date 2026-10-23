@@ -122,6 +122,13 @@ scope change from four-provider admission to a concrete bit exporter contract.
 The selected-baseline binding check passed. Overlap searches covered 323 open
 PRs, 4,310 closed PRs, 4,134 Discussion records and all 6,710 tracked local note
 paths; arbitrary diffs and unpublished work remain outside that coverage.
+The pre-submission refresh fetched main
+`4c0a359d88f22f05189d51f48387750b801a45d4`; guidance, selection and all eleven
+live inputs were unchanged. The isolated contribution was rebased onto that
+main while preserving its scientific source pins. The fresh snapshots covered
+308 open PRs (07:23 UTC), 4,155 Discussion records (07:25 UTC), 4,339 closed PRs
+(07:25 UTC), and all 6,762 local notes including this package's two new notes.
+No overlapping typed-JSON endpoint repair was found within that coverage.
 The [canonical investigation](https://github.com/CrocSwap/integer-mult-bounds/discussions/2976#discussioncomment-19140401)
 records the status and submission.
 
