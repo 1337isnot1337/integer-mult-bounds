@@ -81,12 +81,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop if only finite monotonicity or the already known limit is recovered.",
   "outcome": "completed",
-  "evidence": [
-    "PROOF.md",
-    "RESULT.json",
-    "verify.py",
-    "independent.py"
-  ],
+  "evidence": "PROOF.md supplies the all-k argument; RESULT.json records exact controls replayed by verify.py and independently by independent.py.",
   "author": "JoyboyBrian",
   "ai_assistance": "Substantial OpenAI Codex Astra derivation, implementation and review assistance.",
   "open_questions": [
