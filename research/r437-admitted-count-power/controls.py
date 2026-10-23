@@ -51,14 +51,29 @@ def run(cached,cardinality,records,words,Count):
         ia,ra=words.Arena(8,64),words.Arena(5,128)
         power=ra.literal(9);ring=words.Ring(power);e=ia.literal(3);value=Count.literal(5)
         saved=[(v,bytes(v.cells),v.head)for v in(power,ring.one,e)]
-        def reject(self,constant):raise RuntimeError('injected Count failure')
+        original=value.multiply_small
+        failure=RuntimeError('injected Count failure after one completed write')
+        def reject(self,constant):original(constant);raise failure
         value.multiply_small=MethodType(reject,value)
         try:cached(value,e,ring,3)
-        except RuntimeError:controls.append('Count exception releases owned cache and Counter')
+        except RuntimeError as error:
+            need(error is failure and observe(value)==15,'partial Count output and original exception retained')
+            controls.append('partial Count failure releases cache and Counter without output rollback')
         else:raise ValueError('injected failure ignored')
         need(all((bytes(v.cells),v.head)==(raw,head)for v,raw,head in saved),'failure preserves borrowed operands')
         value.close();ia.free(e);ring.close();ra.free(power)
         need(not ia.live and not ra.live,'failure numerical cleanup')
+        ia,ra=words.Arena(8,64),words.Arena(4,128)
+        power=ra.literal(6);ring=words.Ring(power);e=ia.literal(1);value=Count.literal(5)
+        protected=set(ra.live)
+        try:cardinality.multiply_atom_power(value,e,ring,3)
+        except ValueError:pass
+        else:raise ValueError('original malformed context unexpectedly accepted')
+        need(len(ra.live-protected)==2,'original guard leaks returned quotient and remainder')
+        controls.append('original malformed guard positive control leaks exactly two Words')
+        ra.rollback(protected)  # Observer-only teardown after the failed original call.
+        value.close();ia.free(e);ring.close();ra.free(power)
+        need(not ia.live and not ra.live,'positive-control fixture disposal')
         need(all(t.head==1 and all(x==words.BLANK for x in t.cells[1:])for t in tapes),
              'all control Count/cache/Counter backing erased')
     finally:records.Tape.__init__=original_init

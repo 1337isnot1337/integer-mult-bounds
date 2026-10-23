@@ -8,13 +8,16 @@ stock/compiler mechanisms retain the credit in README.md and predecessor notices
 
 Inputs are a valid immutable source Ring with modulus q^w, compiled integer
 q>=2 and w>=1, an encoded nonnegative exponent Word E, and an owned canonical
-Count V. The Ring/modulus/exponent and all unrelated dirty state are borrowed.
+Count V. Borrowed words enter at the original caller's agreed canonical heads.
+The Ring/modulus/exponent and all unrelated dirty state are borrowed.
 Count.multiply_small(q), source Counter and Word division are the actual
 original primitives; the radix loop retains its original arithmetic and guards
 with corrected opt-in cleanup on a rejected intermediate quotient. Runtime Word.inspect or decoding of E,w,V is forbidden.
 The required endpoint is V_out=V_in*q^(w E), with borrowed bytes/heads restored
 and all owned cache/Counter/numerical backing erased. This is a positive valid-
-context contract. It does not roll back partial output Count writes if the
+context contract. Initial Tape/Counter/Word construction and the underlying
+primitive-owned allocation contracts must succeed; resource exhaustion and
+primitive internal allocation failures are not a general rollback guarantee. It does not roll back partial output Count writes if the
 original Count primitive itself fails.
 
 The original multiply_atom_power traverses radix_power(ring,q) for every one
@@ -70,7 +73,9 @@ claimed as proof that the full constructor/caller has run.
 
 For the unchanged q=2^127-1 root e=n=64,w=2,h=0, original precision is
 L255/I8/Q520213. Unused and leading Counts are 9475, gap=suffix=1. The original
-completed saved Count is exactly 9475*(q^2)^128, of bit length 32526. All 256
+completed saved Count is exactly 9475*(q^2)^128, of bit length 32526. A read-only observer wrapping the actual call records one invocation, two
+Word divisions and all 256 Count multipliers; these counters never control the
+algorithm and the wrapped methods are restored in finally. All 256
 Count multipliers remain paid. Two actual original Word divisions validate the
 radix once instead of 256 original divisions. The adapter saves the completed
 Count on the original fibre role before the first payload operation. The

@@ -55,7 +55,22 @@ def run(diagnostic=False):
         adapter=module('r437_admitted_count_power_adapter',HERE/'adapter.py')
         atom_power=adapter.install(records,stream,words)
         checks=module('r437_count_power_controls',HERE/'controls.py').run(atom_power,cardinality,records,words,Count)
-        node_prefix,boundary=bridge.compile_node_prefix(macro_machine,quotient,atom_power)
+        atom_observation=dict(calls=0,word_divisions=0,count_multipliers=0)
+        def observed_atom_power(value,exponent,ring,q):
+            atom_observation['calls']+=1
+            divide,multiply=ring.raw.divmod,value.multiply_small
+            def counted_divide(left,right):
+                atom_observation['word_divisions']+=1
+                return divide(left,right)
+            def counted_multiply(constant):
+                atom_observation['count_multipliers']+=1
+                return multiply(constant)
+            ring.raw.divmod=counted_divide;value.multiply_small=counted_multiply
+            try:return atom_power(value,exponent,ring,q)
+            finally:
+                del ring.raw.divmod
+                del value.multiply_small
+        node_prefix,boundary=bridge.compile_node_prefix(macro_machine,quotient,observed_atom_power)
         phase('certified source and actual NODE prefix bound')
         calls=[];controls=[]
         def check_entry(d=domain,h=handle,callback=lambda:None):
@@ -94,6 +109,7 @@ def run(diagnostic=False):
             for name in('tape','count','commit','save_count'):setattr(runtime,name,MethodType(getattr(macro_machine.Machine,name),runtime))
             need(runtime.indices.bits==domain.I and runtime.arena.bits==domain.L and runtime.context.codes is cat.codes,'encoded widths/codebook match admitted root')
             borrowed=[(t,bytes(t.cells),t.head)for t in[roles[n]for n in('rows','before','gap','suffix','old_count','old_directory')]+[program.tape,dirty.tape]]
+            borrowed_words=[(v,bytes(v.cells),v.head)for v in(modulus,ring.one,runtime.size,runtime.depth)]
             dirty_saved=(bytes(dirty_word.cells),dirty_word.head);live=(set(ia.live),set(ra.live));existing=set(map(id,tapes))
             phase('actual root Count encoded')
             before=dict(record=record_actions(),index=actions(ia.meter),residue=actions(ra.meter))
@@ -101,6 +117,7 @@ def run(diagnostic=False):
             try:node_prefix(runtime)
             finally:words.Word.inspect=old_inspect
             phase('literal completed fibre and suffix product finished')
+            need(atom_observation==dict(calls=1,word_divisions=2,count_multipliers=256),'actual root radix and Count call observations')
             observed={name:value(runtime.count(name))for name in('unused','leading')}
             observed['complete_fibre']=value(runtime.count('fibre'))
             expected=9475*(q**domain.w)**(2*domain.n)
@@ -109,6 +126,7 @@ def run(diagnostic=False):
             need(live==(set(ia.live),set(ra.live)),'NODE prefix numerical ownership restored')
             need(all((bytes(t.cells),t.head)==(raw,head)for t,raw,head in borrowed),'borrowed root/Count metadata preserved')
             need((bytes(dirty_word.cells),dirty_word.head)==dirty_saved,'unrelated dirty residue word preserved')
+            need(all((bytes(v.cells),v.head)==(raw,head)for v,raw,head in borrowed_words),'actual borrowed Ring and size/depth words preserved')
             need(all(t.head==1 and all(c==words.BLANK for c in t.cells[1:])for t in tapes if id(t)not in existing),'temporary Count backing erased')
             after=dict(record=record_actions(),index=actions(ia.meter),residue=actions(ra.meter))
             invoice={lane:{k:after[lane][k]-before[lane][k]for k in after[lane]}for lane in after}
@@ -117,13 +135,13 @@ def run(diagnostic=False):
             dirty.close();program.tape.clear();ia.free_many(runtime.size,runtime.depth);ra.free(dirty_word);ring.close();ra.free(modulus)
             need(not ia.live and not ra.live,'complete terminal numerical cleanup')
             need(all(t.head==1 and all(c==words.BLANK for c in t.cells[1:])for t in tapes),'all record backing blank after owned/fixture disposal')
-            return dict(outputs=returned,node_invoice=invoice,full_construct_execute_dispose=dict(record=record_actions(),index=actions(ia.meter),residue=actions(ra.meter)),visited_record_cells=sum(len(t.cells)for t in tapes),borrowed_preserved=True,numerical_restored=True,record_backing_erased=True)
+            return dict(outputs=returned,node_invoice=invoice,full_construct_execute_dispose=dict(record=record_actions(),index=actions(ia.meter),residue=actions(ra.meter)),visited_record_cells=sum(len(t.cells)for t in tapes),borrowed_preserved=True,borrowed_ring_size_depth_words=4,numerical_restored=True,record_backing_erased=True)
         result,entry=check_entry(callback=continuation);need(calls==['actual encoded continuation'],'one actual admitted continuation')
         records.Tape.__init__=old_init
         phase('complete disposal')
         return dict(status='PASS_R437_ADMITTED_COUNT_POWER',live_inputs=inputs,root_entry=entry,node_boundary=boundary,
             input_rows=integer(rows),batch_constant=integer(constant),construction=quotient.construction,
-            encoded_result=result,controls=controls,differential=checks,full_directory_context_constructed=False,production_payload_executed=False,
+            encoded_result=result,controls=controls,differential=checks,actual_atom_calls=atom_observation,full_directory_context_constructed=False,production_payload_executed=False,
             completed_expansion=dict(original_word_divisions=2*domain.n*domain.w,cached_word_divisions=domain.w,count_multiply_small=2*domain.n*domain.w,final_fibre_bits=(9475*(q**domain.w)**(2*domain.n)).bit_length()),
             scope='Original admitted root through completed fibre and suffix Count product before peel; full Context, physical big-int tariff and payload remain open.')
 

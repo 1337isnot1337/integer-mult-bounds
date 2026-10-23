@@ -1,4 +1,9 @@
 {
+  "actual_atom_calls": {
+    "calls": 1,
+    "count_multipliers": 256,
+    "word_divisions": 2
+  },
   "batch_constant": {
     "bits": 520192,
     "sha256": "750f89ba4ed2f9b59c25d497275b3f666ef874f5f06a8b555b4fb8c35b2082b5"
@@ -105,13 +110,15 @@
     "controls": [
       "non-prime-power context rejected before Count writes",
       "non-prime-power context rejected before Count writes",
-      "Count exception releases owned cache and Counter"
+      "partial Count failure releases cache and Counter without output rollback",
+      "original malformed guard positive control leaks exactly two Words"
     ],
     "original_cached_pairs": 81,
     "unchanged_multiplier_words": 81
   },
   "encoded_result": {
     "borrowed_preserved": true,
+    "borrowed_ring_size_depth_words": 4,
     "full_construct_execute_dispose": {
       "index": {
         "moves": 3976,

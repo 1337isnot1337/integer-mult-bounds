@@ -12,25 +12,30 @@ Its full exponent diagnostic was interrupted after 90.505 seconds. This package
 answers its first open next question with an actual completed Count output,
 rather than replacing q127 by a tiny fixture. The first full completed run took
 56.104 seconds on local Python 3.12.15; that observation is not a proved runtime
-bound or a controlled baseline speedup. All frozen inputs remain unchanged.
+bound or a controlled baseline speedup. All frozen inputs remain unchanged. A read-only actual-call observer checks
+one adapter invocation, two Word divisions and 256 Count multipliers.
 
 ## Boundary and evidence
 
 The source AST is cut before the original assignment to peeled. The original
 ingress, quotient, stock guard, saved leading, initial fibre, exponent, suffix
 product and saved complete fibre run unchanged except the two named opt-in
-adapters. Runtime Word.inspect is disabled. The exact output is
+adapters. The radix validator retains source arithmetic/guards and additionally
+releases quotient/remainder on a rejected prime-power guard; the frozen original
+guard leaked those two newly allocated Words. Runtime Word.inspect is disabled. The exact output is
 9475*(q^2)^128. Original root precision L255/I8/Q520213, source handle/key,
 Program and numerical admission checks remain bound to the actual root.
 
 Borrowed bytes/heads, dirty Count173/Word37, numerical live sets and erased
 owned backing are checked before fixture disposal. Separate small-domain
 comparisons retain the exact original multiplier word, including zero exponent,
-and reject invalid modulus and injected Count-failure leaks. Typed receipt and
+and reject invalid modulus and injected partial Count-failure leaks. The original malformed
+radix guard is separately confirmed to leak exactly two returned numerical Words. Typed receipt and
 source corruption must reject. Exact counts, AST identity, lane invoices and
 output hashes are in [RESULT.json](RESULT.json).
 
-The context is a structural view bound to admitted metadata. Full codebook and
+The context is a structural view bound to admitted metadata. Allocation exhaustion and arbitrary primitive-internal failure rollback are
+outside the tested exception classes. Full codebook and
 Context construction, physical large-divisor arithmetic pricing, original peel,
 complete directory/gather and payload are unrun. Unknown costs are not zero.
 This does not admit a supplier, improve kappa, or change the selected result.
