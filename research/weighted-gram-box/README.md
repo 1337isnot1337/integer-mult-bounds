@@ -158,10 +158,6 @@ than another replay of this four-row example.
 
 ## Implementation bounds
 
-Build the Lever led to the exact read-only verifier; Prove It Works led to
-literal normalization, witness replay and complete definition-level enumeration.
-The autonomous local run stops at this first verified obstruction.
-
 Power of Ten inspection is confined to `verify.py`. Control flow is
 nonrecursive, functions are below 60 lines, inputs have at most four rows and
 three columns, rational input integers have at most 32 bits, and rescaling
