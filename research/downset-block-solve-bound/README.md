@@ -201,6 +201,19 @@ no unavailable standalone lint or type-check pass is claimed. A future
 parameterized checker must add input/bit-size limits before lifting these
 fixed-fixture resource bounds.
 
+Replay runtime: the replay requests 33,409 exact inverses of only 808 distinct
+matrices. `inv` therefore keeps each residual-checked inverse in a module-level
+table keyed by the exact input and returns a fresh copy; every distinct matrix
+is still eliminated and residual-checked once, and a singular input is never
+stored. The table holds at most one entry per distinct input (808 here).
+Reuse controls reject a shape-only key and a shared, mutable entry, and confirm
+that a singular matrix still rejects. The printed `finite_evidence` and status
+are unchanged under both registered commands; only the `verify.py` and
+`README.md` source hashes differ. Local best-of-3 wall time per command fell
+from about 23.4 s to 7.0 s (`-W error`) and 24.2 s to 6.7 s (`-O`). Runtime
+change by Brian (JoyboyBrian) with substantial Claude Code assistance, under
+the `replay-runtime` card; the mathematics and checks remain Nick Petalas's.
+
 ## Open next questions
 
 1. Can this envelope replace the old one in the complete rounded Full factory?
