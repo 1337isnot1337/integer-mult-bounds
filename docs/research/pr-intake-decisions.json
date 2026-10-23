@@ -77678,7 +77678,7 @@
       "reviewed_head": "d35173cec22c1636a4571271df29ae5a0d518a37",
       "current_head": "d35173cec22c1636a4571271df29ae5a0d518a37",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/block3-hook-error-spectrum"
       ],
@@ -77688,12 +77688,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23g-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5076",
+        "merge_commit": "d809e986a1b1b45aae167ce83e85b989e5174e97"
+      }
     },
     {
       "number": 5077,
@@ -77713,7 +77717,7 @@
       "reviewed_head": "06611c07c1640bc6976678bbd744deabd70294c6",
       "current_head": "06611c07c1640bc6976678bbd744deabd70294c6",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/two-image-inverse-lattice"
       ],
@@ -77723,12 +77727,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23g-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5077",
+        "merge_commit": "d809e986a1b1b45aae167ce83e85b989e5174e97"
+      }
     },
     {
       "number": 5078,
@@ -77748,7 +77756,7 @@
       "reviewed_head": "0cb79c588655cc85653ca4123c74fe3cc42c6ec9",
       "current_head": "0cb79c588655cc85653ca4123c74fe3cc42c6ec9",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/no-phase-nonlinear-boundary"
       ],
@@ -77758,12 +77766,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23g-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5078",
+        "merge_commit": "d809e986a1b1b45aae167ce83e85b989e5174e97"
+      }
     },
     {
       "number": 5079,
@@ -77783,7 +77795,7 @@
       "reviewed_head": "43f558c1b8fc14fb0ed33a4512fbc976beea6b0f",
       "current_head": "43f558c1b8fc14fb0ed33a4512fbc976beea6b0f",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/equivariant-grid-frame-classification"
       ],
@@ -77793,12 +77805,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23g-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5079",
+        "merge_commit": "d809e986a1b1b45aae167ce83e85b989e5174e97"
+      }
     }
   ]
 }

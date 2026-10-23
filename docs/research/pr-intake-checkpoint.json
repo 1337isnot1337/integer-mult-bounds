@@ -1406,5 +1406,44 @@
     "arithmetic_equivalence_replays": 2,
     "supplier_outer_replays": 0,
     "notes": "All original downset receipt evidence identical; 93 new product controls. No Lean, Docker, hosted workflow dispatch or archive scientific replay. First tooling invocation had one mistyped test-module name; corrected SIGTERM module passed separately."
+  },
+  "bulk_intake_20261023_fifth_pass": {
+    "commits": [
+      "9269eea18a6a10dddeac6a4f696904c55ef1d365",
+      "d809e986a1b1b45aae167ce83e85b989e5174e97"
+    ],
+    "decisions": 35,
+    "merged": 35,
+    "archive_count": 33,
+    "reviewed_tooling": [
+      5047,
+      5050
+    ],
+    "additional_fixture_fix_from": 5046,
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "supplier_outer_replays": 0,
+    "local_tests": {
+      "passed": 79,
+      "skipped": 18,
+      "failed_due_to_absent_historical_fixture": 1
+    },
+    "notes": "Historical frontier1042 fixture absent from sparse checkout; not a new-code failure. Windows native evidence retained from author only. No Lean, Docker or hosted workflow dispatched.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23f-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23f-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23g-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23g-closures.json"
+    ],
+    "remaining_queue": {
+      "counts": {
+        "draft": 176,
+        "waiting_revision": 118,
+        "deferred_replay": 7
+      },
+      "open_count": 301,
+      "actionable_count": 0,
+      "observed_at": "2026-10-23T08:20:37.912208+00:00"
+    }
   }
 }
