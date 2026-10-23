@@ -164,6 +164,7 @@ def run():
 if __name__=='__main__':
     result=run()
     expected=HERE/'RESULT.json'
-    if expected.exists():
-        need(result==json.loads(expected.read_text()),'recorded result differs')
+    recorded = json.loads(expected.read_text())
+    need(json.dumps(result, sort_keys=True)==json.dumps(recorded, sort_keys=True),
+         'recorded result differs in value or JSON type')
     print(json.dumps(result,indent=2,sort_keys=True))

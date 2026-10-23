@@ -50,7 +50,8 @@ Schur transfers is
 The product of the two transfers is zero, so the Schur complement is
 invertible and the restricted double rank is 16. This argument imposes no
 condition on v,w. The other mixed orientation (v=s_j,w=r_k) follows by
-transposing the entire pairing. Therefore 8n+8d>=128 settles mixed cases.
+exchanging call0 and call1. This simultaneous row/column block permutation
+preserves both the binary rank price and the coefficient identity I_16. Therefore 8n+8d>=128 settles mixed cases.
 
 Any remaining case is either both-right exceptional
 v=s_j, t=s_l with neither u nor w exceptional, or its transpose (both-left).
