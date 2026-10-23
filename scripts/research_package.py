@@ -627,8 +627,11 @@ def run_windows_command(argv, cwd, timeout, env):
 def run_command(argv, cwd, timeout):
     # Assertion checks must not disappear because of the caller's environment.
     # Keep explicit manifest options (including deliberate -O controls) intact.
+    # PYTHONPATH precedes the standard library on a child's sys.path, so a stray
+    # same-named module could end a verifier with exit code 0 before any check.
     env = os.environ.copy()
     env.pop("PYTHONOPTIMIZE", None)
+    env.pop("PYTHONPATH", None)
     if os.name == "nt":
         code = run_windows_command(argv, cwd, timeout, env)
         require(code == 0, f"verification command exited {code}")
