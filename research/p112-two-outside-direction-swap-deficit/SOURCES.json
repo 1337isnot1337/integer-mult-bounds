@@ -40,7 +40,9 @@
       "pin": "head:aa01d5810c5218a0d39672b98695456decef981d:research/p112-two-outside-direction-swap-deficit/vendor/LICENSE",
       "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
-    },
+    }
+  ],
+  "external_origins": [
     {
       "path": "research/p112-reduction-to-conjectures/checks/RDEP2/NOTES.md",
       "usage": "provenance",
@@ -62,5 +64,6 @@
       "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
     }
-  ]
+  ],
+  "external_origin_note": "Original remote Git objects were read and byte-compared locally; portable live pins use identical retained bytes in this publication history, not ancestry of the unmerged remote PR."
 }

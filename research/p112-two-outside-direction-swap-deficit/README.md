@@ -49,4 +49,4 @@ controls by JoyboyBrian with substantial OpenAI Codex (Astra) assistance.
 Apache-2.0; original vendored NOTICE and LICENSE retained. Source-level
 AI-assisted review is not independent human or proof-assistant acceptance.
 
-Source history records the original PR3154 paths as provenance and the byte-identical vendored files as live inputs pinned to the first package commit. Their SHA256 and Git blob identities agree.
+SOURCES.json external_origins records original PR3154 paths, head and byte identities. The byte-identical vendored live inputs are pinned to the first package commit, so publication does not depend on ancestry of the unmerged PR3154. Original and retained SHA256/Git blob identities agree; external source authenticity was checked locally, not inferred by the cold replay.
