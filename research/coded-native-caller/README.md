@@ -30,7 +30,7 @@ The unchanged-target planning model with 144 rank-eight children deleted crosses
 
 ## Open next questions
 
-- Close an actual bidirectional caller, including its middle junction and all terminal code maps. Begin with four banks, both real scalar boundaries, and every added query charged before increasing size.
+- Admit or convert the 16 negative-query coded output banks, including their terminal code maps. Begin with one emitted paid-IDLE/negative-output pair and charge every additional query before expanding the construction.
 - Prove a typed recursive product for coded jobs if codes are to survive recursion. The current compiler restores each matched Gaussian job before resuming its suspended parent; leaving an owner-mixing code in that slot is not automatically legal. Show one chronological child substitution and its next scalar/warp contact with all arbitrary inputs retained.
 - Implement and budget fixed-denominator recoding, finite precision, indexed movement and outer recovery for whichever complete caller survives. Local operator identities do not discharge these obligations.
 

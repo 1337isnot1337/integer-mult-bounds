@@ -153,10 +153,21 @@ def run():
         'scope':'Exact physical central ABI and local gauges; not full-controller or multiplication admission.'}
     return json.loads(json.dumps(result,sort_keys=True))
 
+def render_receipt(result):
+    """Keep each generated port record on one line; compare parsed mathematics."""
+    entries=[]
+    for key,value in sorted(result.items()):
+        if key=='ports':
+            body='[\n'+',\n'.join('    '+json.dumps(row,sort_keys=True,separators=(',',':')) for row in value)+'\n  ]'
+        else:
+            body=json.dumps(value,sort_keys=True,separators=(',',':'))
+        entries.append('  '+json.dumps(key)+': '+body)
+    return '{\n'+',\n'.join(entries)+'\n}\n'
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--write',action='store_true');args=p.parse_args()
     result=run();path=HERE/'NORMALIZERS.json'
-    if args.write:path.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+    if args.write:path.write_text(render_receipt(result))
     else:need(json.loads(path.read_text())==result,'Changed generated normalizer receipt')
     print(result['status'],json.dumps(result['finite_checks'],sort_keys=True))
 if __name__=='__main__':main()

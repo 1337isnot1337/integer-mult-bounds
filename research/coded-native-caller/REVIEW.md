@@ -63,3 +63,5 @@ and outer multiplication recovery remain outside this package's result.
 
 Credit remains with Dugongue's PR4929, Cinna Davis's cache/helper work, Cao Yifan's
 native word, and the retained Clifford, compiler and controller contributors.
+
+After this local review, a separate research agent completed the exact rational typed p16 caller in GAUGE.md; another agent independently checked its global conjugation and boundary-parity argument. The earlier local review does not claim that the coded negative-half outputs are admitted Gaussian jobs. The middle-junction concern of the initial per-pair proof is superseded by that whole-word proof.

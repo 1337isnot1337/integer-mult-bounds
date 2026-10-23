@@ -28,6 +28,7 @@ def main():
         sys.modules[spec.name] = module
         spec.loader.exec_module(module)
         result = module.run(HERE / "CONTROLLER.json") if name == "gauge" else module.run()
+        result = json.loads(json.dumps(result))
         need(result == json.loads((HERE / receipt).read_text()), "Changed mathematical receipt: " + receipt)
         results[name] = result["status"]
     print(json.dumps({"status": "PASS_CODED_NATIVE_INTERFACE_AND_CALLER_GATES",
