@@ -653,6 +653,9 @@ def run_command(argv, cwd, timeout):
     # same-named module could end a verifier with exit code 0 before any check.
     env = os.environ.copy()
     env.pop("PYTHONOPTIMIZE", None)
+    # Ambient inspection can turn a verifier exception into a successful REPL
+    # exit at terminal EOF. Keep explicit -i and the caller's stdin unchanged.
+    env.pop("PYTHONINSPECT", None)
     env.pop("PYTHONPATH", None)
     if os.name == "nt":
         code = run_windows_command(argv, cwd, timeout, env)

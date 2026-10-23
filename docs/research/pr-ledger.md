@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **4475**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **4492**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -9,7 +9,7 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 2111 |
-| partially reviewed | 2302 |
+| partially reviewed | 2319 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -4518,3 +4518,20 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#5113](https://github.com/CrocSwap/integer-mult-bounds/pull/5113) | 1337isnot1337 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#5114](https://github.com/CrocSwap/integer-mult-bounds/pull/5114) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#5115](https://github.com/CrocSwap/integer-mult-bounds/pull/5115) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5116](https://github.com/CrocSwap/integer-mult-bounds/pull/5116) | JoyboyBrian | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5117](https://github.com/CrocSwap/integer-mult-bounds/pull/5117) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5118](https://github.com/CrocSwap/integer-mult-bounds/pull/5118) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5119](https://github.com/CrocSwap/integer-mult-bounds/pull/5119) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5120](https://github.com/CrocSwap/integer-mult-bounds/pull/5120) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5122](https://github.com/CrocSwap/integer-mult-bounds/pull/5122) | krzysztofwojt | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5123](https://github.com/CrocSwap/integer-mult-bounds/pull/5123) | JoyboyBrian | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5124](https://github.com/CrocSwap/integer-mult-bounds/pull/5124) | 1337isnot1337 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5126](https://github.com/CrocSwap/integer-mult-bounds/pull/5126) | dillona | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5128](https://github.com/CrocSwap/integer-mult-bounds/pull/5128) | krzysztofwojt | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5129](https://github.com/CrocSwap/integer-mult-bounds/pull/5129) | JoyboyBrian | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5130](https://github.com/CrocSwap/integer-mult-bounds/pull/5130) | JoyboyBrian | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5132](https://github.com/CrocSwap/integer-mult-bounds/pull/5132) | JoyboyBrian | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5133](https://github.com/CrocSwap/integer-mult-bounds/pull/5133) | Clear1nsight | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5134](https://github.com/CrocSwap/integer-mult-bounds/pull/5134) | JoyboyBrian | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5135](https://github.com/CrocSwap/integer-mult-bounds/pull/5135) | JoyboyBrian | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#5136](https://github.com/CrocSwap/integer-mult-bounds/pull/5136) | 1337isnot1337 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |

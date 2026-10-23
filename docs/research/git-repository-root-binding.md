@@ -7,6 +7,32 @@ directory, including an ordinary linked worktree's `.git` file. Existing
 stored-object checks still disable replacement refs. Parent-process and
 package-verifier environments are unchanged.
 
+## Hosted validation limitation
+
+PR #5102 introduces working-source drift for the frozen
+`research/isolated-descendant-bytecode` package: its `SOURCES.json` still pins
+`scripts/check_research_commit.py` as an input, while this change updates that
+checker. The current package's `--check-only` therefore rejects with
+`working source drift: scripts/check_research_commit.py`. This is introduced
+by this PR, not a pre-existing failure. Its frozen package, pins and replay
+policy remain unchanged; this tooling repair does not establish a green
+historical scientific replay.
+
+The first hosted plan run (39932040857, job120342425789) reported eight test
+failures. One standalone cp1252 overlap fixture omitted the new shared-helper
+dependency; it now copies that dependency. Seven source-role assertions were
+masked by the unrelated checker drift. Their disposable fixture now restores
+the exact manifest-pinned checker blob, so they continue to test the intended
+`research_package.py` and source-history-test role transitions, including
+corrupt pins and unrelated input drift. This test setup correction does not
+change the actual frozen package's rejection described above.
+
+The affected 37 tests pass under normal and optimized Python after this fixture
+follow-up (10 descendant-role and 27 onboarding methods in each mode). The
+hosted planner command completes with 2,939 packages in 12 batches. The entire
+408-test hosted suite and those scientific replay batches were not rerun
+locally; hosted results remain separate from this targeted validation.
+
 ## Reproduced failure
 
 At canonical base `81e9bd69e4a5b00ba9c713a1620e36d576d5522e`, two real
