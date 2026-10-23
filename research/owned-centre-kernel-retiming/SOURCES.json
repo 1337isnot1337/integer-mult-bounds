@@ -1,0 +1,25 @@
+{
+  "base_commit": "bee95ce88f9f19802f0613f92838895cd0e14a1f",
+  "files": [
+    {
+      "path": "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+      "sha256": "7679daa4ec6a40f56fc7f0202379a6f454310e94945aba4f48beaaaafb838d05",
+      "git_blob": "46d929df83817b85a5387bcdb9745e0627d6366e"
+    },
+    {
+      "path": "research/general-gaussian-contact-search/model.py",
+      "sha256": "7cc29edccb3679b2a5c9defeeb0a2ec6bcef9b01b97c2390bebc48f366395f1f",
+      "git_blob": "a69138e4014424235345f3301fbe6b097caa1b8c"
+    },
+    {
+      "path": "research/general-gaussian-contact-search/discover.py",
+      "sha256": "6bfc81fecbf40b208688455796618cc3ab19d7e79453ccc2909b3856bf31d7db",
+      "git_blob": "7c0fdc00f3f8df27b088b7ecda81d0644e6e786f"
+    },
+    {
+      "path": "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+      "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+      "git_blob": "166841a037f069249f6f7f6dedb89248812f59e2"
+    }
+  ]
+}

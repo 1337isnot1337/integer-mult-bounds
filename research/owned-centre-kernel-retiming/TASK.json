@@ -1,0 +1,41 @@
+{
+  "task_id": "centre-path-sharing",
+  "scope": "Release the eight owned center COPY input contacts in the actual round-three word, and pay their changed Gaussian ranks under common-kernel contact retiming.",
+  "base_commit": "bee95ce88f9f19802f0613f92838895cd0e14a1f",
+  "priority_revision": 7,
+  "status": "bounded common-kernel experiment finished; no profitable candidate",
+  "source": "research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz",
+  "predecessor": "research/general-gaussian-contact-search; fixed owned interfaces in all previous kernel/Pauli/phase sweeps. PR4696 phase rank debt has fixed subspaces and center protocol.",
+  "changed_premise": "Owned center clear/COPY input frame may move with its actual persistent source. The paid descending center job is recomputed, not held rank8 or granted free. All other owned contacts stay at the original zero chart.",
+  "boundary": "All main start/end charts fixed;408 independent arbitrary helper fields retained; C0 cleared before COPY and after its uses; unchanged scalar order/coefficient, native maps, copy sources and scatter consumers. New non-nested persistent transitions and paid native warps charged by exact relative Fourier rank.",
+  "complete_cost_ledger": {
+    "source_gaussian_invoices": "proved in pinned model; all former zero edges included",
+    "changed_center_gaussian": "constructive bound by relative canonical frame rank; every center included",
+    "clear_and_copy": "retained owned-zero contract and finite scalar cost; new physical phases need full replay for positive",
+    "native_all_columns_phases": "unrun for any positive; required before kappa claim",
+    "compiler_precision_outer": "unknown for positive until funded exact full profile, not zero"
+  },
+  "why_next_test_can_change_decision": "Shrinking the paid center rank changes a previous fixed-center hypothesis. It may redistribute work onto productive helper paths. All persistent transitions and copies are charged so a gain cannot be declared by deleting center work alone.",
+  "method": "Binary common-kernel switch at scalar contacts; exact rank tables, signed-cut MILP discovery; all511 nonzero9-bit functionals,5second solver cap per case; stop after complete domain or first exact-profitable candidate.",
+  "success": "Negative exact full local paid-minus-helper moment change at the current candidate root, then emit physical owned-word and full632-column phase replay before compiler/outer repricing.",
+  "stop_rule": "No expansion of this common-kernel/owned-center model without a changed premise or profitable full profile. Search failure is bounded floating evidence only.",
+  "first_step": "Reconstruct all8 actual COPY->center paths and match the complete baseline tariff before solving.",
+  "attribution": "Cinna Davis, Cao Yifan, Dugongue, Matarener, zxv, Jacob Alan Sussman and retained native/Clifford/scalar/compiler authors; substantial OpenAI Codex assistance.",
+  "upstream_checked_utc": "2026-10-23T06:20:39.119670+00:00",
+  "result": {
+    "completed_functionals": 511,
+    "solver_statuses": {
+      "optimal_floating": 511
+    },
+    "actual_full_local_energy": {
+      "zero": 511
+    },
+    "elapsed_seconds": 898.0616170519497,
+    "new_kappa": false,
+    "limit": "Bounded floating search, not a universal obstruction; normal/optimized exact physical calibration covers the eight single-contact cases only."
+  },
+  "physical_calibration": "CALIBRATION.json; normal and optimized passed",
+  "latest_upstream_commit": "f259dabc7d70e0db8d6d36bfda888f008bbfecc1",
+  "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4611#discussioncomment-19139103",
+  "next_decision": "Stop common-kernel/fixed-G census. Investigate one bounded independent-contact/shared-native-map monotone retiming model with these same paid owned center contracts; first recheck overlap and the complete normalized cost identity."
+}
