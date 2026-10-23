@@ -3791,3 +3791,13 @@ Source archives retain attribution; mathematical review remains open.
 - **Brian (@JoyboyBrian)** — [#5108](https://github.com/CrocSwap/integer-mult-bounds/pull/5108): Complete source-array backing at selected ADD callback boundaries (source archive).
 - **Nick Petalas (@petalas)** — [#5109](https://github.com/CrocSwap/integer-mult-bounds/pull/5109): Sharpen selected nested widths to K/N < 3.0694 (no new κ) (source archive).
 - **Nick Petalas (@petalas)** — [#5110](https://github.com/CrocSwap/integer-mult-bounds/pull/5110): Prove the sharp global FFT setup constant (no new κ) (source archive).
+
+## Queue intake, 23 October 2026 (chunk I)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Nick Petalas (@petalas)** — [#5111](https://github.com/CrocSwap/integer-mult-bounds/pull/5111): Prove a robust error floor for two-stage terminal decoding (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5112](https://github.com/CrocSwap/integer-mult-bounds/pull/5112): Prove the exact joint T29 bin-count spectrum (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5113](https://github.com/CrocSwap/integer-mult-bounds/pull/5113): Construct a common physical code with moving Gaussian stages (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5114](https://github.com/CrocSwap/integer-mult-bounds/pull/5114): Realize the formal A5 alphabet on eight binary address bits (no κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5115](https://github.com/CrocSwap/integer-mult-bounds/pull/5115): Prove universal dyadic rank-one borrowed-hub realization (no new κ) (source archive).
