@@ -77,7 +77,7 @@
   "stop_rule": "Preserve frozen proof/review bytes and required clarifications; stop after exact author/independent receipts, bounded controls, source-history preflight and Git-free committed export. Do not search active feedback or native prefixes.",
   "outcome": "negative-result",
   "evidence": "evidence/frozen/pr4948-saved-query-macro-gate/PROOF.md and both mandatory clarifications; evidence/REVIEW.md; exact stdout equality through verify.py",
-  "author": "1337isnot1337, with substantial OpenAI Codex assistance",
+  "author": "Chris R / Clear1nsight with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance: distinct proof, independent-review and packaging agents. Independent review uses its own D-left dependency interpreter and GF(2) rank implementation; it reuses the pinned Clifford composition engine, so it is not fully implementation-independent or machine-kernel verified.",
   "open_questions": [
     {

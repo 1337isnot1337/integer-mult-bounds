@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Compact read-only replay; verbose scientific stdout stays private.
 
-Apache-2.0; substantial OpenAI Codex assistance for 1337isnot1337.
+Prepared by Chris R / Clear1nsight with substantial OpenAI Codex assistance.
+Apache-2.0.
 """
 import argparse
 import importlib.util

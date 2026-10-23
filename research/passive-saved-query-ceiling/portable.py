@@ -1,6 +1,7 @@
 """Transport-only loader; frozen scientific expressions remain unchanged.
 
-Apache-2.0; substantial OpenAI Codex assistance for 1337isnot1337.
+Prepared by Chris R / Clear1nsight with substantial OpenAI Codex assistance.
+Apache-2.0.
 """
 import ast
 import contextlib
@@ -142,7 +143,9 @@ def private_stage():
     with tempfile.TemporaryDirectory(prefix='passive-saved-cut-') as directory:
         work = Path(directory)
         stage = work / 'evidence'
-        shutil.copytree(HERE / 'evidence', stage)
+        # Private mutation fixtures need writable copies even when the exported
+        # publication files themselves are mounted/read-protected.
+        shutil.copytree(HERE / 'evidence', stage, copy_function=shutil.copyfile)
         yield stage, requests, work
 
 
