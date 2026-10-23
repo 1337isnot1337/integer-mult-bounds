@@ -3653,3 +3653,23 @@ Source archives retain attribution; mathematical review remains open.
 - **Brian (@JoyboyBrian)** — [#4989](https://github.com/CrocSwap/integer-mult-bounds/pull/4989): Generate source-bound BIT matcher routes with explicit ROW ownership (source archive).
 
 James Reed also supplied independent contributor reviews on this batch, including source arithmetic, proof scope, finite identities and tooling; the original review comments are retained in the intake evidence. These contributor reviews are distinct from maintainer scientific acceptance.
+
+## Queue intake, 23 October 2026 (chunk B)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Hiroki KUMAZAKI (@kumagi)** — [#4990](https://github.com/CrocSwap/integer-mult-bounds/pull/4990): Pay the two-target CRT stencil producer and join its repair mask (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4991](https://github.com/CrocSwap/integer-mult-bounds/pull/4991): Prove a uniform dirty-return volume obstruction for two-image prefixes (no new κ) (source archive).
+- **Ali Romman (@aliromman)** — [#4992](https://github.com/CrocSwap/integer-mult-bounds/pull/4992): Prove sharp five-label length-twelve excess cap 11 (no new kappa) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4994](https://github.com/CrocSwap/integer-mult-bounds/pull/4994): Sharp binary frame intervals through native warps and carried swaps (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4995](https://github.com/CrocSwap/integer-mult-bounds/pull/4995): Prove a scoped paid-profile invariant for adjacent swaps with movable native maps (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4996](https://github.com/CrocSwap/integer-mult-bounds/pull/4996): Prove early native line rigidity from actual main endpoints (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4997](https://github.com/CrocSwap/integer-mult-bounds/pull/4997): Prove a two-region moment obstruction after carried-frame swaps (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4998](https://github.com/CrocSwap/integer-mult-bounds/pull/4998): Construct a four-call compensated two-image pair (no new κ) (source archive).
+- **SHIN09-git (@SHIN09-git)** — [#5000](https://github.com/CrocSwap/integer-mult-bounds/pull/5000): Screen the selected mixed-target moment with certified adaptive bounds (source archive).
+
+## Queue intake, 23 October 2026 (chunk C)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Ali Romman (@aliromman)** — [#5001](https://github.com/CrocSwap/integer-mult-bounds/pull/5001): Prove partial-prefix matching capacity for simple cube cycles (source archive).

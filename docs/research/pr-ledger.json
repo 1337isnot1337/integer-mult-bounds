@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 4369,
+  "inventory_count": 4379,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2104,
-    "partially_reviewed": 2203,
+    "partially_reviewed": 2213,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "c6f606eda694d7fe1331826e0b322354610c6a8e0ee7c679282ba1f842010c0e",
+    "docs/research/pr-intake-decisions.json": "983ad3ad850ea48954ea0a0526a555ec9a91412b86e6be7ee60f7bd110fcbfb2",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -241037,6 +241037,506 @@
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23a-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4990,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4990",
+      "title": "Pay the two-target CRT stencil producer and join its repair mask",
+      "contributor": {
+        "id": "MDQ6VXNlcjE1MzM0MQ==",
+        "is_bot": false,
+        "login": "kumagi",
+        "name": "Hiroki KUMAZAKI"
+      },
+      "draft": false,
+      "starting_head": "ea2b6fa4d6479813c36ca0c0396c8d06437fb486",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "ea2b6fa4d6479813c36ca0c0396c8d06437fb486",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4990",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "ea2b6fa4d6479813c36ca0c0396c8d06437fb486",
+      "current_head": "ea2b6fa4d6479813c36ca0c0396c8d06437fb486",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/crt-two-target-stencil"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4991,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4991",
+      "title": "Prove a uniform dirty-return volume obstruction for two-image prefixes (no new κ)",
+      "contributor": {
+        "id": "U_kgDOCcbgOg",
+        "is_bot": false,
+        "login": "1337isnot1337",
+        "name": "Cinna Davis"
+      },
+      "draft": false,
+      "starting_head": "99df28b2d9baafb1a0d82e45ce241bb33fa6f015",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "99df28b2d9baafb1a0d82e45ce241bb33fa6f015",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4991",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "99df28b2d9baafb1a0d82e45ce241bb33fa6f015",
+      "current_head": "99df28b2d9baafb1a0d82e45ce241bb33fa6f015",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/two-image-dirty-volume"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4992,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4992",
+      "title": "Prove sharp five-label length-twelve excess cap 11 (no new kappa)",
+      "contributor": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "draft": false,
+      "starting_head": "12a0105150f5f44a19a2199db8506d1aa44b009a",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "12a0105150f5f44a19a2199db8506d1aa44b009a",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4992",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "12a0105150f5f44a19a2199db8506d1aa44b009a",
+      "current_head": "12a0105150f5f44a19a2199db8506d1aa44b009a",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/f7-five-label-sharp-cap"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4994,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4994",
+      "title": "Sharp binary frame intervals through native warps and carried swaps (no new κ)",
+      "contributor": {
+        "id": "U_kgDOCcbgOg",
+        "is_bot": false,
+        "login": "1337isnot1337",
+        "name": "Cinna Davis"
+      },
+      "draft": false,
+      "starting_head": "ef2810fe43829960789f783e44ee6484d0368f09",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "ef2810fe43829960789f783e44ee6484d0368f09",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4994",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "ef2810fe43829960789f783e44ee6484d0368f09",
+      "current_head": "ef2810fe43829960789f783e44ee6484d0368f09",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/carried-warp-frame-intervals"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4995,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4995",
+      "title": "Prove a scoped paid-profile invariant for adjacent swaps with movable native maps (no new κ)",
+      "contributor": {
+        "id": "U_kgDOCcbgOg",
+        "is_bot": false,
+        "login": "1337isnot1337",
+        "name": "Cinna Davis"
+      },
+      "draft": false,
+      "starting_head": "8450e6b1494b4dccf592c1cbd68a9a0a3a945d5a",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "8450e6b1494b4dccf592c1cbd68a9a0a3a945d5a",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4995",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "8450e6b1494b4dccf592c1cbd68a9a0a3a945d5a",
+      "current_head": "8450e6b1494b4dccf592c1cbd68a9a0a3a945d5a",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/commuting-warp-retiming"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4996,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4996",
+      "title": "Prove early native line rigidity from actual main endpoints (no new κ)",
+      "contributor": {
+        "id": "U_kgDOCcbgOg",
+        "is_bot": false,
+        "login": "1337isnot1337",
+        "name": "Cinna Davis"
+      },
+      "draft": false,
+      "starting_head": "ac61c56dd4e67f16247af3ac1e5fea5ab5f4cbdb",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "ac61c56dd4e67f16247af3ac1e5fea5ab5f4cbdb",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4996",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "ac61c56dd4e67f16247af3ac1e5fea5ab5f4cbdb",
+      "current_head": "ac61c56dd4e67f16247af3ac1e5fea5ab5f4cbdb",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/native-contact-resynthesis"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4997,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4997",
+      "title": "Prove a two-region moment obstruction after carried-frame swaps (no new κ)",
+      "contributor": {
+        "id": "U_kgDOCcbgOg",
+        "is_bot": false,
+        "login": "1337isnot1337",
+        "name": "Cinna Davis"
+      },
+      "draft": false,
+      "starting_head": "5e1b9843f2b04cee1f4771fce2c62d0ac551d3d6",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "5e1b9843f2b04cee1f4771fce2c62d0ac551d3d6",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4997",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "5e1b9843f2b04cee1f4771fce2c62d0ac551d3d6",
+      "current_head": "5e1b9843f2b04cee1f4771fce2c62d0ac551d3d6",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/swap-contact-fusion-gate"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4998,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4998",
+      "title": "Construct a four-call compensated two-image pair (no new κ)",
+      "contributor": {
+        "id": "U_kgDOCcbgOg",
+        "is_bot": false,
+        "login": "1337isnot1337",
+        "name": "Cinna Davis"
+      },
+      "draft": false,
+      "starting_head": "dd1bfbba907a62a8eaad696bcbfefafa421c752f",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "dd1bfbba907a62a8eaad696bcbfefafa421c752f",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4998",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "dd1bfbba907a62a8eaad696bcbfefafa421c752f",
+      "current_head": "dd1bfbba907a62a8eaad696bcbfefafa421c752f",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/two-image-compensated-pair"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 5000,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5000",
+      "title": "Screen the selected mixed-target moment with certified adaptive bounds",
+      "contributor": {
+        "id": "U_kgDOEJ8EOA",
+        "is_bot": false,
+        "login": "SHIN09-git",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "785ecde9e87bfd40bc4279e1cee2b06c988530fc",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "785ecde9e87bfd40bc4279e1cee2b06c988530fc",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5000",
+        "merge_commit": "f363a72ba9bf7680bf3d46e9080a4e4bf2996b40"
+      },
+      "reviewed_head": "785ecde9e87bfd40bc4279e1cee2b06c988530fc",
+      "current_head": "785ecde9e87bfd40bc4279e1cee2b06c988530fc",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/mixed-moment-screen"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23b-20261023.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 5001,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5001",
+      "title": "Prove partial-prefix matching capacity for simple cube cycles",
+      "contributor": {
+        "id": "U_kgDODYXfmQ",
+        "is_bot": false,
+        "login": "aliromman",
+        "name": "Ali Romman"
+      },
+      "draft": false,
+      "starting_head": "fe3226ea4e36469f43c6b116c5b98cc221a9b1af",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "fe3226ea4e36469f43c6b116c5b98cc221a9b1af",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5001",
+        "merge_commit": "25594d6fb1cc7e01b684129214189e470abce904"
+      },
+      "reviewed_head": "fe3226ea4e36469f43c6b116c5b98cc221a9b1af",
+      "current_head": "fe3226ea4e36469f43c6b116c5b98cc221a9b1af",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/f7-prefix-matching-capacity"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-oct23c-20261023.json"
       ],
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
