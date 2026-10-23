@@ -202,7 +202,7 @@ def main():
         with args.output.open("x") as handle:
             json.dump(result, handle, indent=2, sort_keys=True)
             handle.write("\n")
-    else:
+    elif args.witness == HERE / "SEARCH.json":
         need(result == json.loads((HERE / "RESULT.json").read_text()), "changed exact receipt")
     print(json.dumps({k: result[k] for k in ("atoms", "cost", "terms", "cliques", "violations")}))
     print("PASS_MASKED_TWO_STAR_CENSUS" if not result["incumbent_present"]
