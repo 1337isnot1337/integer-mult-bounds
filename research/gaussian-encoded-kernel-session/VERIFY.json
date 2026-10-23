@@ -40,6 +40,27 @@
         "{python}",
         "-I",
         "-B",
+        "{package}/guard_verify.py"
+      ],
+      "timeout_seconds": 15,
+      "checks": "All five encoded parameter aliases against pool/output reject before any resident read"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/guard_verify.py"
+      ],
+      "timeout_seconds": 15,
+      "checks": "Same actual-class guard controls with assertions disabled"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
         "{package}/verify.py"
       ],
       "timeout_seconds": 360,

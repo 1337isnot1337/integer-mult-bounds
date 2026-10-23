@@ -19,6 +19,12 @@ retain the source O((k+1)^10(P+log(k+1))^3) allowance. Persistent high-water
 backing is charged. No unconditional short-stream speedup or complete supplier
 budget improvement is inferred.
 
+`guard_verify.py` separately checks all five encoded parameter roles against
+both resident pool and output aliases, using the actual Count/Signed/Tape/run
+classes. Its deliberately incomplete owner never passes the guard and is not
+production admission evidence. Normal and optimized modes both use explicit
+checks; this cheap calibration was added after independent peer review.
+
 The source-bound verifier executes axis(13,14,1,1), work precision24 and target16.
 It checks identical protected-page and nonzero actual Core bytes across a real
 miss and hit, a changed-length eviction, an actual encoded resident numerical
