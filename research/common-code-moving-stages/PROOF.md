@@ -138,8 +138,19 @@ Indeed multiply the commutation equation on the right by
 `(D_0 Q)^-1`, using its commutation with C_0. But
 `P_s C_0 P_s^-1=C_s`, and Section 1 shows `C_s != C_0`.
 For the source choice their binary maps differ in every one of the
-5,824 nonzero code blocks. Thus the commutation needed by PR4933's
-local gauge identities cannot be transferred to E_s. Their physical
+5,824 nonzero code blocks. This also gives an actual failed block
+identity, rather than only an unavailable sufficient hypothesis.
+Put `F_standard(E)=diag(E,E)L(Q^-1)` and
+`G(C)=diag(C,Q^-1 C Q)`. The proposed forward gauge is
+
+    diag(C,I) F_tilde diag(I,C) = G(C) F_standard(E).
+
+Its lower-left block difference is
+
+    E C Q^-1 - Q^-1 C E = Q^-1 (E Q C - C E Q),
+
+where E commutes with Q. This is nonzero by the preceding argument.
+Thus PR4933's local forward gauge identity itself fails for E_s. Their physical
 common code and their rank-preserving products do not by themselves
 license that caller substitution. A different caller must prove its
 own full block identities. This is a stop gate, not a universal
