@@ -232,13 +232,14 @@ class BoundaryPages:
         sources = tuple(borrowed_tape(t) for t in (lower_d, lower_b, upper_d, upper_b, rhs))
         metadata = tuple(borrowed_count(c) for c in (length, columns, block, width, precision))
         length, columns, block, width, precision = metadata
-        for value in (length, columns, block, width):
-            positive(value)
-        need(compare(precision, width) < 0, 'physical boundary fractional width')
         forbidden = (*self.pool.tapes, self.output, *self.word.pool.tapes,
                      self.word.output, *self.word.canonical)
         need(all(t not in forbidden for t in sources) and len(set(sources)) == 5
-             and all(c.tape not in forbidden for c in metadata), 'external distinct boundary page ports')
+             and all(c.tape not in forbidden and c.tape not in sources for c in metadata),
+             'external distinct boundary page ports')
+        for value in (length, columns, block, width):
+            positive(value)
+        need(compare(precision, width) < 0, 'physical boundary fractional width')
         need(self.closed and not self.pool.live and self.output.read() == BLANK,
              'consume previous boundary-page output')
         self.idle()

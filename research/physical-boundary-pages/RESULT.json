@@ -13,6 +13,11 @@
       "rejected": "alias"
     },
     {
+      "cleanup": true,
+      "port_pairs": 25,
+      "rejected": "metadata-alias"
+    },
+    {
       "rejected": "outside-block",
       "setup_cleanup": true
     }

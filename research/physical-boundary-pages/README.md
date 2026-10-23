@@ -28,8 +28,8 @@ The independent Fraction oracle is confined to the checker. Actual setup and
 online operations run under the retained `no_decode` guard. The fixtures use
 three real/imaginary RHS columns, block widths two and four, a sharp scalar
 half-bandwidth-three instance, incomplete rows and RHS batches, nonzero
-borrowed dirty state, both ordered passes and owner reuse. Four real guards
-reject nonzero padding, trailing pages, aliased ports and omitted earlier-block
+borrowed dirty state, both ordered passes and owner reuse. Five real guards
+reject nonzero padding, trailing pages, aliased page ports, metadata/page aliases and omitted earlier-block
 couplings; a valid invocation follows the failed calls. Ordinary/optimized commands
 are registered, with complete source/archive pins.
 

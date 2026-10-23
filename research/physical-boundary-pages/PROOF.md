@@ -43,7 +43,9 @@ perturbation separately. This contribution does not change that producer.
 ## 2. RHS and output ABI
 
 The entry point borrows five distinct streams and encoded Count metadata
-(n,R,B,w,P). All input heads return to their canonical initial position.
+(n,R,B,w,P), whose tapes are disjoint from all five page streams. Metadata
+counts may share a tape with one another. This check precedes metadata reads.
+All input heads return to their canonical initial position.
 The RHS stream is **batch-major**: for each group of B adjacent columns,
 write N rows, each with B signed w-bit values. Entries outside n actual rows
 or R actual columns must be zero; the runtime checks them. Real factors
@@ -179,7 +181,7 @@ function. It is not a claim that the old solver is numerically incorrect.
 
 Additional fixtures run three arbitrary real and imaginary RHS columns,
 incomplete batches and rows, nonzero parked dirt and owner reuse. Bad padding,
-trailing pages, aliased ports and a coupling across two earlier blocks reject.
+trailing pages, aliased ports (including all 25 metadata/page pairs) and a coupling across two earlier blocks reject.
 No native cover, whole Gaussian transform, Lean, Docker, historical suite or
 complete multiplier is executed.
 

@@ -145,6 +145,28 @@ def run_fixture(module, data, lower_data, upper_data, block_size=2, precision_bi
                     write_signed(value, dirty, width)
                 dirty.rewind()
                 saved_dirty = body(borrowed_tape(dirty))
+                if fault == 'metadata-alias':
+                    metadata = (length, column_count, block, width, precision)
+                    metadata_before = [body(borrowed_tape(c.tape)) for c in metadata]
+                    for count in metadata:
+                        for port in range(5):
+                            aliased = list((*source_pages, rhs))
+                            aliased[port] = count.tape
+                            try:
+                                with scope.suspended(), no_decode():
+                                    owner.run(*aliased, *metadata)
+                            except ValueError as error:
+                                need('external distinct boundary page ports' in str(error),
+                                     'metadata/page alias rejected before reads')
+                            else:
+                                raise ValueError('accepted metadata/page alias')
+                            need(owner.closed and not owner.pool.live and owner.output.read() == BLANK,
+                                 'metadata alias leaves owner idle')
+                            need(metadata_before == [body(borrowed_tape(c.tape)) for c in metadata]
+                                 and snapshot == [body(borrowed_tape(t)) for t in (*source_pages, rhs)]
+                                 and saved_dirty == body(borrowed_tape(dirty)),
+                                 'metadata alias preserves all borrowed bytes')
+                    return {'rejected': fault, 'port_pairs': 25, 'cleanup': True}
                 if fault is not None:
                     need(fault in ('padding', 'page-tail', 'alias'), 'known physical malformed fixture')
                     try:
@@ -252,7 +274,7 @@ def verify():
         short_lower = [row[:3] for row in lower[:3]]
         short_upper = [row[:3] for row in upper[:3]]
         fixtures.append(run_fixture(module, short, short_lower, short_upper, precision_bits=8, owner=owner))
-        controls = [run_fixture(module, short, short_lower, short_upper, owner=owner, fault=fault) for fault in ('padding', 'page-tail', 'alias')]
+        controls = [run_fixture(module, short, short_lower, short_upper, owner=owner, fault=fault) for fault in ('padding', 'page-tail', 'alias', 'metadata-alias')]
         bad_lower = [[Q(i == j) for j in range(5)] for i in range(5)]
         bad_lower[4][0] = Q(1, 32)
         bad_upper = [[Q(3, 2) if i == j else Q() for j in range(5)] for i in range(5)]
