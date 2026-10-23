@@ -4,6 +4,15 @@
 theorem as stated. No new κ.** The selected conditional exponent stays
 60403/20000000.
 
+**Attribution of the parts.** Parts (i)–(ii) are this package's
+contribution: the placement as ordinary calls and its call count. Parts
+(iii)–(iv) were first obtained by James Reed in pending PR #4942
+(`research/crt-interchange-width-threshold`, head
+`32fa3600a0e739d47dca98fdeb3abceda073f9f2`). #4942 also proves that every
+width above the threshold is recursive, which is not needed here. Sections
+4–5 below are an independent recomputation and agree with #4942. Part (v)
+and Remark 4 are additional checks of this package.
+
 ## 0. What CRT.md bills, and which callee it means
 
 CRT.md (#4100, Cinna Davis) prices its reservoir and switch gadget with
@@ -78,7 +87,7 @@ borrowed input (one copy and one erase). This is CRT.md's
 25,600 batches per synchronized switch layer, a layer pays at most 153,600
 such calls.
 
-**(iii) Branch at the actual width.** For `1 <= H < 89·2^88`, the wrapper
+**(iii) Branch at the actual width (#4942; recomputed).** For `1 <= H < 89·2^88`, the wrapper
 runs at `E(H) = floor(H/89) + 1`. It takes the elementary branch for every
 `H < H* = 27,706,412`, and the body branch at `H = H*`. Since
 `H <= L/100`, every accepted layout with `L < 2,770,641,200` runs all six
@@ -91,7 +100,7 @@ CRT.md §4. In particular:
 | #4174 production, `p = 9240576`, `ell = 24` | 15360 | 173 | 2 | 2 | 16385 | elementary |
 | first body width | 27706412 | 311309 | 2 | 19 | 155654 | body |
 
-**(iv) The elementary branch meets the bill.** For `1 <= H < H*`,
+**(iv) The elementary branch meets the bill (agrees with #4942).** For `1 <= H < H*`,
 `E(H) <= H^{1-a}`. So each elementary call costs at most
 `C_0 q^2 V H^{1-a}` plus the `O(q^2 V)` embedding. Here `C_0` is the
 per-digit constant of stage `a = 0`. On this range `H^{a} < 2^{1/20}`,
@@ -145,7 +154,7 @@ a fixed inventory, the caller copies the output back and erases it, or
 swaps tape roles and erases the old input. Either costs at most
 `c_own V`. The batch bound is #4174's. ∎
 
-## 4. Proof of (iii)
+## 4. Proof of (iii), recomputing #4942
 
 **Lemma R (radix width).** For `1 <= H < 89·2^88`, the least `E` with
 `q^E >= 2^H` is `floor(H/89) + 1`.
@@ -205,7 +214,7 @@ any reading with stock at least `K(w)` and `w >= 2` gives
 `k >= 8193`, so `2k >= 16386 >= E`. So `H <= 1,458,353` is elementary
 whatever `D` is, provided `D >= 1`. Both table layouts are far below.
 
-## 5. Proof of (iv)
+## 5. Proof of (iv), recomputing #4942
 
 If `H < 89`, then `E = 1 <= H^{1-a}`. If `89 <= H < H*`, then
 `E <= H/89 + 1 <= 2H/89`. Also `H* < 2^25` and `a < 1/500`, so
@@ -235,6 +244,8 @@ By Lemma R, `E = floor(H/89) + 1`. At `H = 10752`, `E = 121` and
   reinsertion, the last-`K` branch, and #4377's evaluator model.
 - Whether `D` is meant at the radix width `E`. Remark 4 covers the two
   table layouts under any `D >= 1`.
+- That every width above `H*` is recursive. #4942 proves it; it is not
+  used here.
 - Any κ change or selected-frontier change.
 
 ## 7. Verification

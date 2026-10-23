@@ -14,6 +14,20 @@ fields, with arbitrary complete preceding, intervening and following
 fields" in `O(V e^(1-a2))`, through a wrapper that falls back to
 elementary q-digit swaps (`q = 2^89 - 1`) at small widths.
 
+**Relation to #4942.** James Reed's PR #4942 (pending, head
+`32fa3600a0e739d47dca98fdeb3abceda073f9f2`) was claimed a minute before this
+package. It already evaluates BIT.md §4's wrapper branch at the reservoir
+width: elementary exactly for q-ary `E <= 311308` (binary `h < 27706412`),
+`D = 19`, `k = 155654`, `E = 121` at `H = 10752` and `E = 173` at
+`H = 15360`. It also proves that every larger width is recursive. **#4942 is
+the predecessor for parts (iii)–(iv) below.** This package recomputed them
+independently and agrees; it claims no novelty for the threshold.
+
+**New here:** parts (i)–(ii), the write-up of one `Plan.placement` as
+ordinary calls and the count of placement and restoration calls with the
+resulting 6x bill. Also new: the padding ranges (v) and the
+`D`-independent bound of Remark 4.
+
 [PROOF.md](PROOF.md) proves the following for every layout accepted by the
 #4174 constructor, with `a = a2`.
 
@@ -21,20 +35,21 @@ elementary q-digit swaps (`q = 2^89 - 1`) at small widths.
 |---|---|
 | (i) | One `Plan.placement` (three sources to front `u`, front `t`, back `b`) is three ordinary calls of width exactly `H`, in any order. Restoration is the same three calls. That is six calls per batch, and every dirty record is restored. |
 | (ii) | Given BIT.md's theorem, these cost at most `6 C_BIT V H^{1-a} + 6 c_own V`, which is CRT.md's bill with multiplicity 6. |
-| (iii) | BIT.md's wrapper runs at radix width `E = floor(H/89) + 1`. It is elementary for every `H < 27,706,412` and body at `H = 27,706,412` (`E = 311309`, `D = 19`, `k = 155654`). Since `H <= L/100`, every layout with `L < 2,770,641,200` runs all six calls, and all twelve §4 shuttles, on the elementary branch. |
-| (iv) | On that range `E <= H^{1-a}`, so the elementary stage alone meets the bill, with constant `C_0 q^2`. Also `H^{a} < 2^{1/20}`, so the `a2` saving is numerically absent. |
+| (iii) | *Recomputation of #4942.* BIT.md's wrapper runs at radix width `E = floor(H/89) + 1`. It is elementary for every `H < 27,706,412` and body at `H = 27,706,412` (`E = 311309`, `D = 19`, `k = 155654`). Since `H <= L/100`, every layout with `L < 2,770,641,200` runs all six calls, and all twelve §4 shuttles, on the elementary branch. |
+| (iv) | *Agrees with #4942's `E^{a2} < 2^{0.033}`.* On that range `E <= H^{1-a}`, so the elementary stage alone meets the bill, with constant `C_0 q^2`. Also `H^{a} < 2^{1/20}`, so the `a2` saving is numerically absent. |
 | (v) | The literal call pads the volume by `(q^E/2^H)^2`. This is in `(2^{33}, 2^{34})` at the minimal layout and `(2^{73}, 2^{74})` at production. |
 
 At the minimal layout `p = 1310720`, `ell = 21`, `d = 2^16`, widths 20
 (`G = 2688`, `r_max = 4`, `H = 10752`), we get `E = 121`, `w = 2`,
 `D = 1` and `k = 8193`. Since `2k >= E`, every call is elementary. The
 production layout `p = 9240576`, `ell = 24` (`H = 15360`) gives
-`E = 173`, `D = 2`, `k = 16385`, also elementary. These two layout
-results do not depend on the exact `D`. Any `D >= 1` makes
-`H <= 1,458,353` elementary.
+`E = 173`, `D = 2`, `k = 16385`, also elementary. These values agree with
+#4942. As an extra check of this package, the two layout results do not
+depend on the exact `D`: any `D >= 1` makes `H <= 1,458,353` elementary.
 
 **Answer.** Yes, the bill fits, with multiplicity 6. At these widths it
-is met by BIT.md's elementary fallback, not by its body word. The constant
+is met by BIT.md's elementary fallback, not by its body word, as #4942
+also finds. The constant
 includes a real padding factor of up to `2^{34}` (minimal) or `2^{74}`
 (production) per call.
 
@@ -57,7 +72,7 @@ authenticated, and checks the following:
   production plans (629,184 calls). Each has three disjoint width-`H`
   pairs inside the reservoir, sources omitted by every dependency, and the
   `u`, `t`, `b` destinations.
-- **C.** The exact bounds `1 - 2/q < N/q^4096 < 1` with `N = |GL_64(F_q)|`,
+- **C.** An independent recomputation of #4942's branch values: the exact bounds `1 - 2/q < N/q^4096 < 1` with `N = |GL_64(F_q)|`,
   the `j(D)` table, the wrapper branch at every `E <= 311309`, the radix
   lemma, and the `H*` and robust edges.
 - **D, E.** The inequality `E <= H^{1-a}` and both padding ranges.
@@ -77,8 +92,14 @@ Card `uniform-transfer-audit`, scope **refined** to the reservoir
 placement's ordinary-callee bill. Canonical main fetched 2026-10-23 at
 `cef4b52f2a59009865bf8eabde1be3f159063703`, priority revision 7. Source
 pins are in [SOURCES.json](SOURCES.json). This answers open question 1
-of pending #4938 and the reservoir remainder of open question 2 in #4377
-and #4650.
+of pending #4938 together with #4942, and the reservoir remainder of open
+question 2 in #4377 and #4650.
+
+**Overlap.** James Reed's CLAIM for #4942 (discussion #1166, comment
+19136868) and this package's CLAIM (comment 19136883) crossed one minute
+apart. #4942 covers the wrapper branch and states that the three-field
+placement is not covered. This package therefore cites #4942 for the branch
+and contributes the placement call count.
 
 ## Reproduce
 
@@ -121,8 +142,10 @@ reservoir constructor, the disjoint-exchange geometry and the six-exchange
 invoice. unpaidmoon, PRs #4377 and #4650, for the evaluator bills and the
 open question 2 this continues. Nick Petalas, PR #4845, for the full-batch
 arena bill.
-PR #4938 (JoyboyBrian, pending) for the layout binding and the question
-answered here.
+James Reed (jwr404), PR #4942 (pending), for the wrapper-branch threshold
+and the `E`/`k` values at both layouts, recomputed here. PR #4938
+(JoyboyBrian, pending) for the layout binding and the question answered
+here.
 
 Prepared by JoyboyBrian with substantial Anthropic Claude (Claude Code,
 Opus 5.5) assistance. Apache-2.0. No independent human review and no
