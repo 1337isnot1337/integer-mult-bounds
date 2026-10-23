@@ -39,6 +39,12 @@ class DescendantSourceRoleTests(unittest.TestCase):
             target = self.root / name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / name, target)
+        # These tests vary HELPER/HISTORY_TEST source roles. Keep the unrelated
+        # checker input at this package's authenticated historical bytes; a live
+        # checker successor otherwise masks the predicate each test exercises.
+        checker = 'scripts/check_research_commit.py'
+        row = next(row for row in self.original['files'] if row['path'] == checker)
+        (self.root / checker).write_bytes(git(ROOT, 'cat-file', 'blob', row['git_blob']))
         git(self.root, 'init', '-q')
         objects = Path(git(ROOT, 'rev-parse', '--git-path', 'objects').decode().strip())
         if not objects.is_absolute():
