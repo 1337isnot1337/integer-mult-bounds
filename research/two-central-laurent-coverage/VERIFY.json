@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/controller-stage-ceiling/PROOF.md",
+    "research/joint-helper-lattice/RESULT.json",
+    "research/kappa-hybrid-controller/NATIVE.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "TODO: identity, positive fixture and failure controls"
+    }
+  ]
+}
