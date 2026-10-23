@@ -70,8 +70,14 @@ def main():
     suffix = '-OPTIMIZED' if sys.flags.optimize else ''
     with tempfile.TemporaryDirectory(prefix='cap2-physical-ceiling-') as temp:
         scratch = Path(temp)
-        shutil.copytree(HERE/'evidence'/TOP, scratch/TOP)
-        shutil.copytree(HERE/'evidence'/REVIEW, scratch/REVIEW)
+        # Copy bytes only: a read-only export must yield writable private outputs.
+        for relative in (TOP, REVIEW):
+            source_tree = HERE/'evidence'/relative
+            for original in source_tree.rglob('*'):
+                if original.is_file():
+                    destination = scratch/relative/original.relative_to(source_tree)
+                    destination.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(original, destination)
         expected = (scratch/TOP/('CHECK-RESULT'+suffix+'.json')).read_bytes()
         stdout = launch(scratch/TOP/'check_screen.py', scratch)
         need(stdout == expected, 'author replay differs from frozen receipt')
