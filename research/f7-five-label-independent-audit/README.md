@@ -182,6 +182,14 @@ remote pagination at 2026-10-23 07:04 UTC. Initial local coverage was 7 of
 f7 predecessors and successor. Omitted notes, arbitrary diffs and unpublished
 work remain limits. [TASK.json](TASK.json) records the changed card scope.
 
+Submission refresh at 07:16 UTC retained the same main and guidance and covered
+329 open PRs and 4,150 Discussion records. It found a concurrent
+[six-plus-six path-join audit](https://github.com/CrocSwap/integer-mult-bounds/discussions/4903#discussioncomment-19140301)
+under the same account. This package retains the already completed, different
+position/perfect-matching method. The concurrent audit is acknowledged, not
+treated as absent; neither claims the predecessor's cap or census as new.
+The local refresh searched 47 records with 6,665 tracked notes omitted.
+
 No maintained engine, seven-label census, supplier admission, selected cold
 replay or complete multiplication theorem was checked. The selected exponent
 remains `60403/20000000`. This audit does not promote an archive into a selected
