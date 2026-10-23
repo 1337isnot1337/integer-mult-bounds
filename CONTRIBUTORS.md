@@ -3667,3 +3667,9 @@ Source archives retain attribution; mathematical review remains open.
 - **Cinna Davis (@1337isnot1337)** — [#4997](https://github.com/CrocSwap/integer-mult-bounds/pull/4997): Prove a two-region moment obstruction after carried-frame swaps (no new κ) (source archive).
 - **Cinna Davis (@1337isnot1337)** — [#4998](https://github.com/CrocSwap/integer-mult-bounds/pull/4998): Construct a four-call compensated two-image pair (no new κ) (source archive).
 - **SHIN09-git (@SHIN09-git)** — [#5000](https://github.com/CrocSwap/integer-mult-bounds/pull/5000): Screen the selected mixed-target moment with certified adaptive bounds (source archive).
+
+## Queue intake, 23 October 2026 (chunk C)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Ali Romman (@aliromman)** — [#5001](https://github.com/CrocSwap/integer-mult-bounds/pull/5001): Prove partial-prefix matching capacity for simple cube cycles (source archive).
