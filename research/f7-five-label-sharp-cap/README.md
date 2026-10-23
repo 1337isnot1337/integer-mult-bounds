@@ -194,12 +194,13 @@ we claim no new witness search result.
 
 ## Reproduction and evidence
 
-Use Python 3.12 or later and the standard library:
+Use Python 3.12 for the registered runner. The standalone verifier supports
+Python 3.12 or later. Both use only the standard library:
 
 ```sh
 python3 -I -B research/f7-five-label-sharp-cap/verify.py
 python3 -I -O -W error -B research/f7-five-label-sharp-cap/verify.py
-python3 -B scripts/research_package.py --package research/f7-five-label-sharp-cap
+python3.12 -B scripts/research_package.py --package research/f7-five-label-sharp-cap
 ```
 
 The standalone verifier imports no predecessor program. It checks all
@@ -214,8 +215,8 @@ the stronger exclusion and its proof steps.
 
 The verifier checks both equality witnesses, invalid-input controls,
 a cap-ten rejection, a low-weight boundary, and a universal set that
-has no required cycle. It also checks nonuniversal (8,4) cycles as
-positive controls for the graph search. Normal replay recomputes the
+has no required cycle. It also checks a nonuniversal (8,4) cycle as
+a positive control for the graph search. Normal replay recomputes the
 complete receipt and compares it with RESULT.json. `--emit-receipt`
 prints the calculated receipt for explicit authoring. It writes no files.
 The receipt binds all five source files in this package. The standalone
