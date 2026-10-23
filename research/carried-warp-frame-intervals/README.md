@@ -77,7 +77,11 @@ namespace. `verify.py --write` regenerates the deterministic receipt.
 `realize(values)` emits the corresponding sufficient binary schedule with
 strictly nested paid climbs. The implementation accepts ambient dimensions one through nine; this caller
 uses nine. Frames are exact subspaces encoded as point bitsets.
-No subspace is selected using floating-point optimization.
+The interval computations and registered proof replay use no floating-point
+optimization. A separate optional numerical screen is recorded in
+[discovery/README.md](discovery/README.md). It returned the source unchanged
+after considering all 4,684 coupled marginal choices, without an exact global
+optimality certificate.
 
 ## Scope and provenance
 
@@ -104,12 +108,12 @@ in TASK.json, and no exhaustive novelty claim is made.
 
 ## Open next questions
 
-Can a coupled intermediate assignment beat the source's complete paid profile?
-Start with the 1,339 flexible contacts and retain every mapped-edge constraint;
-the extrema and independent marginal choices are insufficient. A favorable
-profile is required before expanding into physical phase and controller/compiler
-validation. No improving assignment has been established. The concrete question,
-relevance, first step and blocker are also recorded in TASK.json.
+The optional full coupled numerical screen returned the source unchanged; an
+exact optimality certificate remains open. First test whether a stronger
+local-pair LP permits a checkable rational dual, or name a changed native word,
+map or boundary before another search. A favorable new profile is required
+before physical phase and controller/compiler validation. No improving
+assignment has been established. See TASK.json and discovery/README.md.
 
 ## Credit
 
