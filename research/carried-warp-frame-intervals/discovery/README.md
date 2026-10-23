@@ -39,7 +39,7 @@ contacts** and the same paid profile in both orientations. The run took about
 so this rounding difference is no mathematical gain.
 
 `MODEL.mps.gz` is the named-row/column model, `VALUES.json.gz` is the returned
-forward node assignment, and `highs.log` retains the solver report. RUN.json
+forward node assignment, and `HIGHS-LOG.txt` retains the solver report with trailing whitespace removed. RUN.json
 binds the executed script, source modules and source manifest by SHA256. These
 are numerical run records, not a rational dual, proof tree, or exact comparison
 of all feasible assignments at real-power prices. Source feasibility and its
