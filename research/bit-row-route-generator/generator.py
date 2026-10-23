@@ -6,6 +6,9 @@ P1/P2 contracts. It is not a lowering of those contracts to physical bit tapes.
 from dataclasses import dataclass, asdict
 from fractions import Fraction as F
 from collections import Counter
+from hashlib import sha256
+from math import gcd, prod
+import json
 
 
 def need(ok, message):
@@ -71,12 +74,13 @@ def generate(frame, f, q, w, borrowed_digits=1, reserve=3, owners=(462,461)):
     need(type(borrowed_digits) is int and borrowed_digits>0,'positive borrowed width')
     need(type(reserve) is int and 1<=reserve<=q**borrowed_digits,'available borrowed reserve')
     need(len(owners)==2 and len(set(owners))==2 and owners[0]==462,'distinct physical source owners')
+    need(sha256(json.dumps(frame,sort_keys=True,separators=(',',':')).encode()).hexdigest()=='7462680ac7a7cbe7d098900c9b9d45e097db37c529c442ba2f88350e51ea8f67','exact source frame506')
     need(frame['dim']==4 and len(frame['A'])==len(frame['B'])==4,'actual rank-four frame')
     s=tuple(tuple(F(v) for v in row) for row in zip(*(frame['B']+frame['A'])))
     si=inverse(s);fs=factors(s)
     need(Counter(op[0] for op in fs)==Counter(swap=5,scale=5,add=14),'actual frame506 factor census')
     for row in (*s,*si):
-        for value in row:need(value.denominator%q!=0 and __import__('math').gcd(value.denominator,q)==1,'nonunit matcher denominator')
+        for value in row:need(gcd(value.denominator,q)==1,'nonunit matcher denominator')
     n=8*f;e=w-1;steps=[]
     def emit(op,*addresses,coefficient=F(0),direction=0):
         steps.append(Step(op,tuple(addresses),(coefficient.numerator,coefficient.denominator),direction))
@@ -120,12 +124,14 @@ def generate(frame, f, q, w, borrowed_digits=1, reserve=3, owners=(462,461)):
                 'carry_shift':'P2 low-type-controlled ordered shift over Z/q^(w-1)',
                 'native_canonical':'P1 completed canonical rank-4f whole-job; entire ROW restored',
                 'low_type_commit':'P2 finite GL_N(F_q) permutation; NOT free address lookup'},
-                finite_control_words=2*n*n,owned_cache_bits=n*n*lowbits,
+                address_row_words=2*n*n,owned_cache_bits=n*n*lowbits,
+                source_frame_sha256='7462680ac7a7cbe7d098900c9b9d45e097db37c529c442ba2f88350e51ea8f67',
+                low_type_table_entries_bound=prod(q**n-q**i for i in range(n)),
                 borrowed_row_range=q**borrowed_digits,
                 padded_row_range=((q**borrowed_digits+reserve-1)//reserve)*reserve,
                 logical_cell_bits=bits,integer_route_accumulator_bits=(n*(q**w-1)**2).bit_length()+1,
                 coefficient_preparation='exact modular inverses; physical preparation time and tape realization remain charged P2 obligations',
-                width_contracts={'ordinary_full_digits':e,'ordinary_high_digits':borrowed_digits,'raw_body_digits':e-borrowed_digits},
+                width_contracts={'ordinary_full_digits':e,'ordinary_high_digits':borrowed_digits,'raw_body_digits':max(0,e-borrowed_digits)},
                 tape_inventory='active owner + distinct spectator owner + one owned low cache; plus inherited primitive tape inventories',
                 physical_tape_cost_closed=False,P3_closed=False,primitive_API_admitted=False)
     return Program(f,q,w,borrowed_digits,reserve,tuple(owners),s,tuple(steps),ledger)
