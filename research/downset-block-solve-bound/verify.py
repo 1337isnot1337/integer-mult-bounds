@@ -61,9 +61,17 @@ def put(a, r0, c0, b):
             a[r0 + i][c0 + j] = value
 
 
+INVERSES = {}
+
+
 def inv(a):
     n = len(a)
     require(1 <= n <= MAX_REAL and all(len(r) == n for r in a), 'inverse shape')
+    # The replay inverts 808 distinct matrices 33,409 times; reuse the
+    # residual-checked exact inverse of an identical input as a fresh copy.
+    key = tuple(map(tuple, a))
+    if key in INVERSES:
+        return [list(row) for row in INVERSES[key]]
     out = eye(n)
     work = [r[:] for r in a]
     for k in range(n):
@@ -80,6 +88,7 @@ def inv(a):
                 work[i] = [x - scale * y for x, y in zip(work[i], work[k])]
                 out[i] = [x - scale * y for x, y in zip(out[i], out[k])]
     require(mul(a, out) == eye(n) and mul(out, a) == eye(n), 'inverse residual')
+    INVERSES[key] = tuple(map(tuple, out))
     return out
 
 
