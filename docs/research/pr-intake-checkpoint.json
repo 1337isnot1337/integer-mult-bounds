@@ -1445,5 +1445,45 @@
       "actionable_count": 0,
       "observed_at": "2026-10-23T08:20:37.912208+00:00"
     }
+  },
+  "bulk_intake_20261023_sixth_pass": {
+    "commits": [
+      "bf5519aa000c0dac09e0c3fd2706558c4af6a481",
+      "b898c28c4a2c0c6a5cdab0c6e56d1e71e40c57e8"
+    ],
+    "decisions": 32,
+    "merged": 32,
+    "archive_count": 30,
+    "reviewed_tooling": [
+      5082,
+      5102
+    ],
+    "new_revision_holds": [],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "supplier_outer_replays": 0,
+    "local_tests": {
+      "normal_cases": 223,
+      "normal_platform_skips": 29,
+      "optimized_cases": 14
+    },
+    "notes": "No Lean, Docker, scientific replay or hosted workflow dispatched. Preserve PR5046 LF fixture and PR5047 Unicode argv in cleanup merge resolution. Full historical reconciliation unavailable in sparse tree; per-decision/review-completion and ledger Markdown checks pass. Native Windows unrun. PR5095 hosted full timeout retained as an unresolved obligation.",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23h-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23h-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23i-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23i-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23h-tooling-tests.json"
+    ],
+    "remaining_queue": {
+      "counts": {
+        "draft": 177,
+        "waiting_revision": 118,
+        "deferred_replay": 7
+      },
+      "open_count": 302,
+      "actionable_count": 0,
+      "observed_at": "2026-10-23T09:41:52.361567+00:00"
+    }
   }
 }
