@@ -48,6 +48,21 @@
       "pin": "head:20bb93cd990d2ff683e4d0fc56b87a42cd5d3296:research/kappa-round3-warp-20261022/NATIVE-VALIDATION.json",
       "git_blob": "d8a2e0a915edce68cfe7472b94bb87dfb9dc24c0",
       "sha256": "eec3b14241430b6c9f5de3cbf0e3d45a172d8071d2dccd2b59d56a1fbac3d428"
+    },
+    {
+      "path": "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+      "usage": "provenance",
+      "pin": "head:20bb93cd990d2ff683e4d0fc56b87a42cd5d3296:research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+      "git_blob": "d9a4f84211182ca200c081ea061d724c8a2cfb70",
+      "sha256": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa"
+    }
+  ],
+  "retained_local_sources": [
+    {
+      "path": "inputs/local/prefix-interval-library.py",
+      "origin": "G frozen outputs/split-helper-prefix-consumer/check.py, retained self-contained bytes",
+      "sha256": "18b2306ccbf1706f89800099c532551a792001b61ee57ffd752027739d67cdde",
+      "runtime_git_dependency": false
     }
   ]
 }
