@@ -24,7 +24,7 @@
         "{package}/independent.py"
       ],
       "timeout_seconds": 10,
-      "checks": "Independent Kronecker/column-rank/kernel census"
+      "checks": "Independent Kronecker/column-rank/kernel census, direct binomial power ranks and explicit similarity"
     }
   ]
 }

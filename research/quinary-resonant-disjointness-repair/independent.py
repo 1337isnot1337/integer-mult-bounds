@@ -26,6 +26,22 @@ for n in range(625):
     v=[n//5**j%5 for j in range(4)]
     count+=int(all(sum(x*y for x,y in zip(row,v))%5==0 for row in L))
 need(count==25,'independent two-block kernel census')
+# Independently form every power directly from the binomial block identity,
+# without iterating the primary verifier's matrix multiplication.
+expected=((1,0,0,0,0),(2,1,0,0,0),(4,2,1,0,0),(6,4,2,1,0),(8,6,4,2,0))
+for j in range(1,6):
+    for power in range(1,6):
+        a=[[0]*(2*j) for _ in range(2*j)]
+        for i in range(j):
+            for k in range(j):
+                a[i][k]=a[j+i][j+k]=int(k-i==power)
+                a[i][j+k]=power*(int(k-i==power-1)+int(k-i==power))%5
+        need(column_rank(a)==expected[j-1][power-1],'direct binomial power certificate')
+# Exact basis vectors for K/3 conjugate to J2: v=(3,1), w=(3,0).
+U=((2,2),(2,0));v=(3,1);w=(3,0)
+act=lambda z:tuple(sum(a*b for a,b in zip(row,z))%5 for row in U)
+need(act(v)==v and act(w)==tuple((a+b)%5 for a,b in zip(v,w)),'explicit similarity')
+need((v[0]*w[1]-v[1]*w[0])%5!=0,'similarity invertibility')
 s=json.loads((P/'SOURCES.json').read_text());rows=[r for r in s['files'] if r['usage']=='input'];need(len(rows)==2,'source list')
 for r in rows:need(hashlib.sha256((P.parents[1]/r['path']).read_bytes()).hexdigest()==r['sha256'],'source bytes')
 r=json.loads((P/'RESULT.json').read_text());need(type(r['no_physical_supplier'])is bool and r['no_physical_supplier'],'typed scope')
