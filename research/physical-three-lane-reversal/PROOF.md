@@ -8,7 +8,9 @@ For every n>=0 and B>=1, SOURCE contains n consecutive B-bit records and
 BD contains the canonical least-significant-first positive binary encoding
 of B. These are supplied ports, each with a left marker, head at its first
 payload cell, and blank tail. OUTPUT and the work ports are blank after
-their left markers. All15 ports are distinct. Ports1,2,3 are untouched.
+their reliable left markers. Every port, including unused ports1,2,3,
+starts with its head at its own origin+1. All15 ports are distinct.
+Ports1,2,3 may contain arbitrary payload after their markers and are untouched.
 The local alphabet is {0,1,blank,left}; the compiled instruction table is
 independent of n and B. The interpreter's step counter and low/high water diagnostics are observers,
 not control registers of the mathematical program. The interpreter executes
