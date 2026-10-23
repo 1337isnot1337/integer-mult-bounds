@@ -30,3 +30,8 @@ receipt integer to the equal float must fail typed comparison.
 No heavy historical suite, Lean/kernel proof, complete multiplication supplier,
 external descriptor producer or arbitrary-tree admission is claimed. Tests
 support the written all-depth induction; their finite range is not its proof.
+
+Independent root review required fail-closed source/receipt presence. Both
+SOURCES.json and RESULT.json are now mandatory on normal replay; optimized
+cold controls delete each file and require rejection. Explicit --write-result
+authoring may create the receipt, but never bypasses source authentication.

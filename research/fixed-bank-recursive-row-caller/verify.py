@@ -12,9 +12,8 @@ def rejected(fn):
     raise ValueError('control unexpectedly accepted')
 def pins():
     f=HERE/'SOURCES.json'
-    if f.exists():
-        for r in json.loads(f.read_text())['files']:
-            check(hashlib.sha256((ROOT/r['path']).read_bytes()).hexdigest()==r['sha256'],'source drift '+r['path'])
+    for r in json.loads(f.read_text())['files']:
+        check(hashlib.sha256((ROOT/r['path']).read_bytes()).hexdigest()==r['sha256'],'source drift '+r['path'])
 def fixture(m,b,bits):
     origins=[7,-3,11,4,-5,19,-31,22,-9]
     payload=(bits,'','1'*b,'','','','','','')
@@ -87,6 +86,6 @@ def main():
     result={'status':'PASS_FIXED_BANK_RECURSIVE_CALLER','cases':cases,'controls':controls,'ports':9,'receipts':receipts}
     frozen=HERE/'RESULT.json'
     if '--write-result' in sys.argv:frozen.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
-    if frozen.exists():check(json.dumps(result,sort_keys=True)==json.dumps(json.loads(frozen.read_text()),sort_keys=True),'typed frozen receipt')
+    check(json.dumps(result,sort_keys=True)==json.dumps(json.loads(frozen.read_text()),sort_keys=True),'typed frozen receipt')
     return result
 if __name__=='__main__':print(json.dumps(main(),sort_keys=True,indent=2))
