@@ -3924,3 +3924,14 @@ Source archives retain attribution; mathematical review remains open.
 - **Nick Petalas (@petalas)** — [#5225](https://github.com/CrocSwap/integer-mult-bounds/pull/5225): Classify mixed-sign orthogonal phase defects at every width (no new κ) (source archive).
 - **DreamingOfClouds (@DreamingOfClouds)** — [#5226](https://github.com/CrocSwap/integer-mult-bounds/pull/5226): Fragmentation-loss ceiling: exact Λ ship threshold for the #4610 family, with Lean (no κ change) (source archive).
 - **Nick Petalas (@petalas)** — [#5227](https://github.com/CrocSwap/integer-mult-bounds/pull/5227): Prove square-root stability for complete qutrit MUBs (no new κ) (source archive).
+
+## Queue intake, 23 October 2026 (chunk N)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Nick Petalas (@petalas)** — [#5228](https://github.com/CrocSwap/integer-mult-bounds/pull/5228): Classify every optimal linear second callee in the ordinary wrapper (source archive).
+- **Nick Petalas (@petalas)** — [#5229](https://github.com/CrocSwap/integer-mult-bounds/pull/5229): Prove sharp COPY cost 72 for the A3+D5 decoder (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5231](https://github.com/CrocSwap/integer-mult-bounds/pull/5231): Exclude 48 flagless span-six dirty-auxiliary pools (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5232](https://github.com/CrocSwap/integer-mult-bounds/pull/5232): Prove sharp COPY71 for the coordinate-frame A7+A1 puncture (source archive).
+- **Nick Petalas (@petalas)** — [#5233](https://github.com/CrocSwap/integer-mult-bounds/pull/5233): Prove the unique rank-800 H6 bivariate fitting kernel (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#5234](https://github.com/CrocSwap/integer-mult-bounds/pull/5234): Prove an eight-source singleton floor of 28 calls (no new κ) (source archive).
