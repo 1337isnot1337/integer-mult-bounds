@@ -6,6 +6,7 @@ from pathlib import Path
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 sys.path.insert(0,str(HERE))
 from cycle import construct,minimum,validate
+from subspace import audit
 def need(ok,message):
     if not ok:raise ValueError(message)
 def authenticate():
@@ -97,6 +98,25 @@ def run():
         fixtures.append(construct(d))
     huge=[(1<<4096)+i for i in range(11)];large=construct(huge)
     need(large['path_evaluations']<=2*4097+1,'logarithmic compressed search')
+    span_digest=hashlib.sha256();span_cases=0
+    for n in(5,7,9):
+        for q in(2,3,101):
+            for seed in range(32):
+                d=[(seed+2*i+i*i)%3 for i in range(n)]
+                owner=[i for i,width in enumerate(d)for _ in range(width)]
+                a=[[int(i==j)if x==y else ((seed+17*i+31*j)%q if (x-y)%n in(1,n-1)else 0)
+                    for j,y in enumerate(owner)]for i,x in enumerate(owner)]
+                fits(a,d);witness=audit(a,d,q)
+                need(witness['rank']==rank(a,q),'independent column/row elimination')
+                span_digest.update(json.dumps(witness,sort_keys=True).encode());span_cases+=1
+    sharp=construct([2]*7);sharp_matrix=matrix(sharp);sharp_span=audit(sharp_matrix,[2]*7,101)
+    need(sharp_span['rank']==7 and sharp_span['intersections']==[1]*7 and
+         sharp_span['cuts']==[7]*7,'every subspace bound is attained')
+    # Actual allowed 2x2 blocks can fail to commute even in a sharp attainer.
+    x=[[sharp_matrix[i][2+j]for j in range(2)]for i in range(2)]
+    y=[[sharp_matrix[2+i][4+j]for j in range(2)]for i in range(2)]
+    product=lambda a,b:[[sum(a[i][h]*b[h][j]for h in range(2))for j in range(2)]for i in range(2)]
+    need(product(x,y)!=product(y,x),'noncommuting permitted block fixture')
     controls=[]
     for bad in [[],[1]*3,[1]*6,[True]*5,[1,-1,1,1,1],[1.0]*5]:
         try:construct(bad)
@@ -117,7 +137,7 @@ def run():
     else:raise ValueError('forbidden directed block accepted')
     return dict(status='PASS_ODD_CYCLE_QUERY_CAPACITY',live_inputs=inputs,width_cases=cases,
         field_rank_checks=field_checks,recipe_sha256=digest.hexdigest(),binary_completions=completions,
-        fixtures=fixtures,large=dict(length=11,width_bits=4097,rank_bits=large['rank'].bit_length(),
+        fixtures=fixtures,subspace=dict(cases=span_cases,sha256=span_digest.hexdigest(),sharp=sharp_span,noncommuting_blocks=[x,y]),large=dict(length=11,width_bits=4097,rank_bits=large['rank'].bit_length(),
             path_evaluations=large['path_evaluations']),controls=controls,
         scope='All-field proof with finite corroboration; query dimension only, no physical supplier or kappa.')
 def main():

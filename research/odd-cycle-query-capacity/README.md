@@ -8,7 +8,7 @@ field, the exact fitting rank is
 Allowed ordered edge blocks may be rectangular, nonsymmetric and noncommuting.
 [PROOF.md](PROOF.md) proves the all-field lower bound and an attaining integral
 edge/private-channel factorization. The compressed deterministic constructor
-uses O(n log(max(d)+1)) integer operations, without expanding payload coordinates.
+uses O(n log(max(d)+2)) integer operations, without expanding payload coordinates.
 This is a query-dimension contract, not a physical supplier or new kappa.
 
 Seven width-two payloads need seven coordinates, while two separate scalar
@@ -48,7 +48,9 @@ GF(101), every directed binary scalar fitting matrix on C5/C7, malformed inputs,
 underpaid/incorrect channel recipes and a forbidden ordered block. An eleven-
 vertex fixture uses 4097-bit widths while retaining only O(n) integers. Exact
 counts and the deterministic recipe digest are in [RESULT.json](RESULT.json).
-Source/receipt corruption must fail. Hosted CI and independent mathematical
+An independent column-span implementation checks 288 directed rectangular-block
+fitting matrices, all rotated subspace inequalities and a sharp seven-width-two
+attainer with noncommuting allowed blocks. Source/receipt corruption must fail. Hosted CI and independent mathematical
 acceptance are not asserted here.
 
 Canonical base bee95ce88f9f19802f0613f92838895cd0e14a1f, priority revision 7,

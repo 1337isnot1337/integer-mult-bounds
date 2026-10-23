@@ -16,11 +16,16 @@ def dimensions(values):
 def independent(values):
     d=dimensions(values)
     def path(start,stop):
-        before,last=(0,()),(0,())
+        weights=[0,0];taken=[]
         for i in range(start,stop):
-            take=(before[0]+d[i],before[1]+(i,))
-            before,last=last,max(last,take)
-        return last
+            take=weights[-2]+d[i]
+            taken.append(take>weights[-1])
+            weights.append(max(weights[-1],take))
+        witness=[];j=stop-start-1
+        while j>=0:
+            if taken[j]:witness.append(start+j);j-=2
+            else:j-=1
+        return weights[-1],tuple(reversed(witness))
     omitted=path(1,len(d));weight,vertices=path(2,len(d)-1)
     included=(weight+d[0],(0,)+vertices)
     return max(omitted,included)
@@ -64,9 +69,13 @@ def validate(recipe):
     need(type(recipe['rank']) is int and recipe['rank']==sum(edge)+sum(private)==minimum(d),
          'sharp complete query capacity')
     witness=recipe['independent']
-    need(type(witness) is list and len(set(witness))==len(witness) and
-         all(type(i) is int and 0<=i<n for i in witness),'independent witness vertices')
-    need(all((i+1)%n not in witness for i in witness),'independent witness mask')
+    need(type(witness) is list and all(type(i) is int and 0<=i<n for i in witness),
+         'independent witness vertices')
+    present=[False]*n
+    for i in witness:
+        need(not present[i],'distinct independent witness vertices')
+        present[i]=True
+    need(all(not present[(i+1)%n]for i in witness),'independent witness mask')
     need(type(recipe['alpha']) is int and sum(d[i]for i in witness)==recipe['alpha']==independent(d)[0],
          'sharp independent weight')
     return True

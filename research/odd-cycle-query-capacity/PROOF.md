@@ -124,7 +124,8 @@ D=0. It uses at most 2 ceil(log2(D+1))+1 greedy path evaluations; each takes
 O(n) integer operations and O(n) compressed integers. The maximum arithmetic
 operand bit length is O(log(S+1)); source/target coordinate expansion and any
 physical index/bit-operation costs are separate. `validate` checks every
-coverage equation and exact answer, and emits a weighted independent witness.
+coverage equation and exact answer, and emits a weighted independent witness using linear-space backpointer
+reconstruction, without quadratic prefix-tuple copying.
 
 ## Discriminating cases and stop
 
