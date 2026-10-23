@@ -84,6 +84,13 @@ def frob2(a):
     return sum((x.norm2() for row in a for x in row), Q(0))
 
 
+def certified2(a, C):
+    bound = frob2(a)
+    while bound and norm_cert(a, bound / 2, C):
+        bound /= 2
+    return bound
+
+
 def mix_rows(a, b, selected):
     return [list((a if i in selected else b)[i]) for i in range(len(a))]
 
@@ -106,6 +113,9 @@ def cuts(plan, n, C):
         p0, p1 = prefixes[k:k + 2]
         s0, s1 = suffixes[k:k + 2]
         pi0, pi1, si0, si1 = (inv(x, C) for x in (p0, p1, s0, s1))
+        adjacent = [(left, right) for left, right in
+                    zip((p0, pi0, s0, si0), (p1, pi1, s1, si1))]
+        budgets = [certified2(left, C) + certified2(right, C) for left, right in adjacent]
         for mask in range(1 << len(layer)):
             chosen = [g for j, g in enumerate(layer) if mask >> j & 1]
             rest = [g for j, g in enumerate(layer) if not (mask >> j & 1)]
@@ -116,8 +126,7 @@ def cuts(plan, n, C):
             mixed = (mix_rows(p1, p0, selected), mix_cols(pi1, pi0, selected),
                      mix_cols(s1, s0, selected), mix_rows(si1, si0, selected))
             need(matrices == mixed, 'four adjacent-cut interpolation identities')
-            for actual, left, right in zip(matrices, (p0, pi0, s0, si0), (p1, pi1, s1, si1)):
-                budget = frob2(left) + frob2(right)
+            for actual, budget in zip(matrices, budgets):
                 need(norm_cert(actual, budget, C), 'certified adjacent-bound interpolation')
             count += 1
             proper += int(0 < mask < (1 << len(layer)) - 1)
