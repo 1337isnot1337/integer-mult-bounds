@@ -3,7 +3,9 @@
   "status": "ready",
   "python": "3.12",
   "requirements": [],
-  "inputs": [],
+  "inputs": [
+    "research/one-terminal-h3-prefix/inputs/research/kappa-round3-warp-20261022/NATIVE-VALIDATION.json"
+  ],
   "commands": [
     {
       "argv": [
@@ -12,7 +14,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Exact cyclic-ring all-input identities for every n=2..32, both parity circuits and full boundary counts, thirteen active mutations, parity guards, 256 dirty-workspace rank fixtures and faithful tensor-width qualification. All-length statements proved in PROOF.md; no physical supplier or higher kappa."
+      "checks": "Exact cyclic-ring all-input identities for every n=2..32, both parity circuits and full boundary counts, thirteen active mutations, parity guards, 256 dirty-workspace rank fixtures and faithful tensor-width qualification. All-length statements proved in PROOF.md; no physical supplier or higher kappa. Pinned native paid/helper receipt; exact all-C concave-cut certificates for two reused-helper policies and three budget mutations."
     }
   ]
 }

@@ -4,6 +4,8 @@ Finite checks supplement PROOF.md. No native provider or kappa is certified.
 """
 
 import argparse
+from collections import Counter
+from hashlib import sha256
 import json
 from pathlib import Path
 
@@ -11,6 +13,8 @@ ZERO = (0, 0, 0, 0)
 ONE = (1, 0, 0, 0)
 Q = (0, 1, 0, 0)
 P = (0, 0, 1, 0)
+NATIVE_RECEIPT = 'research/one-terminal-h3-prefix/inputs/research/kappa-round3-warp-20261022/NATIVE-VALIDATION.json'
+NATIVE_RECEIPT_SHA256 = 'eec3b14241430b6c9f5de3cbf0e3d45a172d8071d2dccd2b59d56a1fbac3d428'
 
 
 def need(condition, message):
@@ -230,6 +234,55 @@ def faithful_gaussian_check():
     return ranks
 
 
+def cut_certificate(paid, targets, margin):
+    knots = sorted(set(paid) | set(targets) | {1})
+    cuts = {str(z): sum(n*min(r, z) for r, n in paid.items())
+            - sum(n*min(r, z) for r, n in targets.items()) - margin*min(1, z)
+            for z in knots}
+    need(all(x >= 0 for x in cuts.values()), 'Nonnegative complete concave-moment cuts')
+    return cuts
+
+
+def native_reuse_budget():
+    """Read a pinned source receipt, not a fresh native operator replay."""
+    raw = (Path(__file__).resolve().parents[2] / NATIVE_RECEIPT).read_bytes()
+    need(sha256(raw).hexdigest() == NATIVE_RECEIPT_SHA256, 'Exact native paid/helper receipt')
+    source = json.loads(raw)
+    paid = {int(r): 2*n for r, n in source['paid'].items()}
+    helpers = {int(r): n for r, n in source['helpers'].items()}
+    need(helpers[9] >= 112, 'Sufficient H9 slots in the optimistic reused-owner policy')
+    remaining = {r: 2*(n-(112 if r == 9 else 0)) for r, n in helpers.items()}
+    cases = []
+    for third_rank, margin in ((16, 128), (17, 16)):
+        targets = Counter(remaining)
+        targets[17] += 224
+        targets[third_rank] += 112
+        cuts = cut_certificate(paid, targets, margin)
+        cases.append({'third_rank': third_rank, 'paid_minus_target_lower_bound': margin,
+                      'targets': {str(r): n for r, n in sorted(targets.items())},
+                      'cut_residuals': cuts})
+    optimistic = Counter(remaining)
+    optimistic[17] += 336
+    wrong = [
+        (paid, optimistic, 17),  # The claimed uniform margin is exactly too large.
+        (paid, optimistic + Counter({9: 224}), 16),  # Alias owners counted twice.
+        ({r: n for r, n in paid.items() if r != 8}, optimistic, 16),
+    ]
+    for bad_paid, bad_target, margin in wrong:
+        try:
+            cut_certificate(bad_paid, bad_target, margin)
+        except ValueError:
+            pass
+        else:
+            raise ValueError('False native reused-owner budget accepted')
+    return {'source_receipt_sha256': NATIVE_RECEIPT_SHA256,
+            'two_call_paid': {str(r): n for r, n in sorted(paid.items())},
+            'reused_H9_owners': 112, 'cases': cases,
+            'budget_controls': ['excess margin', 'double-counted aliased helper jobs',
+                                'unpaid omitted centers'],
+            'scope': 'Both hypothetical full-capacity policies lose for every 0<=C<1; no prefix capacity or native replay claimed'}
+
+
 def check():
     lengths = list(range(2, 33))
     rows = []
@@ -280,6 +333,7 @@ def check():
         'rejected_even_controller_mutations': even_mutations,
         'dirty_workspace_rank_fixtures': lower_bound_fixtures(),
         'tensor_evaluation_ranks_f1_through_f4': faithful_gaussian_check(),
+        'native_reused_helper_budget': native_reuse_budget(),
         'proof': 'PROOF.md',
         'native_embedding': 'unknown',
         'selected_kappa_changed': False,

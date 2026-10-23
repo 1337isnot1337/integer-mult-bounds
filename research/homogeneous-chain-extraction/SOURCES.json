@@ -25,6 +25,24 @@
       "usage": "provenance",
       "git_blob": "7cf79600e5e46a3714e83fb04a694a1ddede065b",
       "sha256": "56dc7d458410637dd675e7807ec272f8e55381b4bfa1313ef5bb552e7488adc4"
+    },
+    {
+      "path": "research/one-terminal-h3-prefix/inputs/research/kappa-round3-warp-20261022/NATIVE-VALIDATION.json",
+      "usage": "input",
+      "git_blob": "d8a2e0a915edce68cfe7472b94bb87dfb9dc24c0",
+      "sha256": "eec3b14241430b6c9f5de3cbf0e3d45a172d8071d2dccd2b59d56a1fbac3d428"
+    },
+    {
+      "path": "research/one-terminal-h3-prefix/homogeneous/REPORT.md",
+      "usage": "provenance",
+      "git_blob": "89bc05d40ce08f664b573996a61cbc0aae273619",
+      "sha256": "f4d192ae906cf6d70b05ee134e806bfe0502ee4944a00024882bb042ac9fb2d3"
+    },
+    {
+      "path": "research/one-terminal-h3-prefix/README.md",
+      "usage": "provenance",
+      "git_blob": "d7bfa15070573221267e0c10391fc75f7ea1cc6d",
+      "sha256": "90a9602f073322436b6cf98cbc4a31f4ee6b6b28b4746f6c5e6115afbc217072"
     }
   ]
 }
