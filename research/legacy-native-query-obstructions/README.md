@@ -21,6 +21,8 @@ python3 -B verify.py --work /absolute/path/to/a-new-directory
 
 The driver checks all source hashes, copies the source to the new directory, and runs five exact checkers. It does not change the package. It checks the monomial bound with two engines, the finite-group representation, and both independent plane certificates. The two-outsider and congruence results have written independent proof reviews. Their general statements are not established by a finite test. Historical source records remain byte-exact; their old paths and dates describe the original run.
 
+The driver removes `PYTHONOPTIMIZE` from the child-process environment so that child checks and their descendants keep assertions enabled. `OPTIMIZATION-ENV-VALIDATION.json` records a fresh replay with `PYTHONOPTIMIZE=1` and an isolated parent interpreter.
+
 ## Source credit
 
 [PR #521](https://github.com/CrocSwap/integer-mult-bounds/pull/521) supplies the exact native query model. Its [pinned proof](https://github.com/CrocSwap/integer-mult-bounds/blob/a190fdb39f31647fc6f651625353710624627348/research/native-unipotent-fusion/PROOF.md) and [source pins](https://github.com/CrocSwap/integer-mult-bounds/blob/a190fdb39f31647fc6f651625353710624627348/research/native-unipotent-fusion/SOURCE-PINS.json) credit the ordered-stream and ADDRESS-interchange contracts. Those source files name no individual contributor for this primitive. No individual author is inferred from its submitter.
