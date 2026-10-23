@@ -25,7 +25,7 @@ input rejection rollback or external alias detection is promised.
 ## What the executable is
 
 program.assemble executes once offline. Its result has4589 instructions and
-six entries; this word is independent of H,A,G,S and payload bits. Assembly
+five entries; this word is independent of H,A,G,S and payload bits. Assembly
 helpers, lambdas and Python loops do not survive into the machine. The only
 instructions are test(role,symbol,yes,no), write(role,symbol), move(role,+/-1),
 jump(pc), and halt(status). Role names and five symbols0,1,LEFT,RIGHT,BLANK are
@@ -33,6 +33,8 @@ finite constants. test performs exactly one local read. No arithmetic,
 copy, counter, permutation, method call or allocator opcode exists. The PC
 encodes finite carries and route choices. Host integers for heads/PC/censuses
 are simulator configuration and observers, never decoded tape operands.
+The all-width theorem concerns unbounded program semantics. execute's finite
+max_steps is an observer watchdog and may abort a larger admitted instance.
 
 This is a five-symbol multitape program over binary payloads, not a supplied
 implementation over a two-symbol tape alphabet. A separate fixed-block binary
@@ -129,8 +131,9 @@ In particular the complete init/run/consume/close session is bounded by
 
 The finite admission checker independently excludes control-only cycles.
 For this word, at most two jumps occur between cell instructions or halt;
-thus T<=3(C+1), where C counts actual reads+writes+unit moves of the entire
-session. Tests are paid reads even when merely checking a precondition.
+thus T<=3(C+k), where C counts actual reads+writes+unit moves and k
+is the number of executed entries in the session (k=1 for one execute call).
+Tests are paid reads even when merely checking a precondition.
 Successful output computation is priced with caller consumption/disposal,
 not only the routing core. Reusing a live initialized owner omits only its
 already-paid init and eventual close; all per-call costs remain.
