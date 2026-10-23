@@ -1,0 +1,81 @@
+{
+  "status": "PASS_PRIVATE_PORTABLE_AND_CORRUPTION_CHECKS",
+  "python": "3.12.13",
+  "baseline": [
+    {
+      "entry": "verify.py",
+      "optimized": false,
+      "status": "PASS"
+    },
+    {
+      "entry": "independent_symbolic.py",
+      "optimized": false,
+      "status": "PASS"
+    },
+    {
+      "entry": "verify.py",
+      "optimized": true,
+      "status": "PASS"
+    },
+    {
+      "entry": "independent_symbolic.py",
+      "optimized": true,
+      "status": "PASS"
+    }
+  ],
+  "read_only_payload_count": 16,
+  "no_git_or_path_tools": true,
+  "controls": [
+    {
+      "fault": "inherited-proof",
+      "optimized": false,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "inherited-proof",
+      "optimized": true,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "inherited-engine",
+      "optimized": false,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "inherited-engine",
+      "optimized": true,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "local-proof",
+      "optimized": false,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "local-proof",
+      "optimized": true,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "primary-receipt",
+      "optimized": false,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "primary-receipt",
+      "optimized": true,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "independent-receipt",
+      "optimized": false,
+      "status": "REJECTED"
+    },
+    {
+      "fault": "independent-receipt",
+      "optimized": true,
+      "status": "REJECTED"
+    }
+  ],
+  "scope": "Integrity and finite scientific replay; proof hashes do not machine-check mathematical claims. Four registered commands also passed in the repository. Source-history ancestry unavailable in the shallow clone; no full native/compiler/outer/Lean run."
+}
