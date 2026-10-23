@@ -206,7 +206,11 @@ and new-interface acceptance, all 64 width-three left coordinate pairs
 for (5,7), mixed valid/padded right fields and four complete original
 balanced-root calls after both children transform. Source references use
 the frozen `decode_group`, `rotation` and Beneš functions; all host integer
-arithmetic stays in the verifier. Actual producer faults misinterpret
+arithmetic stays in the verifier. Four original mixed-width Caller fixtures
+also compare each offset port and full level row endpoint at declared widths
+(4,4,4,5). The module invocations receive newly encoded source-derived
+fixtures at these boundaries; an uninterrupted physical whole-tree program
+is not supplied. Actual producer faults misinterpret
 current coordinates, omit the preceding right modulus, or reduce padded
 coordinates; independent endpoint checks reject each. Noncoprime inputs,
 insufficient capacity, empty groups and malformed tags exercise cleanup.
