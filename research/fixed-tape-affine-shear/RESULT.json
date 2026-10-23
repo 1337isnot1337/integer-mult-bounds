@@ -1,7 +1,7 @@
 {
   "binding": {
     "actual_half_0_to_3": 1,
-    "descriptor_preparation": "charged separate binary half/increment scan",
+    "descriptor_preparation": "literal linked binary half/increment preparation and owned erasure",
     "serialized_half_leaves": 96,
     "serialized_later_target_leaves": 160,
     "source_f": 1,
@@ -25,6 +25,13 @@
     "source_hash",
     "unbilled_extra_steps"
   ],
+  "half": {
+    "complete_half_calls": 10,
+    "descriptor_cases": 107,
+    "preparation_instructions": 47,
+    "program_instructions": 934,
+    "transcript_sha256": "6b7b6dec6ea20a8caab4d8ecc57087d5cd1e94791d600ed8b90f91cd1e260119"
+  },
   "physical": {
     "alphabet_symbols": 7,
     "cases": 610,

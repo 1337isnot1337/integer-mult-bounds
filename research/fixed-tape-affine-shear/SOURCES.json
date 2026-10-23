@@ -63,6 +63,13 @@
       "commit": "bee95ce88f9f19802f0613f92838895cd0e14a1f",
       "sha256": "b620b2fbca0261972f96585f5adfd170fc0aa9591a9952d8cc6d7aac327737c3",
       "git_blob": "358ba70e944e8bbef3504da5d59089255b4ded9f"
+    },
+    {
+      "path": "research/bit-row-route-generator/interpreter.py",
+      "usage": "input",
+      "commit": "bee95ce88f9f19802f0613f92838895cd0e14a1f",
+      "sha256": "10b68232a7b642e7746393b505326fbf6832e7d64c1e0ddc3858835ae74283f9",
+      "git_blob": "90f79f9d7e7bf57d392ca51232596809d51fc0a8"
     }
   ]
 }

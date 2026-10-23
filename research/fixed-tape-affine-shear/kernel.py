@@ -141,3 +141,95 @@ def build_program(modules, inverse=False):
     a.label(fail)
     a.reject('canonical affine extents, bounded coefficients and blank owned workspace')
     return a.finish()
+
+
+def half_descriptor(modules):
+    """Finite preparation: odd Q>=3 on tape5 -> owned (Q+3)/2 on tape14."""
+    b, m, c = (modules[k] for k in ('shear', 'machine', 'counters'))
+    a = m.Assembler(TAPES)
+    fail = a.fresh('invalid_half_descriptor')
+    empty, odd, first = (a.fresh(s) for s in ('owned_empty', 'odd_Q', 'copy_first'))
+    a.branch(C_INPUT, {m.BLANK: empty}, fail)
+    a.label(empty)
+    a.write(C_INPUT, m.LEFT)
+    a.move(C_INPUT, 1)
+    a.branch(b.Q_INPUT, {m.ONE: odd}, fail)
+    a.label(odd)
+    a.move(b.Q_INPUT, 1)
+    a.goto(first)
+    after_zero, after_one, copy_zero, copy_one, copied = (a.fresh(s) for s in
+        ('after_zero', 'after_one', 'copy_zero', 'copy_one', 'copied'))
+    a.label(first)
+    a.branch(b.Q_INPUT, {m.ZERO: copy_zero, m.ONE: copy_one}, fail)
+    for symbol, label, after in ((m.ZERO, copy_zero, after_zero), (m.ONE, copy_one, after_one)):
+        a.label(label)
+        good = a.fresh('blank_output')
+        a.branch(C_INPUT, {m.BLANK: good}, fail)
+        a.label(good)
+        a.write(C_INPUT, symbol)
+        a.move(C_INPUT, 1)
+        a.move(b.Q_INPUT, 1)
+        a.goto(after)
+        a.label(after)
+        targets = {m.ZERO: copy_zero, m.ONE: copy_one}
+        if symbol == m.ONE:
+            targets[m.RIGHT] = copied
+        a.branch(b.Q_INPUT, targets, fail)
+    a.label(copied)
+    a.write(C_INPUT, m.RIGHT)
+    c.emit_rewind(a, b.Q_INPUT, 'half_Q_return')
+    c.emit_rewind(a, C_INPUT, 'half_low_bit')
+    a.move(C_INPUT, 1)
+    loop, zero, one, grow, done = (a.fresh(s) for s in ('increment', 'zero', 'one', 'grow', 'done'))
+    a.label(loop)
+    a.branch(C_INPUT, {m.ZERO: zero, m.ONE: one, m.RIGHT: grow}, fail)
+    a.label(zero)
+    a.write(C_INPUT, m.ONE)
+    a.goto(done)
+    a.label(one)
+    a.write(C_INPUT, m.ZERO)
+    a.move(C_INPUT, 1)
+    a.goto(loop)
+    a.label(grow)
+    a.write(C_INPUT, m.ONE)
+    a.move(C_INPUT, 1)
+    a.write(C_INPUT, m.RIGHT)
+    a.label(done)
+    c.emit_rewind(a, C_INPUT, 'half_descriptor_return')
+    a.halt()
+    a.label(fail)
+    a.reject('odd canonical Q>=3 and blank owned coefficient tape')
+    return a.finish()
+
+
+def half_program(modules, inverse=False):
+    """Link preparation, actual +1/2 leaf and complete coefficient erasure."""
+    m = modules['machine']
+    before, body = half_descriptor(modules), build_program(modules, inverse)
+    a = m.Assembler(TAPES)
+    # Descriptor is at its first bit after the completed runtime kernel.
+    end, bit, marker = (a.fresh(s) for s in ('erase_loop', 'erase_bit', 'erase_end'))
+    a.label(end)
+    a.branch(C_INPUT, {m.ZERO: bit, m.ONE: bit, m.RIGHT: marker}, marker)
+    a.label(bit)
+    a.write(C_INPUT, m.BLANK)
+    a.move(C_INPUT, 1)
+    a.goto(end)
+    a.label(marker)
+    modules['shear']._erase_back_to_origin(a, C_INPUT, 'erase_owned_coefficient')
+    a.halt()
+    after = a.finish()
+    starts = (0, len(before.instructions), len(before.instructions)+len(body.instructions))
+    programs = (before, body, after)
+    rows = []
+    for which, (program, start) in enumerate(zip(programs, starts)):
+        for row in program.instructions:
+            if row[0] == 'branch':
+                rows.append(('branch', row[1], tuple((s, p+start) for s,p in row[2]), row[3]+start))
+            elif row[0] == 'goto':
+                rows.append(('goto', row[1]+start))
+            elif row[0] == 'halt' and which < 2:
+                rows.append(('goto', starts[which+1]))
+            else:
+                rows.append(row)
+    return m.Program(tuple(rows), TAPES)
