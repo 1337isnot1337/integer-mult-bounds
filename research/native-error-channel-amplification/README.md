@@ -51,7 +51,7 @@ For a finite row r of a complex matrix, the induced complex-coordinate norm is `
 
 * A,A^-1,JW,A^-1 W^-1 have flat rows of1-norm sqrt2; D,D^-1 have flat rows of1-norm2; P,Q,M are monomial.
 * The two separately tensorized branches of F have flat row1-norm2, those of AP+2AQ have flat branch norm sqrt2, those of DP+2DQ have flat branch norm2, and those of P+2Q have flat branch norm1.
-* B's first branch `D P A=M C2` has flat row norm sqrt2; its second branch `D Q A=K a` has flat row norm sqrt8. These are the actual phase-corrected source residual identities, not a tensor power of the sum B.
+* B's first branch `D P A` has flat row norm sqrt2; its second branch `D Q A` has flat row norm sqrt8, as checked directly from the literal matrices. The source residual identity names another monomial M; it differs from this note's post-call `M=Z1 V01` and is not substituted here. Neither branch statement tensors the sum B.
 * In base row0, every overlapping nonzero entry of each listed branch pair has the same complex phase: `x_j conjugate(y_j)` is positive real. This includes B's unequal-magnitude branches.
 
 The triangle inequality therefore gives the uniform upper bounds
