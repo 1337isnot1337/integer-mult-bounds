@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 2097 |
-| partially reviewed | 2156 |
+| incorporated | 2098 |
+| partially reviewed | 2155 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -4336,7 +4336,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#4901](https://github.com/CrocSwap/integer-mult-bounds/pull/4901) | jwr404 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4904](https://github.com/CrocSwap/integer-mult-bounds/pull/4904) | jwr404 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4905](https://github.com/CrocSwap/integer-mult-bounds/pull/4905) | mihir-s-05 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
-| [#4906](https://github.com/CrocSwap/integer-mult-bounds/pull/4906) | mihir-s-05 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#4906](https://github.com/CrocSwap/integer-mult-bounds/pull/4906) | mihir-s-05 | incorporated | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4907](https://github.com/CrocSwap/integer-mult-bounds/pull/4907) | mihir-s-05 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4908](https://github.com/CrocSwap/integer-mult-bounds/pull/4908) | Dugongue | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4909](https://github.com/CrocSwap/integer-mult-bounds/pull/4909) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |

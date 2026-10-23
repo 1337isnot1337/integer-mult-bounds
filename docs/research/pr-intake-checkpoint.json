@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Bulk intake caught up at the recorded live snapshot. Start future queue work with delta-only plan --refresh; do not repeat dormant holds. Selected conditional kappa remains 0.00302015 (PR4470). Next substantive candidate is PR4610, with PR4760 a separate BIT-only supplier review.",
+  "next": "Bulk intake caught up at the recorded live snapshot. Start future queue work with delta-only plan --refresh; preserve dormant holds. Selected conditional kappa remains 0.00302015 (PR4470). PR4610 remains the next substantive global candidate. PR4814 is a separate ordinary-BIT supplier claim. New center-free producer PR4929 and native cyclic consumer PR4908 are archived research leads with explicit missing caller/producer obligations, not admitted improvements.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,27 +1011,22 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "73976d9f511e527715ebe45b71e1c506c5795d5f",
-    "decisions": 241,
-    "archive_count": 230,
-    "reviewed_tooling_count": 6,
+    "commit": "aa1018d0348f675252050d30b95147cd1d746df6",
+    "decisions": 149,
+    "merged": 145,
+    "archive_count": 142,
+    "reviewed_tooling_count": 3,
     "new_revision_holds": [
-      4547,
-      4580,
-      4612,
-      4628
+      4813,
+      4818,
+      4819,
+      4826
     ],
-    "retained_revision_hold": 122,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct22a-20261022.json",
-      "docs/research/pr-intake-evidence/queue-oct22b-20261022.json",
-      "docs/research/pr-intake-evidence/queue-oct22c-20261022.json",
-      "docs/research/pr-intake-evidence/queue-oct22d-20261022.json",
-      "docs/research/pr-intake-evidence/queue-oct22a-closures.json",
-      "docs/research/pr-intake-evidence/queue-oct22b-closures.json",
-      "docs/research/pr-intake-evidence/queue-oct22c-closures.json",
-      "docs/research/pr-intake-evidence/queue-oct22d-closures.json",
-      "docs/research/pr-intake-evidence/attribute-watch-refresh-20261022.json"
+      "docs/research/pr-intake-evidence/queue-oct22e-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22e-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22f-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22f-closures.json"
     ],
     "selected_frontier_changed": false
   },
@@ -1121,17 +1116,28 @@
       "source_head": "a6e02c006ccbb6612c3a6e8fcae8ae49c2f474c4",
       "affected_prs": [],
       "scope": "Contributor reports a P104 fiber-tag transpose correction; consult before reusing that scoped identity. Source archived; independent scientific validation remains open."
+    },
+    {
+      "source_pr": 4842,
+      "source_head": "acd3384454083d4eb673343eb7762877d43e5394",
+      "affected_prs": [
+        4813,
+        4818,
+        4819,
+        4826
+      ],
+      "scope": "Archived exact-source audit reports full-cascade condition number 3, contradicting smaller claimed loop-based bounds, and missing chronological paid-word admission. Four proposals held for correction or narrowed claims. No larger kappa selected."
     }
   ],
   "latest_queue": {
-    "open_count": 299,
+    "open_count": 303,
     "actionable_count": 0,
     "counts": {
       "draft": 174,
-      "waiting_revision": 118,
+      "waiting_revision": 122,
       "deferred_replay": 7
     },
-    "observed_at": "2026-10-22T19:33:19.271517+00:00"
+    "observed_at": "2026-10-23T01:48:25.376389+00:00"
   },
   "bulk_intake_20261020_completed": {
     "decisions": 586,
@@ -1220,10 +1226,9 @@
     ],
     "plan": "Audit the current native/helper ABI and complete profile, critical-root compiler and outer transfer. Bind independent audits to their actual older source versions before reusing evidence; original 4614-4616 do not certify every later 4610 revision. Do not rerun unchanged selected historical suites.",
     "separate_bit_followup": {
-      "pr": 4760,
-      "head": "ecdfcabd56dfa663ae020733f9f1a88c6644743c",
-      "claim": "Ordinary BIT saving 0.0034597; conditional BIT-only improvement, not a global kappa result.",
-      "status": "Source archive only; supplier admission remains open."
+      "pr": 4814,
+      "claim": "Ordinary BIT saving 0.003475458; separate supplier claim, not a global multiplication bound.",
+      "status": "Source archive only; requires exact supplier admission and coupled assembly review."
     }
   },
   "bulk_intake_20261022_completed": {
@@ -1240,5 +1245,36 @@
     "unchanged_attribute_wakes_resolved": 42,
     "scientific_replays": 0,
     "scope": "Exact Git inventories, syntax and declared source integrity for archives; separately reviewed and focused-tested tooling. No scientific frontier promotion. Native Windows author evidence retained but not independently replayed on macOS."
+  },
+  "bulk_intake_20261022_second_pass": {
+    "decisions": 149,
+    "merged": 145,
+    "research_archives": 141,
+    "execution_evidence_archives": [
+      4905
+    ],
+    "reviewed_tooling": [
+      4779,
+      4857,
+      4906
+    ],
+    "new_revision_holds": [
+      4813,
+      4818,
+      4819,
+      4826
+    ],
+    "actionable_remaining": 0,
+    "scientific_replays": 0,
+    "local_tooling_tests": {
+      "executed_passed": 46,
+      "platform_skipped": 23
+    },
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct22e-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22e-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22f-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22f-closures.json"
+    ]
   }
 }
