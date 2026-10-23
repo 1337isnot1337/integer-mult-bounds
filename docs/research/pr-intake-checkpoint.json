@@ -1141,14 +1141,15 @@
     }
   ],
   "latest_queue": {
+    "observed_at": "2026-10-23T05:35:54.019211+00:00",
+    "base": "9f789e8a33aef8aa224dbc77a78c69f5fd6d4618",
     "open_count": 299,
     "actionable_count": 0,
     "counts": {
       "draft": 174,
       "waiting_revision": 118,
       "deferred_replay": 7
-    },
-    "observed_at": "2026-10-23T04:01:40.749781+00:00"
+    }
   },
   "bulk_intake_20261020_completed": {
     "decisions": 586,
@@ -1314,6 +1315,29 @@
       "docs/research/pr-intake-evidence/queue-oct22i-20261022.json",
       "docs/research/pr-intake-evidence/queue-oct22i-closures.json",
       "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
+    ]
+  },
+  "bulk_intake_20261023_second_pass": {
+    "decisions": 34,
+    "merged": 34,
+    "research_archives": 29,
+    "reviewed_tooling_and_docs": [
+      4964,
+      4973,
+      4975,
+      4984,
+      4988
+    ],
+    "new_revision_holds": [],
+    "actionable_remaining": 0,
+    "scientific_replays": 0,
+    "tooling_tests_passed": 71,
+    "platform_skipped": 7,
+    "publication_commit": "9f789e8a33aef8aa224dbc77a78c69f5fd6d4618",
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23a-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23a-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23a-final-snapshot.json"
     ]
   }
 }
