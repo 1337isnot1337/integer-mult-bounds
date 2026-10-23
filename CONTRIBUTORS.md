@@ -3673,3 +3673,34 @@ Source archives retain attribution; mathematical review remains open.
 Source archives retain attribution; mathematical review remains open.
 
 - **Ali Romman (@aliromman)** — [#5001](https://github.com/CrocSwap/integer-mult-bounds/pull/5001): Prove partial-prefix matching capacity for simple cube cycles (source archive).
+
+## Queue intake, 23 October 2026 (chunk D)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Ali Romman (@aliromman)** — [#5002](https://github.com/CrocSwap/integer-mult-bounds/pull/5002): Reduce exact downset replay time with integer dot products (reviewed tooling).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5003](https://github.com/CrocSwap/integer-mult-bounds/pull/5003): Exclude PR4953 seven-call address-twist pattern at second order (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5004](https://github.com/CrocSwap/integer-mult-bounds/pull/5004): Audit the exact sector boundary of the five-in-fourteen claim (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#5005](https://github.com/CrocSwap/integer-mult-bounds/pull/5005): Two coordinate 3-cycles cost twelve formal calls: exact search excludes length ≤ 11 (no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5007](https://github.com/CrocSwap/integer-mult-bounds/pull/5007): Prove the clean square-zero coupling optimum with priced primitive lowering (source archive).
+- **Brian (@JoyboyBrian)** — [#5014](https://github.com/CrocSwap/integer-mult-bounds/pull/5014): Construct an all-width dyadic oblique section of the resonant channel (source archive).
+- **Brian (@JoyboyBrian)** — [#5015](https://github.com/CrocSwap/integer-mult-bounds/pull/5015): Execute and price the CRT radix consumer in literal bit control (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5016](https://github.com/CrocSwap/integer-mult-bounds/pull/5016): Retain reproducible full-domain coupled frame screen (numerical, no new κ) (source archive).
+- **Brian (@JoyboyBrian)** — [#5017](https://github.com/CrocSwap/integer-mult-bounds/pull/5017): Report isolated worker failures without waiting for earlier modules (reviewed tooling).
+- **Brian (@JoyboyBrian)** — [#5018](https://github.com/CrocSwap/integer-mult-bounds/pull/5018): Bind the Full downset allocation to actual Gaussian common grids (source archive).
+- **Brian (@JoyboyBrian)** — [#5019](https://github.com/CrocSwap/integer-mult-bounds/pull/5019): Implement a literal runtime affine shear and source-bound half leaf (source archive).
+- **Brian (@JoyboyBrian)** — [#5020](https://github.com/CrocSwap/integer-mult-bounds/pull/5020): Complete prescribed native-map extensions with exact finite-field counts (source archive).
+- **Brian (@JoyboyBrian)** — [#5021](https://github.com/CrocSwap/integer-mult-bounds/pull/5021): Prove sharp source-ordered native port error amplification (source archive).
+- **Ali Romman (@aliromman)** — [#5022](https://github.com/CrocSwap/integer-mult-bounds/pull/5022): Certify nine-call transposition path and star costs with spectators (source archive).
+- **Brian (@JoyboyBrian)** — [#5023](https://github.com/CrocSwap/integer-mult-bounds/pull/5023): Prove exact unequal query capacity for every odd cycle (source archive).
+- **Krzysztof Wójt (@krzysztofwojt)** — [#5024](https://github.com/CrocSwap/integer-mult-bounds/pull/5024): Prove the global fixed-boundary intact-region optimum (source archive).
+- **Brian (@JoyboyBrian)** — [#5025](https://github.com/CrocSwap/integer-mult-bounds/pull/5025): Complete the admitted R437 fibre Count with one radix validation (source archive).
+- **thakrarsagar (@thakrarsagar)** — [#5026](https://github.com/CrocSwap/integer-mult-bounds/pull/5026): Bound #4470's complex row coefficient within 5/4 (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#5027](https://github.com/CrocSwap/integer-mult-bounds/pull/5027): Certify coded p19 compiler reserve at a conditional planning endpoint (no new κ) (source archive).
+- **Dennys (@antunishdPursuit)** — [#5028](https://github.com/CrocSwap/integer-mult-bounds/pull/5028): Reject nested Discussion replies before attempting a mutation (reviewed tooling).
+- **Brian (@JoyboyBrian)** — [#5029](https://github.com/CrocSwap/integer-mult-bounds/pull/5029): Prove complete-chart child packet volume and isolate the whole-job adapter gap (source archive).
+- **Ali Romman (@aliromman)** — [#5031](https://github.com/CrocSwap/integer-mult-bounds/pull/5031): Prove exact mixed GL2 tariffs for disjoint address blocks (source archive).
+- **Brian (@JoyboyBrian)** — [#5033](https://github.com/CrocSwap/integer-mult-bounds/pull/5033): Integrate opt-in prefix capacity into the corrected census successor (source archive).
+- **Brian (@JoyboyBrian)** — [#5034](https://github.com/CrocSwap/integer-mult-bounds/pull/5034): Prove source-bound QQ16 installed return graph cap (source archive).
+- **Brian (@JoyboyBrian)** — [#5035](https://github.com/CrocSwap/integer-mult-bounds/pull/5035): Implement a conditional fixed-grid inverse-code kernel with paid cleanup (source archive).
+- **Brian (@JoyboyBrian)** — [#5036](https://github.com/CrocSwap/integer-mult-bounds/pull/5036): Expose the coded reverse controller’s first physical substitution gap (source archive).

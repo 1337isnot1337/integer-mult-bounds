@@ -76,15 +76,15 @@
   "budget_minutes": 60,
   "stop_rule": "Complete the sharp-interval proof, source-bound census, source/extremal/intermediate exact endpoint replays, concave cut certificate and meaningful controls. Stop before phase, outer or all-column admission when the candidate bill is dominated.",
   "outcome": "completed",
-  "evidence": "PROOF.md; RESULT.json; 15935 nodes, 29790 edges and 1339 flexible contacts per orientation; exhaustive 256-pair toy; thirteen rejection controls; exact source, two extremal and intermediate-pin endpoints.",
+  "evidence": "PROOF.md; RESULT.json; 15935 nodes, 29790 edges and 1339 flexible contacts per orientation; exhaustive 256-pair toy; thirteen rejection controls; exact source, two extremal and intermediate-pin endpoints. Optional discovery/README.md and RUN.json retain a full 4684-choice coupled numerical screen returning the unchanged source, without an exact global certificate.",
   "author": "1337isnot1337",
   "ai_assistance": "Substantial OpenAI Codex assistance; no subagents.",
   "open_questions": [
     {
-      "question": "Can a coupled intermediate binary frame assignment improve the complete source paid profile?",
-      "why_it_matters": "The sharp marginal intervals expose legal choices, but both extremal profiles are dominated for every strictly concave rank price.",
-      "first_step": "Optimize the 1339 flexible contacts subject to all mapped-edge constraints, retain exact helper/main boundaries, and certify any paid-profile change before physical or controller expansion.",
-      "blocked_by": "No improving coupled assignment is known; binary feasibility alone does not validate physical phases, all-column implementation or the complete compiler invoice."
+      "question": "Can the coupled fixed binary model receive an exact optimality certificate, or can a named changed native premise yield an improvement?",
+      "why_it_matters": "The bounded full marginal-domain HiGHS model returned the source with a floating optimal status, which does not certify a global real-power optimum.",
+      "first_step": "Test a stronger local-pair LP and attempt a checkable rational dual; alternatively name a changed word, map or boundary. Reuse the retained model rather than repeating the unchanged numerical screen.",
+      "blocked_by": "No exact dual/proof-tree certificate is validated. Any new improving profile also needs physical phases, all-column implementation and a complete controller/compiler bill."
     }
   ],
   "upstream_checkpoint": {
@@ -94,5 +94,13 @@
     "priority_revision": 7,
     "local_coverage": "Sparse note inventory incomplete; directly related PR4971 and older fixed-word retiming overlap inspected.",
     "source_status": "PR4971 merged during this round; seven exact scientific inputs match refreshed canonical main."
+  },
+  "discovery_checkpoint": {
+    "canonical_main": "f259dabc7d70e0db8d6d36bfda888f008bbfecc1",
+    "priority_revision": 7,
+    "overlap_utc": "2026-10-23T06:21:16Z",
+    "open_prs": 304,
+    "discussion_records": 4112,
+    "coverage": "Complete remote pagination; sparse local inventory incomplete. Source modules and seven live inputs unchanged."
   }
 }
