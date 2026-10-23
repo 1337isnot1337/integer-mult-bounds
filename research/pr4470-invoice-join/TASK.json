@@ -79,22 +79,28 @@
       }
     ]
   },
-  "scope_status": "unchanged",
-  "actual_scope": "Does a new paid-profile or mixture-ceiling claim have independent source-bound coverage of its actual changed ledger?",
-  "scope_change_reason": null,
-  "bottleneck_link": "TODO: explain the causal connection or label this as a side result",
+  "scope_status": "refined",
+  "actual_scope": "Independent source-bound join of the selected #4470 p16 complete invoice: CONTROLLER.json event word and diagonal plus the #4504 per-orientation local unit, bound to RESULT.json, NATIVE.json.gz, the embedded controller invoice and #4478's hard-coded histogram; second-method (decimal, directed rounding) enclosure of the raw surplus at the selected kappa and tested saving, the root bracket and the three completion tails.",
+  "scope_change_reason": "The card's starting examples (#4088/#4091/#4067) predate the selected record. The selected change is #4470. Its local unit (#4504), controller Laurent word (pr4470-controller-replay) and arithmetic on a hard-coded histogram (#4478) are independently covered; no non-author code joined the two derived parts into the histogram that #4478 evaluates.",
+  "bottleneck_link": "Independent pricing of the selected record: the raw surplus at kappa is below one rank-one job, so the frontier depends on the complete histogram being exact at single-job resolution.",
   "budget_minutes": 150,
-  "stop_rule": "TODO",
-  "outcome": "in-progress",
-  "evidence": "TODO",
+  "stop_rule": "Stop at the complete p16 histogram and its moment/tail inequalities at kappa and the tested saving. No native, Laurent, compiler or outer-theorem replay.",
+  "outcome": "completed",
+  "evidence": "verify.py prints PASS_PR4470_INVOICE_JOIN: 18 full calls (2 forward, 16 backward), 15 query shears; 10,928 fields, 64,620 jobs, masses 239,886/239,134 agree across the event-word join, the #4440 closed form, RESULT.json, NATIVE.json.gz, the embedded controller invoice and #4478's literals. Raw surplus lower bounds 0.0039520 at kappa and 0.0027152 at tested; alpha < 0.999999988558809, gamma < 0.956176646498, delta < 0.958284435310. 15 controls reject; 8 of 8 verifier mutants fail.",
   "author": "JoyboyBrian",
-  "ai_assistance": "TODO: disclose tools used",
+  "ai_assistance": "Substantial assistance from Anthropic Claude (Claude Code, Opus 5.5)",
   "open_questions": [
     {
-      "question": "TODO",
-      "why_it_matters": "TODO",
-      "first_step": "TODO",
-      "blocked_by": "TODO"
+      "question": "Is every rank-one paid job of the p16 invoice physically present, with no uncharged operation omitted, at single-job resolution?",
+      "why_it_matters": "The raw surplus at kappa is 0.00395 of one rank-one job and the alpha headroom is about 1e-8 against about 4e-6 per job: one missing charge anywhere (copy, query, owned-stream erase, center) would invalidate the selected kappa.",
+      "first_step": "Enumerate the per-port operations of one thin query shear and one IDLE window from the #4440 owned-stream protocol and match each to a charged histogram entry or an explicit nonrecursive allowance.",
+      "blocked_by": "Requires the physical query/owned-stream contract, an inherited premise outside this ledger join."
+    },
+    {
+      "question": "Is the uniform per-call unit correct for the stage-zero full call, whose multiplier is the nine-axis F9 Q^-1 rather than a fresh eight-axis D_s?",
+      "why_it_matters": "This join charges the same #4504 unit at all 18 thick stages, following #4440/#4470; a stage-zero-specific unit would change the histogram.",
+      "first_step": "Locate the stage-zero native call in the #4470 word and compare its frame audit with the generic unit.",
+      "blocked_by": "None; the stage-zero commutation audits cover operators, not the per-call bill."
     }
   ]
 }
