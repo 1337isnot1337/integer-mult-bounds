@@ -90,8 +90,19 @@ class GitPipeErrorTests(unittest.TestCase):
             children.append(child)
             return child
 
+        def kill_group(pid, signum):
+            # The simulated POSIX branch still runs on native Windows. Group
+            # ownership itself is tested separately with actual POSIX processes.
+            if hasattr(os, "killpg"):
+                os.killpg(pid, signum)
+            else:
+                next(child for child in children if child.pid == pid).kill()
+
         try:
-            with (patch.object(PACKAGE, "os", SimpleNamespace(name=platform, environ=os.environ)),
+            with (patch.object(PACKAGE, "os", SimpleNamespace(
+                    name=platform, environ=os.environ, killpg=kill_group)),
+                  patch.object(PACKAGE.signal, "SIGKILL",
+                               getattr(PACKAGE.signal, "SIGKILL", 9), create=True),
                   patch.object(PACKAGE.subprocess, "Popen", side_effect=start)):
                 yield calls, pipes
         finally:
