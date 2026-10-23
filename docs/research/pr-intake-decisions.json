@@ -76346,7 +76346,7 @@
       "reviewed_head": "e30cfa384f7e48581f9e5a5cb036b1ee7a3b46a9",
       "current_head": "e30cfa384f7e48581f9e5a5cb036b1ee7a3b46a9",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bounded-lane-border-core"
       ],
@@ -76356,12 +76356,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23e-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5037",
+        "merge_commit": "9deaf5cf4420605d45b087f2fc40e689e17a2f21"
+      }
     },
     {
       "number": 5038,
@@ -76381,7 +76385,7 @@
       "reviewed_head": "8039f5db835f26b92694e349ebc535bae7104be8",
       "current_head": "8039f5db835f26b92694e349ebc535bae7104be8",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/two-image-volume-independent-audit"
       ],
@@ -76391,12 +76395,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23e-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5038",
+        "merge_commit": "9deaf5cf4420605d45b087f2fc40e689e17a2f21"
+      }
     },
     {
       "number": 5039,
@@ -76416,7 +76424,7 @@
       "reviewed_head": "3a309011b648d6f84f9a92b97697f884cf4ae2aa",
       "current_head": "3a309011b648d6f84f9a92b97697f884cf4ae2aa",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/pr4470-owned-query-charges"
       ],
@@ -76426,12 +76434,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct23e-20261023.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/5039",
+        "merge_commit": "9deaf5cf4420605d45b087f2fc40e689e17a2f21"
+      }
     }
   ]
 }

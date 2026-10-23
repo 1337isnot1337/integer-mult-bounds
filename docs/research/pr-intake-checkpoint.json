@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Bulk intake caught up at the recorded live snapshot. Start future queue work with delta-only plan --refresh; preserve dormant holds. Selected conditional kappa remains 0.00302015 (PR4470). PR4610 remains the next substantive global candidate. PR4951 contributes a source-archived invoice/moment join, not yet independently admitted. Coded-interface chain PR4931/4932/4933/4935/4940/4943/4948 offers physical and formal partial results with remaining adapter and full-caller obligations; no improved global bound admitted.",
+  "next": "Delta-only intake caught up at the recorded live snapshot (300 open, zero actionable). Resume future queue work with plan --refresh; do not reopen unchanged holds. Selected conditional kappa remains 0.00302015. PR4610 remains a separately scheduled substantive candidate. Consult PR5036 before relying on coded-controller scalar-to-physical substitution; PR5037 is a reduced-domain conditional construction, not an admitted supplier.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,18 +1011,23 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "25594d6fb1cc7e01b684129214189e470abce904",
-    "decisions": 10,
-    "merged": 10,
-    "archive_count": 10,
-    "reviewed_tooling_count": 0,
+    "commit": "9deaf5cf4420605d45b087f2fc40e689e17a2f21",
+    "decisions": 29,
+    "merged": 29,
+    "archive_count": 26,
+    "reviewed_tooling_count": 3,
+    "reviewed_tooling": [
+      5002,
+      5017,
+      5028
+    ],
     "new_revision_holds": [],
     "selected_frontier_changed": false,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct23b-20261023.json",
-      "docs/research/pr-intake-evidence/queue-oct23c-20261023.json",
-      "docs/research/pr-intake-evidence/queue-oct23b-closures.json",
-      "docs/research/pr-intake-evidence/queue-oct23c-closures.json"
+      "docs/research/pr-intake-evidence/queue-oct23d-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23e-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23d-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23e-closures.json"
     ]
   },
   "reported_followups": [
@@ -1138,10 +1143,29 @@
         4470
       ],
       "scope": "Archived independent invoice/moment join reports exact agreement and surplus smaller than one rank-one job. Physical charge completeness and stage-zero unit applicability remain stated audit questions; no change to selected result."
+    },
+    {
+      "source_pr": 5036,
+      "source_head": "a3b9733472db1da15d93745e9859b6a11bc1a555",
+      "affected_prs": [
+        4933,
+        4940,
+        5027,
+        5035
+      ],
+      "scope": "Archived source-bound counterexample reports a nonzero Y-to-Y residual for the specified physical-code substitution. Scalar compiler reserve and inverse-code arithmetic do not discharge this caller-binding gap. Independent scientific audit remains open; no general controller impossibility or selected-result defect inferred."
+    },
+    {
+      "source_pr": 5039,
+      "affected_prs": [
+        4470,
+        4951
+      ],
+      "scope": "Archived scoped owned-query/whole-IDLE charge correspondence retains physical ABIs as hypotheses. No full supplier or compiler review and no selected-frontier change."
     }
   ],
   "latest_queue": {
-    "base": "25594d6fb1cc7e01b684129214189e470abce904",
+    "base": "9deaf5cf4420605d45b087f2fc40e689e17a2f21",
     "open_count": 300,
     "actionable_count": 0,
     "counts": {
@@ -1149,7 +1173,7 @@
       "waiting_revision": 118,
       "deferred_replay": 7
     },
-    "observed_at": "2026-10-23T06:07:25.559041+00:00"
+    "observed_at": "2026-10-23T07:15:28.502812+00:00"
   },
   "bulk_intake_20261020_completed": {
     "decisions": 586,
@@ -1357,5 +1381,30 @@
     "actionable_remaining": 0,
     "scientific_replays": 0,
     "checks": "Git inventories, AST/JSON syntax, available source pins, ledger Markdown and per-decision invariants. Full historical reconciliation was not completed because its historical audit is absent from this sparse checkout."
+  },
+  "bulk_intake_20261023_fourth_pass": {
+    "commit": "9deaf5cf4420605d45b087f2fc40e689e17a2f21",
+    "decisions": 29,
+    "merged": 29,
+    "archive_count": 26,
+    "reviewed_tooling_count": 3,
+    "reviewed_tooling": [
+      5002,
+      5017,
+      5028
+    ],
+    "new_revision_holds": [],
+    "selected_frontier_changed": false,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct23d-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23e-20261023.json",
+      "docs/research/pr-intake-evidence/queue-oct23d-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23e-closures.json"
+    ],
+    "actionable_remaining": 0,
+    "tooling_tests_passed": 38,
+    "arithmetic_equivalence_replays": 2,
+    "supplier_outer_replays": 0,
+    "notes": "All original downset receipt evidence identical; 93 new product controls. No Lean, Docker, hosted workflow dispatch or archive scientific replay. First tooling invocation had one mistyped test-module name; corrected SIGTERM module passed separately."
   }
 }
