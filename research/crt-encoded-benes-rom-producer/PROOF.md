@@ -160,8 +160,8 @@ literal erase scan with its own observed instruction count.
 ## Actual consumer and remaining boundary
 
 For h=3,s=5, offsets[0,2,4,0], the output is five 32-bit layers. Selected
-layer2 has target bit2 and is handed directly, as the same owned cell list,
-to the unchanged #4795 Service. Its query ABI uses h_query=4,s_query=2 and
+layer index 2 is handed directly, as the same owned cell list, to the
+unchanged #4795 Service with target bit position 2. ROM values remain 0 or 1. Its query ABI uses h_query=4,s_query=2 and
 addresses the same flat 32-bit table as two rows of16; the producer used four
 rows of8. The equality is of flat ordered cells, not an identification of
 these different header parameters. The existing service observes the actual
