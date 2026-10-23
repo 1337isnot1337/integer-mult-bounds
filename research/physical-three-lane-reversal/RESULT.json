@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "claim": "fixed-three-lane physical valid-input reversal",
+  "cases": 492,
+  "cases_sha256": "534d2e2b3f5888900fc2297bf1e3e57a6e038d5c572d75bee9d5bff26c4b6e95",
+  "program_instructions": 419,
+  "max_steps": 126932,
+  "seven": {
+    "n": 7,
+    "B": 3,
+    "origin": 0,
+    "steps": 3579,
+    "backing": 164,
+    "stage_records": [
+      [
+        "101",
+        "000",
+        "011",
+        "100",
+        "111",
+        "010",
+        "001"
+      ],
+      [
+        "001",
+        "100",
+        "111",
+        "010",
+        "101",
+        "000",
+        "011"
+      ]
+    ]
+  },
+  "controls": [
+    "bad-width:",
+    "bad-width:0",
+    "bad-width:10",
+    "bad-width:1x",
+    "partial-row",
+    "port-alias",
+    "actual-mutant:output-bit",
+    "actual-mutant:tripled-guide"
+  ],
+  "unrun": [
+    "production bit-free supplier composition",
+    "heterogeneous runtime lane counts"
+  ]
+}
