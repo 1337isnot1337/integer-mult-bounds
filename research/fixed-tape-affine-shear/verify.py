@@ -165,7 +165,7 @@ def expect_reject(fn, text):
 def controls(modules, saved, contents):
     base = saved['False']
     shape, c, h = (2, 5, 2, 2), 3, 2
-    payload = [int(j == 0) for j in range(200)]
+    payload = [int(j == 40) for j in range(200)]
     checks = []
     for field, value in ((4, 0), (5, 0), (6, 0), (7, 0), (14, 6), (16, 6)):
         bank = i.fixtures(shape, c, h, payload)
@@ -196,8 +196,10 @@ def controls(modules, saved, contents):
                       shape, c, h, payload), name)
         checks.append(name)
     bad = json.loads(json.dumps(base))
-    write = next(k for k, row in enumerate(bad['instructions']) if row == ['write', 1, i.ONE])
-    bad['instructions'][write][2] = i.ZERO
+    writes = [k for k, row in enumerate(bad['instructions']) if row == ['write', 1, i.ONE]]
+    need(len(writes) == 2, 'both emitted bucket branches present')
+    for write in writes:
+        bad['instructions'][write][2] = i.ZERO
     bad_tapes, bad_steps = i.execute(bad, bank, 100000)
     expect_reject(lambda: i.check_result(bad_tapes, bad_steps, bank, shape, c, h, payload),
                   'corrupted emitted payload')
