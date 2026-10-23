@@ -9,3 +9,5 @@ Reproduce with Python 3.12: `python3 -B research/tied-width-two-transform-exact-
 ## Open next questions
 
 Price the finite free-projector implementation in an actual physical caller, or determine the optimum when the widened free register maps are disallowed. The present result does not settle either question or alter the selected multiplication frontier.
+
+The separate `independent.py` checker adapts the independent root reviewer’s exact sparse-factor construction, with ordered tensor-to-sector conversion and all four-root projectors. It imports no primary verifier. Run it with the same Python command. The engine source pin points to its first retained commit so the export has verifiable publication ancestry.

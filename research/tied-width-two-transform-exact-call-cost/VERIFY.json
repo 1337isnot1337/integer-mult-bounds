@@ -16,6 +16,15 @@
       ],
       "timeout_seconds": 10,
       "checks": "Exact character cross factors, actual Gaussian-integer transform gauges, all nonzero directions, mandatory typed receipt"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 10,
+      "checks": "Independent ordered tensor conversion, explicit sparse LQR factors and exact free projectors"
     }
   ]
 }
