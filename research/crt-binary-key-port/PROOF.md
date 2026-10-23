@@ -63,7 +63,7 @@ block tests omit this wrapper to supply arbitrary initial register values.
 
 Take any source state at an instruction boundary, with tape cells/heads and
 initialized register operands represented as above. The following invariant
-holds after each corresponding binary block: all source-visible cells,
+holds after each corresponding nonterminal binary block: all source-visible cells,
 registers and heads have exactly the indicated representation, and the binary
 PC is the relocated address of the next source instruction. Compiler-private
 comparison bits are not source-visible and are erased by the final lifecycle.
@@ -93,7 +93,8 @@ not occur in the authenticated source program. Copying a word to itself is
 safe. The source's reachable branch operands are Booleans; their low bit is
 therefore the correct decision, and branch targets are statically relocated.
 
-Source halt has a separate lifecycle suffix of 492 assignments and the halt
+At halt no source instruction remains; the source-visible register correspondence
+is replaced by the promised all-zero control endpoint. Source halt has a separate lifecycle suffix of 492 assignments and the halt
 itself; the table's one-action halt is its core, not a claim that cleanup is
 free. The initial 492 assignments precede the first source block. Labels are
 relocated after these expansions, including jumps across either halt suffix.
@@ -163,7 +164,8 @@ Three further complete binary runs cover nontrivial carry/boundary behavior
 and all retained targets. Primitive checks cover all 4,104 encodings and their
 read/dirty-write blocks, plus 172 equality/Boolean/alias cases. Mutants expose
 short physical moves, incorrect Boolean tagging, a dirty borrowed head and
-omitted finite-control erasure. These are new execution/representation checks,
+omitted finite-control erasure, and a colliding marker code. Three framed malformed
+packets also reject with complete physical/control cleanup. These are new execution/representation checks,
 not a replay of #4795's 376-case census.
 
 Not supplied: a full 2,944-call binary layer, a literal binary lowering or full
