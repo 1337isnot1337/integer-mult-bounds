@@ -246,6 +246,9 @@ class CancellationTests(unittest.TestCase):
                     with self.assertRaises(OSError) as caught:
                         runner.run_modules([module], tests_dir=tests, cwd=root, workers=1)
                 self.assertIs(caught.exception, error)
+                self.assertTrue(all(stream.closed for child in children
+                                    for stream in (child.stdout, child.stderr)),
+                                "runner returned with owned capture streams open")
                 self.assertTrue(wait_for(lambda: not any(item.alive() for item in observers), 1),
                                 "worker failure removed the live tree before cleanup")
                 self.assertFalse((root/"release").exists())

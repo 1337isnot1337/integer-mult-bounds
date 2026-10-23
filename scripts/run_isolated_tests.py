@@ -263,6 +263,8 @@ def _run_modules(files, python, tests_dir, cwd, workers, module_timeout, termina
                 with lock:
                     active.discard(process)
 
+    captures, problems = [], []
+    failure = None
     pool = ThreadPoolExecutor(max_workers=workers)
     try:
         if termination['requested']:
@@ -284,25 +286,33 @@ def _run_modules(files, python, tests_dir, cwd, workers, module_timeout, termina
                 # including a first SIGTERM during an unrelated worker failure.
                 termination['waiting'] = False
     except BaseException as error:
+        failure = error
         with lock:
             stopping = True
             processes = tuple(active)
-        problems = []
         for process in processes:
             try:
                 stop_module(process)
+                captures.append(process)
             except Exception as cleanup_error:
                 problems.append(str(cleanup_error))
-        if problems:
-            note = 'Isolated test cleanup failed: ' + '; '.join(problems)
-            if hasattr(error, 'add_note'):
-                error.add_note(note)
-            else:
-                print(note, file=sys.stderr)
         raise
     finally:
         try:
             pool.shutdown(wait=True, cancel_futures=stopping)
+            # Workers must release communicate before we close stopped owners' pipes.
+            for process in captures:
+                for stream in (process.stdout, process.stderr):
+                    try:
+                        stream.close()
+                    except Exception as cleanup_error:
+                        problems.append(str(cleanup_error))
+            if problems:
+                note = 'Isolated test cleanup failed: ' + '; '.join(problems)
+                if hasattr(failure, 'add_note'):
+                    failure.add_note(note)
+                else:
+                    print(note, file=sys.stderr)
         finally:
             completion.cleanup()
 

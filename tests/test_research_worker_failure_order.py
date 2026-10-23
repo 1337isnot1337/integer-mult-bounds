@@ -142,6 +142,9 @@ class FailureOrderTests(unittest.TestCase):
                     with self.assertRaises(error_type) as caught:
                         runner.run_modules([first, second], tests_dir=tests, cwd=root, workers=2)
                 self.assertIs(caught.exception, marker, 'preserve the exact worker exception')
+                self.assertTrue(all(stream.closed for child in children
+                                    for stream in (child.stdout, child.stderr)),
+                                'runner returned with owned capture streams open')
                 self.assertFalse((root / 'release').exists(),
                                  'worker failure waited for the earlier module forced release')
                 self.assertTrue(wait_for(lambda: observer.stopped(.1), timeout=3),
