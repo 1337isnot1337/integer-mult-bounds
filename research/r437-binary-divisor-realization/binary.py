@@ -15,10 +15,12 @@ def view(tape):
 def scan(tape, positive=False):
     """Validate before mutation; borrowed divisor must be canonical."""
     tape.rewind();seen=False;nonzero=False;last=ZERO;many=False
-    while tape.read()!=RIGHT:
-        bit=tape.read();need(bit in (ZERO,ONE),'binary input digit')
-        many=seen;seen=True;nonzero=nonzero or bit==ONE;last=bit;tape.step(1)
-    tape.rewind();need(seen and (last==ONE or not many),'canonical binary input')
+    try:
+        while tape.read()!=RIGHT:
+            bit=tape.read();need(bit in (ZERO,ONE),'binary input digit')
+            many=seen;seen=True;nonzero=nonzero or bit==ONE;last=bit;tape.step(1)
+    finally:tape.rewind()
+    need(seen and (last==ONE or not many),'canonical binary input')
     need(not positive or nonzero,'positive binary divisor')
 
 
@@ -58,6 +60,7 @@ def multiply_into(left,right,output):
 
 def power_into(radix, dimension, first, second):
     """dimension is a fixed compiled source parameter, not a decoded input."""
+    need(radix is not first and radix is not second and first is not second,'distinct power roles')
     need(type(dimension) is int and dimension>0,'compiled positive dimension')
     scan(radix,True);need(first.read()==second.read()==BLANK,'blank power roles')
     first.append(ONE);first.append(RIGHT);first.rewind()

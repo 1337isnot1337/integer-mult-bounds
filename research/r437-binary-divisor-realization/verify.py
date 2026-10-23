@@ -136,11 +136,27 @@ def run():
     except ValueError as e:need(str(e)=='positive binary divisor','zero divisor guard')
     else:raise ValueError('zero divisor accepted')
     need(bytes(a.cells)==saved and erased(r)and erased(w),'zero divisor pre-mutation rejection')
+    for cells in ([words.LEFT,1,9,words.RIGHT],[words.LEFT,1,0,words.RIGHT],[words.LEFT,words.RIGHT]):
+        a,b,r,w=tape(19),Tape(),Tape(),Tape();b.cells=bytearray(cells);saved=(bytes(a.cells),bytes(b.cells))
+        try:binary.divide(a,b,r,w)
+        except ValueError:pass
+        else:raise ValueError('malformed divisor accepted')
+        need((bytes(a.cells),bytes(b.cells))==saved and a.head==b.head==1 and erased(r)and erased(w),'malformed validation heads and bytes')
+    for alias in ('radix-first','radix-second','first-second'):
+        radix_alias,a,b=tape(3),Tape(),Tape()
+        if alias=='radix-first':a=radix_alias
+        elif alias=='radix-second':b=radix_alias
+        else:b=a
+        saved=[(t,bytes(t.cells),t.head)for t in(radix_alias,a,b)]
+        try:binary.power_into(radix_alias,2,a,b)
+        except ValueError as e:need(str(e)=='distinct power roles','power alias guard')
+        else:raise ValueError('power role alias accepted')
+        need(all(bytes(t.cells)==raw and t.head==head for t,raw,head in saved),'power alias rejects before mutation')
     N,D,B,K=1040413,520192,127,4096
     return dict(status='PASS_R437_BINARY_DIVISOR_REALIZATION',live_inputs=inputs,
         exhaustive=dict(cases=cases,sha256=digest.hexdigest(),max_record_actions=largest),wide=wide,multiplication_cases=multiplication_cases,powers=powers,
         actual_source=dict(q=q,dimension=dimension,low_size=low_size,families=families,cases=real,runtime_ast_sha256=sha(body.encode())),
-        rejected_mutations=rejected,admitted_parameter_invoice=dict(numerator_bits=N,high_divisor_bits=D,
+        rejected_mutations=rejected,guard_controls=['zero divisor','invalid digit','noncanonical zero padding','empty number','three power role aliases'],admitted_parameter_invoice=dict(numerator_bits=N,high_divisor_bits=D,
         division_upper=divide_bound(N,D),power_upper=16*(B+2)+sum(1024*(B+1)*(j*B+5)+8*(j*B+3)for j in range(1,K+1)),
         execution='not executed; formula instantiation only'),scope='Uniform binary quotient/power realization and small real-adapter source composition; all Context/codebook, inherited radix Word, complete caller and payload costs remain separate.')
 

@@ -24,7 +24,9 @@ its methods can be inlined into the finite controller. Function calls and
 fixed role selection have finite-control lowerings.
 
 `scan` validates canonical input before any digit is overwritten. Zero divisor
-and malformed canonical representation reject before mutation. This theorem
+and malformed canonical representation reject without overwriting payload bytes;
+validation finally rewinds each inspected input to head1. The power constructor
+also rejects any alias among its three roles before writing its initial one. This theorem
 covers valid arithmetic success and those pre-mutation guard failures. It does
 not promise rollback after allocation exhaustion or arbitrary primitive faults.
 The borrowed input requirement is **head1**, not arbitrary starting heads.

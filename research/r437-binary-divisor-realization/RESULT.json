@@ -101,6 +101,13 @@
     "max_record_actions": 1575,
     "sha256": "053494eece4fd44c623975568d8854edca3bbc29768fd62a8918aefbb03c209f"
   },
+  "guard_controls": [
+    "zero divisor",
+    "invalid digit",
+    "noncanonical zero padding",
+    "empty number",
+    "three power role aliases"
+  ],
   "live_inputs": 7,
   "multiplication_cases": 1024,
   "powers": [
