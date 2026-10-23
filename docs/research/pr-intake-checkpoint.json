@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Bulk intake caught up at the recorded live snapshot. Start future queue work with delta-only plan --refresh; preserve dormant holds. Selected conditional kappa remains 0.00302015 (PR4470). PR4610 remains the next substantive global candidate. PR4814 is a separate ordinary-BIT supplier claim. New center-free producer PR4929 and native cyclic consumer PR4908 are archived research leads with explicit missing caller/producer obligations, not admitted improvements.",
+  "next": "Bulk intake caught up at the recorded live snapshot. Start future queue work with delta-only plan --refresh; preserve dormant holds. Selected conditional kappa remains 0.00302015 (PR4470). PR4610 remains the next substantive global candidate. PR4951 contributes a source-archived invoice/moment join, not yet independently admitted. Coded-interface chain PR4931/4932/4933/4935/4940/4943/4948 offers physical and formal partial results with remaining adapter and full-caller obligations; no improved global bound admitted.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,22 +1011,17 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "aa1018d0348f675252050d30b95147cd1d746df6",
-    "decisions": 149,
-    "merged": 145,
-    "archive_count": 142,
-    "reviewed_tooling_count": 3,
-    "new_revision_holds": [
-      4813,
-      4818,
-      4819,
-      4826
-    ],
+    "commit": "ab1c709b06a28d9b63a4195a09b755e0656dfb0c",
+    "decisions": 20,
+    "merged": 20,
+    "archive_count": 19,
+    "reviewed_tooling_count": 1,
+    "new_revision_holds": [],
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct22e-20261022.json",
-      "docs/research/pr-intake-evidence/queue-oct22e-closures.json",
-      "docs/research/pr-intake-evidence/queue-oct22f-20261022.json",
-      "docs/research/pr-intake-evidence/queue-oct22f-closures.json"
+      "docs/research/pr-intake-evidence/queue-oct22h-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22h-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22i-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22i-closures.json"
     ],
     "selected_frontier_changed": false
   },
@@ -1127,17 +1122,33 @@
         4826
       ],
       "scope": "Archived exact-source audit reports full-cascade condition number 3, contradicting smaller claimed loop-based bounds, and missing chronological paid-word admission. Four proposals held for correction or narrowed claims. No larger kappa selected."
+    },
+    {
+      "source_pr": 4946,
+      "affected_prs": [
+        2542,
+        2634,
+        2691
+      ],
+      "scope": "Archived author audit reports an unsound bit-0 census prune and classifies downstream use; claims existing replacement evidence covers relied exclusions. Source/integrity intake only; not independently replayed in this bulk pass."
+    },
+    {
+      "source_pr": 4951,
+      "affected_prs": [
+        4470
+      ],
+      "scope": "Archived independent invoice/moment join reports exact agreement and surplus smaller than one rank-one job. Physical charge completeness and stage-zero unit applicability remain stated audit questions; no change to selected result."
     }
   ],
   "latest_queue": {
-    "open_count": 303,
+    "open_count": 299,
     "actionable_count": 0,
     "counts": {
       "draft": 174,
-      "waiting_revision": 122,
+      "waiting_revision": 118,
       "deferred_replay": 7
     },
-    "observed_at": "2026-10-23T01:48:25.376389+00:00"
+    "observed_at": "2026-10-23T04:01:40.749781+00:00"
   },
   "bulk_intake_20261020_completed": {
     "decisions": 586,
@@ -1275,6 +1286,34 @@
       "docs/research/pr-intake-evidence/queue-oct22e-closures.json",
       "docs/research/pr-intake-evidence/queue-oct22f-20261022.json",
       "docs/research/pr-intake-evidence/queue-oct22f-closures.json"
+    ]
+  },
+  "bulk_intake_20261023_completed": {
+    "decisions": 20,
+    "merged": 20,
+    "research_archives": 19,
+    "historical_only": [
+      4947
+    ],
+    "reviewed_tooling": [
+      4936
+    ],
+    "new_revision_holds": [],
+    "external_closures_without_merge": [
+      4813,
+      4818,
+      4819,
+      4826
+    ],
+    "actionable_remaining": 0,
+    "scientific_replays": 0,
+    "local_tooling_tests_passed": 14,
+    "evidence": [
+      "docs/research/pr-intake-evidence/queue-oct22h-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22h-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22i-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22i-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
     ]
   }
 }

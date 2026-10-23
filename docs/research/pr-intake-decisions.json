@@ -68497,7 +68497,7 @@
       "reviewed_head": "f982ecc06826e7087e69b9468d3ff52589fd0822",
       "current_head": "f982ecc06826e7087e69b9468d3ff52589fd0822",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "CLOSED",
       "integration_location": [],
       "unresolved_question": "Claimed complete 14-call word is not emitted: overlapping ports presume original inputs and arbitrary-input sector cancellation is not justified. Supply a chronological all-role paid word with restoration, or narrow to finite observation algebra. PR4842 records the exact admission gap; PR4628 lower-bound dependency is also on revision hold.",
       "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
@@ -68508,9 +68508,15 @@
         "published": false
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct22e-20261022.json"
+        "docs/research/pr-intake-evidence/queue-oct22e-20261022.json",
+        "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "closed_without_merge_observed",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4813",
+        "closed_at": "2026-10-23T03:32:19Z",
+        "evidence": "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
+      }
     },
     {
       "number": 4814,
@@ -68686,7 +68692,7 @@
       "reviewed_head": "fd29d065bbe12f5be5af02fdf5a8b4d86dda3381",
       "current_head": "fd29d065bbe12f5be5af02fdf5a8b4d86dda3381",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "CLOSED",
       "integration_location": [],
       "unresolved_question": "PR4842 audits this exact head: claimed full-cascade conditioning bound is false (actual condition number 3); injective observation recovery does not certify the stated paid-call word. Correct the norm claim and supply a chronological all-role implementation with complete costs, or narrow the claim to finite matrix algebra. No kappa admitted.",
       "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
@@ -68697,9 +68703,15 @@
         "published": false
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct22e-20261022.json"
+        "docs/research/pr-intake-evidence/queue-oct22e-20261022.json",
+        "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "closed_without_merge_observed",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4818",
+        "closed_at": "2026-10-23T03:32:22Z",
+        "evidence": "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
+      }
     },
     {
       "number": 4819,
@@ -68719,7 +68731,7 @@
       "reviewed_head": "a7b42c2f8ffe5a18d305ca4dda5729d2f1d72ea8",
       "current_head": "a7b42c2f8ffe5a18d305ca4dda5729d2f1d72ea8",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "CLOSED",
       "integration_location": [],
       "unresolved_question": "PR4842 audits this exact head: claimed full-cascade conditioning bound is false (actual condition number 3); injective observation recovery does not certify the stated paid-call word. Correct the norm claim and supply a chronological all-role implementation with complete costs, or narrow the claim to finite matrix algebra. No kappa admitted.",
       "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
@@ -68730,9 +68742,15 @@
         "published": false
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct22e-20261022.json"
+        "docs/research/pr-intake-evidence/queue-oct22e-20261022.json",
+        "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "closed_without_merge_observed",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4819",
+        "closed_at": "2026-10-23T03:32:24Z",
+        "evidence": "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
+      }
     },
     {
       "number": 4820,
@@ -68986,7 +69004,7 @@
       "reviewed_head": "d7b53d3992e658f0dd49d0207ba33bbc39272bac",
       "current_head": "d7b53d3992e658f0dd49d0207ba33bbc39272bac",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "CLOSED",
       "integration_location": [],
       "unresolved_question": "PR4842 audits this exact head: claimed full-cascade conditioning bound is false (actual condition number 3); injective observation recovery does not certify the stated paid-call word. Correct the norm claim and supply a chronological all-role implementation with complete costs, or narrow the claim to finite matrix algebra. No kappa admitted.",
       "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
@@ -68997,9 +69015,15 @@
         "published": false
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct22e-20261022.json"
+        "docs/research/pr-intake-evidence/queue-oct22e-20261022.json",
+        "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "closed_without_merge_observed",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4826",
+        "closed_at": "2026-10-23T03:32:27Z",
+        "evidence": "docs/research/pr-intake-evidence/queue-oct23-external-closures.json"
+      }
     },
     {
       "number": 4827,
@@ -73470,7 +73494,7 @@
       "reviewed_head": "aa468fa11ed5ca04b389021d35d39f70bc211dfe",
       "current_head": "aa468fa11ed5ca04b389021d35d39f70bc211dfe",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bit-address-twist-register-floor"
       ],
@@ -73480,12 +73504,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct22i-20261022.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4953",
+        "merge_commit": "ab1c709b06a28d9b63a4195a09b755e0656dfb0c"
+      }
     },
     {
       "number": 4954,
@@ -73505,7 +73533,7 @@
       "reviewed_head": "cc1bfc06883ba5a274b09fdd509975b24f04ed06",
       "current_head": "cc1bfc06883ba5a274b09fdd509975b24f04ed06",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-bit-stage-stock-band"
       ],
@@ -73515,12 +73543,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct22i-20261022.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4954",
+        "merge_commit": "ab1c709b06a28d9b63a4195a09b755e0656dfb0c"
+      }
     }
   ]
 }
